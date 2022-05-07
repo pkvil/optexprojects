@@ -1,0 +1,104 @@
+%genericnovel-macros.tex
+
+\useOpTeX
+
+%%
+%% F O N T S
+%%
+
+\fontfam[etbb]
+\typosize[11/14]
+
+%%
+%% P A G E   L A Y O U T
+%%
+
+% Custom paper size
+\sdef{_pgs:sixnine}{(6,9)in}
+%\def\_pgs:eighteleven{(8,11)in}
+
+
+\hsize=4in
+\vsize=6in
+
+\margins/2 sixnine (0.666,,1,)in
+
+%%
+%% H E A D E R S   &   F O O T E R S
+%%
+
+%\headline = {\hfil test \hfil}
+%\footline = {\_hss\_rmfixed \_folio \_hss} % \folio expands to page number
+%\headlinedist = \dimexpr2\baselineskip\relax % from baseline of \headline to top of page body
+%\footlinedist = \dimexpr3\baselineskip\relax % from last line in pagebody to baseline of footline
+
+%%
+%% S E C T I O N S
+%%
+
+\_def\_printchap #1{%
+    \_vfill\_supereject
+%    \_vglue\_medskipamount%
+    {\_noindent Chapter \_printrefnum[@]\_par
+    \vskip14pt
+    \_noindent \_raggedright #1}%
+    \_mark{}%
+    \vskip\baselineskip%
+    \_firstnoindent
+}
+
+\_def\_printsec#1{%
+    \_par
+    \_abovetitle{\_penalty-400}\_bigskip
+    {\_secfont \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar}\_insertmark{#1}%
+    \_nobreak \_belowtitle{\_medskip}%
+    \_firstnoindent
+}
+
+\_def\_printsecc#1{%
+    \_par
+    \_abovetitle{\_penalty-200}{\_medskip\_smallskip}
+    {\_seccfont \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar}%
+    \_nobreak \_belowtitle{\_medskip}%
+    \_firstnoindent
+}
+
+%%
+%% P A R A G R A P H
+%%
+
+\parskip=0pt
+\parindent=1em
+
+\lineskiplimit=0pt
+\lineskip=0pt
+
+
+%%
+%% D E B U G
+%%
+
+\input gridlines\relax
+\grid 1pc,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+
+
+%%
+%% S P E C I A L
+%%
+
+% \startcenter \stopcenter
+% Center paragraphs, use \obeylines inside to keep newlines.
+
+\def\startcenter{%
+  \par
+  \begingroup
+  \leftskip=0pt plus 1fil
+  \rightskip=\leftskip
+  \parindent=0pt
+  \parfillskip=0pt
+}
+\def\stopcenter{%
+  \par
+  \endgroup
+}

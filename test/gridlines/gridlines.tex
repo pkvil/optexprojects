@@ -1,0 +1,32 @@
+\useOpTeX
+
+\fontfam[Coelacanth]
+
+\typosize[11/13]
+\margins/2 a4 (2,4,3,6)cm    % A5 paper + 1cm margins
+
+\input mriezka
+
+\parskip=0pt\relax
+\parindent=1em\relax
+
+\newdimen\mydim \mydim=\dimexpr(\voffset+\topskip)
+
+\grid 1pc,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+\lineskiplimit=-100pt\relax
+\lineskip=0pt\relax
+
+%%% Start text
+
+\tit Title of the document
+
+If I am to be a thoroughfare, I prefer that it
+be of the mountain brooks, the Parnassian streams, and not the
+town sewers \dots . I believe that the mind can be permanently profaned by attending to trivial things, so that all our thoughts shall
+be tinged with triviality.
+Lorem ipsum\mnote{testnote} dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.
+
+
+
+\bye

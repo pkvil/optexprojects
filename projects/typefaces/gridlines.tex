@@ -1,0 +1,53 @@
+\newdimen\h 
+\newdimen\w 
+\newdimen\curr 
+\newcount\linecount 
+\newcount\blockcount
+\newdimen\largerline 
+% horizontal spacing size, vertical spacing size(offsetLeft margin, offsetTop margin, width, height)
+\def\grid#1,#2(#3,#4,#5,#6){% defining implicit parameters
+  \if$#1$ \def\x{1mm} \else \def\x{#1} \fi
+  \if$#2$ \def\y{1mm} \else \def\y{#2} \fi
+  \if$#3$ \def\offsetLeft{\hoffset} \else \def\offsetLeft{#3} \fi
+  \if$#4$ \def\offsetTop{\voffset} \else \def\offsetTop{#4} \fi
+  \if$#5$ \w=\hsize \else \w=#5 \fi
+  \if$#6$ \h=\vsize \else \h=#6 \fi
+  
+  \_pgbackground={\Green
+    \largerline=\h \advance\largerline\baselineskip
+    \blockcount=0 \linecount=0 \curr=0pt\vertical
+    \largerline=\w \advance\largerline\baselineskip
+    \blockcount=0 \linecount=0 \curr=0pt\horizontal}%
+}
+\def\vertical {\noindent
+  \ifnum\curr<\w
+    \hbox to0pt{\hskip\offsetLeft\hskip\curr\vbox to0pt{\vskip\offsetTop\noindent
+      \ifnum\linecount =\blockcount
+        \global\advance\blockcount10
+        \vbox to0pt{\vss\noindent\hskip2pt\the\linecount\vskip1pt}%
+        \vskip-\baselineskip\noindent\vrule height\largerline width 1pt
+      \else
+        \vrule height\h width 0.1pt
+      \fi
+    \vss}\hss}%
+    \advance\linecount1
+    \advance\curr\x
+    \ea\vertical
+  \fi
+}
+\def\horizontal {\noindent
+  \ifnum\curr<\h
+    \hbox to0pt{\hskip\offsetLeft \vbox to0pt{\vskip\offsetTop\vskip\curr
+      \ifnum\linecount =\blockcount
+        \global\advance\blockcount10
+        \hbox to0pt{\hskip-\baselineskip\vbox to0pt{\hrule width\largerline height 1pt\vss}\hss}%
+        \vbox to0pt{\vskip-\baselineskip\vskip2pt\hbox to0pt{\hss\noindent\the\linecount\hskip1pt}\vss}%
+      \else
+        \hrule width\w height 0.1pt
+      \fi
+    \vss}\hss}%
+    \advance\linecount1
+    \advance\curr\y
+    \ea\horizontal
+  \fi
+}

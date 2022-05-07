@@ -1,0 +1,120 @@
+%typefaces-macros.tex
+
+%\useOpTeX
+
+%%
+%% F O N T S
+%%
+
+\fontfam[ebgaramond]
+\typosize[10/13]
+
+%%
+%% P A G E   L A Y O U T
+%%
+
+% Custom paper size
+%\sdef{_pgs:sixnine}{(6,9)in}
+%\def\_pgs:eighteleven{(8,11)in}
+
+
+\hsize=28pc
+\vsize=175mm
+
+\margins/1 a5 (20,20,,)mm
+
+%%
+%% H E A D E R S   &   F O O T E R S
+%%
+
+%\headline = {\hbox to \hsize{\hfill \_folio}}
+\footline = {\centerline{\folio}} % \folio expands to page number
+%\headlinedist = \dimexpr2\baselineskip\relax % from baseline of \headline to top of page body
+%\footlinedist = \dimexpr3\baselineskip\relax % from last line in pagebody to baseline of footline
+
+%%
+%% S E C T I O N S
+%%
+
+\_def\_printchap #1{%
+    \_vfill\_supereject
+    {%\_noindent Chapter \_printrefnum[@]\_par
+%    \vskip14pt
+    \centerline{\setletterspace{2.5}#1}}%
+    \_mark{}%
+    \vskip\baselineskip%
+    \_firstnoindent
+}
+
+%\_def\_printsec#1{%
+%    \_par
+%    \_abovetitle{\_penalty-400}\_bigskip
+%    {\_secfont \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar}\_insertmark{#1}%
+%    \_nobreak \_belowtitle{\_medskip}%
+%    \_firstnoindent
+%}
+
+%\_def\_printsecc#1{%
+%    \_par
+%    \_abovetitle{\_penalty-200}{\_medskip\_smallskip}
+%    {\_seccfont \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar}%
+%    \_nobreak \_belowtitle{\_medskip}%
+%    \_firstnoindent
+%}
+
+%%
+%% P A R A G R A P H
+%%
+
+\parskip=0pt
+\parindent=\baselineskip
+
+\lineskiplimit=-1000pt
+\lineskip=0pt
+
+
+%%
+%% D E B U G
+%%
+
+\input gridlines\relax
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+
+
+%%
+%% S P E C I A L
+%%
+
+% \startcenter \stopcenter
+% Center paragraphs, use \obeylines inside to keep newlines.
+
+\def\startcenter{%
+  \par
+  \begingroup
+  \leftskip=0pt plus 1fil
+  \rightskip=\leftskip
+  \parindent=0pt
+  \parfillskip=0pt
+}
+\def\stopcenter{%
+  \par
+  \endgroup
+}
+
+% \asterism
+% Puts a centered asterism
+
+\def\asterism{%
+\hbox to \hsize{\hfil%
+  \hbox to 1em {\hss%
+    \hbox to 0em {\hss\raise 0ex \hbox{\smash{*}}\hss}%
+    \hbox to 0em {\hss\lower 0.8ex \hbox{\smash{**}}\hss}%
+  \hss}%
+\hfil}%
+}
+
+% \alphabetwidth
+% Prints the width of a-z in pt.
+
+\def\alphabetwidth{\setbox0\hbox{abcdefghijklmnopqrstuvwxyz}\the\wd0}
