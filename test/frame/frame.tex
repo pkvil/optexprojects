@@ -1,0 +1,54 @@
+\typosize[16/16]
+
+\leavevmode
+\tabskip=4pt
+\tablinespace=8pt
+\rulewidth=0.8pt
+\vvkern1mm
+\hhkern1mm
+\frame{{%
+\rulewidth=0.4pt%
+\vvkern3mm%
+\hhkern3mm%
+\thistable{\tabstrut={\vrule height 20pt depth10pt width0pt}
+\baselineskip=20pt \tablinespace=0pt \rulewidth=.8pt}%
+\frame{\table{ccccccc}{%
+\mspan7[c]{\typoscale[1440/1440]Computer Modern} \cr
+A & B & C & D & E & F & G\cr
+H & I & J & K & L & M & N\cr
+O & P & Q & R & S & T & U\cr
+  & V & W & X & Y & Z &  \cr
+  &   & Å & Ä & Ö &   &  \cr
+a & b & c & d & e & f & g\cr
+h & i & j & k & l & m & n\cr
+o & p & q & r & s & t & u\cr
+  & v & w & x & y & z &  \cr
+  &   & å & ä & ö &   &  \cr
+}}}}
+
+\def\myframedefaults{% defaults:
+frame-color=\Black, % color of frame rules
+text-color=\Black, % color ot text inside the frame
+rule-width=0.4pt, % width of rules used in the frame
+margins=2pt, % space between text inside and rules.
+}
+\optdef\myframe [] #1{\bgroup
+\readkv\myframedefaults \readkv{\the\opt}%
+\rulewidth=\kv{rule-width}
+\hhkern=\kv{margins}\vvkern=\kv{margins}\relax
+\kv{frame-color}\frame{\kv{text-color}\strut #1}%
+\egroup
+}
+
+\myframe[frame-color=\Red,margins=4pt]{%
+\myframe[frame-color=\Blue]{test}%
+}
+
+\vfil\break
+
+\vbox to \vsize{\centerline{\noindent Computer Modern}\vfil%
+\hbox{\centerline{\noindent\frame{\vbox to 9in{\hsize6in\leftskip0.66in\rightskip1.33in Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet, ...}}}}%
+\vfil}
+
+
+\bye
