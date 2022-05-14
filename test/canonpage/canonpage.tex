@@ -1,0 +1,57 @@
+% \startcanonpage{<measure>} ... \stopcanonpage
+% Typeset a Tschichold golden canon page in the center of the main type area.
+% Argument is the measure of the small/inner page, all other measurements are automatic except for the text and depth
+
+\def\startcanonpage#1{%
+\newdimen\smallpagemeasure      \smallpagemeasure=#1\relax%
+\newdimen\smallpagedepth        \smallpagedepth=1.5\smallpagemeasure\relax%
+
+\newdimen\smallpagewidth        \smallpagewidth=1.5\smallpagemeasure\relax%
+\newdimen\smallpageheight       \smallpageheight=1.5\smallpagewidth\relax%
+
+\newdimen\smallpageleftmargin   \smallpageleftmargin=\dimexpr(\smallpagewidth/9)\relax%
+\newdimen\smallpagetopmargin    \smallpagetopmargin=\dimexpr(\smallpageheight/9)\relax%
+
+\newdimen\outerpageleftpadding  \outerpageleftpadding=\dimexpr(\hsize-\smallpagewidth)/2\relax%
+\newdimen\outerpagetoppadding   \outerpagetoppadding=\dimexpr(\vsize-\smallpageheight)/2\relax%
+
+\topglue\outerpagetoppadding%
+\noindent\leavevmode%
+\kern\outerpageleftpadding%
+\hbox\bgroup%
+    \vrule%
+    \vtop\bgroup%
+        \vbox\bgroup%
+            \hrule%
+            \hbox to \smallpagewidth\bgroup%
+                \vbox to \smallpageheight\bgroup%
+                    \hsize=\dimexpr(\smallpageleftmargin+\smallpagemeasure)\relax%
+                    \leftskip\smallpageleftmargin%
+                    \vskip\smallpagetopmargin%
+}
+
+\def\stopcanonpage{%
+                \vfil%
+                \egroup%
+            \egroup%
+        \egroup%
+        \hrule%
+    \egroup\vrule%
+\egroup%
+}
+
+
+%%% Start text
+
+%\margins/1 a5 (,,,)mm
+
+\startcanonpage{22pc}
+\typosize[16/18.5]
+\noindent But that power often means considerable complexity. 
+Both have lots of commands that help to hide the low-level details. 
+However, a major challenge in typesetting most technical documents is to identify additional operations that are commonly needed for that particular document. One can then define private commands that strip the details entirely away, leaving just the name of the operation, and the text that it consumes. leaving just the name of the operation, and the text that it consumes.
+
+{However, a major challenge in typesetting most technical documents is to identify additional operations that are commonly needed for that particular document. One can then define private commands that strip the details entirely away, leaving just the name of the operation, and the text that it consumes. But that power often\parfillskip=0pt\par}
+\stopcanonpage
+
+\bye

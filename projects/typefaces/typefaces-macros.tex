@@ -7,30 +7,34 @@
 %%
 
 \fontfam[ebgaramond]
-\typosize[10/13]
+\typosize[11/13]
 
 %%
 %% P A G E   L A Y O U T
 %%
 
 % Custom paper size
-%\sdef{_pgs:sixnine}{(6,9)in}
-%\def\_pgs:eighteleven{(8,11)in}
+\sdef{_pgs:narrowA4}{(198,297)mm}
 
 
-\hsize=28pc
-\vsize=175mm
 
-\margins/1 a5 (20,20,,)mm
+\hsize=180mm
+\vsize=270mm
+
+\margins/1 narrowA4 (,,,)mm
 
 %%
 %% H E A D E R S   &   F O O T E R S
 %%
 
-%\headline = {\hbox to \hsize{\hfill \_folio}}
-\footline = {\centerline{\folio}} % \folio expands to page number
+\headline = {\hbox to \hsize{a\hfill b}}
+\footline = {\hbox to \hsize{c\hfill d}}
+%\footline = {\centerline{\folio}} % \folio expands to page number
 %\headlinedist = \dimexpr2\baselineskip\relax % from baseline of \headline to top of page body
 %\footlinedist = \dimexpr3\baselineskip\relax % from last line in pagebody to baseline of footline
+\headlinedist=\baselineskip
+\footlinedist=2\baselineskip
+
 
 %%
 %% S E C T I O N S
@@ -69,7 +73,7 @@
 \parskip=0pt
 \parindent=\baselineskip
 
-\lineskiplimit=-1000pt
+%\lineskiplimit=-1000pt
 \lineskip=0pt
 
 
@@ -78,13 +82,14 @@
 %%
 
 \input gridlines\relax
-%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+%\grid \hsize,\baselineskip(\hoffset,\voffset,\hsize ,\vsize)
 
 \overfullrule=0pt
 
 %%
 %% S P E C I A L
 %%
+
 
 % \startcenter \stopcenter
 % Center paragraphs, use \obeylines inside to keep newlines.
@@ -100,6 +105,24 @@
 \def\stopcenter{%
   \par
   \endgroup
+}
+
+% \myframe
+% key/value version of \frame, options and defaults:
+% frame-color=\Black, text-color=\black, rule-width=0.4pt, margins=2pt
+
+\def\myframedefaults{% defaults:
+frame-color=\Black, % color of frame rules
+text-color=\Black, % color ot text inside the frame
+rule-width=0.4pt, % width of rules used in the frame
+margins=2pt, % space between text inside and rules.
+}
+\optdef\myframe [] #1{\bgroup
+\readkv\myframedefaults \readkv{\the\opt}%
+\rulewidth=\kv{rule-width}
+\hhkern=\kv{margins}\vvkern=\kv{margins}\relax
+\kv{frame-color}\frame{\kv{text-color}\strut #1}%
+\egroup
 }
 
 % \asterism
@@ -118,3 +141,45 @@
 % Prints the width of a-z in pt.
 
 \def\alphabetwidth{\setbox0\hbox{abcdefghijklmnopqrstuvwxyz}\the\wd0}
+
+% \startcanonpage{<measure>} ... \stopcanonpage
+% Typeset a Tschichold golden canon page in the center of the main type area.
+% Argument is the measure of the small/inner page, all other measurements are automatic except for the text and depth
+
+\def\startcanonpage#1{%
+\newdimen\smallpagemeasure      \smallpagemeasure=#1\relax%
+\newdimen\smallpagedepth        \smallpagedepth=1.5\smallpagemeasure\relax%
+
+\newdimen\smallpagewidth        \smallpagewidth=1.5\smallpagemeasure\relax%
+\newdimen\smallpageheight       \smallpageheight=1.5\smallpagewidth\relax%
+
+\newdimen\smallpageleftmargin   \smallpageleftmargin=\dimexpr(\smallpagewidth/9)\relax%
+\newdimen\smallpagetopmargin    \smallpagetopmargin=\dimexpr(\smallpageheight/9)\relax%
+
+\newdimen\outerpageleftpadding  \outerpageleftpadding=\dimexpr(\hsize-\smallpagewidth)/2\relax%
+\newdimen\outerpagetoppadding   \outerpagetoppadding=\dimexpr(\vsize-\smallpageheight)/2\relax%
+
+\topglue\outerpagetoppadding%
+\noindent\leavevmode%
+\kern\outerpageleftpadding%
+\hbox\bgroup%
+    \vrule%
+    \vtop\bgroup%
+        \vbox\bgroup%
+            \hrule%
+            \hbox to \smallpagewidth\bgroup%
+                \vbox to \smallpageheight\bgroup%
+                    \hsize=\dimexpr(\smallpageleftmargin+\smallpagemeasure)\relax%
+                    \leftskip\smallpageleftmargin%
+                    \vskip\smallpagetopmargin%
+}
+
+\def\stopcanonpage{%
+                \vfil%
+                \egroup%
+            \egroup%
+        \egroup%
+        \hrule%
+    \egroup\vrule%
+\egroup%
+}
