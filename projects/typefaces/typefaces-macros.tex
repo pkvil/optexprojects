@@ -27,13 +27,13 @@
 %% H E A D E R S   &   F O O T E R S
 %%
 
-\headline = {\hbox to \hsize{a\hfill b}}
-\footline = {\hbox to \hsize{c\hfill d}}
+\headline = {\hbox to \hsize{test a\hfill test b}}
+\footline = {\hbox to \hsize{c\hfill\folio\hfill d}}
 %\footline = {\centerline{\folio}} % \folio expands to page number
 %\headlinedist = \dimexpr2\baselineskip\relax % from baseline of \headline to top of page body
 %\footlinedist = \dimexpr3\baselineskip\relax % from last line in pagebody to baseline of footline
 \headlinedist=\baselineskip
-\footlinedist=2\baselineskip
+\footlinedist=1.5\baselineskip
 
 
 %%
@@ -73,9 +73,16 @@
 \parskip=0pt
 \parindent=\baselineskip
 
-%\lineskiplimit=-1000pt
+\lineskiplimit=-1000pt
 \lineskip=0pt
 
+%%
+%% C O L O R S
+%%
+
+\def\navyblue{\setcmykcolor{1 1 0 0.5}}
+\def\myred{\setcmykcolor{0 1 1 0.10}}
+\def\myorange{\setcmykcolor{0 0.88 1 0.04}}
 
 %%
 %% D E B U G
@@ -149,17 +156,13 @@ margins=2pt, % space between text inside and rules.
 \def\startcanonpage#1{%
 \newdimen\smallpagemeasure      \smallpagemeasure=#1\relax%
 \newdimen\smallpagedepth        \smallpagedepth=1.5\smallpagemeasure\relax%
-
 \newdimen\smallpagewidth        \smallpagewidth=1.5\smallpagemeasure\relax%
 \newdimen\smallpageheight       \smallpageheight=1.5\smallpagewidth\relax%
-
 \newdimen\smallpageleftmargin   \smallpageleftmargin=\dimexpr(\smallpagewidth/9)\relax%
 \newdimen\smallpagetopmargin    \smallpagetopmargin=\dimexpr(\smallpageheight/9)\relax%
-
 \newdimen\outerpageleftpadding  \outerpageleftpadding=\dimexpr(\hsize-\smallpagewidth)/2\relax%
 \newdimen\outerpagetoppadding   \outerpagetoppadding=\dimexpr(\vsize-\smallpageheight)/2\relax%
-
-\topglue\outerpagetoppadding%
+%\topglue\outerpagetoppadding%
 \noindent\leavevmode%
 \kern\outerpageleftpadding%
 \hbox\bgroup%
