@@ -1,0 +1,22 @@
+%% This is part of the OpTeX project, see http://petr.olsak.net/optex
+
+\_famdecl [Cloister] \Cloister {Unknown version of Cloister.}
+        {\caps} {\rm \bf \it \bi} {}
+        {[CloisterOldStyleRoman]}
+        {\_def\_fontnamegen {[Cloister\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
+
+\_wlog{\_detokenize{%
+Modifiers:^^J
+ \caps ...... caps & small caps^^J
+}}
+
+\_moddef \resetmod {\_fsetV caps={} \_fvars OldStyleRoman OldStyleRoman Italic Italic }
+\_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
+
+\_initfontfamily % new font family must be initialized
+
+\_endcode
+
+See the file `f-heros.opm` for information about principles of such
+font-macro-files.
+
