@@ -1,0 +1,55 @@
+\input mriezka
+\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+%
+% Macro: \dropcap
+%
+
+\newif\ifdropcap
+\dropcaptrue
+
+\def\dropcapcolor{\setcmykcolor{0 0.95 1 0.04}} % Red/orange
+
+%
+% Macro: \dropcap takes one optional key-value argument, plus three
+% regular arguments: the (optional) quote character, the initial letter, 
+% and the text to be made into small caps.
+% Example 1: \dropcap{“}{L}{orem ipsum dolor}
+% Example 2: \dropcap[firstlineindent=10pt,quote-dist=5pt]{“}{L}{orem ipsum}
+%
+%
+%
+\def\dropcapdefaults{% defaults:
+cap-size=50,            % size of cap, without pt
+cap-color=\dropcapcolor,% color of the dropcap
+quote-size=20,          % size of quote character, without pt 
+quote-color=\Black,     % color of the quote character
+quote-dist=3pt,         % distance of quote character from cap 
+h-adjust=0pt,           % horizontal align cap to margin,
+firstlineindent=20pt,   % space between cap and first line of paragraph
+secondlineindent=20pt,  % space between cap and second line of paragraph
+thirdlineindent=20pt,   % space between cap and third line of paragraph
+}
+
+\optdef\dropcap [] #1#2#3{%
+\readkv\dropcapdefaults \readkv{\the\opt}%
+    \parindent0pt
+    \parskip0pt
+    \setbox1=\hbox{\typosize[\kv{quote-size}/]#1\kern\kv{quote-dist}}
+    \setbox2=\hbox{\kv{cap-color}\typosize[\kv{cap-size}/]#2}
+    \setbox3=\hbox{\setff{+smcp}\setletterspace{15}\currvar #3}
+    \line{}\line{}\leavevmode
+    \kern\kv{h-adjust}\relax
+    \smash{\llap{\vbox to \dimexpr\ht2{\copy1\vfil}}\copy2}\par%
+    \dimen1=\dimexpr\wd2+\kv{h-adjust}+0.35em
+    \dimen2=\dimexpr\wd2+\kv{h-adjust}+0.35em\relax
+    \dimen3=\dimexpr\wd2+\kv{h-adjust}+0.35em\relax
+    \vskip-3\baselineskip
+    \parshape 4
+        \dimen1 \dimexpr\hsize-\dimen1
+        \dimen2 \dimexpr\hsize-\dimen2      
+        \dimen3 \dimexpr\hsize-\dimen3  
+        0pc \hsize
+    \leavevmode
+    \copy3\ %
+}

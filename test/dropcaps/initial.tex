@@ -1,0 +1,67 @@
+% Initial
+
+\fontfam[Libertinus]
+
+\font\ebgbg=[EBGaramond-InitialsF1] at 36pt
+\font\ebgfg=[EBGaramond-InitialsF2] at 36pt
+
+\input mriezka
+\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+\def\dropcapcolorfg{\Black}
+
+\def\dropcapL#1#2#3{%
+\parindent0pt
+\setbox1=\hbox{\typosize[20/]#1\kern2pt}
+\setbox2=\hbox{\dropcapcolorfg\typosize[45/]#2\kern4pt}
+%\setbox2=\hbox{\hbox{\rlap{\Red\ebgbg #2}{\Black\ebgfg #2}\kern4pt}
+\setbox3=\hbox{\setff{+smcp}\setletterspace{15}\currvar #3}
+\dimen1=\dimexpr\wd2+0pt
+\dimen2=\dimexpr\wd2+0pt
+\dimen3=\dimexpr\wd2+0pt
+\line{}
+\leavevmode
+\kern0pt
+\smash{%
+    \llap{%
+        \vbox to \ht2{%
+            \box1%
+            \vfil%
+        }%
+    }%
+    \box2%
+}%
+\par
+\vskip-2.3\baselineskip
+\leavevmode
+\parshape 4
+    \dimen1 \dimexpr\hsize-\dimen1
+    \dimen2 \dimexpr\hsize-\dimen2      
+    \dimen3 \dimexpr\hsize-\dimen3  
+    0pc \hsize
+\box3\ %
+}
+
+%\dropcapL{}{G}{orem ipsum dolor sit amet.} Lorem ipsum dolor sit amet”. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. 
+
+
+
+%{\debgfg G}
+%{\debgbg G}\par
+%\vskip\baselineskip
+
+%{\debgfg G}
+%{\Red \debgbg G}\par
+%\vskip\baselineskip
+
+test\par
+\vskip3\baselineskip
+test2\par
+\setbox1=\hbox{\Red \ebgfg G}
+\setbox0=\hbox{\ebgbg G}
+\vskip3\baselineskip
+\noindent\smash{\raise 8pt \hbox{{\rlap{\copy0}\copy1}}}\par
+Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. 
+
+
+\bye

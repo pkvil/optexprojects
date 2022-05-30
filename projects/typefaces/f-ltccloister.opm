@@ -2,7 +2,7 @@
 
 \_famdecl [LTCCloister] \LTCCloister {P version of Cloister.}
         {\caps} {\rm \bf \it \bi} {}
-        {[Cloister-Regular]}
+        {[LTCCloister-Regular]}
         {\_def\_fontnamegen {[LTCCloister-\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
 
 \_wlog{\_detokenize{%
