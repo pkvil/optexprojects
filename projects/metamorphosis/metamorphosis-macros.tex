@@ -1,0 +1,67 @@
+%
+% Font
+%
+
+\fontfam[ebgaramond]
+\typosize[11/14]
+
+%
+% Paragraph
+%
+
+\parskip=0pt
+\parindent=1\baselineskip
+
+\_clubpenalty=1
+\_widowpenalty=1 
+
+%
+% Page layout
+%
+
+\hsize=10cm
+\vsize=\topskip \advance\vsize by 32\baselineskip
+
+\margins/2 a5 (2,,1.5,)cm
+
+%
+% Footline
+%
+
+% Conditional to turn footline on/off
+\newif\iffootline
+\footlinetrue
+
+\footline={
+    \iffootline
+        \ifodd\pageno
+            \rmfixed \hss \folio \quad
+        \else
+            \rmfixed \quad \folio \hss 
+        \fi
+    \fi
+}
+
+%
+% My macros
+%
+
+% \skiptorecto is a page break that skips to a recto (right side) page
+\def\skiptorecto{%
+    \vfil\break
+    \ifodd\pageno\else\vfil\break\fi
+}
+
+% let \act be a synonym for \secc
+\let\act=\secc
+
+% set \seccfont to normal size and normal weight
+\_def \_seccfont {\_scalemain\_typoscale[\_magstep0/\_magstep0]\rm}
+
+% set \printsecc to insert space above, but not at the top of a page. Print the secc name (argument of \secc) in a centered line. 
+\_def\_printsecc#1{\_par
+   \_abovetitle{\_penalty-200}{\vskip2\baselineskip}
+   {\_seccfont \centerline{#1}}%
+   \_nobreak \_belowtitle{\vskip2\baselineskip}%
+   \_firstnoindent
+}
