@@ -1,34 +1,65 @@
-%
-% Font
-%
+\_codedecl \skiptorecto {Macros used for typesetting Franz Kafka - Metamorphosis, 2022-06-09}
+
+    \_doc -----------------------------
+    First I define which font to use, the size, and leading.    
+    If you are using the default f-ebgaramond.opm, 
+    make sure you have the Octavio Pardo version of EBGaramond.
+    This is the version you’ll find in the \LaTeX\ font catalogue,
+    and on Google fonts.
+    \_cod -----------------------------
 
 \fontfam[ebgaramond]
 \typosize[11/14]
 
-%
-% Paragraph
-%
+    \_doc -----------------------------
+    \`\parskip` is set to 0pt instead of the default 0pt plus 1pt.
+    We want, as far as possible, to typeset on a grid. 
+    I.e., lines must be exactly \`\baselineskip` apart,
+    and all pages must be vertically aligned with regard to lines.
+    \_cod -----------------------------
 
 \parskip=0pt
-\parindent=1\baselineskip
 
-\_clubpenalty=1
-\_widowpenalty=1 
+    \_doc -----------------------------
+    Setting \`\parindent` to something so the indentation is vaguely
+    square-like. 
+    \_cod -----------------------------
 
-%
-% Page layout
-%
+\parindent=\baselineskip
+
+    \_doc -----------------------------
+    Widows and orphans can be tricky puzzles to solve. 
+    Bringhurst and Tschichold both recommend adding and removing lines
+    of the page as a method, and thanks to code copied from
+    {\em Tips and tricks \#81} there’s an easy way to do that.
+    Therefore I allow widows and orphans with \`\widowpenalty` and 
+    \`\clubpenalty`, with  and plan to fix these
+    as the very last step before everything is done. More about this later.
+    \_cod -----------------------------
+
+\widowpenalty=0
+\clubpenalty=0
+
+    \_doc -----------------------------
+    As this is the first project, I'm keeping things simple by setting
+    values for \`\hsize`, \`vsize`, and \`margins` to get something
+    that looks at least similar to what I imagined.
+    \_cod -----------------------------
 
 \hsize=10cm
-\vsize=\topskip \advance\vsize by 32\baselineskip
+\vsize=\topskip \advance\vsize by 32\baselineskip % 33 lines
 
 \margins/2 a5 (2,,1.5,)cm
 
-%
-% Footline
-%
+    \_doc -----------------------------
+    The title page and copyright page should not have page numbers, so
+    I modify \`\footline` to have a conditional, which I have set to true 
+    as default. Since “outer margin” is different for recto and verso pages,
+    the footline reverses the order of commands for even numbered pages.
+    The \`\footlinedist` must take into account that I might add a line
+    to the page as previously described regarding widows and orphans.
+    \_cod -----------------------------
 
-% Conditional to turn footline on/off
 \newif\iffootline
 \footlinetrue
 
@@ -42,26 +73,105 @@
     \fi
 }
 
-%
-% My macros
-%
+\footlinedist=2\baselineskip
 
-% \skiptorecto is a page break that skips to a recto (right side) page
+    \_doc -----------------------------
+    \`\skiptorecto` is a simple page break which skips an extra page
+    if needed to land on a recto page.
+    \_cod -----------------------------
+
 \def\skiptorecto{%
     \vfil\break
     \ifodd\pageno\else\vfil\break\fi
 }
 
-% let \act be a synonym for \secc
+    \_doc -----------------------------
+    I was unsure if I should call the three parts “chapters”, 
+    or “sections”, so I used the macro \`\act` in the text source,
+    and then to synonym it to something later. I also decided that I wanted
+    to use the macro like this “\`\act`\ `II`”, which actually sets the name 
+    of the chapter to “II” instead of relying on the automatic indexing. 
+    Since there are only three chapters/acts, this was deemed acceptable 
+    because it reduced the amount of code to change. 
+    To be honest, the simplest solution would have been to define \`\act` 
+    outside the \OpTeX\ sectioning system, but I wanted to get to know 
+    the default commands better.
+    \_cod -----------------------------
+
 \let\act=\secc
 
-% set \seccfont to normal size and normal weight
-\_def \_seccfont {\_scalemain\_typoscale[\_magstep0/\_magstep0]\rm}
+    \_doc -----------------------------
+    Eventually I decided that \`\act` could be a \`\secc`, and copied
+    the relevant code from sections.opm as a starting point:
+    \begtt
+    \_def \_seccfont {\_scalemain\_typoscale[\_magstep1/\_magstep1]\_boldify}
 
-% set \printsecc to insert space above, but not at the top of a page. Print the secc name (argument of \secc) in a centered line. 
+    ...
+
+    \_def\_printsecc#1{\_par
+        \_abovetitle{\_penalty-200}{\_medskip\_smallskip}
+        {\_seccfont \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar}%
+        \_nobreak \_belowtitle{\_medskip}%
+        \_firstnoindent
+    }
+    \endtt
+    I make it text size, regular weight, centered, and make vertical 
+    skips multiples of \`\baselineskip` to stay on the grid.
+    \_cod -----------------------------
+
+\_def \_seccfont {\_scalemain\_typoscale[\_magstep0/\_magstep0]\rm}
+ 
 \_def\_printsecc#1{\_par
    \_abovetitle{\_penalty-200}{\vskip2\baselineskip}
    {\_seccfont \centerline{#1}}%
    \_nobreak \_belowtitle{\vskip2\baselineskip}%
    \_firstnoindent
 }
+
+    \_doc -----------------------------
+    Now for the orphans and widows. The following code is copied from 
+    {\em Tips and tricks \#81}, see the following link for explanation: 
+    (\url{https://petr.olsak.net/optex/optex-tricks.html\#widows}).
+    \_cod -----------------------------    
+
+\newdimen\vsizedefault
+\def\extravsizes#1{%
+   \foreach #1\do ##1:##2{%
+      \tmpnum=##1
+      \sxdef{vs:\the\tmpnum}{##2}
+      \advance\tmpnum by \ifodd\tmpnum -\fi 1
+      \sxdef{vs:\the\tmpnum}{##2}
+   }
+   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\pgbottomskip=0pt plus1fil minus\baselineskip
+}
+\addto\_begoutput{\global\vsize=\vsizedefault}
+\addto\_endoutput{\corrvsize}
+
+\def\corrvsize{
+   \global\vsize=\vsizedefault
+   \ifcsname vs:\the\pageno\endcsname
+      \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+   \fi
+}
+
+    \_doc -----------------------------
+    Tl;dr: pages 40 and 41 both get -1 line, likewise with 48 and 49.
+    \_cod -----------------------------
+
+\extravsizes{ 40:- 48:- }
+
+
+    \_doc -----------------------------
+    The following can be a good way to visualize baselines,
+    you need the file mriezka.tex which can be found through the
+    \OpTeX\ website.
+    \_cod -----------------------------
+
+% Grid
+
+%\input mriezka
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,1.1\vsize)
+
+\_endcode
+
