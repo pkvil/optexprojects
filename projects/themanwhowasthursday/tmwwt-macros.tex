@@ -1,0 +1,58 @@
+\_codedecl \skiptorecto {Macros used for typesetting The Man Who Was Thursday, 2022-06-09}
+
+    \_doc -----------------------------
+    Typeface, size and leading.
+    \_cod -----------------------------
+
+\fontfam[ebgaramond]
+\typosize[11/14]
+
+    \_doc -----------------------------
+    Page layout
+    \_cod -----------------------------
+
+
+
+% Horizontal layout
+\newdimen\pagewidth     \pagewidth=6in
+\newdimen\spinemargin   \spinemargin=\dimexpr(\pagewidth/9)\relax
+\newdimen\measure       \measure=\dimexpr(6\pagewidth/9)
+
+% Vertical layout
+\newdimen\pageheight    \pageheight=9in 
+\newdimen\depth         \depth=6in     
+\newdimen\topmargin     \topmargin=\dimexpr9in/9\relax
+                        \headlinedist=2\baselineskip
+                        \footlinedist=3\baselineskip
+
+%
+\sdef{_pgs:mypage}{(\bp\pagewidth,\bp\pageheight)bp}
+
+\hsize=\measure
+\vsize=6in%\topskip \advance\vsize by 22\baselineskip % 33 lines
+
+\margins/2 mypage (\bp\spinemargin,,\bp\topmargin,)bp
+
+
+
+    \_doc -----------------------------
+    \`\skiptorecto` is a simple page break which skips an extra page
+    if needed to land on a recto page.
+    \_cod -----------------------------
+
+\def\skiptorecto{%
+    \vfil\break
+    \ifodd\pageno\else\vfil\break\fi
+}
+
+    \_doc -----------------------------
+    \`\alphabetlength` prints the length of the letters a to z in pt.
+    This is used to find a good line length.
+    \_cod -----------------------------
+
+\def\alphabetlength{%
+    \setbox0=\hbox{abcdefghijklmnopqrstuvwxyz}%
+    \the\wd0
+}
+
+\_endcode
