@@ -8,6 +8,15 @@
 \typosize[11/14]
 
     \_doc -----------------------------
+    Paragraph settings
+    \_cod -----------------------------
+
+\parskip=0pt
+\parindent=\baselineskip
+
+\lineskiplimit-100pt
+
+    \_doc -----------------------------
     Page layout
     \_cod -----------------------------
 
@@ -29,9 +38,9 @@
 \sdef{_pgs:mypage}{(\bp\pagewidth,\bp\pageheight)bp}
 
 \hsize=\measure
-\vsize=6in%\topskip \advance\vsize by 22\baselineskip % 33 lines
+\vsize=\topskip \advance\vsize by 33\baselineskip % 34 lines
 
-\margins/2 mypage (\bp\spinemargin,,\bp\topmargin,)bp
+\margins/2 mypage (54,,54,)bp
 
 
 
@@ -53,6 +62,85 @@
 \def\alphabetlength{%
     \setbox0=\hbox{abcdefghijklmnopqrstuvwxyz}%
     \the\wd0
+}
+
+    \_doc -----------------------------
+    Modifying \chap 
+    \_cod -----------------------------
+
+\let\chapter\chap
+
+\_def \_chapfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\rm}
+
+\_def\_printchap #1{
+    \skiptorecto
+    \leavevmode\par
+    {%
+        \_chapfont \_noindent \_mtext{chap}%
+        \_printrefnum[@]%
+        \_par
+        \vskip\baselineskip
+        \_noindent \_raggedright #1\_nbpar%
+    }
+    \_mark{}% 
+%    \vskip2\baselineskip
+    \_firstnoindent
+}
+
+\_def \_printrefnum [#1@#2]{\_leavevmode % we must be in horizontal mode
+   \_ifnonum \_else #1\_therefnum #2\_fi
+   \_wlabel \_therefnum  % references, if `\label[<label>]` is declared
+   \_ifnotoc \_else \_incr \_tocrefnum
+       \_dest[toc:\_the\_tocrefnum]%
+       \_ewref\_Xtoc{{\_the\_sectionlevel}{\_secinfo}%
+                     {\_therefnum}{\_theoutline}\_detokenize\_ea{\_savedtitle}}%
+   \_fi
+   \_gdef\_theoutline{}%
+}
+
+    \_doc -----------------------------
+    Dropcaps. Three lines, EBGaramond 11/14.
+    \_cod -----------------------------
+
+\newif\ifdropcap
+\dropcaptrue
+
+\let\dropcapcolor=\Black
+
+%%% T %%%
+
+\def\dropcapT#1#2#3{
+    \ifdropcap
+        \setbox1=\hbox{\typosize[20/]#1}% quote
+        \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
+        \setbox3=\hbox{\setff{+smcp}\setletterspace{15}\currvar #3}% caps
+        \dimen1=\dimexpr\wd2-9pt+0.35em % first line
+        \dimen2=\dimexpr\wd2-9pt+0.35em % second line
+        \dimen3=\dimexpr\wd2-9pt+0.35em % third line
+        \leavevmode\par
+        \vskip2\baselineskip
+        \noindent\leavevmode
+        \kern-9pt
+        \smash{%
+            \llap{%
+                \vbox to \dimexpr\ht2+0pt{%
+                    \hbox{\unhbox1\kern0pt}%
+                    \vfil
+                }%
+            }%
+            \copy2%
+        }\par%
+        \vskip-3\baselineskip
+        \parshape 4
+            \dimen1 \dimexpr\hsize-\dimen1
+            \dimen2 \dimexpr\hsize-\dimen2      
+            \dimen3 \dimexpr\hsize-\dimen3  
+            0pc \hsize
+        \noindent\leavevmode
+        \unhbox3\ %
+    \else
+        #1#2#3%
+    \fi%
 }
 
 \_endcode
