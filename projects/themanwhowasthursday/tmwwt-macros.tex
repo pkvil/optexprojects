@@ -14,7 +14,7 @@
 \parskip=0pt
 \parindent=\baselineskip
 
-\lineskiplimit-100pt
+%\lineskiplimit-100pt
 
     \_doc -----------------------------
     Page layout
@@ -42,6 +42,42 @@
 
 \margins/2 mypage (54,,54,)bp
 
+    \_doc -----------------------------
+    Head- and footline.
+    \_cod -----------------------------
+
+\headlinedist=\dimexpr\baselineskip-\topskip+\baselineskip\relax
+
+\newif\ifheadline \headlinetrue
+
+\headline = {
+    \ifheadline
+        \ifodd \pageno
+            \noindent\hss{\setff{+smcp}\_rmfixed \Romannumeral\_thechapnum:\space\chaptertitle}\hss%
+        \else
+            \hss{\setff{+smcp}\_rmfixed The Man who was Thursday}\hss%
+        \fi
+    \else
+        \global\headlinetrue
+    \fi
+}
+
+\footlinedist=2\baselineskip
+
+\newif\iffootline \footlinetrue
+
+\footline={%
+    \iffootline
+        \ifodd\pageno
+            \_hss\setff{+onum}\_rmfixed \_folio \_hss%
+        \else
+            \_hss\setff{+onum}\_rmfixed \_folio \_hss%
+        \fi
+    \else
+        \global\footlinetrue
+    \fi
+}
+
 
 
     \_doc -----------------------------
@@ -50,8 +86,8 @@
     \_cod -----------------------------
 
 \def\skiptorecto{%
-    \vfil\break
-    \ifodd\pageno\else\vfil\break\fi
+    \leavevmode\vfil\break
+    \ifodd\pageno\relax\else\headlinefalse\leavevmode\vfil\break\fi
 }
 
     \_doc -----------------------------
@@ -68,34 +104,28 @@
     Modifying \chap 
     \_cod -----------------------------
 
-\let\chapter\chap
+\def\Romannumeral#1{%
+    \uppercase\expandafter{\romannumeral #1}%
+}
 
-\_def \_chapfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\rm}
+\_def \_refnumfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\setff{+smcp,+c2sc}\rm}
+\_def \_chapfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\setff{+swsh}\it}
+
+\def\chaptertitle{}
 
 \_def\_printchap #1{
     \skiptorecto
-    \leavevmode\par
-    {%
-        \_chapfont \_noindent \_mtext{chap}%
-        \_printrefnum[@]%
+    \headlinefalse
+        \centerline{%
+            \_refnumfont \_noindent \_mtext{chap} \_printrefnum[\Romannumeral @]%
+        }%      
         \_par
         \vskip\baselineskip
-        \_noindent \_raggedright #1\_nbpar%
-    }
+        \centerline{\_chapfont #1\_nbpar}%
+    \def\chaptertitle{#1}
     \_mark{}% 
-%    \vskip2\baselineskip
+    \vskip2\baselineskip
     \_firstnoindent
-}
-
-\_def \_printrefnum [#1@#2]{\_leavevmode % we must be in horizontal mode
-   \_ifnonum \_else #1\_therefnum #2\_fi
-   \_wlabel \_therefnum  % references, if `\label[<label>]` is declared
-   \_ifnotoc \_else \_incr \_tocrefnum
-       \_dest[toc:\_the\_tocrefnum]%
-       \_ewref\_Xtoc{{\_the\_sectionlevel}{\_secinfo}%
-                     {\_therefnum}{\_theoutline}\_detokenize\_ea{\_savedtitle}}%
-   \_fi
-   \_gdef\_theoutline{}%
 }
 
     \_doc -----------------------------
@@ -114,13 +144,13 @@
         \setbox1=\hbox{\typosize[20/]#1}% quote
         \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
         \setbox3=\hbox{\setff{+smcp}\setletterspace{15}\currvar #3}% caps
-        \dimen1=\dimexpr\wd2-9pt+0.35em % first line
-        \dimen2=\dimexpr\wd2-9pt+0.35em % second line
-        \dimen3=\dimexpr\wd2-9pt+0.35em % third line
+        \dimen1=\dimexpr\wd2-7.5pt % first line
+        \dimen2=\dimexpr\wd2-14pt % second line
+        \dimen3=\dimexpr\wd2-14pt % third line
         \leavevmode\par
         \vskip2\baselineskip
         \noindent\leavevmode
-        \kern-9pt
+        \kern-10pt
         \smash{%
             \llap{%
                 \vbox to \dimexpr\ht2+0pt{%
@@ -142,5 +172,65 @@
         #1#2#3%
     \fi%
 }
+
+    \_doc -----------------------------
+    Grid for lines.
+    \_cod -----------------------------
+
+\newdimen\h 
+\newdimen\w 
+\newdimen\curr 
+\newcount\linecount 
+\newcount\blockcount
+\newdimen\largerline 
+% horizontal spacing size, vertical spacing size(offsetLeft margin, offsetTop margin, width, height)
+\def\grid#1,#2(#3,#4,#5,#6){% defining implicit parameters
+  \if$#1$ \def\x{1mm} \else \def\x{#1} \fi
+  \if$#2$ \def\y{1mm} \else \def\y{#2} \fi
+  \if$#3$ \def\offsetLeft{\hoffset} \else \def\offsetLeft{#3} \fi
+  \if$#4$ \def\offsetTop{\voffset} \else \def\offsetTop{#4} \fi
+  \if$#5$ \w=\hsize \else \w=#5 \fi
+  \if$#6$ \h=\vsize \else \h=#6 \fi
+  
+  \_pgbackground={\Green
+    \largerline=\h \advance\largerline\baselineskip
+    \blockcount=0 \linecount=0 \curr=0pt\vertical
+    \largerline=\w \advance\largerline\baselineskip
+    \blockcount=0 \linecount=0 \curr=0pt\horizontal}%
+}
+\def\vertical {\noindent
+  \ifnum\curr<\w
+    \hbox to0pt{\hskip\offsetLeft\hskip\curr\vbox to0pt{\vskip\offsetTop\noindent
+      \ifnum\linecount =\blockcount
+        \global\advance\blockcount10
+        \vbox to0pt{\vss\noindent\hskip2pt\the\linecount\vskip1pt}%
+        \vskip-\baselineskip\noindent\vrule height\largerline width 1pt
+      \else
+        \vrule height\h width 0.1pt
+      \fi
+    \vss}\hss}%
+    \advance\linecount1
+    \advance\curr\x
+    \ea\vertical
+  \fi
+}
+\def\horizontal {\noindent
+  \ifnum\curr<\h
+    \hbox to0pt{\hskip\offsetLeft \vbox to0pt{\vskip\offsetTop\vskip\curr
+      \ifnum\linecount =\blockcount
+        \global\advance\blockcount10
+        \hbox to0pt{\hskip-\baselineskip\vbox to0pt{\hrule width\largerline height 1pt\vss}\hss}%
+        \vbox to0pt{\vskip-\baselineskip\vskip2pt\hbox to0pt{\hss\noindent\the\linecount\hskip1pt}\vss}%
+      \else
+        \hrule width\w height 0.1pt
+      \fi
+    \vss}\hss}%
+    \advance\linecount1
+    \advance\curr\y
+    \ea\horizontal
+  \fi
+}
+
+\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-4\baselineskip) ,\hsize ,1.3\vsize)
 
 \_endcode
