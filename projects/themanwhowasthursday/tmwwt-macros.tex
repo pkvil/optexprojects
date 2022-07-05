@@ -14,6 +14,9 @@
 \parskip=0pt
 \parindent=\baselineskip
 
+\widowpenalty=0\relax
+\clubpenalty=0\relax
+
 %\lineskiplimit-100pt
 
     \_doc -----------------------------
@@ -50,35 +53,38 @@
 
 \newif\ifheadline \headlinetrue
 
-\headline = {
-    \ifheadline
-        \ifodd \pageno
-            \noindent\hss{\setff{+smcp}\_rmfixed \Romannumeral\_thechapnum:\space\chaptertitle}\hss%
-        \else
-            \hss{\setff{+smcp}\_rmfixed The Man who was Thursday}\hss%
-        \fi
-    \else
-        \global\headlinetrue
-    \fi
-}
-
-\footlinedist=2\baselineskip
+\headline={default}
 
 \newif\iffootline \footlinetrue
 
 \footline={%
     \iffootline
         \ifodd\pageno
-            \_hss\setff{+onum}\_rmfixed \_folio \_hss%
+            \_hss\_rmfixed\setff{+onum,+pnum}\currvar \_folio \_hss%
         \else
-            \_hss\setff{+onum}\_rmfixed \_folio \_hss%
+            \_hss\_rmfixed\setff{+onum,+pnum}\currvar \_folio \_hss%
         \fi
     \else
         \global\footlinetrue
     \fi
 }
 
+\newtoks\rectoheadtext  \rectoheadtext={recto}
+\newtoks\versoheadtext  \versoheadtext={verso}
 
+\def\_runningchap{}
+
+\headline={%
+    \ifheadline
+        \ifodd\pageno
+            \hss\_runningchap\hss
+        \else
+            \hss The Man who was Thursday\hss
+        \fi
+    \else
+        \global\headlinetrue
+    \fi    
+}
 
     \_doc -----------------------------
     \`\skiptorecto` is a simple page break which skips an extra page
@@ -111,20 +117,28 @@
 \_def \_refnumfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\setff{+smcp,+c2sc}\rm}
 \_def \_chapfont{\_scalemain\_typoscale[\_magstep0/\_magstep0]\setff{+swsh}\it}
 
-\def\chaptertitle{}
+\headlinetrue
+
+\_def\_inchap #1{\_par \_sectionlevel=1
+    \_def \_savedtitle {#1}% saved to .ref file
+    \_ifnonum \_else {\_globaldefs=1 \_incr\_chapnum \_chapx}\_fi
+    \_edef \_therefnum {\_ifnonum \_space \_else \_thechapnum \_fi}%
+    \_printchap{\_scantextokens{#1}}%
+    \_resetnonumnotoc
+    \_edef\_runningchap {\Romannumeral\_thechapnum\space\cdot\space \_unexpanded\_ea{\_savedtitle}}%
+    \headlinefalse
+}
 
 \_def\_printchap #1{
     \skiptorecto
-    \headlinefalse
         \centerline{%
-            \_refnumfont \_noindent \_mtext{chap} \_printrefnum[\Romannumeral @]%
+            \_refnumfont \_noindent Chapter \_printrefnum[\Romannumeral @]%
         }%      
         \_par
         \vskip\baselineskip
         \centerline{\_chapfont #1\_nbpar}%
-    \def\chaptertitle{#1}
-    \_mark{}% 
-    \vskip2\baselineskip
+    \_mark{}%
+    \vskip3\baselineskip
     \_firstnoindent
 }
 
@@ -136,6 +150,40 @@
 \dropcaptrue
 
 \let\dropcapcolor=\Black
+
+\def\dropcapG#1#2#3{
+    \ifdropcap
+        \setbox1=\hbox{\typosize[20/]#1}% quote
+        \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
+        \setbox3=\hbox{\setff{+smcp}\setletterspace{12}\currvar #3}% caps
+        \dimen1=\dimexpr\wd2-5pt % first line
+        \dimen2=\dimexpr\wd2-1pt % second line
+        \dimen3=\dimexpr\wd2-1pt % third line
+        \leavevmode\par
+        \vskip2\baselineskip
+        \noindent\leavevmode
+        \kern-4pt
+        \smash{%
+            \llap{%
+                \vbox to \dimexpr\ht2+0pt{%
+                    \hbox{\unhbox1\kern0pt}%
+                    \vfil
+                }%
+            }%
+            \copy2%
+        }\par%
+        \vskip-3\baselineskip
+        \parshape 4
+            \dimen1 \dimexpr\hsize-\dimen1
+            \dimen2 \dimexpr\hsize-\dimen2      
+            \dimen3 \dimexpr\hsize-\dimen3  
+            0pc \hsize
+        \noindent\leavevmode
+        \unhbox3\ %
+    \else
+        #1#2#3%
+    \fi%
+}
 
 %%% T %%%
 
@@ -231,6 +279,6 @@
   \fi
 }
 
-\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-4\baselineskip) ,\hsize ,1.3\vsize)
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-4\baselineskip) ,\hsize ,1.3\vsize)
 
 \_endcode
