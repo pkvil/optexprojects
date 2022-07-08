@@ -3,28 +3,33 @@
 
 %\skiptorecto
 
-    \vfil\break
-    \ifodd\pageno\else\leavevmode\vfil\break\fi
-Table of Contents
+\vfil\break
+\headlinefalse\footlinefalse
+\ifodd\pageno\else\leavevmode\vfil\break\fi
 
-    Titlepage
-    Imprint
-    Dedication
-    The Man Who Was Thursday
-        I: The Two Poets of Saffron Park
-        II: The Secret of Gabriel Syme
-        III: The Man Who Was Thursday
-        IV: The Tale of a Detective
-        V: The Feast of Fear
-        VI: The Exposure
-        VII: The Unaccountable Conduct of Professor de Worms
-        VIII: The Professor Explains
-        IX: The Man in Spectacles
-        X: The Duel
-        XI: The Criminals Chase the Police
-        XII: The Earth in Anarchy
-        XIII: The Pursuit of the President
-        XIV: The Six Philosophers
-        XV: The Accuser
-    Colophon
-    Uncopyright
+\centerline{\setff{+smcp,+c2sc}\currvar Table of Contents}
+\vskip2\baselineskip
+
+\def\mytocline#1#2#3{%
+    \hfil #1&%
+    \hskip0.3em\cdot\hskip0.3em&%
+    {\rm #2}\hskip0.6em\cdot\hskip0.6em\relax{\setff{+onum,+pnum}\currvar#3}\hfil\cr
+}
+
+\halign{#&#&#\cr
+\mytocline{I}{The Two Poets of Saffron Park}{1}
+\mytocline{II}{The Secret of Gabriel Syme}{2}
+\mytocline{III}{The Man Who Was Thursday}{3}
+\mytocline{IV}{The Tale of a Detective}{10}
+\mytocline{V}{The Feast of Fear}{11}
+\mytocline{VI}{The Exposure}{12}
+\mytocline{VII}{The Unaccountable Conduct of Professor de Worms}{21}
+\mytocline{VIII}{The Professor Explains}{22}
+\mytocline{IX}{The Man in Spectacles}{23}
+\mytocline{X}{The Duel}{100}
+\mytocline{XI}{The Criminals Chase the Police}{105}
+\mytocline{XII}{The Earth in Anarchy}{110}
+\mytocline{XIII}{The Pursuit of the President}{130}
+\mytocline{XIV}{The Six Philosophers}{140}
+\mytocline{XV}{The Accuser}{150}
+}
