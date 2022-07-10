@@ -1,35 +1,42 @@
 % tableofcontentspage.tex
 % Table of contents
 
-%\skiptorecto
+\long\def\atocline#1#2#3{%
+    \leavevmode
+    \llap{#1\quad}%
+    #2%
+    \quad\cdot\quad{\setff{+onum,+pnum}\currvar#3}%
+    \par
+    \vskip0.5\baselineskip
+}
 
-\vfil\break
-\headlinefalse\footlinefalse
-\ifodd\pageno\else\leavevmode\vfil\break\fi
+\skiptorecto
 
-\centerline{\setff{+smcp,+c2sc}\currvar Table of Contents}
+\null\vskip\baselineskip
+\centerline{\_typosize[14/14]\setff{+swsh}\it\ChapRed Table of Contents}%
 \vskip2\baselineskip
 
-\def\mytocline#1#2#3{%
-    \hfil #1&%
-    \hskip0.3em\cdot\hskip0.3em&%
-    {\rm #2}\hskip0.6em\cdot\hskip0.6em\relax{\setff{+onum,+pnum}\currvar#3}\hfil\cr
-}
+%\centerline{\setff{+smcp,+c2sc}\currvar Table of Contents}
+%\vskip2\baselineskip
 
-\halign{#&#&#\cr
-\mytocline{I}{The Two Poets of Saffron Park}{1}
-\mytocline{II}{The Secret of Gabriel Syme}{2}
-\mytocline{III}{The Man Who Was Thursday}{3}
-\mytocline{IV}{The Tale of a Detective}{10}
-\mytocline{V}{The Feast of Fear}{11}
-\mytocline{VI}{The Exposure}{12}
-\mytocline{VII}{The Unaccountable Conduct of Professor de Worms}{21}
-\mytocline{VIII}{The Professor Explains}{22}
-\mytocline{IX}{The Man in Spectacles}{23}
-\mytocline{X}{The Duel}{100}
-\mytocline{XI}{The Criminals Chase the Police}{105}
-\mytocline{XII}{The Earth in Anarchy}{110}
-\mytocline{XIII}{The Pursuit of the President}{130}
-\mytocline{XIV}{The Six Philosophers}{140}
-\mytocline{XV}{The Accuser}{150}
-}
+\bgroup
+\leftskip=2.8em\relax%
+\parindent=0pt\relax%
+%
+\atocline{}{{\it Dedication}}{1}
+\atocline{I}{The Two Poets of Saffron Park}{1}
+\atocline{II}{The Secret of Gabriel Syme}{2}
+\atocline{III}{The Man Who Was Thursday}{3}
+\atocline{IV}{The Tale of a Detective}{10}
+\atocline{V}{The Feast of Fear}{11}
+\atocline{VI}{The Exposure}{12}
+\atocline{VII}{The Unaccountable Conduct of Professor de Worms}{21}
+\atocline{VIII}{The Professor Explains}{22}
+\atocline{IX}{The Man in Spectacles}{23}
+\atocline{X}{The Duel}{100}
+\atocline{XI}{The Criminals Chase the Police}{105}
+\atocline{XII}{The Earth in Anarchy}{110}
+\atocline{XIII}{The Pursuit of the President}{130}
+\atocline{XIV}{The Six Philosophers}{140}
+\atocline{XV}{The Accuser}{150}
+\egroup

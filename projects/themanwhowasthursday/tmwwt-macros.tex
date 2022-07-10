@@ -59,7 +59,7 @@
 \headline={%
     \ifheadline
         \ifodd\pageno
-            \hss{\it\_runningchap}\hss
+            \hss{\it \_runningchap}\hss
         \else
             \hss{\it The Man who was Thursday}\hss
         \fi
@@ -134,7 +134,7 @@
         \vskip\baselineskip
         \centerline{\_chapfont\strut #1\strut\_nbpar}%
     \_mark{}%
-    \vskip3\baselineskip
+    \vskip2\baselineskip
     \_firstnoindent
 }
 
@@ -249,6 +249,40 @@
     \fi%
 }
 
+\def\dropcapN#1#2#3{
+    \ifdropcap
+        \setbox1=\hbox{\typosize[20/]#1}% quote
+        \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
+        \setbox3=\hbox{\setff{+smcp}\setletterspace{12}\currvar #3\space}% caps
+        \dimen1=\dimexpr\wd2+1pt % first line
+        \dimen2=\dimexpr\wd2+1pt % second line
+        \dimen3=\dimexpr\wd2+1pt % third line
+        \leavevmode\par
+        \vskip2\baselineskip
+        \noindent\leavevmode
+        \kern-1pt
+        \smash{%
+            \llap{%
+                \vbox to \dimexpr\ht2+0pt{%
+                    \hbox{\unhbox1\kern0pt}%
+                    \vfil
+                }%
+            }%
+            \copy2%
+        }\par%
+        \vskip-3\baselineskip
+        \parshape 4
+            \dimen1 \dimexpr\hsize-\dimen1
+            \dimen2 \dimexpr\hsize-\dimen2      
+            \dimen3 \dimexpr\hsize-\dimen3  
+            0pc \hsize
+        \noindent\leavevmode
+        \unhbox3\kern0.5pt%
+    \else
+        #1#2#3%
+    \fi%
+}
+
 \def\dropcapS#1#2#3{
     \ifdropcap
         \setbox1=\hbox{\typosize[20/]#1}% quote
@@ -317,6 +351,74 @@
     \fi%
 }
 
+\def\dropcapU#1#2#3{
+    \ifdropcap
+        \setbox1=\hbox{\typosize[20/]#1}% quote
+        \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
+        \setbox3=\hbox{\setff{+smcp}\setletterspace{12}\currvar #3\space}% caps
+        \dimen1=\dimexpr\wd2-2pt % first line
+        \dimen2=\dimexpr\wd2-5pt % second line
+        \dimen3=\dimexpr\wd2-5pt % third line
+        \leavevmode\par
+        \vskip2\baselineskip
+        \noindent\leavevmode
+        \kern-5pt
+        \smash{%
+            \llap{%
+                \vbox to \dimexpr\ht2+0pt{%
+                    \hbox{\unhbox1\kern0pt}%
+                    \vfil
+                }%
+            }%
+            \copy2%
+        }\par%
+        \vskip-3\baselineskip
+        \parshape 4
+            \dimen1 \dimexpr\hsize-\dimen1
+            \dimen2 \dimexpr\hsize-\dimen2      
+            \dimen3 \dimexpr\hsize-\dimen3  
+            0pc \hsize
+        \noindent\leavevmode
+        \unhbox3\kern0.5pt%
+    \else
+        #1#2#3%
+    \fi%
+}
+
+\def\dropcapW#1#2#3{
+    \ifdropcap
+        \setbox1=\hbox{\typosize[20/]#1}% quote
+        \setbox2=\hbox{\dropcapcolor\typosize[54/]#2}% initial
+        \setbox3=\hbox{\setff{+smcp}\setletterspace{12}\currvar #3\space}% caps
+        \dimen1=\dimexpr\wd2-13pt % first line
+        \dimen2=\dimexpr\wd2-17pt % second line
+        \dimen3=\dimexpr\wd2-21pt % third line
+        \leavevmode\par
+        \vskip2\baselineskip
+        \noindent\leavevmode
+        \kern-16pt
+        \smash{%
+            \llap{%
+                \vbox to \dimexpr\ht2+0pt{%
+                    \hbox{\unhbox1\kern0pt}%
+                    \vfil
+                }%
+            }%
+            \copy2%
+        }\par%
+        \vskip-3\baselineskip
+        \parshape 4
+            \dimen1 \dimexpr\hsize-\dimen1
+            \dimen2 \dimexpr\hsize-\dimen2      
+            \dimen3 \dimexpr\hsize-\dimen3  
+            0pc \hsize
+        \noindent\leavevmode
+        \unhbox3\kern0.5pt%
+    \else
+        #1#2#3%
+    \fi%
+}
+
     \_doc -----------------------------
     Grid for lines.
     \_cod -----------------------------
@@ -375,6 +477,6 @@
   \fi
 }
 
-\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+\baselineskip)
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+\baselineskip)
 
 \_endcode
