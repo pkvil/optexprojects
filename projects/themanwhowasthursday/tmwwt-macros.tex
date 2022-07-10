@@ -8,6 +8,7 @@
 \typosize[11/14]
 
 \def\ChapRed{\setcmykcolor{0 1 1 0.10}}
+%\def\ChapRed{\Black}
 
     \_doc -----------------------------
     Paragraph settings
@@ -19,40 +20,28 @@
 \widowpenalty=0\relax
 \clubpenalty=0\relax
 
-%\lineskiplimit-100pt
-
     \_doc -----------------------------
     Page layout
     \_cod -----------------------------
 
 
 
-% Horizontal layout
-\newdimen\pagewidth     \pagewidth=6in
-\newdimen\spinemargin   \spinemargin=\dimexpr(\pagewidth/9)\relax
-\newdimen\measure       \measure=\dimexpr(6\pagewidth/9)
 
-% Vertical layout
-\newdimen\pageheight    \pageheight=9in 
-\newdimen\depth         \depth=6in     
-\newdimen\topmargin     \topmargin=\dimexpr9in/9\relax
-\headlinedist=\dimexpr\baselineskip-\topskip+\baselineskip\relax
-\footlinedist=3\baselineskip
 
-%
-\sdef{_pgs:mypage}{(\bp\pagewidth,\bp\pageheight)bp}
 
-\hsize=\measure
-\vsize=\topskip \advance\vsize by 33\baselineskip % 34 lines
+\hsize=4in\relax
+\vsize=\topskip \advance\vsize by 33\baselineskip\relax % 34 lines
 
-\margins/2 mypage (54,,54,)bp
+\margins/2 (6,9)in (54,,54,)bp
 
     \_doc -----------------------------
-    Head- and footline.
+    Headline.
     \_cod -----------------------------
 
 \newif\ifheadline \headlinetrue
 \newif\iffootline \footlinetrue
+
+\headlinedist=\dimexpr\baselineskip-\topskip+\baselineskip\relax
 
 \def\_runningchap{}
 
@@ -67,6 +56,12 @@
         \global\headlinetrue
     \fi    
 }
+
+    \_doc -----------------------------
+    Footline.
+    \_cod -----------------------------
+
+\footlinedist=3\baselineskip
 
 \footline={%
     \iffootline
@@ -86,7 +81,7 @@
     \_cod -----------------------------
 
 \def\skiptorecto{%
-    \null\vfil\break
+    \vfil\break
     \ifodd\pageno
     \else
         \headlinefalse\footlinefalse
@@ -417,6 +412,31 @@
     \else
         #1#2#3%
     \fi%
+}
+
+    \_doc -----------------------------
+    Extra vsizes.
+    \_cod -----------------------------
+
+\newdimen\vsizedefault
+\def\extravsizes#1{%
+   \foreach #1\do ##1:##2{%
+      \tmpnum=##1
+      \sxdef{vs:\the\tmpnum}{##2}
+      \advance\tmpnum by \ifodd\tmpnum -\fi 1
+      \sxdef{vs:\the\tmpnum}{##2}
+   }
+   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\pgbottomskip=0pt plus1fil minus\baselineskip
+}
+\addto\_begoutput{\global\vsize=\vsizedefault}
+\addto\_endoutput{\corrvsize}
+
+\def\corrvsize{
+   \global\vsize=\vsizedefault
+   \ifcsname vs:\the\pageno\endcsname
+      \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+   \fi
 }
 
     \_doc -----------------------------
