@@ -1,0 +1,43 @@
+InfoBegin
+InfoKey: Creator
+InfoValue: TeX
+InfoBegin
+InfoKey: ModDate
+InfoValue: D:20220717194211+02&apos;00&apos;
+InfoBegin
+InfoKey: CreationDate
+InfoValue: D:20220717194211+02&apos;00&apos;
+InfoBegin
+InfoKey: Producer
+InfoValue: LuaTeX-1.15.0
+InfoBegin
+InfoKey: PTEX.FullBanner
+InfoValue: This is LuaTeX, Version 1.15.0 (TeX Live 2022)
+PdfID0: d1db68d2cfdeeb730e2df0f0a6af0f13
+PdfID1: d1db68d2cfdeeb730e2df0f0a6af0f13
+NumberOfPages: 5
+PageMediaBegin
+PageMediaNumber: 1
+PageMediaRotation: 0
+PageMediaRect: 0 0 419.528 595.276
+PageMediaDimensions: 419.528 595.276
+PageMediaBegin
+PageMediaNumber: 2
+PageMediaRotation: 0
+PageMediaRect: 0 0 419.528 595.276
+PageMediaDimensions: 419.528 595.276
+PageMediaBegin
+PageMediaNumber: 3
+PageMediaRotation: 0
+PageMediaRect: 0 0 419.528 595.276
+PageMediaDimensions: 419.528 595.276
+PageMediaBegin
+PageMediaNumber: 4
+PageMediaRotation: 0
+PageMediaRect: 0 0 419.528 595.276
+PageMediaDimensions: 419.528 595.276
+PageMediaBegin
+PageMediaNumber: 5
+PageMediaRotation: 0
+PageMediaRect: 0 0 419.528 595.276
+PageMediaDimensions: 419.528 595.276

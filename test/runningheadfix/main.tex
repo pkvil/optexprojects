@@ -1,0 +1,30 @@
+\fontfam[LMfonts]
+
+\input mriezka
+
+\grid 1pc,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+\addto\_chapx {\globaldefs=0 \vfil\break % headline of previous chapter is printed
+   \xdef\_runningchap {\_thechapnum: \_unexpanded\_ea{\_savedtitle}}}
+\def \formathead #1#2{\isempty{#1}\iffalse #1: #2\fi}  
+\headline = {%
+%\ifodd \pageno % Commented because the chapters are short, to make \_runningchap show on all pages..
+%\hfil \ea\formathead\firstmark{}{}%
+%\else
+\ifx\_runningchap\undefined \else Chapter \_runningchap \fi \hfil
+%\fi
+}
+
+\chap First chapter
+
+Lorem ipsum
+
+\chap Second chapter
+
+dolor sit
+
+\chap Third chapter
+
+amet.
+
+\bye
