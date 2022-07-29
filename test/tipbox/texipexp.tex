@@ -1,0 +1,6888 @@
+% This is the inputd format source code file in a flat version
+% This file is generated based on running initex with all files
+% belonging to this format. Do NOT change this file, because
+% it is automatically generated directly from all the .tip
+% files. The same copyright which applies to the individual .tip
+% files applies to this file too, obviously
+% This macro source file is from the four volume series
+% \"TeX in Practice\" by Stephan von Bechtolsheim, published
+% 1993 by Springer-Verlag, New York.
+% Copyright 1993 Stephan von Bechtolsheim.
+% No warranty or liability is assumed.
+% This macro may be copied freely if no fees other than
+% media cost or shipping charges are charged and as long
+% as this copyright and the following source code itself
+% is not changed. Please see the series for further information.
+%\input plain.tex
+\def\InputD #1{} \def\InputDList{}
+\catcode`\@ = 11
+\def\NameDef #1{% 
+    \expandafter\def\csname #1\endcsname
+}
+\def\NameEdef #1{%
+    \expandafter\edef\csname #1\endcsname
+}
+\def\NameGdef #1{% 
+    \expandafter\gdef\csname #1\endcsname
+}
+\def\NameXdef #1{% 
+    \expandafter\xdef\csname #1\endcsname
+}
+\def\NameNewDef #1{% 
+    \if\NameDefinedConditional{#1}% 
+        \errmessage{\string\NameNewDef: "#1" already defined.}% 
+    \fi
+    \NameDef{#1}% 
+}
+\def\NameReDef #1{% 
+    \if\NameDefinedConditional{#1}%
+    \else
+        \errmessage{\string\NameReDef: "#1" never defined before.}% 
+    \fi
+    \NameDef{#1}% 
+}
+\def\NameUse #1{\csname #1\endcsname}
+\def\NameUseFlagUndefined #1{% 
+    \if\NameDefinedConditional{#1}%
+        \NameUse{#1}%
+    \else
+        \errmessage{\string\NameUseFlagUndefined: token "#1"
+            is undefined.}%
+    \fi
+}
+\newif\if@NameDefined
+\def\NameDefinedConditional #1{% 
+    TT\fi
+    \expandafter\ifx\csname #1\endcsname \relax
+        \@NameDefinedfalse
+    \else
+        \@NameDefinedtrue
+    \fi
+    \if@NameDefined
+}
+\catcode`\@ = 12
+\NameDef{@InputD-namedef.tip}{}
+\def\AbsoluteDimension #1#2{% 
+    \ifdim #1 < 0pt
+        #2 = -#1\relax
+    \else
+        #2 = #1\relax
+    \fi
+}
+\NameDef{@InputD-absdimen.tip}{}
+\def\AbsoluteValue #1#2{% 
+    \ifnum #1<0
+        #2 = -#1\relax
+    \else
+        #2 = #1\relax
+    \fi
+}
+\NameDef{@InputD-absval.tip}{}
+\def\DefineAcronym #1#2#3{% 
+    \def #1{% 
+        #2 (#3)%
+        \gdef#1{#2}%
+    }%
+}
+\NameDef{@InputD-acronym.tip}{}
+\catcode`\@ = 11
+\newcount\@DoLoopNesting
+\@DoLoopNesting = 0
+\newcount\@DoLoopLimit
+\newcount\@DoLoopLimitTwo
+\newcount\@DoLoopLimitThree
+\def\DoLoop #1#2#3#4#5{%
+    \global\advance\@DoLoopNesting by 1
+    \ifnum\@DoLoopNesting > 3
+        \errmessage{\string\DoLoop: nesting beyond three levels
+            is not supported.}%
+    \fi
+    \ifnum #3 = 0
+        \errmessage{\string\DoLoop: step value (parameter 3) is 0!}% 
+    \else
+        \ifcase\@DoLoopNesting
+        \or
+            \@DoLoop{#1}{#2}{#3}{#4}{#5}%
+            {\@DoLoopLimit}{\DoLoopBody}%
+        \or
+            \@DoLoop{#1}{#2}{#3}{#4}{#5}%
+            {\@DoLoopLimitTwo}{\DoLoopBodyTwo}%
+        \or
+            \@DoLoop{#1}{#2}{#3}{#4}{#5}%
+            {\@DoLoopLimitThree}{\DoLoopBodyThree}%
+        \fi
+    \fi
+    \global\advance\@DoLoopNesting by -1
+}
+\def\@DoLoop #1#2#3#4#5#6#7{%
+    \ifnum #3 > 0
+        #6 = #4% 
+        \advance#6 by 1
+        #1 = #2% 
+        \@DoLoopBodyPositive{#1}{#3}{#5}% 
+            {#6}{#7}%
+    \else
+        #6 = #4% 
+        \advance#6 by -1
+        #1 = #2% 
+        \@DoLoopBodyNegative{#1}{#3}{#5}% 
+            {#6}{#7}%
+    \fi
+    \@DoLoopIterate{#7}%
+}
+\def\@DoLoopBodyPositive #1#2#3#4#5{%
+    \def #5{% 
+        \ifnum #1 < #4\relax
+            #3% 
+            \advance #1 by #2% 
+    }%
+}
+\def\@DoLoopBodyNegative #1#2#3#4#5{%
+    \def #5{%
+        \ifnum #1 > #4\relax
+            #3% 
+            \advance #1 by #2% 
+    }% 
+}
+\def\@DoLoopIterate #1{%
+        #1\relax
+        \def\@DoLoopNext{\@DoLoopIterate{#1}}%
+    \else
+        \def\@DoLoopNext{\relax}%
+    \fi
+    \@DoLoopNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-doloop.tip}{}
+\catcode`\@ = 11
+\newcount\AdvanceByTabStopsCount
+\def\AdvanceByTabStops #1{%
+    \def\@MakeTabChars{}%
+    \DoLoop{\AdvanceByTabStopsCount}{2}{1}{#1}% 
+            {\edef\@MakeTabChars{\@MakeTabChars&}}% 
+    \@MakeTabChars
+}
+\catcode`\@ = 12
+\NameDef{@InputD-advtabst.tip}{}
+\newtoks\AfterEveryPar
+\AfterEveryPar = {}
+\catcode`\@ = 11
+\def\SetUpAfterEveryPar{% 
+    \def\par{% 
+        \ifhmode
+            \ifinner
+            \else
+                \endgraf
+                \the\AfterEveryPar
+            \fi
+        \fi
+    }% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-aevpar.tip}{}
+\catcode`\@ = 11
+\newif\if@InRange
+\def\InRangeConditional #1#2#3{%
+    TT\fi
+    \@InRangetrue
+    \ifnum #1<#2\relax
+        \@InRangefalse
+    \fi
+    \ifnum #1>#3\relax
+        \@InRangefalse
+    \fi
+    \if@InRange
+}
+
+\def\CheckRange #1#2#3#4{% 
+    \ifnum #1 < #2\relax
+        \errmessage{Value \number#1 \space out of range #2..#3: #4}%
+    \fi
+    \ifnum #1>#3\relax
+        \errmessage{Value \number#1 \space out of range #2..#3: #4}%
+    \fi
+}
+\def\CheckZeroOneRange #1#2{% 
+    \CheckRange{#1}{0}{1}{#2}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-rangetst.tip}{}
+\catcode`\@ = 11
+\def\Sunday{0}
+\def\Monday{1}
+\def\Tuesday{2}
+\def\Wednesday{3}
+\def\Thursday{4}
+\def\Friday{5}
+\def\Saturday{6}
+\def\ProvideDayOfWeek #1#2#3{%
+    \CheckRange{#1}{0}{6}%
+        {\string\ProvideDayOfWeek: day of week outside
+            of 0 .. 6 range.}%
+    \ifcase #1\relax
+        \def#3{Sunday}\or
+        \def#3{Monday}\or
+        \def#3{Tuesday}\or
+        \def#3{Wednesday}\or
+        \def#3{Thursday}\or
+        \def#3{Friday}\or
+        \def#3{Saturday}% 
+    \fi
+    \ifnum #2 = 0
+    \else
+        \def\@ProvideDayOfWeek ##1##2##3##4;{%
+            \def#3{##1##2##3}%
+        }%
+        \expandafter\@ProvideDayOfWeek#3;%
+    \fi     
+}
+\def\PrintDayOfWeek #1#2{%
+    \ProvideDayOfWeek{#1}{#2}{\@PrintDayOfWeek}%
+    \@PrintDayOfWeek
+}
+\catcode`\@ = 12
+\NameDef{@InputD-dateofw.tip}{}
+\def\CheckLegalMonth #1{%
+    \CheckRange{#1}{1}{12}% 
+    {\string\CheckLegalMonth: month #1 out of range.}%
+}
+\NameDef{@InputD-legmonth.tip}{}
+\def\CheckLegalYear #1{%
+    \ifnum #1 < \EarliestYearDate
+        \errmessage{\string\CheckLegalYear: year #1
+            < \the\EarliestYearDate\space
+            encountered, illegal.}%
+    \fi
+}
+\NameDef{@InputD-legyear.tip}{}
+\catcode`\@ = 11
+\newcount\@IModNCount
+\newcount\@IModNCountCopy
+\def\IModN #1#2#3{%
+    \@IModNCount = #1\relax
+    \@IModNCountCopy = #1\relax
+    \ifnum \@IModNCount < 0
+        \errmessage{\string\IModN: \string#1
+            (value \the\@IModNCount) is negative.}%
+    \fi
+    \ifnum #2< 1
+        \errmessage{\string\IModN: \string#2
+            (value #2) is negative or zero.}%
+    \fi
+    \divide\@IModNCount by #2\relax
+    \multiply\@IModNCount by #2\relax
+    #3 = \@IModNCountCopy
+    \advance #3by -\@IModNCount
+}
+\catcode`\@ = 12
+\NameDef{@InputD-imodn.tip}{}
+\catcode`\@ = 11
+\newif\if@LeapYear
+\def\LeapYearConditional #1{%
+    TT\fi
+    {%
+        \count0 = #1\relax
+        \IModN{\count0}{4}{\count1}%
+        \ifnum\count1 = 0
+            \global\@LeapYeartrue
+            \IModN{\count0}{100}{\count2}%
+            \IModN{\count0}{400}{\count3}%
+            \ifnum\count2 = 0
+                \global\@LeapYearfalse
+            \fi
+            \ifnum\count3 = 0
+                \global\@LeapYeartrue
+            \fi
+        \else
+            \global\@LeapYearfalse
+        \fi
+    }%
+    \if@LeapYear
+}
+\catcode`\@ = 12
+\NameDef{@InputD-isleapyr.tip}{}
+\def\NumberOfDaysInMonth #1#2#3{%
+    \CheckLegalYear{#1}%
+    \CheckLegalMonth{#2}%
+    \ifcase #2\relax
+    \or
+        #3 = 31
+    \or
+        #3 = 28
+        \if\LeapYearConditional{#1}%
+            #3 = 29
+        \fi
+    \or
+        #3 = 31
+    \or
+        #3 = 30
+    \or
+        #3 = 31
+    \or
+        #3 = 30
+    \or
+        #3 = 31
+    \or
+        #3 = 31
+    \or
+        #3 = 30
+    \or
+        #3 = 31
+    \or
+        #3 = 30
+    \or
+        #3 = 31
+    \fi
+}
+\NameDef{@InputD-ndaysmo.tip}{}
+\catcode`\@ = 11
+\newcount\@TempCheckDate
+\def\CheckDate #1#2#3{% 
+    \CheckLegalYear{#1}%
+    \CheckLegalMonth{#2}%
+    \NumberOfDaysInMonth{#1}{#2}{\@TempCheckDate}%
+    \CheckRange{#3}{1}{\@TempCheckDate}%
+        {\string\CheckDate: provided date #1-#2-#3 is illegal.}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-legdate.tip}{}
+\def\CopyDate #1#2#3#4#5#6{%
+    #4 = #1\relax
+    #5 = #2\relax
+    #6 = #3\relax
+}
+\NameDef{@InputD-copydate.tip}{}
+\catcode`\@ = 11
+\newcount\@TempNextDay
+\def\NextDay #1#2#3#4#5#6{%
+    \CheckDate{#1}{#2}{#3}%
+    \CopyDate{#1}{#2}{#3}{#4}{#5}{#6}%
+    \advance #6 by 1
+    \NumberOfDaysInMonth{#1}{#2}{\@TempNextDay}%
+    \ifnum #6 > \@TempNextDay
+        #6 = 1
+        \advance #5 by 1
+        \ifnum #5 = 13
+            #5 = 1
+            \advance #4 by 1
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-nextday.tip}{}
+\def\NumberOfDaysInYear #1#2{%
+    \if\LeapYearConditional{#1}%
+        #2 = 366
+    \else
+        #2 = 365
+    \fi
+}
+\NameDef{@InputD-numdyr.tip}{}
+\catcode`\@ = 11
+\def\ProvideMonth #1#2#3{%
+    \CheckLegalMonth{#1}%
+    \ifcase #1\relax
+    \or
+        \def#3{January}\or
+        \def#3{February}\or
+        \def#3{March}\or
+        \def#3{April}\or
+        \def#3{May}\or
+        \def#3{June}\or
+        \def#3{July}\or
+        \def#3{August}\or
+        \def#3{September}\or
+        \def#3{October}\or
+        \def#3{November}\or
+        \def#3{December}% 
+    \fi
+    \ifnum #2 = 1
+        \def\@TempProvideMonth ##1##2##3##4\@Del{%
+            \xdef#3{##1##2##3}%
+        }%
+        \expandafter\@TempProvideMonth#3\@Del
+    \fi
+}
+\def\PrintMonth #1#2{%
+    {%
+        \ProvideMonth{#1}{#2}{\@PrintMonth}%
+        \@PrintMonth
+    }%
+}
+\def\PrintCurrentMonth{% 
+    \PrintMonth{\month}{0}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-prmonth.tip}{}
+\catcode`\@ = 11
+\newcount\@YearTemp
+\newcount\@YearTop
+\newcount\@MonthTemp
+\newcount\@MonthTop
+\newcount\@TempAD
+\def\ArbitraryDayOfWeek #1#2#3#4{%
+    \CheckDate{#1}{#2}{#3}%
+    #4 = \DayOfWeekOfEarliestDate
+    \@YearTop = #1\relax
+    \advance\@YearTop by -1
+    \DoLoop{\@YearTemp}{\EarliestYearDate}{1}{\@YearTop}{%
+        \NumberOfDaysInYear{\@YearTemp}{\@TempAD}%
+        \advance #4 by \@TempAD
+    }%
+    \IModN{#4}{7}{#4}%
+    \@MonthTop = #2\relax
+    \advance\@MonthTop by -1
+    \DoLoop{\@MonthTemp}{1}{1}{\@MonthTop}{%
+        \NumberOfDaysInMonth{#1}{\@MonthTemp}{\@TempAD}%
+        \advance #4 by \@TempAD
+    }%
+    \IModN{#4}{7}{#4}%
+    \advance #4 by #3\relax
+    \advance #4 by -1
+    \IModN{#4}{7}{#4}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-arbday.tip}{}
+\catcode`\@ = 11
+\newcount\@TempEarliest
+\newcount\EarliestYearDate
+\EarliestYearDate = 1583
+\newcount\DayOfWeekOfEarliestDate
+\DayOfWeekOfEarliestDate = \Saturday
+\def\VerifyInitDate{%
+    {%
+        \ArbitraryDayOfWeek{2000}{1}{1}{\@TempEarliest}%
+        \ifnum\@TempEarliest = \Saturday
+            \message{\string\VerifyInitDate: initialization
+                correct (initialization year:
+                \the\EarliestYearDate).}%
+        \else
+            \errmessage{\string\VerifyInitDate: January 1 of 2000
+                is a Saturday! Computation reports it is
+                day \the\@TempEarliest\space. Initialization error.}%
+        \fi
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-earliest.tip}{}
+\catcode`\@ = 11
+\newcount\@TempPrevDay
+\def\PrevDay #1#2#3#4#5#6{%
+    \CheckDate{#1}{#2}{#3}%
+    \CopyDate{#1}{#2}{#3}{#4}{#5}{#6}%
+    \advance #6 by -1
+    \ifnum #6 = 0
+        \advance #5 by -1
+        \ifnum #5 = 0
+            #5 = 12
+            \advance #4 by -1
+        \fi
+        \NumberOfDaysInMonth{#4}{#5}{#6}%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-prevday.tip}{}
+\catcode`\@ = 11
+\def\NextMonth #1#2#3#4{%
+    \CheckDate{#1}{#2}{1}%
+    #3 = #1\relax
+    #4 = #2\relax
+    \advance #4 by 1
+    \ifnum #4 = 13
+        #4 = 1
+        \advance #3 by 1
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-nextmon.tip}{}
+\catcode`\@ = 11
+\def\PrevMonth #1#2#3#4{%
+    \CheckDate{#1}{#2}{1}%
+    #3 = #1\relax
+    #4 = #2\relax
+    \advance #4 by -1
+    \ifnum #4 = 0
+        #4 = 12
+        \advance #3 by -1
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-prevmon.tip}{}
+\catcode`\@ = 11
+\newcount\@LeadingZCount
+\def\LeadingZ #1{%
+    \@LeadingZCount = #1\relax
+    \ifnum \@LeadingZCount < 10
+        0%
+    \fi
+    \the\@LeadingZCount
+}
+\catcode`\@ = 12
+\NameDef{@InputD-leadingz.tip}{}
+\newcount\Hour
+\newcount\Minute
+\def\PrintMilTime{% 
+    \Hour = \time
+    \divide\Hour by 60
+    \Minute = \Hour
+    \multiply\Minute by 60
+    \advance\Minute by -\time
+    \Minute = -\Minute
+    \LeadingZ{\the\Hour}:\LeadingZ{\the\Minute}% 
+}
+\NameDef{@InputD-pmtime.tip}{}
+\def\TodayX{% 
+    \PrintCurrentMonth~\the\day, \the\year
+}
+\newcount\TodayYCount
+\def\TodayY{%
+    {%
+        \ArbitraryDayOfWeek{\year}{\month}{\day}{\TodayYCount}%
+        \PrintDayOfWeek{\TodayYCount}{0},
+    }%
+    \TodayX
+}
+\def\TodayZ{%
+    \TodayY, \PrintMilTime
+}
+\NameDef{@InputD-todayx.tip}{}
+\catcode`\@ = 11
+\newcount\@InitialDayOfMonth
+\newcount\@MCDays
+\newcount\@MonthlyCalendarBodyTemp
+\def\MonthlyCalendarBody #1#2#3{%
+    {%
+        \CheckDate{#1}{#2}{1}%
+        \ArbitraryDayOfWeek{#1}% 
+            {#2}{1}{\@InitialDayOfMonth}%
+        \gdef #3{}%
+        \DoLoop{\@MonthlyCalendarBodyTemp}% 
+            {1}{1}{\@InitialDayOfMonth}%
+            {\xdef#3{#3&}}
+        \NumberOfDaysInMonth{#1}{#2}{\@MCDays}%
+        \DoLoop{\@MonthlyCalendarBodyTemp}{1}{1}{\@MCDays}{%
+            \xdef#3{#3\the\@MonthlyCalendarBodyTemp}%
+            \ifnum\@InitialDayOfMonth = \Saturday
+                \xdef#3{#3\cr}%
+            \else
+                \xdef#3{#3&}%
+            \fi
+            \advance\@InitialDayOfMonth by 1
+            \IModN{\@InitialDayOfMonth}{7}{\@InitialDayOfMonth}%
+        }%
+    }%
+    \xdef#3{#3\crcr}%
+}
+\newcount\@MonthlyCalendarCount
+\def\MonthlyCalendar #1#2#3{%
+    {%
+        \MonthlyCalendarBody{#1}{#2}{\TableBody}%
+        \vtop{
+            \hsize = #3\relax
+            \ProvideMonth{#2}{0}{\MonthNameTemp}%
+            \@MonthlyCalendarCount = #1\relax
+            \centerline{\MyStrut\MonthNameTemp\space
+                \the\@MonthlyCalendarCount}%
+            \smallskip
+            \hrule
+            \smallskip
+                                \tabskip = 0pt
+            \halign to \hsize{
+                                    % So
+                \hfil##\relax   \tabskip = 0pt plus 1fil&
+                \hfil##&            % Mo
+                \hfil##&            % Tu
+                \hfil##&            % We
+                \hfil##&            % Th
+                \hfil##&            % Fr
+                \hfil##\relax   \tabskip = 0pt
+            \cr
+                \omit\hfil So\hfil&
+                \omit\hfil Mo\hfil&
+                \omit\hfil Tu\hfil&
+                \omit\hfil We\hfil&
+                \omit\hfil Th\hfil&
+                \omit\hfil Fr\hfil&
+                \omit\hfil Sa\hfil\cr
+                \TableBody
+            }%
+            \smallskip
+            \hrule
+        }%
+    }%
+}%
+\catcode`\@ = 12
+\NameDef{@InputD-mocal.tip}{}
+\def\ThreeMonthlyCalendars #1#2#3{%
+    \hbox{%
+        \count0 = #1
+        \count1 = #2
+        \MonthlyCalendar{\count0}{\count1}{#3}%
+        \hskip 10pt
+        \NextMonth{\count0}{\count1}{\count0}{\count1}%
+        \MonthlyCalendar{\count0}{\count1}{#3}%
+        \NextMonth{\count0}{\count1}{\count0}{\count1}%
+        \hskip 10pt
+        \MonthlyCalendar{\count0}{\count1}{#3}%
+    }
+}
+\NameDef{@InputD-mocal3.tip}{}
+\def\YearlyCalendar #1#2#3{%
+    \vbox{%
+        \dimen0 = #2\relax
+        \ifdim\dimen0 = 0.0pt
+            \dimen0 = \hsize
+        \fi
+        \dimen1 = #3\relax
+        \ifdim\dimen1 = 0.0pt
+            \dimen1 = \dimen0
+            \divide\dimen1 by 3
+            \advance\dimen1 by -5pt
+        \fi
+        \hsize = \dimen0
+        \centerline{\Large\bf Year #1}
+        \bigskip
+        \line{%
+            \MonthlyCalendar{#1}{1}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{2}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{3}{\dimen1}%
+        }%
+        \bigskip
+            \line{%
+            \MonthlyCalendar{#1}{4}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{5}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{6}{\dimen1}%
+        }%
+        \bigskip
+        \line{%
+            \MonthlyCalendar{#1}{7}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{8}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{9}{\dimen1}%
+        }%
+        \bigskip
+        \line{%
+            \MonthlyCalendar{#1}{10}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{11}{\dimen1}%
+            \hfil
+            \MonthlyCalendar{#1}{12}{\dimen1}%
+        }%
+    }
+}
+\NameDef{@InputD-yearcal.tip}{}
+\catcode`\@ = 11
+\newcount\@ComputeMondayOfDateDay
+\newcount\@ComputeMondayOfDateDayTwo
+\def\ComputeMondayOfDate #1#2#3#4#5#6{%
+    #4 = #1\relax   
+    #5 = #2\relax   
+    #6 = #3\relax   
+    \ArbitraryDayOfWeek{#4}{#5}{#6}{\@ComputeMondayOfDateDay}%
+    \ifnum\@ComputeMondayOfDateDay = \Sunday
+        \@ComputeMondayOfDateDay = 6
+    \else
+        \advance\@ComputeMondayOfDateDay by -1
+    \fi
+    \DoLoop{\@ComputeMondayOfDateDayTwo}
+        {\@ComputeMondayOfDateDay}{-1}{1}%
+        {\PrevDay{#4}{#5}{#6}{#4}{#5}{#6}}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-mondofda.tip}{}
+\catcode`\@ = 11
+\newcount\@NextOrPrevWeekSameDayCount
+\def\@NextOrPrevWeekSameDay #1#2#3#4#5#6#7{%
+    #4 = #1\relax
+    #5 = #2\relax
+    #6 = #3\relax
+    \DoLoop{\@NextOrPrevWeekSameDayCount}{1}{1}{7}%
+        {#7{#4}{#5}{#6}{#4}{#5}{#6}}%
+}
+\def\NextWeekSameDay #1#2#3#4#5#6{%
+    \@NextOrPrevWeekSameDay
+        {#1}{#2}{#3}{#4}{#5}{#6}{\NextDay}%
+}
+\def\PrevWeekSameDay #1#2#3#4#5#6{%
+    \@NextOrPrevWeekSameDay
+        {#1}{#2}{#3}{#4}{#5}{#6}{\PrevDay}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-norpweek.tip}{}
+\catcode`\@ = 11
+\newcount\@WeekOfYearCounter
+\newcount\@WeekOfYearYear
+\newcount\@WeekOfYearMonth
+\newcount\@WeekOfYearDay
+\newcount\@WeekOfYearCopy
+\def\WeekOfYear #1#2#3#4{%
+    \@WeekOfYearCopy = #1\relax
+    \ComputeMondayOfDate{#1}{#2}{#3}%
+        {\@WeekOfYearYear}{\@WeekOfYearMonth}{\@WeekOfYearDay}%
+    \def\@WeekOfYearCounter{#4}%
+    \@WeekOfYearCounter = 1
+    \@WeekOfYear
+}
+\newif\if@YearStop
+\def\@WeekOfYear{%
+    \@YearStopfalse
+    \ifnum\@WeekOfYearCopy > \@WeekOfYearYear
+        \@YearStoptrue
+    \else
+        \ifnum\@WeekOfYearMonth = 1
+            \ifnum\@WeekOfYearDay = 1
+                \@YearStoptrue
+            \fi
+        \fi
+    \fi
+    \if@YearStop
+        \def\@WeekOfYearNext{\relax}%
+    \else
+        \def\@WeekOfYearNext{\@WeekOfYear}%
+        \expandafter\advance\@WeekOfYearCounter by 1
+        \PrevWeekSameDay{\@WeekOfYearYear}{\@WeekOfYearMonth}%
+            {\@WeekOfYearDay}%
+            {\@WeekOfYearYear}{\@WeekOfYearMonth}%
+            {\@WeekOfYearDay}%
+    \fi
+    \@WeekOfYearNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-weekofyr.tip}{}
+\NameDef{@InputD-alldate.tip}{}
+\def\AlwaysBaselineskip{%
+    \lineskiplimit = -\maxdimen
+}
+\NameDef{@InputD-alwbase.tip}{}
+\def\angt #1{% 
+    \leavevmode
+    \hbox{$\langle$}% 
+    {\rm #1}% 
+    \hbox{$\rangle$}% 
+}
+\NameDef{@InputD-angt.tip}{}
+\newif\ifShowX
+\ShowXfalse
+\def\ShowX #1{%
+    \ifShowX
+        {%
+            \nonstopmode
+            \show #1% 
+        }%
+    \fi
+}
+\NameDef{@InputD-showx.tip}{}
+\catcode`\@ = 11
+\newif\if@TestSubString
+\def\SubStringConditional #1#2{%
+    TT\fi
+    \edef\@MainString{#1}%
+    \edef\@SubStringConditionalTemp{{#1}{#2}}%
+    \expandafter\@SubStringConditional\@SubStringConditionalTemp
+}
+\def\@SubStringConditional #1#2{% 
+    \def\@TestSubS ##1#2##2\@Del{% 
+        \def\@TestTemp{##1}% 
+    }% 
+    \ShowX{\@TestSubS}%
+    \@TestSubS #1#2\@Del
+    \ShowX{\@TestTemp}%
+    \ifx\@MainString\@TestTemp
+        \@TestSubStringfalse
+    \else
+        \@TestSubStringtrue
+    \fi
+    \if@TestSubString
+}
+\catcode`\@ = 12
+\NameDef{@InputD-testsubs.tip}{}
+\catcode`\@ = 11
+\def\RecursionMacroEnd #1#2#3{% 
+    #1\relax
+        \def\@RecursionMacroEndNext{#2}% 
+    \else
+        \def\@RecursionMacroEndNext{#3}% 
+    \fi
+    \@RecursionMacroEndNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-endrec.tip}{}
+\catcode`\@ = 11
+\def\ReplaceSubStrings #1#2#3#4{%
+    \def\@ReplaceResult{#1}%
+    \edef\@ReplaceMain{#2}%
+    \edef\@ReplaceSub{#3}%
+    \edef\@ReplaceSubRep{#4}%
+    \@ReplaceSubStrings
+}
+\def\@ReplaceSubStrings{% 
+    \RecursionMacroEnd
+        {\if\SubStringConditional{\@ReplaceMain}{\@ReplaceSub}}%
+        {\@ReplaceSubStringsDo}{\@ReplaceSubStringsDone}%
+}
+\def\@ReplaceSubStringsDoX{%
+    \def\@ReplaceSubStringsDoA ##1%
+}%
+\def\@ReplaceSubStringsDo{% 
+    \expandafter\@ReplaceSubStringsDoX \@ReplaceSub
+                                    ##2\@EndReplaceSubStrings{%
+        \edef\@ReplaceMain{##1\@ReplaceSubRep ##2}%
+    }%
+    \ShowX{\@ReplaceSubStringsDoA}%
+    \ShowX{\@ReplaceMain}%
+    \expandafter\@ReplaceSubStringsDoA\@ReplaceMain
+        \@EndReplaceSubStrings
+    \ShowX{\@ReplaceMain}%
+    \@ReplaceSubStrings
+}
+\def\@ReplaceSubStringsDone{% 
+    \expandafter\edef\@ReplaceResult{\@ReplaceMain}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-restring.tip}{}
+\catcode`\@ = 11
+\def\StringsEqualConditional #1#2{% 
+    TT\fi
+    \edef\@StringsEqualOneConditional{#1}% 
+    \edef\@StringsEqualTwoConditional{#2}% 
+    \ifx\@StringsEqualOneConditional\@StringsEqualTwoConditional
+}
+\def\EmptyStringConditional #1{%
+    TT\fi
+    \if\StringsEqualConditional{#1}{}%
+}
+\def\EmptyStringConditionalISpaces #1{%
+    TT\fi
+    \ReplaceSubStrings{\@EmptyStringConditionalISpaces}{#1}%
+        { }{}%
+    \if\EmptyStringConditional
+        {\@EmptyStringConditionalISpaces}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-compst.tip}{}
+\catcode`\@ = 11
+\def\@EmptyRefList{}
+\def\EmptyListConditional #1{%
+    TT\fi
+    \ifx#1\@EmptyRefList
+}
+\newtoks\@AppendTokOne
+\newtoks\@AppendTokTwo
+\def\LeftAppendElement #1#2{%
+    \edef\@AppendTemp{\noexpand\\{#2}}% 
+    \@AppendTokOne = \expandafter{\@AppendTemp}%
+    \@AppendTokTwo = \expandafter{#1}%
+    \edef#1{\the\@AppendTokOne \the\@AppendTokTwo}%
+}
+\def\RightAppendElement #1#2{%
+    \edef\@AppendTemp{\noexpand\\{#2}}% 
+    \@AppendTokOne = \expandafter{\@AppendTemp}%
+    \@AppendTokTwo = \expandafter{#1}%
+    \edef#1{\the\@AppendTokTwo \the\@AppendTokOne}%
+}
+\def\CarOfList #1#2{%
+    \def\@CarTemp \\##1##2\@EndCarList{\def#2{##1}}%
+    \expandafter\@CarTemp#1\@EndCarList
+}
+\def\CdrOfList #1#2{% 
+    \def\@CdrTemp \\##1##2\@EndCdrList{\def#2{##2}}% 
+    \expandafter\@CdrTemp#1\@EndCdrList
+}
+\def\DropFirstElementOfList #1{% 
+    \if\EmptyListConditional{#1}% 
+        \errhelp = {\string\DropFirstElementOfList: list is
+            empty. No first element to drop.}%
+        \errmessage{\string\DropFirstElementOfList: List
+            \noexpand#1 is empty.}%
+    \else
+        \def\@DropFirstElementTemp \\##1##2\@EndCdrList{\def#1{##2}}%
+        \expandafter\@DropFirstElementTemp#1\@EndCdrList
+    \fi
+}
+\def\CarCarOfList #1#2{%
+    \let\@CarCarOfListList = #1%
+    \DropFirstElementOfList{\@CarCarOfListList}%
+    \CarOfList{\@CarCarOfListList}{#2}
+}
+\def\ForEveryListElement #1#2{%
+    \let\@ForEveryList = #1%
+    \let\@ForEveryListElementMacro = #2%
+    \@ForEveryListElement
+}
+\def\@ForEveryListElement{%
+    \if\EmptyListConditional{\@ForEveryList}%
+        \let\@ForEveryListElementNext = \relax
+    \else
+        \CarOfList{\@ForEveryList}{\@ForEveryListElementElement}%
+        \@ForEveryListElementMacro{\@ForEveryListElementElement}%
+        \DropFirstElementOfList{\@ForEveryList}%
+        \let\@ForEveryListElementNext = \@ForEveryListElement
+    \fi
+    \@ForEveryListElementNext
+}
+\newif\if@MemberList
+\def\MemberOfListConditional #1#2{%
+    TT\fi
+    \@MemberListfalse
+    {%
+        \def\\##1{% 
+            \if\StringsEqualConditional{#2}{##1}% 
+                \global\@MemberListtrue
+            \fi
+        }%
+        #1% 
+    }%
+    \if@MemberList
+}
+\def\ReverseList #1#2{%
+    \def\@ReverseListOut{}%
+    \ForEveryListElement{#1}{\@ReverseList}%
+    \let#2 = \@ReverseListOut
+}
+\def\@ReverseList #1{% 
+    \LeftAppendElement{\@ReverseListOut}{#1}%
+}
+\def\LastElementOfList #1#2{%
+    \ReverseList{#1}{#1}%
+    \CarOfList{#1}{#2}%
+    \ReverseList{#1}{#1}%
+}
+\def\DropLastElementOfList #1{%
+    \ReverseList{#1}{#1}%
+    \DropFirstElementOfList{#1}%
+    \ReverseList{#1}{#1}%
+}
+\def\NumberOfListElements #1#2{% 
+    \let\@NumberOfListElementsList = #1%
+    \def\@NumberOfListElementsCount{#2}%
+    \@NumberOfListElementsCount = 0
+    \@NumberOfListElements  
+}
+\def\@NumberOfListElements{%
+    \if\EmptyListConditional{\@NumberOfListElementsList}%
+        \let\@NumberOfListElementsNext = \relax
+    \else
+        \advance\@NumberOfListElementsCount by 1
+        \DropFirstElementOfList{\@NumberOfListElementsList}%
+        \let\@NumberOfListElementsNext = \@NumberOfListElements
+    \fi
+    \@NumberOfListElementsNext
+}
+\newcount\@NumberOfListElCCount
+\def\NumberOfListElementsNumConditional #1{%
+    0=0\fi
+    \NumberOfListElements{#1}{\@NumberOfListElCCount}%
+    \ifnum\@NumberOfListElCCount
+}
+\def\CombineTwoLists #1#2#3{%
+    \def\@CombineTwoLists{\def\@CombineTwoListsResult}%
+    \expandafter\expandafter\expandafter
+    \expandafter\expandafter\expandafter
+    \expandafter\@CombineTwoLists
+    \expandafter\expandafter\expandafter{\expandafter#1#2}%
+    \let #3 = \@CombineTwoListsResult
+}
+\catcode`\@ = 12
+\NameDef{@InputD-list-mac.tip}{}
+\catcode`\@ = 11
+\def\IndexLastElement #1#2{%
+    \NumberOfListElements{#1}{#2}%
+    \advance #2 by -1
+}
+\newcount\@ArrayIndexCheckCount
+\def\ArrayIndexCheck #1#2{%
+    \IndexLastElement{#1}{\@ArrayIndexCheckCount}%
+    \ifnum\@ArrayIndexCheckCount = -1
+        \errmessage{\string\ArrayIndexCheck: array \string#2
+            is empty.}%
+    \else
+        \CheckRange{#2}{0}{\@ArrayIndexCheckCount}%
+            {\string\ArrayIndexCheck: index \number#2 out
+                of range in list \string#1}%
+    \fi
+}
+\newcount\@AccessArrayElementLimit
+\newcount\@AccessArrayElementCount
+\def\AccessArrayElement #1#2#3{%
+    \ArrayIndexCheck{#1}{#2}%
+    \let\@AccessArrayElementList = #1%
+    \@AccessArrayElementLimit = #2\relax
+    \DoLoop{\@AccessArrayElementCount}% 
+        {1}{1}{\@AccessArrayElementLimit}%
+        {\DropFirstElementOfList{\@AccessArrayElementList}}%
+    \CarOfList{\@AccessArrayElementList}{#3}%
+}
+\newcount\@ModifyArrayElementCount
+\newcount\@ModifyArrayElementLimit
+\def\ModifyArrayElement #1#2#3{%
+    \ArrayIndexCheck{#1}{2}%
+    \IndexLastElement{#1}{\@ModifyArrayElementLimit}%
+    \let\@ModifyArrayList = #1%
+    \def\@ModifyArrayRet{}%
+    \DoLoop{\@ModifyArrayElementCount}% 
+        {0}{1}{\@ModifyArrayElementLimit}%
+        {%
+            \CarOfList{\@ModifyArrayList}%
+                {\@ModifyArrayElement}%
+            \DropFirstElementOfList{\@ModifyArrayList}%
+            \ifnum\@ModifyArrayElementCount = #2\relax
+                \RightAppendElement{\@ModifyArrayRet}{#3}%
+            \else
+                \RightAppendElement
+                    {\@ModifyArrayRet}%
+                    {\@ModifyArrayElement}%
+            \fi
+        }%
+    \let #1 = \@ModifyArrayRet
+}
+\newcount\@InsertArrayElementCount
+\newcount\@InsertArrayElementCountTwo
+\def\InsertArrayElement #1#2#3{%
+    \ifnum\NumberOfListElementsNumConditional{#1}=0
+        \errmessage{\string\InsertArrayElement: empty array}%
+    \fi
+    \ifnum\NumberOfListElementsNumConditional{#1}=#2
+    \else
+            \ArrayIndexCheck{#1}{#2}%
+    \fi
+    \def\@InsertArrayElementListPre{}%
+    \ifnum #2>0
+        \@InsertArrayElementCount = #2\relax
+        \advance\@InsertArrayElementCount by -1
+        \ExtractSubArray{#1}{0}{\@InsertArrayElementCount}%
+            {\@InsertArrayElementListPre}%
+    \fi
+    \def\@InsertArrayElementListPost{}%
+    \IndexLastElement{#1}{\@InsertArrayElementCount}%
+    \ifnum #2 > \@InsertArrayElementCount
+    \else
+        \ExtractSubArray{#1}{#2}{\@InsertArrayElementCount}%
+            {\@InsertArrayElementListPost}%
+    \fi
+    \RightAppendElement{\@InsertArrayElementListPre}{#3}%
+    \CombineTwoLists
+        {\@InsertArrayElementListPre}%
+        {\@InsertArrayElementListPost}%
+        {\@InsertArrayElementListPre}%
+    \let #1 = \@InsertArrayElementListPre
+}
+\newcount\@DeleteArrayElementCount
+\newcount\@DeleteArrayElementLimit
+\def\DeleteArrayElement #1#2{%
+    \ArrayIndexCheck{#1}{#2}%
+    \let\@DeleteArrayElementList = #1%
+    \IndexLastElement{#1}{\@DeleteArrayElementLimit}%
+    \ifnum\@DeleteArrayElementLimit = -1
+        \errmessage{\string\DeleteArrayElement: empty array.}%
+    \fi
+    \def\@DeleteArrayElementResultList{}%
+    \DoLoop{\@DeleteArrayElementCount}% 
+        {0}{1}{\@DeleteArrayElementLimit}%
+        {%
+            \CarOfList{\@DeleteArrayElementList}%
+                {\@DeleteArrayElement}%
+            \DropFirstElementOfList{\@DeleteArrayElementList}%
+            \ifnum\@DeleteArrayElementCount = #2\relax
+            \else
+                \RightAppendElement
+                    {\@DeleteArrayElementResultList}%
+                    {\@DeleteArrayElement}%
+            \fi
+        }%
+    \let #1=\@DeleteArrayElementResultList
+}
+\newcount\@DeleteArrayElementRangeCount
+\newcount\@DeleteArrayElementRangeLimit
+\def\DeleteArrayElementRange #1#2#3{%
+    \ArrayIndexCheck{#1}{#2}%
+    \ArrayIndexCheck{#1}{#3}%
+    \ifnum #2>#3
+        \errmessage{\string\DeleteArrayElementRange:
+            first index larger than second. Makes no
+            sense}%
+    \fi
+    \@DeleteArrayElementRangeLimit = #3\relax
+    \advance\@DeleteArrayElementRangeLimit by -#2%
+    \advance\@DeleteArrayElementRangeLimit by 1
+    \DoLoop{\@DeleteArrayElementRangeCount}{1}{1}%
+        {\@DeleteArrayElementRangeLimit}%
+        {\DropArrayElement{#1}{#2}}%
+}
+\newcount\@ShowArrayCount
+\newcount\@ShowArrayLimit
+\def\ShowArray #1{%
+    \wlog{\string\ShowArray: begin}%
+    \IndexLastElement{#1}{\@ShowArrayLimit}%
+    \ifnum\@ShowArrayLimit = -1
+        \wlog{** empty array **}%
+    \else
+        \DoLoop{\@ShowArrayCount}{0}{1}{\@ShowArrayLimit}{%
+            \AccessArrayElement{#1}{\@ShowArrayCount}%
+                {\@ShowArrayElement}%
+            \wlog{Index \the\@ShowArrayCount:
+                "\@ShowArrayElement"}%
+        }%
+    \fi
+    \wlog{\string\ShowArray: end}%
+    \wlog{}%
+}
+\def\@TokenToListDoneMacro{\@TokensToListDone}%
+\def\TokensToTeXList #1#2{%
+    \def#1{}%
+    \def\@TokensToListName{#1}%
+    \@TokensToList #2\@TokensToListDone
+}
+\def\@TokensToList #1{%
+    \def\@TokensToListMacArgOne{#1}%
+    \ifx\@TokensToListMacArgOne\@TokenToListDoneMacro
+        \let\@TokensToListNext = \relax
+    \else
+        \expandafter\RightAppendElement\@TokensToListName{#1}%
+        \let\@TokensToListNext = \@TokensToList
+    \fi     
+    \@TokensToListNext
+}
+\newcount\@ExtractArrayCount
+\newcount\@ExtractArrayLimit
+\newif\if@ExtractCopy
+\def\ExtractSubArray #1#2#3#4{%
+    \ArrayIndexCheck{#1}{#2}%
+    \ArrayIndexCheck{#1}{#3}%
+    \ifnum #3<#2
+        \errmessage{\string\ExtractSubArray: first index >
+            second index, error}%
+    \fi
+    \def\@ExtractSubArrayResult{}%
+    \IndexLastElement{#1}{\@ExtractArrayLimit}%
+    \DoLoop{\@ExtractArrayCount}{0}{1}{\@ExtractArrayLimit}%
+        {%
+            \@ExtractCopytrue
+            \ifnum\@ExtractArrayCount < #2\relax
+                \@ExtractCopyfalse
+            \fi
+            \ifnum\@ExtractArrayCount > #3\relax
+                \@ExtractCopyfalse
+            \fi
+            \if@ExtractCopy
+                \AccessArrayElement
+                    {#1}%
+                    {\@ExtractArrayCount}%
+                    {\@SubArrayElement}%
+                \RightAppendElement
+                    {\@ExtractSubArrayResult}%
+                    {\@SubArrayElement}%
+            \fi
+        }%
+    \let #4 = \@ExtractSubArrayResult
+}
+\catcode`\@ = 12
+\NameDef{@InputD-arraymac.tip}{}
+\def\ZeroBox #1{%
+    \wd#1 = 0pt
+    \ht#1 = 0pt
+    \dp#1 = 0pt
+}
+\def\ZeroBoxOut #1{%
+    \ZeroBox{#1}%
+    \box#1%
+}
+\NameDef{@InputD-box-zero.tip}{}
+\catcode`\@ = 11
+\newbox\@PrintAtPositionBox
+\def\PrintAtPosition #1#2#3#4{% 
+    \setbox\@PrintAtPositionBox = \hbox{% 
+        \hskip #1\relax
+        \lower #2\hbox{%
+            #3%
+        }%
+    }%
+    #4 = \dp\@PrintAtPositionBox
+    \ZeroBoxOut{\@PrintAtPositionBox}%
+}
+\catcode`\@ = 12
+\def\SetUpPrintAtPosition{% 
+    \nopagenumbers
+    \topskip = 0pt
+    \offinterlineskip
+}
+\NameDef{@InputD-atpos.tip}{}
+\catcode`\@ = 11
+\def\NewEnvironment #1{% 
+    \wlog{\string\NewEnvironment: new environment #1.}% 
+    \NameNewDef{@@B-#1}{% 
+        \bgroup
+        \def\@CurEnvName{#1}%
+        \NameUse{@Begin#1}% 
+    }%
+    \NameNewDef{@@E-#1}{% 
+        \NameUse{@End#1}% 
+        \if\StringsEqualConditional{#1}{\@CurEnvName}% 
+        \else
+            \errmessage{Ending environment: mismatch in
+                environment names: specified: #1,
+                expected: \@CurEnvName}%
+        \fi
+        \egroup
+    }%
+}
+\def\B #1{% 
+    \NameUse{@@B-#1}% 
+}
+\def\E #1{% 
+    \NameUse{@@E-#1}% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-be-env.tip}{}
+\catcode`\@ = 11
+\newbox\@BulletBox
+\setbox\@BulletBox =
+    \hbox{% 
+        \hskip -2.3pt
+        \lower 2.5pt \hbox{$\bullet$}% 
+    }
+\ZeroBox{\@BulletBox}
+\catcode`\@ = 12
+\NameDef{@InputD-box-bul.tip}{}
+\catcode`\@ = 11
+\newbox\@BoxingBox
+\newbox\@BaseLineLeaders
+\catcode`\@ = 12
+\NameDef{@InputD-box-bb.tip}{}
+\newdimen\BoxRuleThickness
+\BoxRuleThickness = 0.4pt
+\NameDef{@InputD-box-thck.tip}{}
+\catcode`\@ = 11
+\newif\ifBulletAndBaseLine
+\BulletAndBaseLinetrue
+\def\RulesOutSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{%
+            \ifBulletAndBaseLine
+                \copy\@BulletBox
+            \fi
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3%
+            \vrule width \BoxRuleThickness height #1 depth #2%
+            \dimen0 = #3% 
+            \advance \dimen0 by 2\BoxRuleThickness
+            \hskip -\dimen0
+            \dimen2 = #1%
+            \advance\dimen2 by \BoxRuleThickness
+            \vrule width \dimen0 height \dimen2 depth -#1% 
+            \hskip -\dimen0
+            \dimen2 = #2% 
+            \advance\dimen2 by \BoxRuleThickness
+            \vrule width \dimen0 height -#2 depth \dimen2
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\RulesInSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{%
+            \ifBulletAndBaseLine
+                \copy\@BulletBox
+            \fi
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3% 
+            \hskip -\BoxRuleThickness
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip -#3% 
+            \dimen2 = #1% 
+            \advance\dimen2 by -\BoxRuleThickness
+            \vrule width #3 height #1 depth -\dimen2
+            \hskip -#3% 
+            \dimen2 = #2% 
+            \advance\dimen2 by -\BoxRuleThickness
+            \vrule width #3 height -\dimen2 depth #2% 
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\RulesOnSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{% 
+            \ifBulletAndBaseLine
+                \copy\@BulletBox
+            \fi
+            \hskip -0.5\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3% 
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip -#3% 
+            \hskip -\BoxRuleThickness
+            \dimen0 = #3% 
+            \advance\dimen0 by \BoxRuleThickness
+            \dimen2 = #1% 
+            \advance\dimen2 by 0.5\BoxRuleThickness
+            \dimen4 = #1% 
+            \advance\dimen4 by -0.5\BoxRuleThickness
+            \dimen4 = -\dimen4
+            \vrule width \dimen0 height \dimen2 depth \dimen4
+            \hskip -\dimen0
+            \dimen2 = #2% 
+            \advance\dimen2 by -0.5\BoxRuleThickness
+            \dimen2 = -\dimen2
+            \dimen4 = #2% 
+            \advance\dimen4 by 0.5\BoxRuleThickness
+            \vrule width \dimen0 height \dimen2 depth \dimen4
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxing5.tip}{}
+\catcode`\@ = 11
+\def\BoxingE #1{%
+    \hbox{% 
+        \setbox\@BoxingBox = #1%
+        \setbox\@BaseLineLeaders = \hbox to \wd\@BoxingBox{%
+            \xleaders\hbox to 4pt{%
+                \hskip 1pt
+                \vrule depth 0.4pt height 0.4pt width 2pt
+                \hfil
+            }%
+            \hfil
+        }%
+        \ZeroBox{\@BaseLineLeaders}% 
+        \ifBulletAndBaseLine
+            \box\@BaseLineLeaders
+        \fi
+        \RulesOnSide
+            {\ht\@BoxingBox}%
+            {\dp\@BoxingBox}% 
+            {\wd\@BoxingBox}% 
+        \box\@BoxingBox
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxing6.tip}{}
+\catcode`\@ = 11
+\newbox\@VcenterXBox
+\newdimen\@VcenterDimen
+\def\VcenterX{% 
+    \hbox\bgroup
+        \mathsurround = 0pt
+    \futurelet\@VCenterXToken\@VCenterXA
+}
+\def\@VCenterXA{%
+    \ifx\@VCenterXToken\bgroup
+        \let\@VcenterXNext = \@VcenterXOrdinary
+    \else
+        \ifx\@VCenterXToken t%
+            \let\@VcenterXNext = \@VcenterXTo
+        \else
+            \let\@VcenterXNext = \@VcenterXSpread
+        \fi
+    \fi
+    \@VcenterXNext
+}
+\def\@VcenterXOrdinary{%
+    \def\@VcenterCommand{\vcenter}%
+    \afterassignment\@VcenterXB
+    \let\@VcenterDrop =
+}
+\def\@VcenterXTo to{% 
+    \def\@VcenterCommand{to}%
+    \afterassignment\@VcenterXToSpread
+    \@VcenterDimen =
+}
+\def\@VcenterXSpread spread{% 
+    \def\@VcenterCommand{spread}%
+    \afterassignment\@VcenterXToSpread
+    \@VcenterDimen =
+}
+\def\@VcenterXToSpread{%
+    \edef\@VcenterCommand{% 
+        \vcenter\@VcenterCommand \the\@VcenterDimen
+    }%
+    \afterassignment\@VcenterXB
+    \let\@VcenterDrop =
+}
+\def\@VcenterXB{%
+    \setbox\@VcenterXBox = \hbox\bgroup
+        $%
+        \@VcenterCommand\bgroup
+    \aftergroup\@VcenterXC
+}
+\def\@VcenterXC{%
+    $%
+    \egroup
+    \box\@VcenterXBox
+    \egroup
+}
+\catcode`\@ = 12
+\NameDef{@InputD-vcentx.tip}{}
+\catcode`\@ = 11
+\newdimen\@BoxRDimen
+\newbox\@BoxRBox
+\newcount\@BoxRNumber
+\def\HboxR{%
+    \hbox\bgroup
+    \def\@WhichBox{\hbox}%
+    \def\@WhichBoxDimen{}%
+    \@BoxRaa
+}
+\def\VboxR{%
+    \vbox\bgroup
+    \def\@WhichBox{\vbox}%
+    \def\@WhichBoxDimen{}%
+    \@BoxRaa
+}
+\def\VtopR{%
+    \vtop\bgroup
+    \def\@WhichBox{\vtop}%
+    \def\@WhichBoxDimen{}%
+    \@BoxRaa
+}
+\def\VcenterXR{%
+    \hbox\bgroup
+    \def\@WhichBox{\VcenterX}%
+    \def\@WhichBoxDimen{}%
+    \@BoxRaa
+}
+\def\BoxR{%
+    \hbox\bgroup
+    \def\@WhichBox{\hbox}%
+    \def\@WhichBoxDimen{}%
+    \afterassignment\@BoxRB
+    \@BoxRNumber =
+}
+\def\@BoxRB{%
+    \HboxR{\box\@BoxRNumber}% 
+    \egroup
+}
+\def\CopyR{%
+    \hbox\bgroup
+    \def\@WhichBox{\hbox}%
+    \def\@WhichBoxDimen{}%
+    \afterassignment\@CopyRbb
+    \@BoxRNumber =
+}
+\def\@CopyRbb{%
+    \HboxR{\copy\@BoxRNumber}% 
+    \egroup
+}
+\def\@BoxRaa{% 
+    \futurelet\@BoxRSymbol\@BoxRA
+}
+\def\@BoxRA{%
+    \ifx\@BoxRSymbol\bgroup
+        \let\@BoxitNext = \@BoxRb
+    \else
+        \if\@BoxRSymbol t% 
+            \let\@BoxitNext = \@BoxRbTo
+        \else
+            \let\@BoxitNext = \@BoxRbSpread
+        \fi
+    \fi
+    \@BoxitNext
+}
+\def\@BoxRb{%
+    \afterassignment\@BoxRbTwo
+    \let\@BoxDrop =
+}
+\def\@BoxRbTwo{% 
+    \setbox\@BoxRBox = \expandafter\@WhichBox\@WhichBoxDimen\bgroup
+    \aftergroup\@BoxRbThree
+}
+\def\@BoxRbThree{% 
+    \BoxingE{\box\@BoxRBox}% 
+    \egroup
+}
+\def\@BoxRbTo to{%
+    \def\@WhichBoxDimen{to}% 
+    \afterassignment\@BoxRbMoreSpreadTo
+    \@BoxRDimen =
+}
+\def\@BoxRbSpread spread{%
+    \def\@WhichBoxDimen{spread}%
+    \afterassignment\@BoxRbMoreSpreadTo
+    \@BoxRDimen =
+}
+\def\@BoxRbMoreSpreadTo{%
+    \edef\@WhichBoxDimen{\@WhichBoxDimen \the\@BoxRDimen}% 
+    \afterassignment\@BoxRbTwo
+    \let\@BoxDrop =
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxing7.tip}{}
+\def\BoxLarger #1#2{% 
+    \vbox{% 
+        \vskip #2
+        \hbox{% 
+            \hskip #2%
+            \hbox{#1}% 
+            \hskip #2%
+        }%
+        \vskip #2
+    }% 
+}
+\NameDef{@InputD-box-larg.tip}{}
+\def\EmptyBox #1#2#3{% 
+    \hbox{% 
+        \setbox 0 = \hbox{}% 
+        \ht0 = #1% 
+        \dp0 = #2% 
+        \wd0 = #3% 
+        \box 0% 
+    }% 
+}
+\NameDef{@InputD-emptybox.tip}{}
+\catcode`\@ = 11
+\newbox\@EmptyRuledBox
+\def\EmptyRuledBox #1#2#3{%
+    \setbox\@EmptyRuledBox = \hbox{}%
+    \ht\@EmptyRuledBox = #1\relax
+    \dp\@EmptyRuledBox = #2\relax
+    \wd\@EmptyRuledBox = #3\relax
+    \HboxR{\box\@EmptyRuledBox}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-emprubox.tip}{}
+\def\EliminateRuledBoxes{%
+    \let\HboxR = \hbox
+    \let\VboxR = \vbox
+    \let\VtopR = \vtop
+    \let\VcenterXR = \VcenterX
+    \let\BoxR = \box
+    \let\CopyR = \copy
+}
+\NameDef{@InputD-boxrelim.tip}{}
+\def\LineR{\HboxR to \hsize}
+\def\LeftlineR   #1{\LineR{#1\hss}}
+\def\RightlineR  #1{\LineR{\hss#1}}
+\def\CenterlineR #1{\LineR{\hss#1\hss}}
+\NameDef{@InputD-linesr.tip}{}
+\NameDef{@InputD-box-mac.tip}{}
+\catcode`\@ = 11
+\newdimen\@BigLetDown
+\newdimen\@BigLetDimen
+\newcount\@BigLetCount
+\newbox\@BigLetBox
+\newdimen\BigLetSep
+\BigLetSep = 2pt
+\newdimen\BigLetH
+\BigLetH = 2pt
+\def\BigLetPar #1{%
+    \par
+    \setbox\@BigLetBox = \hbox{#1\hskip\BigLetSep}%
+    \setbox\@BigLetBox = \vtop{%
+        \dimen0 = \baselineskip
+        \offinterlineskip
+        \hbox{}
+        \vskip -0.7\dimen0
+        \box\@BigLetBox
+        \vbox to \BigLetH{}
+    }%
+    \@BigLetDimen = \dp\@BigLetBox
+    \advance\@BigLetDimen by 0.7\baselineskip
+    \advance\@BigLetDimen by 1.0\baselineskip
+    \divide\@BigLetDimen by \baselineskip
+    \@BigLetCount = \@BigLetDimen
+    \dp\@BigLetBox = 0pt
+    \hangafter = -\@BigLetCount
+    \hangindent = \wd\@BigLetBox
+    \noindent
+    \hskip -\hangindent
+    \box \@BigLetBox
+    \ignorespaces
+}
+\catcode`\@ = 12
+\NameDef{@InputD-bletpar.tip}{}
+\def\BoxingA #1{% 
+    \vbox{%
+        \hrule
+        \hbox{%
+            \vrule
+            #1% 
+            \vrule
+        }%
+        \hrule
+    }%
+}
+\NameDef{@InputD-boxing1.tip}{}
+
+\def\BoxingB #1{%
+    \vbox{%
+        \hrule height \BoxRuleThickness
+        \hbox{% 
+            \vrule width \BoxRuleThickness
+            #1%
+            \vrule width \BoxRuleThickness
+        }%
+        \hrule height \BoxRuleThickness
+    }%
+}
+\NameDef{@InputD-boxing2.tip}{}
+\catcode`\@ = 11
+\def\BoxingC #1{%
+    \vbox{%
+        \hrule height \BoxRuleThickness
+        \hbox{%
+            \vrule width \BoxRuleThickness
+            \copy\@BulletBox
+            #1% 
+            \vrule width \BoxRuleThickness
+        }%
+        \hrule height \BoxRuleThickness
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxing3.tip}{}
+\catcode`\@ = 11
+\def\BoxingD #1{%
+    \vbox{%
+        \setbox\@BoxingBox = #1%
+        \setbox\@BaseLineLeaders = \hbox to \wd\@BoxingBox{%
+            \xleaders\hbox to 4pt{%
+                \hskip 1pt
+                \vrule depth 0.4pt height 0.4pt width 2pt
+                \hfil
+                }%
+            \hfil
+        }%
+        \ZeroBox{\@BaseLineLeaders}% 
+        \hrule height \BoxRuleThickness
+        \hbox{%
+            \vrule width \BoxRuleThickness
+            \copy\@BulletBox
+            \box\@BaseLineLeaders
+            \box\@BoxingBox
+            \vrule width \BoxRuleThickness
+        }%
+        \hrule height \BoxRuleThickness
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxing4.tip}{}
+\catcode`\@ = 11
+\def\newcountOF{\alloc@0\count\countdef\insc@unt}
+\def\newdimenOF{\alloc@1\dimen\dimendef\insc@unt}
+\def\newskipOF{\alloc@2\skip\skipdef\insc@unt}
+\def\newmuskipOF{\alloc@3\muskip\muskipdef\@cclvi}
+\def\newboxOF{\alloc@4\box\chardef\insc@unt}
+\def\newhelpOF#1#2{\newtoksOF#1#1\expandafter{\csname#2\endcsname}}
+\def\newtoksOF{\alloc@5\toks\toksdef\@cclvi}
+\def\newreadOF{\alloc@6\read\chardef\sixt@@n}
+\def\newwriteOF{\alloc@7\write\chardef\sixt@@n}
+\def\newfamOF{\alloc@8\fam\chardef\sixt@@n}
+\def\newifOF#1{\count@\escapechar \escapechar\m@ne
+  \expandafter\expandafter\expandafter
+   \edef\@if#1{true}{\let\noexpand#1=\noexpand\iftrue}%
+  \expandafter\expandafter\expandafter
+   \edef\@if#1{false}{\let\noexpand#1=\noexpand\iffalse}%
+  \@if#1{false}\escapechar\count@} % the condition starts out false
+\def\newlanguageOF{\alloc@9\language\chardef\@cclvi}
+\catcode`\@ = 12
+\NameDef{@InputD-newoutfr.tip}{}
+\edef\FourSpaces{\space\space\space\space}
+\edef\EightSpaces{\FourSpaces\FourSpaces}
+\NameDef{@InputD-mspaces.tip}{}
+\catcode`\@ = 11
+\newcount\@BoxRQStart
+\newcount\@BoxRQEnd
+\newcount\@BoxRQLength
+\newcount\@BoxRQCount
+\newcount\@BoxRQLast
+\newcount\@BoxRQFirst
+\def\@LoadBRQCounters #1{%
+    \if\NameDefinedConditional{@BoxRQ-Start-#1}%
+        \@BoxRQStart = \NameUse{@BoxRQ-Start-#1}%
+        \@BoxRQEnd   = \NameUse{@BoxRQ-End-#1}%
+        \@BoxRQLength= \NameUse{@BoxRQ-Length-#1}%
+        \@BoxRQCount = \NameUse{@BoxRQ-Count-#1}%
+        \@BoxRQLast  = \NameUse{@BoxRQ-Last-#1}%
+        \@BoxRQFirst = \NameUse{@BoxRQ-First-#1}%
+    \else
+        \errmessage{\string\@LoadBRQCounters: no queue "#1".}%
+    \fi
+}
+\def\@RestoreBRQCounters #1{%
+    \NameXdef{@BoxRQ-Start-#1}{\the\@BoxRQStart}%
+    \NameXdef{@BoxRQ-End-#1}{\the\@BoxRQEnd}%
+    \NameXdef{@BoxRQ-Length-#1}{\the\@BoxRQLength}%
+    \NameXdef{@BoxRQ-Count-#1}{\the\@BoxRQCount}%
+    \NameXdef{@BoxRQ-Last-#1}{\the\@BoxRQLast}%
+    \NameXdef{@BoxRQ-First-#1}{\the\@BoxRQFirst}%
+}
+\newcount\@BoxRQTempA           \newcount\@BoxRQTempB
+\def\SetUpBoxRegisterQueue #1#2{% 
+    \@BoxRQStart = \count14
+    \advance\@BoxRQStart by 1
+    \@BoxRQTempA = \@BoxRQStart
+    \DoLoop{\@BoxRQTempB}{1}{1}{#2}% 
+        {\newboxOF\@WhoCaresBoxRegisterIndexA
+        \advance\@BoxRQTempA by 1 }
+    \advance\@BoxRQTempA by -1
+    \@BoxRQEnd = \@BoxRQTempA
+    \wlog{\string\SetUpBoxRegisterQueue: queue "#1."}%
+    \wlog{\EightSpaces Box registers
+        \the\@BoxRQStart\space through
+        \the\@BoxRQEnd\space allocated.}%
+    \wlog{\EightSpaces (#2 registers).}%
+    \@BoxRQCount = 0
+    \@BoxRQLength = #2
+    \@RestoreBRQCounters{#1}%
+}
+\def\AddBoxToQueue #1#2{% 
+    \@LoadBRQCounters{#1}%
+    \wlog{\string\AddBoxToQueue: length: \the\@BoxRQLength,
+        count: \the\@BoxRQCount}%
+    \ifnum\@BoxRQCount  = \@BoxRQLength
+        \errmessage{\string\AddBoxToQueue: Queue "#1" is full.}% 
+    \else
+        \ifnum\@BoxRQCount = 0
+            \@BoxRQLast  = \@BoxRQStart
+            \@BoxRQFirst = \@BoxRQStart
+        \fi
+        \global\setbox\@BoxRQLast = #2%
+        \advance\@BoxRQLast by 1
+        \ifnum\@BoxRQLast > \@BoxRQEnd
+            \@BoxRQLast = \@BoxRQStart
+        \fi
+        \advance\@BoxRQCount by 1
+        \@RestoreBRQCounters{#1}%
+    \fi
+}
+\def\CopyFirstElementFromQueue #1#2{% 
+    \@LoadBRQCounters{#1}%
+    \ifnum\@BoxRQCount = 0
+        \errmessage{\string\CopyFirstElementFromQueue: empty "#1"}%
+    \else
+        \setbox #2 = \copy\@BoxRQFirst
+    \fi
+}
+\def\DropFirstBoxOfQueue #1{% 
+    \@LoadBRQCounters{#1}%
+    \ifnum\@BoxRQCount = 0
+        \errmessage{\string\DropFirstBoxOfQueue: "#1" is empty.}% 
+    \else
+        \advance\@BoxRQCount by -1
+        \ifnum\@BoxRQCount = 0
+        \else
+            \advance\@BoxRQFirst by 1
+            \ifnum\@BoxRQFirst > \@BoxRQEnd
+                \@BoxRQFirst = \@BoxRQStart
+            \fi
+        \fi
+    \fi
+    \@RestoreBRQCounters{#1}%
+}
+\def\EmptyBoxRegisterQueueConditional #1{% 
+    TT\fi
+    \@LoadBRQCounters{#1}%
+    \ifnum\@BoxRQCount = 0
+}
+\catcode`\@ = 12
+\NameDef{@InputD-boxrqu.tip}{}
+\def\CenterlineP #1{%
+    \centerline{#1\unskip .}
+}
+\NameDef{@InputD-centerlp.tip}{}
+\def\BeginCenter{%
+    \par
+    \begingroup
+    \rightskip = 1in plus 4em
+    \leftskip = \rightskip
+    \spaceskip = .3333em
+    \xspaceskip = .5em
+    \parfillskip = 0pt
+    \noindent
+}
+\def\EndCenter{%
+    \par
+    \endgroup
+}
+\NameDef{@InputD-centerng.tip}{}
+\def\CenterOrParagraph #1{% 
+    {% 
+        \par
+        \setbox 0 = \hbox{#1}%
+        \ifdim\wd0 > \hsize
+            \noindent #1\par
+        \else
+            \centerline{\box0}%
+        \fi
+    }% 
+}
+\NameDef{@InputD-centpar.tip}{}
+\def\hboxE #1{%
+    {% 
+        \setbox0 = \hbox{#1}% 
+        \setbox1 = \hbox{}% 
+        \wd1 = \wd0
+        \ht1 = \ht0
+        \dp1 = \dp0
+        \HboxR{\box 1}%
+    }% 
+}
+\NameDef{@InputD-charbo.tip}{}
+\catcode`\@ = 11
+\newdimen\@AdvanceBoxD
+\def\AdvanceBoxDimension #1#2{% 
+    \@AdvanceBoxD = #1\relax
+    \advance\@AdvanceBoxD by #2\relax
+    #1 = \@AdvanceBoxD
+}
+\catcode`\@ = 12
+\NameDef{@InputD-chboxd.tip}{}
+\catcode`\@ = 11
+\def\ClearBoxReg #1{% 
+    \setbox #1 = \box\voidb@x
+}
+\catcode`\@ = 12
+\NameDef{@InputD-clearb.tip}{}
+\def\InitialCollectInfo{% 
+    \gdef\Collect{}% 
+}
+\InitialCollectInfo
+\long\def\AddInfo #1{% 
+    \xdef\Collect{\Collect #1}% 
+}
+\NameDef{@InputD-collect.tip}{}
+\newtoks\CollectTokens
+\CollectTokens = {}
+\def\AddInfo #1{% 
+    \expandafter\expandafter\expandafter
+            \CollectTokens\expandafter{% 
+        \the\CollectTokens #1}
+}
+\NameDef{@InputD-coltok.tip}{}
+\catcode`\@ = 11
+\def\MakeOther #1{\catcode `#1 = 12 }
+\def\MakeActive #1{\catcode `#1 = \active\relax}
+\def\MakeEolActive{\MakeActive{\^^M}}
+\def\MakeTabActive{\MakeActive{\^^I}}
+\def\MkOthersNoCB{%
+    \MakeOther{\ }%
+    \MakeOther{\\}%
+    \MakeOther{\$}%
+    \MakeOther{\&}%
+    \MakeOther{\#}%
+    \MakeOther{\^}\MakeOther{\^^K}%
+    \MakeOther{\_}\MakeOther{\^^A}%
+    \MakeOther{\%}%
+    \MakeOther{\~}%
+}
+\def\MkOthers{%
+    \MakeOther{\{}%
+    \MakeOther{\}}%
+    \MkOthersNoCB
+}
+{\catcode`\^^I = 11
+\gdef\@TabAsLiteral{^^I}% 
+}
+\catcode`\[ = 1
+\catcode`\] = 2
+[
+    \catcode`\{ = 12
+    \catcode`\} = 12
+    \gdef\LeftBraceText[{]
+    \gdef\RightBraceText[}]
+]
+\catcode`\[ = 12
+\catcode`\] = 12
+\def\AcuteAccentText{\'{}}
+\def\AcuteAccentTt{{\tt\AcuteAccentText}}
+\def\AmpersandText{\char`\&}
+\def\AmpersandTt{{\tt\AmpersandText}}
+\def\ApostropheText{'{}}
+\def\ApostropheTt{{\tt\ApostropheText}}
+\def\AtSignText{@}
+\def\AtSignTt{{\tt\AtSignText}}
+{% 
+    \catcode`| = 0
+    |catcode`\\ = 12
+    |gdef|Backslash{\}
+}
+\def\BackslashTt{{\tt\char`\\}}
+\def\CaretText{\char`\^{}}
+\def\CaretTt{{\tt\CaretText}}
+\def\DollarSignText{\$}
+\def\DollarSignTt{{\tt\DollarSignText}}
+{
+    \catcode`\# = 12
+    \gdef\PoundSign{#}
+}
+\def\pounds{{\it\char'44 }}
+\def\DoubleQuoteTt{{\tt"}}
+\def\EmDashText{{}---{}}
+\def\EmDashTt{{\tt\EmDashText}}
+\def\EnDashText{{}--{}}
+\def\EnDashTt{{\tt\EnDashText}}
+\def\ExclamationPointText{!}
+\def\ExclamationPointTt{{\tt\ExclamationPointText}}
+\def\GreaterThanSign{>}
+\def\GreaterThanSignTt{{\tt\GreaterThanSign}}
+\def\HyphenText{-}
+\def\HyphenTt{{\tt\HyphenText}}
+\def\OpenExclamationText{>}
+\def\OpenExclamationTt{{\tt\OpenExclamationText}}
+\def\LeftBraceTt{{\tt\LeftBraceText}}
+\def\LeftBracketText{[}
+\def\LeftBracketTt{{\tt\LeftBracketText}}
+\def\LeftParenthesisText{(}
+\def\LeftParenthesisTt{{\tt\LeftParenthesisText}}
+\def\LeftQuoteText{`{}}
+\def\LeftQuoteTt{{\tt\LeftQuoteText}}
+\def\LessThanSign{<}
+\def\LessThanSignTt{{\tt\LessThanSign}}
+\def\MinusSignText{-}
+\def\MinusSignTt{{\tt\MinusSignText}}
+\def\OpenQuestionText{<}
+\def\OpenQuestionTt{{\tt\OpenQuestionText}}
+\def\PlusSignText{+}
+\def\PlusSignTt{{\tt\PlusSignText}}
+\def\PercentSignText{\%}
+\def\PercentSignTt{{\tt\PercentSignText}}
+{
+    \catcode`\% = 12
+    \gdef\PercentSignPure{%}
+}
+\def\PeriodText{.}
+\def\PeriodTt{{\tt\PeriodText}}
+\def\PoundSignText{\#}
+\def\PoundSignTt{{\tt\PoundSignText}}
+\def\QuestionMarkText{?}
+\def\QuestionMarkTt{{\tt\QuestionMarkText}}
+\def\RightBraceTt{{\tt\RightBraceText}}
+\def\RightBracketText{]}
+\def\RightBracketTt{{\tt\RightBracketText}}
+\def\RightQuoteText{'{}}
+\def\RightQuoteTt{{\tt\RightQuoteText}}
+\def\RightParenthesisText{)}
+\def\RightParenthesisTt{{\tt\RightParenthesisText}}
+\def\SpaceText{ }
+\def\VisibleSpaceTt{{\tt\char"20}}
+\def\TildeText{\char`\~{}}
+\def\TildeTt{{\tt\TildeText}}
+\def\UnderscoreText{\char`\_}
+\def\UnderscoreTt{{\tt\UnderscoreText}}
+\def\VerbControlSpace{\ }
+\catcode`\@ = 12
+\NameDef{@InputD-verb-bas.tip}{}
+\catcode`\@ = 11
+\newread\@FileExistsS
+\newif\if@FileExistsAnswer
+\def\FileExistsConditional #1{% 
+    TT\fi
+    \openin\@FileExistsS = #1
+    \ifeof\@FileExistsS
+        \@FileExistsAnswerfalse
+    \else
+        \closein\@FileExistsS
+        \@FileExistsAnswertrue
+    \fi
+    \if@FileExistsAnswer
+}
+\catcode`\@ = 12
+\NameDef{@InputD-fexist.tip}{}
+\catcode`\@ = 11
+\newcount\@CompareFilesResult
+\newread\@ReadCompareOne
+\newread\@ReadCompareTwo
+\def\CompareFilesConditional #1#2{% 
+    TT\fi
+    \if\FileExistsConditional{#1}%
+    \else
+        \errmessage{\string\CompareFilesConditional: first file "#1"
+            does not exist.}% 
+    \fi
+    \if\FileExistsConditional{#2}%
+    \else
+        \errmessage{\string\CompareFilesConditional: second file "#2"
+            does not exist.}% 
+    \fi
+    \global\@CompareFilesResult = 0
+    \begingroup
+    \MkOthers
+    \openin\@ReadCompareOne = #1
+    \openin\@ReadCompareTwo = #2
+    \@CompareFiles
+}
+
+\def\@CompareFiles{% 
+    \read\@ReadCompareOne to \@CompareOneString
+    \read\@ReadCompareTwo to \@CompareTwoString
+    \ifeof\@ReadCompareOne
+        \ifeof\@ReadCompareOne
+            \global\@CompareFilesResult = 1
+        \else
+            \global\@CompareFilesResult = 2
+        \fi
+    \else
+        \ifeof\@ReadCompareOne
+            \global\@CompareFilesResult = 2
+        \else
+            \ifx\@CompareOneString\@CompareTwoString
+            \else
+                \global\@CompareFilesResult = 2
+            \fi
+        \fi
+    \fi
+    \RecursionMacroEnd
+        {\ifnum \@CompareFilesResult = 0\relax}% 
+        {\@CompareFiles}{\@EndCompareFiles}% 
+}
+\def\@EndCompareFiles{% 
+    \endgroup
+    \closein\@ReadCompareOne
+    \closein\@ReadCompareTwo
+    \ifnum\@CompareFilesResult = 1
+}
+\catcode`\@ = 12
+\NameDef{@InputD-comfiles.tip}{}
+\catcode`\@ = 11
+\newwrite\GenericOStream
+\newif\if@GenericOStreamOpen
+\@GenericOStreamOpenfalse
+\def\OpenGenericOStream #1{%
+    \if@GenericOStreamOpen
+        \errmessage{\string\OpenGenericOStream: generic
+            output stream currently open.}%
+    \else
+        \global\@GenericOStreamOpentrue
+        \immediate\openout\GenericOStream = #1%
+    \fi 
+}
+\def\CloseGenericOStream{%
+    \if@GenericOStreamOpen
+        \global\@GenericOStreamOpenfalse
+        \immediate\closeout\GenericOStream
+    \else
+        \errhelp{Stream not in use.}%
+        \errmessage{\string\CloseGenericOStream:
+            stream is NOT open for output.}%
+    \fi 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-genostr.tip}{}
+\catcode`\@ = 11
+\newread\@StringsEqualConditionalCatInput
+\def\StringsEqualConditionalCat #1#2{% 
+    TT\fi
+    \edef\@StringsEqualOneConditionalCat{#1}% 
+    \edef\@StringsEqualTwoConditionalCat{#2}% 
+    \OpenGenericOStream{compst.tmp}%
+    \immediate\write\GenericOStream{%
+        \@StringsEqualOneConditionalCat{#1}%
+    }%
+    \immediate\write\GenericOStream{%
+        \@StringsEqualTwoConditionalCat{#1}%
+    }%
+    \CloseGenericOStream
+    \openin\@StringsEqualConditionalCatInput = compst.tmp
+    \read\@StringsEqualConditionalCatInput to
+        \@StringsEqualOneConditionalCatR
+    \read\@StringsEqualConditionalCatInput to
+        \@StringsEqualTwoConditionalCatR
+    \closein\@StringsEqualConditionalCatInput
+    \ifx
+        \@StringsEqualOneConditionalCatR
+        \@StringsEqualTwoConditionalCatR
+}
+\catcode`\@ = 12
+\NameDef{@InputD-compstca.tip}{}
+\catcode`\@ = 11
+\newif\if@LetterConditional
+\newcount\@LetterConditionalCounter
+\def\@LetterConditional #1#2;{%
+    \@LetterConditionalCounter = `#1\relax
+}
+\def\LetterConditional #1{%
+    TT\fi
+    \@LetterConditionalfalse
+    \edef\@LetterConditionalString{#1}%
+    \expandafter\@LetterConditional\@LetterConditionalString ;
+    \if\InRangeConditional{\@LetterConditionalCounter}{`\a}{`\z}%
+        \@LetterConditionaltrue
+    \fi
+    \if\InRangeConditional{\@LetterConditionalCounter}{`\A}{`\Z}%
+        \@LetterConditionaltrue
+    \fi
+    \if@LetterConditional       
+}
+\catcode`\@ = 12
+\NameDef{@InputD-condltr.tip}{}
+\catcode`\@ = 11
+\def\@TestTrail #1 #2\@Del{% 
+    \def\@RemTspTemp{#1}%
+}
+\def\RemTsp #1#2{%
+    \edef\@RemTspTempOne{#2#2 }% 
+    \expandafter\@TestTrail\@RemTspTempOne\@Del
+    \if\StringsEqualConditional{#2#2}{\@RemTspTemp}% 
+        \def#1{#2}% 
+    \else
+        \edef\@RemTspTempA{\noexpand\edef\noexpand#1{\@RemTspTemp}}%
+        \@RemTspTempA
+    \fi
+}
+\def\@TestLead #1 #2\@Del{\def\@RemLspOne{#1}}
+\def\RemLsp #1#2{%
+    \edef\@TempRemLsp{#2#2\space}%
+    \expandafter\@TestLead\@TempRemLsp\@Del
+    \if\EmptyStringConditional{\@RemLspOne}% 
+        \expandafter\@RemLspThree #2\@Del{#1}% 
+    \else
+        \def#1{#2}%
+    \fi
+}
+\edef\@RemLspTwo{% 
+    \def\noexpand\@RemLspThree\space ##1\noexpand\@Del##2{% 
+        \def##2{##1}% 
+    }% 
+}
+\@RemLspTwo
+\catcode`\@ = 12
+\NameDef{@InputD-remtlsp.tip}{}
+\newcount\StringLengthResult
+\catcode`\@ = 11
+\newbox\@StringLengthBoxA
+\newbox\@StringLengthBoxB
+\def\StringLength #1{% 
+    \setbox\@StringLengthBoxA = \hbox{\tt #1}% 
+    \setbox\@StringLengthBoxB = \hbox{\tt A}% 
+    \StringLengthResult = \wd\@StringLengthBoxA
+    \divide\StringLengthResult by \wd\@StringLengthBoxB
+}
+\catcode`\@ = 12
+\NameDef{@InputD-strleng.tip}{}
+\catcode`\@ = 11
+\def\ConvertArgsToListAndAppend #1#2{% 
+    \def\@Co{#1}%
+    \@ItemRec #2,\@Delimiter
+}
+\def\@ItemRec #1,{% 
+    \RemLsp{\@ItemTemp}{#1}% 
+    \expandafter\RightAppendElement\@Co{\@ItemTemp}% 
+    \futurelet\@ItemRecTok\@ItemRecOne
+}
+\def\@ItemRecOne{%
+    \RecursionMacroEnd{\ifx\@ItemRecTok\@Delimiter}% 
+                     {\@ItemRecEnd}{\@ItemRec}% 
+}
+\def\@ItemRecEnd\@Delimiter{}
+\catcode`\@ = 12
+\NameDef{@InputD-conval.tip}{}
+\catcode`\@ = 11
+\def\arabic #1{\number#1}
+\def\roman #1{%
+    \romannumeral #1%
+}
+\def\Roman #1{%
+    \ifcase #1\or
+        I\or II\or III\or IV\or V\or
+        VI\or VII\or VIII\or IX\or X\or
+        XI\or XII\or XIII\or XIV\or XV\or
+        XVI\or XVII\or XVIII\or XIX\or XX\or
+        XXI\or XXII\or XXIII\or XXIV\or XV%
+    \else
+        \errmessage{\string\Roman: argument \number#1 out
+            of range, larger than 25.}%
+    \fi
+}
+\def\alph #1{%
+    \ifcase #1%
+        \or a\or b\or c\or d\or e\or f\or g\or h\or i% 
+    \else
+        \@Morealph{#1}%
+    \fi
+}
+\def\@Morealph #1{%
+    \ifcase #1%
+        \or  \or  \or  \or  \or  \or  \or  \or  \or
+        \or j\or k\or l\or m\or n\or o\or p\or q\or r%
+        \or s\or t\or u\or v\or w\or x\or y\or z%
+    \else
+        \errmessage{\string\@Morealph: argument too large.}%
+    \fi
+}
+\def\Alph #1{%
+    \ifcase #1%
+    \or A\or B\or C\or D\or E\or F\or G\or H\or I%
+    \else
+        \@MoreAlph{#1}%
+    \fi
+}
+\def\@MoreAlph #1{%
+    \ifcase #1%
+        \or  \or  \or  \or  \or  \or  \or  \or  \or
+        \or J\or K\or L\or M\or N\or O\or P\or Q\or R%
+        \or S\or T\or U \or V\or W\or X\or Y\or Z%
+    \else
+        \errmessage{\string\@MoreAlph: argument too large.}%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-printco.tip}{}
+\catcode`\@ = 11
+\def\NewCounter #1#2#3#4{%
+    \wlog{\string\NewCounter: allocating new counter "#1."}%
+    \if\NameDefinedConditional{@C-#1}%
+        \errmessage{\string\NewCounter: counter "#1" was
+            allocated previously.}% 
+    \fi
+    \expandafter\newcountOF\csname @C-#1\endcsname
+    \ReassignCounter{#1}{#2}{#3}{#4}%
+    \NameDef{@ResetC-#1}{}% 
+}
+\def\ReassignCounter #1#2#3#4{%
+    \if\NameDefinedConditional{@C-#1}%
+    \else
+        \errmessage{\string\ReassignCounter: counter "#1"
+            not defined before.}% 
+    \fi
+    \NameDef{@TheC-#1}{% 
+        \expandafter\expandafter\expandafter#2% 
+        \expandafter{\csname @C-#1\endcsname}% 
+    }% 
+    \NameDef{@TheArabicC-#1}{% 
+        \expandafter\the\csname @C-#1\endcsname 
+    }% 
+    \NameDef{@PriC-#1}{#3}% 
+    \NameDef{@RefC-#1}{#4}%
+}
+\def\TheCounter #1{% 
+    \NameUse{@TheC-#1}% 
+}
+\def\TheArabicCounter #1{% 
+    \NameUse{@TheArabicC-#1}% 
+}
+\def\PrintCounter #1{% 
+    \NameUse{@PriC-#1}% 
+}
+\def\RefCounter #1{% 
+    \NameUse{@RefC-#1}% 
+}
+\let\RefCounterTwo = \RefCounter
+\def\CounterToRegister #1#2{%
+    #1 = \csname @C-#2\endcsname\relax
+}
+\def\AddCounterToResetList #1#2{% 
+    {% 
+        \def\@ResetCounter{\noexpand\@ResetCounter}% 
+        \expandafter\xdef\csname @ResetC-#2\endcsname{% 
+            \csname @ResetC-#2\endcsname\@ResetCounter{#1}% 
+        }% 
+    }% 
+}
+\def\StepCounter #1{% 
+    \global\expandafter\advance\csname @C-#1\endcsname by 1
+    \NameUse{@ResetC-#1}% 
+}
+\def\SetCounter #1#2{% 
+    \global\expandafter\csname @C-#1\endcsname = #2\relax
+}
+\def\AssignCounterToReg #1#2{%
+    #2 = \expandafter\csname @C-#1\endcsname
+    \relax
+}
+\def\@ResetCounter #1{% 
+    \global\csname @C-#1\endcsname = 0
+}
+\catcode`\@ = 12
+\NameDef{@InputD-counters.tip}{}
+\newcount\ReturnNumberOfLinesInFile
+\catcode`\@ = 11
+\newcount\@CharCodeNumberOfLines
+{
+    \catcode`\^^M = \active % 
+    \gdef\@SetUpLineCounting{%
+        \gdef
+            {\global\advance\ReturnNumberOfLinesInFile by 1 }% 
+    }% 
+}
+\def\NumberOfLinesInFile #1{% 
+    \begingroup
+        \global\ReturnNumberOfLinesInFile = 0
+        \DoLoop{\@CharCodeNumberOfLines}{0}{1}{127}% 
+            {\catcode\@CharCodeNumberOfLines = 9 }
+        \@SetUpLineCounting
+        \catcode`\^^M = \active
+        \input #1
+    \endgroup
+    \ifnum\ReturnNumberOfLinesInFile = 1
+        \if\CompareFilesConditional{#1}{nul}%
+            \ReturnNumberOfLinesInFile = 0
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-countl.tip}{}
+\def\CenterRightLines #1#2{
+    \setbox 0 = \hbox{#1}
+    \dimen0 = \hsize
+    \advance\dimen0 by -\wd0
+    \divide\dimen0 by 2
+    \rightline{#1\hskip\dimen0}
+    \rightline{#2\hskip\dimen0}
+}
+\NameDef{@InputD-crline.tip}{}
+\catcode`\@ = 11
+\newcount\@CreateArrayCount
+\def\CCreateArray #1#2#3{%
+    \NameEdef{#1-low}{\number#2}%
+    \NameEdef{#1-high}{#3}%
+    \ifnum #3<#2
+        \errmessage{\string\CCreateArray: low array boundary
+            \number#2 is larger than upper array boundary
+            \number#3}%
+    \fi
+    \DoLoop{\@CreateArrayCount}{#2}{1}{#3}{%
+        \NameDef{#1-\the\@CreateArrayCount}{}%
+    }
+}
+\newcount\@ConvertStringIntoArrayLength
+\newcount\@ConvertStringIntoArrayCount
+\def\ConvertStringIntoArray #1#2{%
+    \def\@ConvertArrayName{#1}%
+    \edef\@ConvertArrayString{#2}%
+    \StringLength{\@ConvertArrayString}%
+    \@ConvertStringIntoArrayLength = \StringLengthResult
+    \advance\@ConvertStringIntoArrayLength by -1
+    \CCreateArray{\@ConvertArrayName}%
+        {0}{\the\@ConvertStringIntoArrayLength}%
+    \@ConvertStringIntoArrayCount = 0
+    \expandafter\@ConvertStringIntoArray
+        \@ConvertArrayString\@ConvertEnd
+}
+\def\@ConvertStringIntoArray #1#2\@ConvertEnd{%
+    \CLoadArrayElementEdef{\@ConvertArrayName}%
+        {\the\@ConvertStringIntoArrayCount}{#1}%
+    \if\EmptyStringConditional{#2}%
+        \def\@ConvertStringIntoArrayNext{}%
+    \else
+        \advance\@ConvertStringIntoArrayCount by 1\relax
+        \def\@ConvertStringIntoArrayNext{%
+            \@ConvertStringIntoArray #2\@ConvertEnd%
+        }%
+    \fi
+    \@ConvertStringIntoArrayNext
+}
+\def\CCheckIndex #1#2{%
+    \expandafter\ifx\csname #1-low\endcsname\relax
+        \errmessage{\string\CCheckIndex: no array #1.}%
+    \fi
+    \ifnum #2<\NameUse{#1-low}%
+        \errmessage{Index #2 for array #1 too small.}%
+    \fi
+    \ifnum #2>\NameUse{#1-high}%
+        \errmessage{Index #2 for array #1 too large.}%
+    \fi
+}
+\def\CArrayAccess #1#2#3{%
+    \CCheckIndex{#1}{#2}%
+    \edef#3{\NameUse{#1-#2}}%
+}
+\newcount\@CArrayAccessIntervalCount
+\def\CArrayAccessInterval #1#2#3#4{%
+    \CCheckIndex{#1}{#2}%
+    \CCheckIndex{#1}{#3}%
+    \ifnum #2>#3\relax
+        \errmessage{\string\CArrayAccessInterval: low index
+            (\PoundSignText 2) > high index
+            (PoundSignText 3).}%
+    \fi
+    \def#4{}%
+    \DoLoop
+        {\@CArrayAccessIntervalCount}{#2}{1}{#3}{%
+        \CArrayAccess{#1}{\the\@CArrayAccessIntervalCount}%
+            {\@CArrayAccessInterval}%
+        \edef#4{#4\@CArrayAccessInterval}%
+    }%
+}
+\def\CLoadArrayElement #1#2#3{%
+    \CCheckIndex{#1}{#2}%
+    \NameDef{#1-#2}{#3}%
+}
+\def\CLoadArrayElementEdef #1#2#3{%
+    \CCheckIndex{#1}{#2}%
+    \NameEdef{#1-#2}{#3}%
+}
+\newcount\@CShowArrayCount
+\def\CShowArray #1{%
+    \DoLoop
+        {\@CShowArrayCount}%
+        {\NameUse{#1-low}}% 
+        {1}% 
+        {\NameUse{#1-high}}%
+        {\wlog{Index \the\@CShowArrayCount:
+            \NameUse{#1-\the\@CShowArrayCount}}}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-csar.tip}{}
+\newcount\BackslashCharCode
+\BackslashCharCode = `\\
+\edef\mac #1{%
+    {% 
+        \noexpand\tt
+        \char\the\BackslashCharCode\space
+        #1% 
+    }%
+}
+\NameDef{@InputD-cssprint.tip}{}
+\def\CSToString #1#2{%
+    {%
+        \escapechar = -1
+        \xdef#1{\string #2}%
+    }%
+}
+\NameDef{@InputD-cstostr.tip}{}
+\catcode`\@ = 11
+\newread\@CatIn
+\def\CSToStringCat #1#2{%
+    {%
+        \escapechar = -1
+        \OpenGenericOStream{cstostrc.tmp}%
+        \immediate\write\GenericOStream{\string#2\%}%
+        \CloseGenericOStream
+        \openin\@CatIn = cstostrc.tmp
+        \global\read\@CatIn to #1%
+        \closein\@CatIn
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-cstostrc.tip}{}
+\catcode`\@ = 11
+\newif\if@ControlSequenceConditional
+\def\ControlSequenceConditional #1{%
+    TT\fi
+    {%
+        \escapechar = -1
+        \xdef\@ControlSequenceConditionalOne{\string#1}%
+        \escapechar = `:\relax
+        \xdef\@ControlSequenceConditionalTwo{\string#1}%
+    }%
+    \ifx\@ControlSequenceConditionalOne
+        \@ControlSequenceConditionalTwo
+        \@ControlSequenceConditionalfalse
+    \else
+        \@ControlSequenceConditionaltrue
+    \fi
+    \if@ControlSequenceConditional
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ctestcs.tip}{}
+\catcode`\@ = 11
+\long\def\DoLongFutureLet #1#2#3#4{% 
+    \def\@FutureLetDecide{% 
+        #1#2\@FutureLetToken
+            \def\@FutureLetNext{#3}%
+        \else
+            \def\@FutureLetNext{#4}%
+        \fi
+        \@FutureLetNext
+    }% 
+    \futurelet\@FutureLetToken\@FutureLetDecide
+}
+\def\DoFutureLet #1#2#3#4{\DoLongFutureLet{#1}{#2}{#3}{#4}}
+\catcode`\@ = 12
+\NameDef{@InputD-futlet.tip}{}
+\catcode`\@ = 11
+\def\DblArg #1{% 
+    \def\@DblArgTemp{#1}%
+    \DoFutureLet{\ifx}{[}{\@DblArgTemp}{\@DblArgB}%
+}
+\def\@DblArgB #1{\@DblArgTemp[#1]{#1}}
+\catcode`\@ = 12
+\NameDef{@InputD-dblarg.tip}{}
+\catcode`\@ = 11
+\def\GobbleDoMore #1#2{%
+    \def\@GobbleDoMore ##1#1{}%
+    \expandafter#2\@GobbleDoMore
+}
+\catcode`\@ = 12
+\NameDef{@InputD-gobblemo.tip}{}
+\catcode`\@ = 11
+\def\DefaultArg #1#2#3{%
+    \def\@DefaultArgMacro{#1}%
+    \edef\@EmptyOtherArg{#2}%
+    \edef\@DefaultArgDefault{#3}%
+    \@DefaultArg #2\@DefaultArgEnd
+}
+\def\@DefaultArg{%
+    \futurelet\@DefaultArgSymbol\@DefaultArgOne
+}
+\def\@DefaultArgOne{%
+    \ifx\@DefaultArgSymbol\@DefaultArgEnd
+        \expandafter\edef\@DefaultArgMacro{\@DefaultArgDefault}% 
+    \else
+        \expandafter\edef\@DefaultArgMacro{\@EmptyOtherArg}% 
+    \fi
+    \GobbleDoMore{\@DefaultArgEnd}{\relax}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-defauarg.tip}{}
+\def\DicEntry #1{%
+    \par
+    \hangafter = 1
+    \hangindent = 5pt
+    \noindent
+    {\bf #1}%
+    \mark{#1}%
+    \hskip 1em plus .2em minus .2em
+    \ignorespaces
+}
+\NameDef{@InputD-dicentry.tip}{}
+\catcode`\@ = 11
+\newif\if@PrefixResult
+\newcount\@LengthPrefixString
+\newcount\@LengthMainString
+\def\PrefixConditional #1#2{% 
+    TT\fi
+    \StringLength{#1}%
+    \@LengthMainString = \StringLengthResult
+    \StringLength{#2}% 
+    \@LengthPrefixString = \StringLengthResult
+    \ifnum\@LengthMainString < \@LengthPrefixString
+        \@PrefixResultfalse
+    \else
+        \@PrefixConditionalTwo{#1}{#2}% 
+    \fi
+    \if@PrefixResult
+}
+\def\@PrefixConditionalTwo #1#2{% 
+    \edef\@PrefixBoth{#1#2}% 
+    \edef\@PrefixTemp{% 
+        \def\noexpand\@TestPrefix ####1#2####2\noexpand\@Del{% 
+            \noexpand\if\noexpand\EmptyStringConditional{####1}%
+        }% 
+    }% 
+    \ShowX\@PrefixTemp
+    \@PrefixTemp
+    \ShowX{\@TestPrefix}%
+    \expandafter\@TestPrefix\@PrefixBoth\@Del
+        \@PrefixResulttrue
+    \else
+        \@PrefixResultfalse
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-isprefix.tip}{}
+\catcode`\@ = 11
+\def\DropPrefix #1#2#3{%
+    \if\PrefixConditional{#1}{#2}%
+        \edef\@PrefixConditionalTemp{% 
+            \def\noexpand\@PrefixConditionalTempTwo #2####1% 
+                                        \noexpand\@Del{%
+                \def\noexpand #3{####1}}%
+        }%
+        \@PrefixConditionalTemp
+        \ShowX{\@PrefixConditionalTemp}%
+        \expandafter\@PrefixConditionalTempTwo #1\@Del
+    \else
+        \wlog{\string\DropPrefix: "#2" is NOT a prefix of "#1"}%
+        \edef#3{#1}%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-droppre.tip}{}
+{
+    \catcode`\p = 12
+    \catcode`\t = 12
+    \NameGdef{DropPoints}#1pt{\NameGdef{DropPointsResult}{#1}}
+}
+\NameDef{@InputD-droppt.tip}{}
+\def\DumpOneReg #1{%
+    \wlog{Parameter "\string#1", value = \the#1}%
+}
+\def\DumpAllRegs{%
+    \wlog{\string\DumpAllRegs: Counter parameters first.}%
+    \DumpOneReg{\time}%
+    \DumpOneReg{\day}% 
+    \DumpOneReg{\month}% 
+    \DumpOneReg{\year}% 
+    \DumpOneReg{\pretolerance}% 
+    \DumpOneReg{\tolerance}% 
+    \DumpOneReg{\doublehyphendemerits}% 
+    \DumpOneReg{\finalhyphendemerits}% 
+    \DumpOneReg{\adjdemerits}% 
+    \DumpOneReg{\linepenalty}% 
+    \DumpOneReg{\looseness}% 
+    \DumpOneReg{\linepenalty}% 
+    \DumpOneReg{\hyphenpenalty}% 
+    \DumpOneReg{\exhyphenpenalty}% 
+    \DumpOneReg{\binoppenalty}% 
+    \DumpOneReg{\relpenalty}% 
+    \DumpOneReg{\clubpenalty}% 
+    \DumpOneReg{\widowpenalty}% 
+    \DumpOneReg{\displaywidowpenalty}% 
+    \DumpOneReg{\brokenpenalty}% 
+    \DumpOneReg{\predisplaypenalty}% 
+    \DumpOneReg{\postdisplaypenalty}% 
+    \DumpOneReg{\interlinepenalty}% 
+    \DumpOneReg{\floatingpenalty}% 
+    \DumpOneReg{\outputpenalty}% 
+    \DumpOneReg{\pausing}% 
+    \DumpOneReg{\tracingonline}% 
+    \DumpOneReg{\tracinglostchars}% 
+    \DumpOneReg{\tracingmacros}% 
+    \DumpOneReg{\tracingstats}% 
+    \DumpOneReg{\tracingparagraphs}% 
+    \DumpOneReg{\tracingpages}% 
+    \DumpOneReg{\tracingoutput}% 
+    \DumpOneReg{\tracingcommands}% 
+    \DumpOneReg{\tracingrestores}% 
+    \DumpOneReg{\mag}% 
+    \DumpOneReg{\uchyph}% 
+    \DumpOneReg{\lefthyphenmin}% 
+    \DumpOneReg{\righthyphenmin}% 
+    \DumpOneReg{\defaultskewchar}% 
+    \DumpOneReg{\escapechar}% 
+    \DumpOneReg{\endlinechar}% 
+    \DumpOneReg{\newlinechar}% 
+    \DumpOneReg{\fam}% 
+    \DumpOneReg{\hbadness}% 
+    \DumpOneReg{\vbadness}% 
+    \DumpOneReg{\badness}% 
+    \DumpOneReg{\showboxdepth}% 
+    \DumpOneReg{\showboxbreadth}% 
+    \DumpOneReg{\deadcycles}% 
+    \DumpOneReg{\maxdeadcycles}% 
+    \DumpOneReg{\holdinginserts}% 
+    \DumpOneReg{\hangafter}% 
+    \DumpOneReg{\globaldefs}% 
+    \DumpOneReg{\delimiterfactor}% 
+    \DumpOneReg{\inputlineno}% 
+    \DumpOneReg{\language}% 
+    \wlog{\string\DumpAllRegs: Dimension parameters next.}%
+    \DumpOneReg{\hfuzz}% 
+    \DumpOneReg{\vfuzz}% 
+    \DumpOneReg{\overfullrule}% 
+    \DumpOneReg{\lineskiplimit}% 
+    \DumpOneReg{\maxdepth}% 
+    \DumpOneReg{\splitmaxdepth}% 
+    \DumpOneReg{\boxmaxdepth}% 
+    \DumpOneReg{\delimitershortfall}% 
+    \DumpOneReg{\nulldelimiterspace}% 
+    \DumpOneReg{\scriptspace}% 
+    \DumpOneReg{\mathsurround}% 
+    \DumpOneReg{\predisplaysize}% 
+    \DumpOneReg{\displaywidth}% 
+    \DumpOneReg{\displayindent}% 
+    \DumpOneReg{\parindent}% 
+    \DumpOneReg{\hangindent}% 
+    \DumpOneReg{\hoffset}% 
+    \DumpOneReg{\voffset}% 
+    \wlog{\string\DumpAllRegs: Glue parameters last.}%
+    \DumpOneReg{\baselineskip}% 
+    \DumpOneReg{\lineskip}% 
+    \DumpOneReg{\topskip}% 
+    \DumpOneReg{\splittopskip}% 
+    \DumpOneReg{\parskip}% 
+    \DumpOneReg{\leftskip}% 
+    \DumpOneReg{\rightskip}% 
+    \DumpOneReg{\emergencystretch}% 
+    \DumpOneReg{\abovedisplayskip}% 
+    \DumpOneReg{\abovedisplayshortskip}% 
+    \DumpOneReg{\belowdisplayskip}% 
+    \DumpOneReg{\belowdisplayshortskip}% 
+    \wlog{\string\DumpAllRegs: done.}%
+}%
+\NameDef{@InputD-dumppars.tip}{}
+\catcode`\@ = 11
+\def\GenAeol #1{% 
+    \edef #1{%
+        \bgroup
+        \noexpand\MakeEolActive
+        \noexpand\@GenAeolOne{% 
+            \csname\string #1-2\endcsname}%
+    }%
+    \NameDef{\string #1-2}##1%
+}
+{
+    \MakeEolActive
+    \gdef\@GenAeolOne #1#2
+    {% 
+        \egroup% 
+        #1{#2}% 
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-genaeol.tip}{}
+\catcode`\@ = 11
+\newif\if@VerbFirstLineSuppress
+\def\OpenVerbWrFile #1#2#3{%
+    \immediate\openout #3 = #1.#2
+    \wlog{\string\OpenVerbWrFile: opened "#1.#2" for
+        literal writing.}%
+}
+\def\CloseVerbWrFile #1{%
+    \immediate\closeout #1
+    \wlog{\string\CloseVerbWrFile: closed file for literal writing.}%
+}
+\def\BeginVerbWr #1#2{%
+    \begingroup
+    \def\@VerbWrStream{#1}%
+    \CSToStringCat{\@EndVerbWrSt}{#2}%
+    \wlog{\string\BeginVerbWr: begin}% 
+    \MkOthers
+    \MakeEolActive
+    \@VerbWrTabHandling
+    \@VerbFirstLineSuppresstrue
+    \expandafter\expandafter\expandafter
+        \@BeginVerbWrY\expandafter{\@EndVerbWrSt}%
+}
+{
+    \catcode `| = 0
+    \catcode`\\ =12
+    |gdef|@BeginVerbWrY #1{%
+        |def|@BeginVerbWrX ##1\#1{%
+            |@BeginVerbWr ##1% 
+            |@VerbWrDoneToken
+            |@VerbWrDone
+        }
+        |@BeginVerbWrX
+    }
+}
+\def\@VerbWrTabHandling{%
+    \MakeTabActive
+    \@VerbWrTabHandlingOne
+}
+{\MakeTabActive
+\gdef\@VerbWrTabHandlingOne{\def^^I{\@TabAsLiteral}}% 
+}
+\def\@BeginVerbWr{% 
+    \DoFutureLet{\ifx}% 
+        {\@VerbWrDoneToken}% 
+        {\GobbleDoMore
+            {\@VerbWrDoneToken}{\relax}}%
+        {\@BeginVerbWrTwo}% 
+}
+\GenAeol{\@BeginVerbWrTwo}{%
+    \if@VerbFirstLineSuppress
+        \@VerbFirstLineSuppressfalse
+    \else
+        \immediate\write\@VerbWrStream{#1}%
+    \fi
+    \@BeginVerbWr
+}
+\def\@VerbWrDone{% 
+    \endgroup
+    \wlog{\string\@VerbWrDone: done}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-verbwr.tip}{}
+\catcode`\@ = 11
+\def\@DefEndNoteFileExt{eno}
+\newwrite\@EndNoteStream
+\newcount\@EndNoteCounter
+\def\StartEndNoteWriting #1#2#3#4{% 
+    \@EndNoteCounter = 0
+    \DefaultArg{\@EndNoteBaseName}{#1}{\jobname}% 
+    \DefaultArg{\@EndNoteFileExt}{#2}{\@DefEndNoteFileExt}% 
+    \edef\@EndNoteFileName{\@EndNoteBaseName.\@EndNoteFileExt}%
+    \wlog{\string\StartEndNoteWriting: output will be written to file
+            "\@EndNoteFileName".}
+    \edef\@EndNoteBefore{\string#3}%
+    \edef\@EndNoteAfter{\string#4}%
+    \OpenVerbWrFile{\@EndNoteBaseName}{\@EndNoteFileExt}% 
+                   {\@EndNoteStream}%
+}
+\def\BeginEndNote{% 
+    \advance\@EndNoteCounter by 1
+    \ifnum\@EndNoteCounter > 1
+        \immediate\write\@EndNoteStream{\@EndNoteAfter}% 
+    \fi
+    \immediate\write\@EndNoteStream{\@EndNoteBefore}%
+    \BeginVerbWr{\@EndNoteStream}{\EndEndNote}
+}
+\def\EndEndNoteWriting{% 
+    \immediate\write\@EndNoteStream{\@EndNoteAfter}% 
+    \CloseVerbWrFile{\@EndNoteStream}% 
+}
+\def\ReadInEndNotes{%
+    \input \@EndNoteFileName
+}
+\catcode`\@ = 12
+\NameDef{@InputD-endn-mac.tip}{}
+\catcode`\@ = 11
+\newdimen \Delta@XY
+\newskip\@ParListBeforeAfter
+\newskip\@ParListBetweenLabels
+\newskip\@ParListAfterLabel
+\newcount\@LabeledParNesting    \@LabeledParNesting = 0
+\newcount\@LabelCounter
+\def\BeginAList #1#2#3#4#5#6#7{%
+    \par
+    \bgroup
+    \advance\leftskip by #1
+    \advance\rightskip by #2
+    \advance \@LabeledParNesting by 1
+    \@LabelCounter = 0
+    \Delta@XY = #3
+    \ifdim\Delta@XY < 0pt
+        \errmessage{\string\BeginAList: negative Delta{xy},
+            made positive.}%
+    \fi
+    \@ParListBeforeAfter = #4   
+    \@ParListBetweenLabels = #5
+    \@ParListAfterLabel = #6
+    \SetParIndent{#7}
+}
+\def\EndAList{% 
+    \par
+    \vskip\@ParListBeforeAfter
+    \egroup
+}
+\def\@GenLabel #1{%
+    \par
+    \advance\@LabelCounter by 1
+    \ifnum\@LabelCounter = 1
+        \parskip = \@ParListBeforeAfter
+    \else
+        \parskip = \@ParListBetweenLabels
+    \fi
+    \noindent
+    \hbox to 0pt{#1}%
+    \parskip = \@ParListAfterLabel
+    \ignorespaces
+}
+\def\ItemLL #1{% 
+    \@GenLabel{%
+        \hskip -\Delta@XY
+        #1%
+        \hfil
+    }%
+}
+\def\ItemLR #1{%
+    \@GenLabel{%
+        \hss
+        #1%
+        \hskip\Delta@XY
+    }%
+}
+\def\ItemRL #1{%
+    \@GenLabel{%
+        \hskip\Delta@XY
+        #1%
+        \hss
+    }%
+}
+\def\ItemRR #1{%
+    \@GenLabel{%
+        \hfil
+        #1%
+        \hskip -\Delta@XY
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-parv-1.tip}{}
+\catcode`\@ = 11
+\newcount\@EnumerateListDepth
+\@EnumerateListDepth = 0
+\NewCounter{Enumerate1}{\arabic}% 
+    {\TheCounter{Enumerate1}.}{\TheCounter{Enumerate1}}
+\NewCounter{Enumerate2}{\alph}% 
+    {(\TheCounter{Enumerate2})}% 
+    {\TheCounter{Enumerate1}.\TheCounter{Enumerate2}}
+\NewCounter{Enumerate3}{\roman}% 
+    {\TheCounter{Enumerate3}.}% 
+    {\RefCounter{Enumerate2}.\TheCounter{Enumerate3}}
+\NewCounter{Enumerate4}{\Alph}% 
+    {\TheCounter{Enumerate4}.}% 
+    {\RefCounter{Enumerate3}.\TheCounter{Enumerate4}}
+\def\BeginEnumerate{% 
+    \begingroup
+    \global\advance\@EnumerateListDepth by 1
+    \ifcase\@EnumerateListDepth
+        \errmessage{\string\BeginEnumerate: no level
+            zero.}%
+    \or
+        \SetCounter{Enumerate1}{0}%
+        \@BeginEnumerateLevelOne
+        \def\Label ##1{\@Label{##1}{\RefCounter{Enumerate1}}{1}}%
+        \def\Item{% 
+            \StepCounter{Enumerate1}%
+            \ItemLR{\PrintCounter{Enumerate1}}%
+        }%
+    \or
+        \SetCounter{Enumerate2}{0}%
+        \@BeginEnumerateLevelTwo
+        \def\Label ##1{\@Label{##1}{\RefCounter{Enumerate2}}{1}}%
+        \def\Item{% 
+            \StepCounter{Enumerate2}%
+            \ItemLR{\PrintCounter{Enumerate2}}%
+        }%
+    \or
+        \SetCounter{Enumerate3}{0}%
+        \@BeginEnumerateLevelThree
+        \def\Label ##1{\@Label{##1}{\RefCounter{Enumerate3}}{1}}%
+        \def\Item{% 
+            \StepCounter{Enumerate3}%
+            \ItemLR{\PrintCounter{Enumerate3}}%
+        }%
+    \or
+        \SetCounter{Enumerate4}{0}%
+        \@BeginEnumerateLevelFour
+        \def\Label ##1{\@Label{##1}{\RefCounter{Enumerate4}}{1}}%
+        \def\Item{% 
+            \StepCounter{Enumerate4}%
+            \ItemLR{\PrintCounter{Enumerate4}}%
+        }%
+    \else
+        \errmessage{\string\BeginEnumerate: maximum
+            nesting level of 4 exceeded.}%
+    \fi
+}
+\def\EndEnumerate{% 
+    \EndAList
+    \endgroup
+    \global\advance\@EnumerateListDepth by -1
+}
+\catcode`\@ = 12
+\NameDef{@InputD-enumlist.tip}{}
+\def\ErrMessage #1{%
+    \errmessage{#1}%
+    \end
+}
+\NameDef{@InputD-errmess.tip}{}
+\def\PrintEven #1{% 
+    \ifodd #1\relax
+    \else
+        Number #1 is even.
+    \fi
+}
+\NameDef{@InputD-evenprin.tip}{}
+\everypar = {%
+    \EvalEveryPars
+    \ClearEveryPars
+}
+\def\EvalEveryParsCE{%
+    \EveryParC
+    \EveryParD
+    \EveryParE
+}
+\def\EvalEveryPars{%
+    \EveryParA
+    \EveryParB
+    \EvalEveryParsCE
+    \EveryParZ
+}
+\def\ClearEveryPars{%
+    \gdef\EveryParA{}%
+    \gdef\EveryParB{}%
+    \gdef\EveryParC{}%
+    \gdef\EveryParD{}%
+    \gdef\EveryParE{}%
+}
+\def\ClearEveryParsAll{%
+    \ClearEveryPars
+    \gdef\EveryParZ{}%
+}
+\ClearEveryParsAll
+\NameDef{@InputD-everypar.tip}{}
+\def\FigureBox #1#2{% 
+    \BoxingA{% 
+        \EmptyBox{#1}{0pt}{#2}%
+    }% 
+}
+\NameDef{@InputD-figbox.tip}{}
+\def\OverallSize #1#2{% 
+    #1 = \ht#2\relax
+    \advance#1 by \dp#2\relax
+}
+\NameDef{@InputD-sumhd.tip}{}
+\def\LogPageTG #1{% 
+    \wlog{\string\LogPageTG [#1]:}%
+    \wlog{\string\pagetotal: \the\pagetotal,
+        \string\pagegoal: \the\pagegoal}% 
+}
+\NameDef{@InputD-lpagetg.tip}{}
+\newdimen\FreePageSpace
+\def\ComputeFreeSpaceOnPage{%
+    \par
+    \LogPageTG{\string\ComputeFreeSpaceOnPage}%
+    \ifdim\pagetotal = 0pt
+        \FreePageSpace = \vsize
+    \else
+        \FreePageSpace = \pagegoal
+        \advance\FreePageSpace by -\pagetotal
+    \fi
+}
+\def\FreeSpaceConditional{%
+    0pt = 0pt \fi
+    \ComputeFreeSpaceOnPage
+    \ifdim\FreePageSpace
+}
+\NameDef{@InputD-freespac.tip}{}
+\def\FigureInPar #1#2#3#4#5{% 
+    \par
+    \message{\string\FigureInPar: start}%
+    {%
+        \setbox 0 = \vbox{#1}
+        \OverallSize{\dimen0}{0}%
+        \advance\dimen0 by #2
+        \advance\dimen0 by #3
+        \advance\dimen0 by #4
+        \advance\dimen0 by #4
+        \advance\dimen0 by \parskip
+        \message{\string\FigureInPar:
+            available space: \the\FreePageSpace}%
+        \setbox 0 = \HboxR{\EmptyBox{#2}{0pt}{\hsize}}%
+        \ifdim\FreeSpaceConditional < \dimen0
+            \message{\string\FigureInPar:
+                insufficient space: make it a \string\topinsert.}%
+            #1\unskip
+            \space
+            #5%
+            \par
+            \topinsert
+                \box0
+            \endinsert
+        \else
+            \message{\string\FigureInPar:
+                Sufficient space: put it here.}%
+            #1\unskip
+            \space
+            \vadjust{%
+                \vskip #4
+                \box0
+                \vskip #4
+            }% 
+            #5\par
+        \fi
+    }
+}
+\NameDef{@InputD-figinpar.tip}{}
+\catcode`\@ = 11
+\def\FirstLineSpecial #1{% 
+    \par
+    \begingroup
+    #1
+    \def\@FLDTemp{}%
+    \dimen0 = \parindent
+    \setbox0 = \hbox{ }% 
+    \advance\dimen0 by -\wd0
+    \@FLDOne
+}
+\def\@FLDOne #1 {% 
+    \wlog{\string\@FLDOne: called with "#1".}%
+    \xdef\@FLDTempa{#1\ }% 
+    \@FLDTwo
+}
+\def\@FLDTwo{% 
+    \wlog{\string\@FLDTwo: called}%
+    \setbox0 = \hbox{\@FLDTempa}% 
+    \advance\dimen0 by \wd0
+    \ifdim\dimen0 < \hsize
+        \edef\@FLDTemp{\@FLDTemp\@FLDTempa}% 
+        \let\@FLDNext = \@FLDOne
+    \else
+        \leavevmode
+        \@FLDTemp
+        \unskip
+        \break
+        \aftergroup\@FLDTempa
+        \let\@FLDNext = \endgroup
+    \fi
+    \@FLDNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-firstldi.tip}{}
+\def\ReportCharSize #1#2{%
+    {%
+        \count0 = #2\relax
+        \setbox 0 = \hbox{#1\char\count0}%
+        \wlog{\string\ReportCharSize: Font \string#1,
+            character code \the\count0}%
+        \wlog{ht / dp / wd: \the\ht0 \space / \the\dp0
+            \space / \the\wd0}% 
+    }%
+}
+\NameDef{@InputD-fo-char.tip}{}
+\def\CharactersPerPica #1{% 
+    \setbox0 = \hbox{%
+        #1\relax
+        This paragraph has 423 characters. We know that
+        because we counted it. It is very simple to count, because
+        the Emacs editor we are using has a function ``advance
+        by one character.'' And with the prefix command (that's
+        Emacs terminology) you can execute ``advance by
+        one character'' 423~times. Now, let's hope that this text
+        is representative of ordinary text so that our average
+        number of characters per pica is correct.
+    }%
+    {%
+        \count1 = \wd0
+        \divide\count1 by 100
+        \count0 = 423
+        \multiply\count0 by 65536
+        \multiply\count0 by 12
+        \divide\count0 by \count1
+        \count2 = \count0
+        \divide\count2 by 100
+        \IModN{\count0}{100}{\count3}%
+        \the\count2.\LeadingZ{\count3}%
+    }%
+}
+\NameDef{@InputD-font-cpp.tip}{}
+\def\FormLine #1#2#3{%
+    {%
+        \setbox0 = \hbox{#2}%
+        \dimen0 = #1%
+        \advance\dimen0 by -\wd0
+        \hbox{%
+            \box0
+            \hbox to 0pt{% 
+                \vrule width \dimen0 height 0.4pt depth 0pt
+                \hss
+            }%
+            \raise 3pt \hbox to \dimen0 {\hfil #3\hfil}% 
+        }%
+    }%
+}
+\NameDef{@InputD-formline.tip}{}
+\catcode`\@ = 11
+\def\@OctPrintFontTable#1{% 
+    \hbox{% 
+        \rm\'{}% 
+        \kern-.2em
+        \it #1\/% 
+        \kern.05em
+    }% 
+}
+\def\@HexPrintFontTable#1{% 
+    \hbox{\rm\H{}\tt#1}% 
+}
+\def\@OddLineFontTable#1{% 
+    \cr
+    \noalign{\nointerlineskip}
+    \multispan{19}\hrulefill&
+    \setbox0 = \hbox{% 
+        \lower 2.3pt\hbox{% 
+            \@HexPrintFontTable{#1x}% 
+        }% 
+    }% 
+    \smash{\box0}% 
+    \cr
+    \noalign{\nointerlineskip}
+}
+\def\@EvenLineFontTable{\cr\noalign{\hrule}}
+\def\@FontTableStrut{\lower4.5pt\vbox to 14pt{}}
+\def\BeginFontTable #1{% 
+    $$
+    \postdisplaypenalty = 0
+    \global\count@=0
+    #1
+    \halign to\hsize\bgroup
+        \@FontTableStrut##\relax    \tabskip = 0pt plus 10pt&
+        &\hfil##\hfil&\vrule##% 
+    \cr
+    \lower6.5pt\null
+    &&&
+    \@OctPrintFontTable0&&
+    \@OctPrintFontTable1&&
+    \@OctPrintFontTable2&&
+    \@OctPrintFontTable3&&
+    \@OctPrintFontTable4&&
+    \@OctPrintFontTable5&&
+    \@OctPrintFontTable6&&
+    \@OctPrintFontTable7&
+    \@EvenLineFontTable
+}
+\def\EndFontTable{% 
+    \raise 11.5pt\null
+    &&&
+    \@HexPrintFontTable 8&&
+    \@HexPrintFontTable 9&&
+    \@HexPrintFontTable A&&
+    \@HexPrintFontTable B&&
+    \@HexPrintFontTable C&&
+    \@HexPrintFontTable D&&
+    \@HexPrintFontTable E&&
+    \@HexPrintFontTable F&
+    \cr
+    \egroup
+    $$% 
+}
+\def\:{% 
+    \setbox0 = \hbox{% 
+        \char\count@
+    }%
+    \ifdim\ht0 > 7.5pt
+        \@RepositionFontTable
+    \else
+        \ifdim\dp0 > 2.5pt
+            \@RepositionFontTable
+        \fi
+    \fi
+    \box0
+    \global\advance\count@ by 1
+}
+\def\@RepositionFontTable{% 
+    \setbox0 = \hbox{% 
+        $
+            \vcenter{% 
+                \kern 2pt
+                \box0
+                \kern 2pt
+            }
+        $%
+    }% 
+}
+\def\NormalFontTable{%
+    &\@OctPrintFontTable{00x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable0
+    &\@OctPrintFontTable{01x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{02x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable1
+    &\@OctPrintFontTable{03x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{04x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable2
+    &\@OctPrintFontTable{05x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{06x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable3
+    &\@OctPrintFontTable{07x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{10x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable4
+    &\@OctPrintFontTable{11x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{12x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable5
+    &\@OctPrintFontTable{13x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{14x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable6
+    &\@OctPrintFontTable{15x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{16x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable7
+    &\@OctPrintFontTable{17x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+}
+\def\MoreFontTable{%
+    &\@OctPrintFontTable{20x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable8
+    &\@OctPrintFontTable{21x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{22x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable9
+    &\@OctPrintFontTable{23x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{24x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable A
+    &\@OctPrintFontTable{25x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{26x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable B
+    &\@OctPrintFontTable{27x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{30x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable C
+    &\@OctPrintFontTable{31x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{32x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable D
+    &\@OctPrintFontTable{33x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{34x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable E
+    &\@OctPrintFontTable{35x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+    &\@OctPrintFontTable{36x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&&\@OddLineFontTable F
+    &\@OctPrintFontTable{37x}&&\:&&\:&&\:&&\:&&\:&&\:&&
+        \:&&\:&\@EvenLineFontTable
+}
+\catcode`\@ = 12
+\NameDef{@InputD-fotable.tip}{}
+\catcode`\@ = 11
+\def\ForEachToken #1#2{%
+    \def\@ForEachTokenMacro{#2}%
+    \expandafter\@ForEachToken\the#1\@ForEachTokenDel
+}
+\def\@ForEachToken #1{% 
+    \if\StringsEqualConditional{\string\@ForEachTokenDel}{\string#1}%
+        \let\@ForEachTokenNext = \relax % Done.
+    \else
+        \@ForEachTokenMacro{#1}%        % Call macro and continue.
+        \let\@ForEachTokenNext = \@ForEachToken
+    \fi
+    \@ForEachTokenNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-fotok.tip}{}
+\def\frac #1#2{% 
+    {#1 \over #2}% 
+}
+\NameDef{@InputD-frac.tip}{}
+\newdimen\CurrentFontSize
+\def\DefineFontSizeGroup #1#2{% 
+    \wlog{\string\DefineFontSizeGroup: defining group "#1" (#2 pt)}%
+    \NameDef{FontSize#1}{% 
+        \def\rm{\fam = 0        \NameUse{#1rm}}%
+        \def\bf{\fam = \bffam   \NameUse{#1bf}}%
+        \def\it{\fam = \itfam   \NameUse{#1it}}%
+        \def\tt{\fam = \ttfam   \NameUse{#1tt}}%
+        \def\sc{\NameUse{#1sc}}%
+        \def\sl{\fam = \slfam   \NameUse{#1sl}}%
+        \CurrentFontSize = #2pt
+        \baselineskip = \LineSpaceMultFactor\CurrentFontSize
+        \rm
+    }
+}
+\def\LineSpaceMultFactor{1.2}
+\NameDef{@InputD-fsized.tip}{}
+\catcode`\@ = 11
+\def\FutureLetNoSpace #1#2{% 
+    \def\@FutureLetTokenA{#1}% 
+    \def\@FutureLetTokenB{#2}% 
+    \@FutureLetOne
+}
+\def\@FutureLetOne{% 
+    \DoFutureLet{\ifx}{ }%
+        {\@FutureLetThree}{\@FutureLetOk}%
+}
+\edef\@FutureLetNoSpaceTemp{% 
+    \def\noexpand\@FutureLetThree\space{\noexpand\@FutureLetOne}% 
+}
+\@FutureLetNoSpaceTemp
+\def\@FutureLetOk{% 
+    \expandafter\futurelet\@FutureLetTokenA\@FutureLetTokenB
+}
+\long\def\DoLongFutureLetNoSpace #1#2#3#4{%
+    \def\@FutureLetDecideNoSpace{%
+        #1#2\@FutureLetTokenNoSpace
+            \def\@FutureLetNextNoSpace{#3}%
+        \else
+            \def\@FutureLetNextNoSpace{#4}%
+        \fi
+        \@FutureLetNextNoSpace
+    }% 
+    \FutureLetNoSpace{\@FutureLetTokenNoSpace}%
+        {\@FutureLetDecideNoSpace}%
+}
+\def\DoFutureLetNoSpace #1#2#3#4{%
+    \DoLongFutureLetNoSpace{#1}{#2}{#3}{#4}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-funospac.tip}{}
+\def\ParLookAhead #1#2{%
+    \DoLongFutureLetNoSpace{\ifx}{\par}%
+        {#1}{#2}%
+}
+\NameDef{@InputD-futpar.tip}{}
+\catcode`\@ = 11
+\newskip\@MaxVskipGlue
+\def\MaxVskip #1{% 
+    \par
+    \@MaxVskipGlue = #1\relax
+    \ifdim\lastskip < \@MaxVskipGlue
+        \ifdim\lastskip = 0pt
+        \else
+            \vskip -\lastskip
+        \fi
+        \vskip\@MaxVskipGlue
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-vsmax.tip}{}
+\newdimen\NormalParIndent
+\def\SetParIndent #1{%
+    \NormalParIndent = #1%
+    \parindent = #1%
+}
+\def\SuppressNextParIndent{%
+    \global\parindent = 0pt
+    \gdef\EveryParA{%
+        \global\parindent = \NormalParIndent
+        % \hskip-\parindent
+    }%
+}
+\def\CancelSuppressNextParIndent{%
+    \global\parindent = \NormalParIndent
+    \gdef\EveryParA{}%
+}
+\NameDef{@InputD-parin.tip}{}
+\newtoks\EveryHeading
+\EveryHeading = {}
+\catcode`\@ = 11
+\newcount\@GenericHeadingCount
+\newcount\@GenericHeadingIndent
+\def\LineBreakHeading{%
+    \errmessage{%
+        \string\LineBreakHeading/\string\LineBreakToc:
+            can only be used inside a heading.}%
+}
+\let\LineBreakToc = \LineBreakHeading
+\def\IgnoreInRunnningHead #1{%
+    #1%
+}
+\def\GenericHeading #1#2#3#4#5{% 
+    \par
+    \the\EveryHeading
+    \@GenericHeadingCount = #1
+    \@GenericHeadingIndent = #5
+    \MaxVskip{#2}%
+    \ifdim\leftskip = 0pt
+    \else
+        \message{\string\GenericHeading: \noexpand\leftskip
+            is non-zero, forgotten to terminate a list?}%
+    \fi
+    \begingroup 
+    \interlinepenalty = 10000
+    \parindent = 0pt
+    \parskip = 0pt
+    \ifnum #4 = 1
+        \hyphenpenalty = 10000
+    \fi
+    \ifnum #3 = 1
+        \rightskip = 0pt plus 50pt
+    \fi
+    \@GenericHeading
+}
+\def\@GenericHeading #1#2#3#4#5#6#7{%
+        #3%
+        \def\LineBreakHeading{\hfil\break}%
+        \def\LineBreakToc{ }%
+        \ifdim #4 > 0pt
+            \ifnum\@GenericHeadingIndent = 0
+                \hangindent = #4
+                \hangafter = 1
+                \leavevmode
+                \hbox to #4{#5\hfil}% 
+            \else
+                \leavevmode
+                \hbox to #4{#5\hfil}% 
+            \fi             
+        \else
+            \setbox0 = \hbox{#5\hskip -#4}
+            \ifnum\@GenericHeadingIndent = 0
+                \hangindent = \wd0
+                \hangafter = 1
+                \leavevmode
+                \box0
+            \else
+                \leavevmode
+                \box0
+            \fi
+        \fi
+        #6% 
+        \if\NameDefinedConditional{WriteToAuxSpecial}%
+            \def\LineBreakToc{\hfil\break}%
+            \def\LineBreakHeading{ }%
+            \WriteToAuxSpecial{toc}{\the\@GenericHeadingCount}% 
+                {#5}{#7}{\PrintCounter{PageNo}}%
+        \fi
+        \par
+    \endgroup
+    \nobreak
+    \vskip #1
+    \ifnum #2 = 0
+        \SuppressNextParIndent
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-genhead.tip}{}
+\newcount\ResultNumberOfLines
+\def\GetNumberOfLines #1#2{% 
+    {% 
+        \setbox 0 = \vbox{%
+            \hsize = #2
+            #1
+            \par
+            \global\ResultNumberOfLines = \prevgraf
+        }%
+    }% 
+}
+\NameDef{@InputD-getnuml.tip}{}
+\def\GobbleOne  #1{}
+\def\GobbleTwo  #1#2{}
+\def\GobbleThree#1#2#3{}
+\def\GobbleFour #1#2#3#4{}
+\def\GobbleFive #1#2#3#4#5{}
+\def\GobbleSix  #1#2#3#4#5#6{}
+\def\GobbleSeven#1#2#3#4#5#6#7{}
+\def\GobbleEight#1#2#3#4#5#6#7#8{}
+\def\GobbleNine #1#2#3#4#5#6#7#8#9{}
+\NameDef{@InputD-gobble.tip}{}
+\catcode`\@ = 11
+\newdimen\@ScaleLength
+\def\SetScale #1{% 
+    \@ScaleLength = #1
+}
+\SetScale{1mm}
+\newdimen\@LineThickness
+\def\SetLineThickness #1{%
+    \@LineThickness = #1
+}
+\SetLineThickness{0.3mm}
+\newbox\@GraphDataBox
+\def\SetGraphDataBox #1{%
+    \dimen0 = #1%
+    \setbox\@GraphDataBox =
+        \hbox{%
+            \hskip -0.5\dimen0
+            \vrule height 0.5\dimen0
+                   depth  0.5\dimen0
+                   width  1.0\dimen0
+        }%
+    \ZeroBox{\@GraphDataBox}%
+}
+\SetGraphDataBox{2mm}
+\def\DrawDataBox (#1,#2){%
+    {%
+        \setbox0 = \hbox{%
+            \hskip #1\@ScaleLength
+            \raise #2\@ScaleLength\copy\@GraphDataBox
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\DrawHLine (#1,#2)#3{%
+    {%
+        \setbox0 = \hbox{%
+            \hskip #1\@ScaleLength
+            \raise #2\@ScaleLength
+                \hbox{%
+                    \vrule height 0.5\@LineThickness
+                           depth  0.5\@LineThickness
+                           width  #3\@ScaleLength
+                }% 
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\DrawVLine (#1,#2)#3{%
+    {%
+        \setbox0 = \hbox{%
+            \hskip #1\@ScaleLength
+            \hskip -0.5\@LineThickness
+            \raise #2\@ScaleLength
+                \hbox{%
+                    \vrule height #3\@ScaleLength
+                           depth  0pt
+                           width  \@LineThickness
+                }% 
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-graphmac.tip}{}
+\def\Hex #1{%
+    {%
+        \count0 = #1%
+        \count1 = #1%
+        \divide\count0 by 16
+        \count2 = \count0
+        \multiply \count2 by -16
+        \advance \count1 by \count2
+        \ifnum \count0 > 0
+            \Hex{\count0}%
+        \fi
+        \HexDigit{\count1}% 
+    }%
+}
+\def\HexDigit #1{% 
+    {%
+        \count0 = #1\relax
+        \ifnum \count0 < 10
+            \number\count0          % or \the\count0
+        \else
+            \advance\count0 by -10
+            \advance\count0 by `A
+            \char\count0
+        \fi
+    }%
+}
+\NameDef{@InputD-hex.tip}{}
+\newif\ifEvenConditionalResult
+\def\EvenConditional #1{%
+    TT\fi
+    \ifodd #1\relax
+        \EvenConditionalResultfalse
+    \else
+        \EvenConditionalResulttrue
+    \fi
+    \ifEvenConditionalResult
+}
+\NameDef{@InputD-ifeven.tip}{}
+\catcode`\@ = 11
+\newif\if@Def
+\def\XDefinedConditional #1{% 
+    TT\fi
+    \ifx #1\@AlwaysUndefinedToken
+        \@Deffalse
+    \else
+        \@Deftrue
+    \fi
+    \if@Def
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ifx-def.tip}{}
+\catcode`\@ = 11
+\def\IfXConditional #1#2{%
+    TT\fi
+    \def\@IfXConditionalOne{#1}%
+    \def\@IfXConditionalTwo{#2}%
+    \ifx\@IfXConditionalOne\@IfXConditionalTwo
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ifx-mac.tip}{}
+\def\InputAt #1{% 
+    \catcode`\@ = 11
+    \input #1
+    \catcode`\@ = 12
+}
+\NameDef{@InputD-input-at.tip}{}
+\catcode`\@ = 11
+\def\InputC #1{%
+    \if\FileExistsConditional{#1}%
+        \input #1
+    \else
+        \message{\string\InputC: there is no file "#1".}% 
+    \fi
+}
+\def\InputCWithAt #1{%
+    \catcode`@ = 11
+    \InputC{#1}% 
+    \catcode`@ = 12
+}
+\catcode`\@ = 12
+\NameDef{@InputD-inputc.tip}{}
+\catcode`\@ = 11
+\def\ReverseString #1#2{% 
+    \def\@ReverseStringName{#1}% 
+    \def\@ReversedString{}% 
+    \edef\@ReverseTemp{#2}%
+    \ShowX\@ReverseTemp
+    \expandafter\@ReverseString\@ReverseTemp\@Del
+}
+\def\@ReverseString #1{% 
+    \ifx #1\@Del
+        \expandafter\edef\@ReverseStringName{\@ReversedString}% 
+        \let\@ReverseStringNext = \relax
+    \else
+        \edef\@ReversedString{#1\@ReversedString}% 
+        \let\@ReverseStringNext = \@ReverseString
+        \def\@ReverseStringNext{\@ReverseString}%
+    \fi
+    \@ReverseStringNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-reverses.tip}{}
+\catcode`\@ = 11
+\def\SuffixConditional #1#2{% 
+    TT\fi
+    \ReverseString{\@MainSuffixString}{#1}% 
+    \ReverseString{\@SuffixSuffixString}{#2}% 
+    \if\PrefixConditional{\@MainSuffixString}{\@SuffixSuffixString}% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-issuffix.tip}{}
+\catcode`\@ = 11
+\newcount\@ItemListDepth
+\@ItemListDepth = 0
+\def\BeginItemize{% 
+    \begingroup
+    \global\advance\@ItemListDepth by 1
+    \ifcase\@ItemListDepth\or
+        \@BeginItemizeLevelOne
+        \def\Item{\ItemLL{$\bullet$}}%
+    \or
+        \@BeginItemizeLevelTwo
+        \def\Item{\ItemLL{--}}%
+    \or
+        \@BeginItemizeLevelThree
+        \def\Item{\ItemLL{*}}%
+    \or
+        \@BeginItemizeLevelFour
+        \def\Item{\ItemLL{+}}%
+    \else
+        \errmessage{\string\BeginItemize: maximum nesting of
+            4 exceeded.}%
+    \fi
+}
+\def\EndItemize{% 
+    \EndAList
+    \endgroup
+    \global\advance\@ItemListDepth by -1
+}
+\catcode`\@ = 12
+\NameDef{@InputD-itemizel.tip}{}
+\def\hang{% 
+    \hangindent = \parindent
+}
+\def\item{%
+    \par
+    \hang
+    \textindent
+}
+\def\itemitem{%
+    \par
+    \indent
+    \hangindent = 2\parindent
+    \textindent
+}
+\def\textindent #1{%
+    \indent
+    \llap{#1\enspace}%
+    \ignorespaces
+}
+\def\itemitemitem{%
+    \par
+    \indent
+    \indent
+    \hangindent = 3\parindent
+    \textindent
+}
+\NameDef{@InputD-itemplan.tip}{}
+\catcode`\@ = 11
+\def\WordsToTeXList #1#2\EndWordsToTeXList{%
+    \def\@WordsToTeXListName{#1}%
+    \expandafter\def\@WordsToTeXListName{}%
+    \@WordsToTeXListNextName #2 \EndWordsToTeXList
+}
+\def\@WordsToTeXListNextName #1 {%
+    \if\EmptyStringConditional{#1}% 
+    \else
+        \expandafter\RightAppendElement\@WordsToTeXListName{#1}%
+    \fi
+    \DoFutureLet{\ifx}{\EndWordsToTeXList}%
+        {\@WordsToTeXListEnd}{\@WordsToTeXListNextName}%
+}
+\def\@WordsToTeXListEnd\EndWordsToTeXList{}
+\catcode`\@ = 12
+\NameDef{@InputD-wtolist.tip}{}
+\catcode`\@ = 11
+\newdimen\@MaximumCurrentLineWidth
+\newdimen\@LineWidthLastLine
+\newdimen\@LineWidthMinDiff
+\newbox\@IPCurrentLineBox
+\newbox\@IPCurrentLineBoxTry
+\def\InvertedPyramid #1#2#3{%
+    \WordsToTeXList{\IVList}#3\EndWordsToTeXList
+    \def\LineLengthList{#1}%
+    \@LineWidthLastLine = 0pt
+    \@LineWidthMinDiff = #2
+    \CarOfList{\IVList}{\@IVListTemp}
+    \DropFirstElementOfList{\IVList}
+    \setbox\@IPCurrentLineBox = \hbox{\@IVListTemp}%
+    \CarOfList{\LineLengthList}{\@IVListTemp}% 
+    \@MaximumCurrentLineWidth = \@IVListTemp
+    \DropFirstElementOfList{\LineLengthList}%
+    \ForEveryListElement{\IVList}{\@IVListTypeset}%
+    \ifvoid\@IPCurrentLineBox
+        \errmessage{\string\InvertedPyramid:
+            empty \string\@IPCurrentLineBox}%
+    \else
+        \centerline{\box\@IPCurrentLineBox}%
+    \fi
+}
+\def\@IVListTypeset #1{%
+    \setbox\@IPCurrentLineBoxTry =
+        \hbox{\copy\@IPCurrentLineBox \space#1}%
+    \ifdim\wd\@IPCurrentLineBoxTry < \@MaximumCurrentLineWidth
+        \setbox\@IPCurrentLineBox = \box\@IPCurrentLineBoxTry
+    \else
+        \@LineWidthLastLine = \wd\@IPCurrentLineBox
+        \centerline{\box\@IPCurrentLineBox}%
+        \setbox\@IPCurrentLineBox = \hbox{#1}%
+        \CarOfList{\LineLengthList}{\@IVListTemp}% 
+        \@MaximumCurrentLineWidth = \@IVListTemp
+        \DropFirstElementOfList{\LineLengthList}%
+        \dimen0 = \@LineWidthLastLine
+        \advance\dimen0 by -\@MaximumCurrentLineWidth
+        \ifdim\dimen0 < \@LineWidthMinDiff
+            \@MaximumCurrentLineWidth = \@LineWidthLastLine
+            \advance\@MaximumCurrentLineWidth by -\@LineWidthMinDiff
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ivpyr.tip}{}
+\catcode`\@ = 11
+\newcount\@ValueOfDecimalPosition
+\newcount\@ValueOfDecimalPositionLoopCount
+\def\ValueOfDecimalPosition #1#2#3{% 
+    \CheckRange{#2}{0}{9}{\string\ValueOfDecimalPosition:
+        \#2 must be in the range 0 .. 9}%
+    \AbsoluteValue{#1}{\@ValueOfDecimalPosition}%
+    \DoLoop{\@ValueOfDecimalPositionLoopCount}{1}{1}{#2}%
+        {\global\divide\@ValueOfDecimalPosition by 10}%
+    \IModN{\@ValueOfDecimalPosition}{10}{#3}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-valdecpo.tip}{}
+\catcode`\@ = 11
+\newcount\@LargestDecimalPlaceCount
+\def\LargestDecimalPlace #1#2{%
+    \AbsoluteValue{#1}{\@LargestDecimalPlaceCount}%
+    \wlog{We make progress}%
+    #2 = 0
+    \@LargestDecimalPlaceMore{#2}%
+}
+\def\@LargestDecimalPlaceMore #1{% 
+    \wlog{One round: \the#1}%
+    \ifnum\@LargestDecimalPlaceCount < 10
+        \def\@LargestDecimalPlaceMoreNext{}%
+    \else
+        \advance #1 by 1
+        \divide\@LargestDecimalPlaceCount by 10
+        \def\@LargestDecimalPlaceMoreNext{%
+            \@LargestDecimalPlaceMore{#1}%
+        }%
+    \fi
+    \@LargestDecimalPlaceMoreNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-largdp.tip}{}
+\catcode`\@ = 11
+\def\\{% 
+    \hfil\break
+    \hbox{}%
+    \DoFutureLet{\ifx}{[}{\@HfilBreakHskip}{\ignorespaces}%
+}
+\def\@HfilBreakHskip [#1]{% 
+    \hskip #1%
+    \ignorespaces
+}
+\catcode`\@ = 12
+\NameDef{@InputD-lbpar.tip}{}
+\catcode`\@ = 11
+\def\LoadCountZeroToNine #1#2#3#4#5#6#7#8#9{% 
+    \count0 = #1\relax
+    \count1 = #2\relax
+    \count2 = #3\relax
+    \count3 = #4\relax
+    \count4 = #5\relax
+    \count5 = #6\relax
+    \count6 = #7\relax
+    \count7 = #8\relax
+    \count8 = #9\relax
+    \@LoadCountNine
+}
+\def\@LoadCountNine #1{% 
+    \count9 = #1\relax
+}
+\catcode`\@ = 12
+\NameDef{@InputD-lc0to9.tip}{}
+\def\RightLeaderLine #1{% 
+    \line{\leaders\hrule\hss #1}% 
+}
+
+\def\LeftLeaderLine #1{% 
+    \line{#1\leaders\hrule\hss}% 
+}
+
+\def\CenterLeaderLine #1{% 
+    \line{\leaders\hrule\hss #1\leaders\hrule\hss}% 
+}
+\NameDef{@InputD-leadline.tip}{}
+\def\LeftDisplay #1$${%
+    \leftline{% 
+        \hskip 20pt
+        $
+            \displaystyle {#1}
+        $% 
+        }%
+    $$
+}
+\NameDef{@InputD-leftdm.tip}{}
+\def\LoadFontOnDemand #1#2{%
+    \def #1{% 
+        \global\font#1 = #2\relax
+        #1%
+        \message{\string\LoadFontOnDemand: font \string#1
+            (#2) loaded on demand.}% 
+    }%
+}
+\NameDef{@InputD-lfondem.tip}{}
+\catcode`\@ = 11
+\newif\if@Defined
+\def\DefinedConditional #1{%
+    TT\fi
+    \ifx\@UndefinedToken #1% 
+        \@Definedfalse
+    \else
+        \@Definedtrue
+    \fi
+    \if@Defined
+}
+\catcode`\@ = 12
+\NameDef{@InputD-testdef.tip}{}
+\def\FormatIsLaTeXConditional{%
+    TT\fi
+    \if\DefinedConditional{\documentstyle}%
+}
+\NameDef{@InputD-loadedla.tip}{}
+\def\BeginMath{%
+    \ifmath
+        \ifinner
+            \errmessage{\string\BeginMath: already in math
+                mode, \string\BeginMath ignored.}%
+        \else
+            \errmessage{\string\BeginMath: in display math
+                mode, terminated and math mode started.}%
+            $$
+            $
+        \fi
+    \else
+        $\relax
+    \fi
+}
+\def\EndMath{%
+    \ifmath
+        \ifinner
+            $%
+        \else
+            \errmessage{\string\EndMath: you are in display math
+                mode! Should have used \string\EndDisplayMath!}%
+            $$
+        \fi
+    \else
+        \errmessage{\string\EndMath: already in math
+            mode, \string\EndMath ignored.}%
+    \fi
+}
+\def\BeginDisplayMath{%
+    \ifmath
+        \ifinner
+            \errmessage{\string\BeginDisplayMath: in inline
+                math mode, terminate it, start display math.}%
+            $
+            $$
+        \else
+            \errmessage{\string\BeginDisplayMath: already in math
+                mode, \string\BeginDisplayMath ignored.}%
+        \fi
+    \else
+        $$
+    \fi
+}
+\def\EndDisplayMath{%
+    \ifmath
+        \ifinner
+            \errmessage{\string\EndDisplayMath: inline
+                math mode in effect, did you intend to
+                write \string\EndMath?}%
+            $%
+        \else
+            $$
+        \fi
+    \else
+        \errmessage{\string\EndDisplayMath: not in math
+            mode, \string\EndDisplayMath ignored.}%
+    \fi
+}
+\NameDef{@InputD-mathenv.tip}{}
+\def\MaxDimen #1#2#3#4{% 
+    \ifdim #2<#3\relax
+        #4#1 = #3\relax
+    \else
+        #4#1 = #2\relax
+    \fi
+}
+\def\MinDimen #1#2#3#4{% 
+    \ifdim #2<#3\relax
+        #4#1 = #2\relax
+    \else
+        #4#1 = #3\relax
+    \fi
+}
+\NameDef{@InputD-maxmindi.tip}{}
+\def\ModuloOneAdvanceNumCond #1#2{% 
+    0=0\fi
+    \global\advance #1 by 1
+    \ifnum #1 = #2\relax
+        \global #1 = 0
+    \fi
+    \ifnum #1%
+}
+\NameDef{@InputD-modonead.tip}{}
+\def\MultiRowDel #1#2{% 
+    {%
+        \mathsurround = 0pt
+        \setbox 0 = \hbox{% 
+            $% 
+                \vcenter{% 
+                    \hbox{% 
+                        $
+                            \left#1% 
+                            \vrule height #2 depth #2 width 0pt
+                            \right.
+                        $%                          
+                    }% 
+                }% 
+            $% 
+        }% 
+        \ht0 = 0pt
+        \dp0 = 0pt
+        \box 0
+    }% 
+}
+\def\MultiRowDel #1#2{% 
+    {%
+        \mathsurround = 0pt
+        \setbox 0 = \hbox{% 
+                        $
+                            \left#1% 
+                            \vrule height #2 depth #2 width 0pt
+                            \right.
+                        $%                          
+                    }% 
+        \ht0 = 0pt
+        \dp0 = 0pt
+        \box 0
+    }% 
+}
+\NameDef{@InputD-mrdel.tip}{}
+\catcode`\@ = 11
+\newbox\@NBox
+\def\NaturalHeight #1#2{% 
+    \setbox\@NBox = \vbox{\unvcopy #2}
+    #1 = \ht\@NBox
+}
+\def\NaturalDepth #1#2{% 
+    \setbox\@NBox = \vbox{\unvcopy #2}
+    #1 = \dp\@NBox
+}
+\catcode`\@ = 12
+\NameDef{@InputD-nathd.tip}{}
+\catcode`\@ = 11
+\def\NextCharTest #1#2#3{% 
+    \def\@NextCharTestYes #1{#2}%
+    \def\@NextCharTestNo {#3}%
+    \DoFutureLet{\ifx}{#1}{\@NextCharTestYes}{\@NextCharTestNo}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-nctest.tip}{}
+\catcode`\@ = 11
+\def\pagecontents{% 
+    \wlog{\noexpand\pagecontents from op-pagec.tip called.}%
+    \NameUse{@ShowPlainLists}%
+    \ifvoid\topins
+        \wlog{\string\pagecontents: no topinserts.}%
+        \if\NameDefinedConditional{@TopInsertSize}%
+            \ifdim\@TopInsertSize < 20pt
+                \global\@TopInsertSize = 0pt
+            \fi
+        \fi
+    \else
+        \NameUse{ChangeBarPush}%
+        \NameUse{@UpdateTopInsertSize}%
+        \unvbox\topins
+        \NameUse{ChangeBarPop}%
+    \fi
+    \dimen@ = \dp 255
+    \unvbox 255
+    \ifvoid\footins
+    \else
+        \@PrintFootnotePlain
+    \fi
+    \ifr@ggedbottom
+        \kern -\dimen@
+        \vfil
+    \fi
+}
+\def\@PrintFootnotePlain{%
+    \vskip\skip\footins
+    \footnoterule
+    \unvbox\footins
+}
+\catcode`\@ = 12
+\NameDef{@InputD-op-pagec.tip}{}
+\catcode`\@ = 11
+\def\endinsert{% 
+    \egroup
+    \if@mid
+        \dimen@ = \ht0
+        \advance\dimen@ by \dp0
+        \advance\dimen@ by 12pt
+        \advance\dimen@ by \pagetotal
+        \ifdim\dimen@ > \pagegoal
+            \@midfalse
+            \p@gefalse
+        \fi
+    \fi
+    \NameUse{MidInsertFix}%
+    \if@mid
+        \bigskip
+        \box 0
+        \bigbreak
+    \else
+        \insert\topins{% 
+            \penalty 100
+            \splittopskip = 0pt
+            \splitmaxdepth = \maxdimen
+            \floatingpenalty = 0
+            \ifp@ge
+                \dimen@ = \dp0
+                \vbox to \vsize{
+                    \unvbox 0
+                    \kern -\dimen@
+                }%
+                \NameUse{MidInsertFixPage}%
+            \else
+                \NameUse{EndInsertTopInsFix}%
+                \NameUse{MidInsertFixTop}%
+                \box 0
+                \nobreak
+                \bigskip
+            \fi
+        }
+    \fi
+    \endgroup
+}
+\catcode`\@ = 12
+\NameDef{@InputD-op-endin.tip}{}
+\catcode`\@ = 11
+\newdimen\@TopInsertSize
+\@TopInsertSize = 0pt
+\def\ReportTopInsertSize #1{%
+    \wlog{\string\@TopInsertSize: "#1"}%
+    \wlog{\EightSpaces The value of \noexpand\@TopInsertSize is
+        \the\@TopInsertSize}%
+}
+\def\MidInsertFix{% 
+    \ReportTopInsertSize{\string\MidInsertFix}%
+    \ifdim\@TopInsertSize > 0pt
+        \@midfalse
+        \p@gefalse
+    \fi
+}
+\def\MidInsertFixPage{%
+    \ReportTopInsertSize{\string\MidInsertFixPage[1]}%
+    \global\advance\@TopInsertSize by \vsize
+    \ReportTopInsertSize{\string\MidInsertFixPage[2]}%
+}
+\def\MidInsertFixTop{%
+    \ReportTopInsertSize{\string\MidInsertFixTop[1]}%
+    \global\advance\@TopInsertSize by \ht0
+    \global\advance\@TopInsertSize by \dp0
+    \ReportTopInsertSize{\string\MidInsertFixTop[2]}%
+}
+\def\@UpdateTopInsertSize{%
+    \ReportTopInsertSize{\string\@UpdateTopInsertSize[1]}%
+    \global\advance\@TopInsertSize by -\ht\topins
+    \global\advance\@TopInsertSize by -\dp\topins
+    \ReportTopInsertSize{\string\@UpdateTopInsertSize[2]}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-new-midi.tip}{}
+\catcode`\@ = 11
+\def\NewDef #1{%
+    \ifx #1\@UndefinedToken
+    \else
+        \errhelp = {\string\NewDef:
+            The name of the macro to be defined which you
+            provided is already in use. Use \show to find out
+            what the name is used for. The macro definition
+            will nevertheless be executed.}%
+        \errmessage{\string\NewDef: "\string#1" already defined.}%
+    \fi
+    \def #1%
+}
+\def\ReDef #1{%
+    \ifx #1\@UndefinedToken
+        \errhelp = {\string\ReDef:
+            The name of the macro to be redefined which you
+            provided has never been used before. The macro definition
+            will nevertheless be executed. }%
+        \errmessage{\string\ReDef: "\string#1" never defined
+            before.}%
+    \fi
+    \def #1%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-newdef.tip}{}
+\def\NewFont #1{% 
+    \if\DefinedConditional{#1}% 
+        \errmessage{\string\NewFont: intended font name
+            "\string#1" already used.}
+    \fi
+    \font #1% 
+}
+\NameDef{@InputD-newfont.tip}{}
+\catcode`\@ = 11
+\let\@input = \input
+\def\input{%
+    \DoFutureLet{\ifx}{\bgroup}{\@InputA}{\@input}%
+}
+\def\@InputA #1{\@input #1}
+\catcode`\@ = 12
+\NameDef{@InputD-newinput.tip}{}
+\def\NewPage{%
+    \vfill
+    \eject
+}
+\NameDef{@InputD-newpage.tip}{}
+\def\NewLineMessage #1{%
+    {%
+        \newlinechar = `\|%
+        \message{|#1}%
+    }%
+}
+\NameDef{@InputD-nlm.tip}{}
+\def\NewPageRightHand{% 
+    \vfill\supereject
+    \ifodd\count0
+    \else
+        \hbox{}
+        \vfill\eject
+    \fi
+}
+\def\ShouldBeRightHandPage{%
+    \ifodd\count0
+    \else
+        \errmessage{\string\ShouldBeRightHandPage:
+            current page number is \the\count0.
+            Should be odd and NOT EVEN.}%
+        \NewPageRightHand
+    \fi
+}
+\def\NewPageLeftHand{%
+    \vfill\supereject
+    \ifodd\count0
+        \hbox{}
+        \vfill\eject
+    \fi
+}
+\NameDef{@InputD-npright.tip}{}
+\catcode`\@ = 11
+\def\@OneDigitNumberText #1#2{%
+    \ifcase #2\relax
+        \ifnum #1=0
+        \else
+            zero%
+        \fi
+        \or
+        one\or
+        two\or
+        three\or
+        four\or
+        five\or
+        six\or
+        seven\or
+        eight\or
+        nine% 
+    \else
+        \errmessage{\string\@OneDigitNumberText: number
+            \number#2 out of range.}%
+    \fi
+}
+\newcount\@NumberToConvert
+\newcount\@NumberToConvertTwo
+\newcount\@NumberToConvertAndFlag
+\def\NumberToText #1{% 
+    \@NumberToConvert = #1\relax    
+    \ifnum\@NumberToConvert < 0
+        minus
+        \@NumberToConvert = -\@NumberToConvert
+    \fi
+    \CheckRange{\@NumberToConvert}{0}{999999}%
+        {\string\NumberToText: numbers >= 1.000.000
+            not handled.}%
+    \@NumberToConvertAndFlag = 0
+    \ifnum\@NumberToConvert > 999
+        \@NumberToConvertTwo = \@NumberToConvert
+        \divide\@NumberToConvert by 1000
+        \@NumberToText
+        \space thousand and
+        \IModN{\@NumberToConvertTwo}{1000}{\@NumberToConvert}%
+    \fi 
+    \CheckRange{\@NumberToConvert}{0}{999}%
+        {\string\NumberToText: internal error 1}%
+    \@NumberToText
+}
+\newcount\@NumberToTextTmp
+\def\@NumberToText{%
+    \ifnum\@NumberToConvert > 99
+        \ValueOfDecimalPosition{\@NumberToConvert}{2}% 
+            {\@NumberToTextTmp}%
+        \@OneDigitNumberText{1}{\@NumberToTextTmp}% 
+        \space hundred and
+        \IModN{\@NumberToConvert}{100}{\@NumberToConvert}%
+    \fi
+    \ValueOfDecimalPosition{\@NumberToConvert}{1}%
+        {\@NumberToTextTmp}%
+    \ifnum\@NumberToTextTmp > 1
+        \ifcase\@NumberToTextTmp
+                \errmessage{\string\@NumberToText:
+                    internal error 1.}%
+            \or
+                \errmessage{\string\@NumberToText:
+                    internal error 2.}%
+            \or
+            twenty\or
+            thirty\or
+            forty\or
+            fifty\or
+            sixty\or
+            seventy\or
+            eighty\or
+            ninety%
+        \else
+            \errmessage{\string\@NumberToText:
+                internal error 4.}%
+        \fi
+        \IModN{\@NumberToConvert}{10}{\@NumberToTextTmp}%
+            \@OneDigitNumberText{0}{\@NumberToTextTmp}%
+    \else
+        \ifnum\@NumberToTextTmp = 1
+            \advance\@NumberToConvert by -10
+            \ifcase\@NumberToConvert
+                ten\or
+                eleven\or
+                twelve\or
+                thirteen\or
+                fourteen\or
+                fifteen\or
+                sixteen\or
+                seventeen\or
+                eighteen\or
+                nineteen%
+            \fi
+        \else
+            \@OneDigitNumberText{1}{\@NumberToConvert}%
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ntotext.tip}{}
+\catcode`\@ = 11
+\newcount\@NumberConditionalCounter
+\def\@NumberConditional #1#2;{%
+    \@NumberConditionalCounter = `#1\relax
+}
+\def\NumberConditional #1{%
+    TT\fi
+    \edef\@NumberConditionalString{#1}%
+    \expandafter\@NumberConditional\@NumberConditionalString ;
+    \if\InRangeConditional{\@NumberConditionalCounter}{`\0}{`\9}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-numcond.tip}{}
+\catcode`\@ = 11
+\newcount\@WhileNesting
+\@WhileNesting = 0
+\def\WhileNum #1#2{%
+    \global\advance\@WhileNesting by 1
+    \edef\@WhileArgOne{{\the\@WhileNesting}}%
+    \expandafter\@WhileNum\@WhileArgOne{#1}{#2}%
+    \global\advance\@WhileNesting by -1
+}
+\def\@WhileNum #1#2#3{%
+    \ifnum #2\relax
+        #3\relax
+        \NameDef{@WhileNum-#1}{\@WhileNum{#1}{#2}{#3}}% 
+    \else
+        \NameDef{@WhileNum-#1}{}%
+    \fi
+    \NameUse{@WhileNum-#1}{}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-numwhile.tip}{}
+\catcode`\@ = 11
+\def\ObeyLines{% 
+    \catcode`\^^M = \active
+    \@EnableActiveEndOfLine
+}
+{
+    \catcode`\^^M=\active           % Lines must end with '%'.
+    \gdef\@EnableActiveEndOfLine{%
+        \def
+        {\leavevmode\par}% 
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-oblines.tip}{}
+\catcode`\@ = 11
+\def\ObeySpaces{% 
+    \catcode`\ = \active
+    \@InitActiveSpace
+}
+{\catcode`\ = \active
+\gdef\@InitActiveSpace{\edef {\VerbControlSpace}}}
+\catcode`\@ = 12
+\NameDef{@InputD-obspaces.tip}{}
+\def\Oct #1{%
+    {%
+        \count4 = #1%
+        \count0 = \count4
+        \divide\count0 by 8
+        \ifnum \count0 > 0
+            \Oct{\count0}% 
+        \fi
+        \count2 = \count0
+        \multiply \count2 by -8
+        \advance \count4 by \count2
+        \the\count4
+    }% 
+}
+\NameDef{@InputD-oct.tip}{}
+\def\PrintOdd #1{% 
+    \ifodd #1\relax
+        Number #1 is odd.
+    \fi
+}
+\NameDef{@InputD-oddprin.tip}{}
+\def\PrintOddEven #1{% 
+    \ifodd #1\relax
+        The number #1 is odd.
+    \else
+        The number #1 is even.
+    \fi
+}
+\NameDef{@InputD-oeprin.tip}{}
+\catcode`\@ = 11
+\def\OptArgX #1#2{% 
+    \let\@OptArgXTemp = #1%
+    \def\@OptArgXDefault{[#2]}%
+    \DoLongFutureLet{\ifx}{[}{\@OptArgXTemp}{\@OptArgXB}%
+}
+\def\@OptArgXB{\expandafter\@OptArgXTemp\@OptArgXDefault}
+\catcode`\@ = 12
+\NameDef{@InputD-optargx.tip}{}
+\def\ParFl #1#2\par{%
+    \par
+    $$
+        \vbox{
+            \setbox 0 = \hbox{#1}
+            \hsize = \wd0
+            \noindent
+            \unhbox 0
+            \space
+            #2
+        }
+    $$
+    \par
+}
+\NameDef{@InputD-par-fl.tip}{}
+\def\PickFirstOfTwo #1#2{#1}
+\def\PickSecondOfTwo #1#2{#2}
+\NameDef{@InputD-pickfs.tip}{}
+\catcode`\@ = 11
+\newif\if@LabelsOk
+\def\@LabelRefPrefix{@REF-}
+\def\@LabelIsDefined #1{%
+    TT\fi
+    \if\NameDefinedConditional{\@LabelRefPrefix#1}%
+}
+\def\@NewLabel #1#2#3{% 
+    \if\@LabelIsDefined{#1}%
+        \wlog{\string\@NewLabel: warning: label "#1"
+            already defined.}%
+    \fi
+    \NameGdef{\@LabelRefPrefix #1}{{#2}{#3}}% 
+}
+\let\Saved@NewLabel = \@NewLabel
+\def\Ref #1{% 
+    \@ref{0}{#1}%
+    \if\StringsEqualConditional{\@TheExpandedLabel}{??}%
+        {??}%
+    \else
+        \@TheExpandedLabel
+    \fi
+    \@PrintAfterLabel
+}
+\def\PageRef #1{% 
+    \@ref{1}{#1}%
+    \if\StringsEqualConditional{\@TheExpandedLabel}{??}%
+        {??}%
+    \else
+        \@TheExpandedLabel
+    \fi
+    \@PrintAfterLabel
+}
+\def\@MostRecentLabel{}
+\def\@ref #1#2{%
+    \xdef\@PrintAfterLabel{}%
+    \DefaultArg{\@ThisLabel}{#2}{\@MostRecentLabel}% 
+    \if\StringsEqualConditional{\@ThisLabel}{.}% 
+        \xdef\@ThisLabel{\@MostRecentLabel}%
+        \xdef\@PrintAfterLabel{.}%
+    \fi
+    \if\StringsEqualConditional{\@ThisLabel}{,}% 
+        \xdef\@ThisLabel{\@MostRecentLabel}%
+        \xdef\@PrintAfterLabel{,}%
+    \fi
+    \if\StringsEqualConditional{\@ThisLabel}{)}% 
+        \xdef\@ThisLabel{\@MostRecentLabel}%
+        \xdef\@PrintAfterLabel{)}%
+    \fi
+    \if\StringsEqualConditional{\@ThisLabel}{;}%
+        \xdef\@ThisLabel{\@MostRecentLabel}%
+        \xdef\@PrintAfterLabel{;}%
+    \fi
+    \xdef\@MostRecentLabel{\@ThisLabel}% 
+    \if\@LabelIsDefined{\@ThisLabel}%
+        \edef\@CrefTemp{\NameUse{\@LabelRefPrefix\@ThisLabel}}%
+        \ifcase #1\relax 
+            \edef\@TheExpandedLabel{%
+                \expandafter\PickFirstOfTwo\@CrefTemp}%
+        \or
+            \edef\@TheExpandedLabel{%
+                \expandafter\PickSecondOfTwo\@CrefTemp}%
+        \fi
+    \else
+        \def\@TheExpandedLabel{??}
+        \wlog{\string\@ref: Label \@ThisLabel\space undefined.}%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-part-cr.tip}{}
+\def\PrintInDollar #1{%
+    {%
+        \ifnum #1 < 0
+            $-$%
+            \count0 = -#1\relax
+        \else
+            \count0 = #1\relax
+        \fi
+        \count2 = \count0
+        \divide\count0 by 100
+        \the\count0.%
+        \multiply\count0 by 100
+        \advance\count2 by -\count0
+        \ifnum\count2 < 10
+            0%
+        \fi
+        \the\count2
+    }%
+}
+\NameDef{@InputD-pdollars.tip}{}
+\catcode`\@ = 11
+\def\PartSourceFileNameExtension{tex}
+\def\AuxFileNameExtension{aux}
+\def\TocFileNameExtension{toc}
+\def\LofFileNameExtension{lof}
+\def\LotFileNameExtension{lot}
+\def\TmpFileNameExtension{tmp}
+\newwrite\@PartAuxStream
+\newwrite\@TmpFileStream
+\def\i@write{\immediate\write}
+\def\i@openout{\immediate\openout}
+\def\i@closeout{\immediate\closeout}
+
+\def\@ip@write{\i@write\@PartAuxStream}
+\def\@p@write{\write\@PartAuxStream}
+\def\@IgnoreAuxStuff{%
+    \let\@NewLabel = \GobbleThree
+    \let\@SetCounter = \GobbleTwo
+    \let\@ForSpecialFile = \GobbleFive
+}
+\def\@ReadInAuxFiles{% 
+    {%
+        \def\\##1{\InputCWithAt{##1.aux}}%
+        \@AllPartsOfDocumentList
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-pm-bas.tip}{}
+\catcode`\@ = 11
+\def\WriteAuxFileComment #1{%
+    \@p@write{\PercentSignPure\space #1.}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-pm-auxco.tip}{}
+\catcode`\@ = 11
+\NewCounter{PageNo}{\arabic}{\TheCounter{PageNo}}% 
+    {\TheCounter{PageNo}}
+\NewCounter{SWPageNo}{\arabic}%
+    {\TheCounter{SWPageNo}}{\TheCounter{SWPageNo}}
+\def\@PageNumbersToCounterRegs{%
+    \CounterToRegister{\global\pageno}{PageNo}%
+}
+\SetCounter{PageNo}{1}
+\@PageNumbersToCounterRegs
+\def\advancepageno{%
+    \StepCounter{PageNo}%
+    \StepCounter{SWPageNo}%
+    \@PageNumbersToCounterRegs
+}
+\def\folio{% 
+    \PrintCounter{PageNo}% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-pm-pagen.tip}{}
+\catcode`\@ = 11
+\def\WriteCountersToAuxFile{%
+    \@WriteCounter{ChapterNo}% 
+    \@WriteCounter{SectionNo}%
+    \@WriteCounter{PageNo}%
+}
+\def\@WriteCounter #1{% 
+    \@ip@write{% 
+        \noexpand\@SetCounter
+        {#1}% 
+        {\expandafter\the\csname @C-#1\endcsname}}% 
+}
+\catcode`\@ = 12
+\NameDef{@InputD-pm-wrc.tip}{}
+\def\BoldfaceFake #1#2{%
+    \hbox{%
+        \hbox to #2{#1\hss}%
+        \hbox to #2{#1\hss}%
+        \hbox {#1}%     % Last time print text with reg. width.
+    }%
+}
+\NameDef{@InputD-poorbold.tip}{}
+\def\PrintAlph #1{%
+    {%
+        \count0 = #1%
+        \advance\count0 by -1
+        \advance\count0 by `\a
+        \char\count0
+    }%
+}
+\NameDef{@InputD-pralph.tip}{}
+\def\ShowBoxAll #1{% 
+    {% 
+        \nonstopmode
+        \showboxdepth = 10000
+        \showboxbreadth = 10000
+        \showbox #1%
+    }%
+}
+\def\ShowBoxDepthOne #1{% 
+    {% 
+        \nonstopmode
+        \showboxdepth = 1
+        \showboxbreadth = 10000
+        \showbox #1%
+    }%
+}
+\def\ShowBoxDepthTwo #1{% 
+    {% 
+        \nonstopmode
+        \showboxdepth = 2
+        \showboxbreadth = 10000
+        \showbox #1%
+    }%
+}
+\NameDef{@InputD-shboxes.tip}{}
+\def\PrintHyphens #1{%
+    {%
+        \setbox 0 = \vbox{%
+            \pretolerance = -1
+            \hyphenpenalty = -10000
+            \hsize = 0pt
+            \leftskip = 0pt
+            \rightskip = 0pt
+            \parfillskip = 0pt
+            \parindent = 0pt
+            \hfuzz = \maxdimen
+            \interlinepenalty = 0
+            \clubpenalty = 0
+            \widowpenalty = 0
+            \brokenpenalty = 0
+            \hskip 0pt
+            #1
+        }% 
+        \setbox2 = \hbox{}%
+        \setbox 9 = \vbox{% 
+            \unvbox 0
+            \loop
+                \unskip
+                \setbox 1 = \lastbox
+                \ifhbox 1
+                    \global\setbox 2 = \hbox{% 
+                        \unhbox 1
+                        \discretionary{}{}{}% 
+                        \unhbox 2
+                    }% 
+            \repeat
+        }%
+        \unhbox 2
+    }%
+}
+\NameDef{@InputD-prhyph.tip}{}
+\def\PrimitiveMarker{% 
+    \leavevmode
+    {%
+        \footnotesize\tt
+        \llap{*}%
+    }%
+}
+\NameDef{@InputD-primmark.tip}{}
+\newcount\AstCount
+\def\PrintAsterisk #1{% 
+    \AstCount = #1
+    \ifnum\AstCount < 0
+        \errmessage{\string\PrintAsterisk: negative counter.}%
+        \AstCount = 0
+    \fi
+    \PrintAsteriskRec
+}
+\def\PrintAsteriskRec{% 
+    *%
+    \advance\AstCount by -1
+    \ifnum\AstCount = 0
+        \let\next = \relax
+    \else
+        \let\next = \PrintAsteriskRec
+    \fi
+    \next
+}
+\NameDef{@InputD-printast.tip}{}
+\def\PrintRegister #1{% 
+    The current value of {\tt\string #1} is \the#1.% 
+}
+\def\LogRegister #1{% 
+    \message{The current value of \string#1 is \the#1.}
+}
+\NameDef{@InputD-printreg.tip}{}
+\def\PrintMode{%
+    \ifinner
+        \ifvmode \message{Current mode: inner vertical}\fi
+        \ifhmode \message{Current mode: restricted horizontal}\fi
+        \ifmmode \message{Current mode: (inline) math}\fi
+    \else
+        \ifvmode \message{Current mode: (regular) vertical}\fi
+        \ifhmode \message{Current mode: (regular) horizontal}\fi
+        \ifmmode \message{Current mode: display math}\fi
+    \fi
+}
+\NameDef{@InputD-prmode.tip}{}
+\catcode`\@ = 11
+\newif\ifProtWrite
+\ProtWritetrue
+\newcount\@ProtCount
+\newcount\@ProtCountX
+\newwrite\@ProtWrite
+\def\InitProtWrite{% 
+    \ifProtWrite
+        \immediate\openout\@ProtWrite = \jobname.prt
+    \fi
+}
+\def\CloseProtWrite{% 
+    \immediate\closeout\@ProtWrite
+}
+\def\WriteProtocol #1#2{%
+    \ifProtWrite
+        {% 
+            \@ProtCount = #1\relax
+            \def\@WriteSpace{}%
+            \DoLoop{\count1}{1}{1}{\@ProtCount}% 
+                {\edef\@WriteSpace{\@WriteSpace\FourSpaces}}%
+            \immediate\write\@ProtWrite{\@WriteSpace #2}%
+        }%
+    \fi
+}
+\def\BoxToProtocol #1#2#3{% 
+    \ifProtWrite
+        {%
+            \WriteProtocol {#1}{\string\BoxToProtocol: #3}%
+            \@ProtCountX = #1\relax
+            \advance\@ProtCountX by 1
+            \ifvoid #2%
+                \WriteProtocol{\@ProtCountX}{Box register #2
+                    is void.}%
+            \else
+                \ifhbox #2%
+                    \WriteProtocol{\@ProtCountX}{Box register #2
+                        is an hbox.}%
+                \else
+                    \WriteProtocol{\@ProtCountX}{Box register #2
+                        is a vbox.}%
+                \fi
+            \fi
+            \ifvoid #2%
+            \else
+                \WriteProtocol{\@ProtCountX}% 
+                    {Dimensions: (\the\ht#2+\the\dp#2)*\the\wd#2.}%
+            \fi
+        }%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-prot.tip}{}
+\def\ReportBoxType #1{%
+    \message{\string\ReportBoxType: }%
+    \ifvoid #1\message{Box register #1 is void.}\fi
+    \ifhbox #1\message{Box register #1 contains a horizontal box.}\fi
+    \ifvbox #1\message{Box register #1 contains a vertical box.}\fi
+}
+\NameDef{@InputD-rboxt.tip}{}
+\catcode`\@ = 11
+\newread\@ReadNumberStream
+\newcount\ReadANumberResult
+\def\InitReadNumbers #1{% 
+    \openin\@ReadNumberStream = #1
+}
+\def\@ReadANumberPar{\par}
+\def\ReadANumber{% 
+    \ifeof\@ReadNumberStream
+        \ReadANumberResult = -1
+    \else
+        \read\@ReadNumberStream to \@ReadANumberTemp
+        \ifx\@ReadANumberTemp\@ReadANumberPar
+            \ReadANumberResult = -1
+        \else
+            \ReadANumberResult = \@ReadANumberTemp
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-readnu.tip}{}
+\catcode`\@ = 11
+\newbox\@ReduceToStrutBox
+\def\ReduceToStrut #1{% 
+    \setbox\@ReduceToStrutBox = \hbox{#1}%
+    \vrule height \ht\@ReduceToStrutBox
+           depth  \dp\@ReduceToStrutBox
+           width 0pt
+}
+\catcode`\@ = 12
+\NameDef{@InputD-redtost.tip}{}
+\catcode`\@ = 11
+\def\MakeRobust{}
+\def\TreatAsRobust #1{%
+    \def #1{%
+        \noexpand #1% 
+    }%
+}
+\newtoks\@RobustTokenList
+\@RobustTokenList = {}
+\def\AddToRobustList #1{%
+    \@RobustTokenList = \expandafter{\the\@RobustTokenList #1}% 
+}
+\def\Robusting{%
+    \ForEachToken{\@RobustTokenList}{\TreatAsRobust}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-robust.tip}{}
+\catcode`\@ = 11
+\newcount\@SampleParCounter
+\newcount\@SampleParSentenceCounter
+\@SampleParCounter = 1
+\def\SamplePar #1#2{%
+    \@SampleParSentenceCounter = 0
+    Identification of this paragraph: {\it #1}.
+    {\it Sample paragraph~\the\@SampleParCounter,
+    with~#2 sentences}. So here we go,
+    and when you check the number of sentences, then note
+    that these first two sentences do {\it not\/} count.
+    \loop
+        \advance\@SampleParSentenceCounter by 1
+        This is one of the many sentences this macro
+        generates, to be more specific it is sentence
+        number~\the\@SampleParSentenceCounter\space of~#2.
+        \ifnum\@SampleParSentenceCounter < #2
+    \repeat
+    \par
+    \global\advance\@SampleParCounter by 1
+}
+\catcode`\@ = 12
+\NameDef{@InputD-samplepa.tip}{}
+\catcode`\@ = 11
+\newdimen\@StrutBaseDimension
+\newdimen\@StrutSkipTemp
+\def\ComputeStrut{%
+    \@StrutBaseDimension = \baselineskip
+    \ifdim\baselineskip < 0pt
+        \errhelp = {You probably called \string\offinterlineskip
+                before \string\ComputeStrut}
+        \errmessage{\string\ComputeStrut: negative
+                \string\baselineskip (\the\baselineskip)}% 
+    \fi
+}
+\def\MyStrut{% 
+    \vrule height 0.7\@StrutBaseDimension
+           depth 0.3\@StrutBaseDimension
+           width 0pt
+}
+\def\HigherStrut #1{% 
+    \@StrutSkipTemp = 0.7\@StrutBaseDimension
+    \advance\@StrutSkipTemp by #1% 
+    \vrule height \@StrutSkipTemp
+           depth 0.3\@StrutBaseDimension
+           width 0pt
+}
+\def\DeeperStrut #1{% 
+    \@StrutSkipTemp = 0.3\@StrutBaseDimension
+    \advance\@StrutSkipTemp by #1% 
+    \vrule height 0.7\@StrutBaseDimension
+           depth \@StrutSkipTemp
+           width 0pt
+}
+\ComputeStrut
+\catcode`\@ = 12
+\NameDef{@InputD-setstrut.tip}{}
+\def\ShiftRefPointUpOrDown #1#2{%
+    \AdvanceBoxDimension{\ht#1}{#2}%
+    \ifdim\ht#1 < 0pt
+        \ht#1 = 0pt
+    \fi
+    \AdvanceBoxDimension{\dp#1}{-#2}%
+    \ifdim\dp#1 < 0pt
+        \dp#1 = 0pt
+    \fi
+}
+\NameDef{@InputD-shiftudb.tip}{}
+\catcode`\@ = 11
+\newif\ifShowPlainLists
+\ShowPlainListsfalse
+\def\@ShowPlainLists{%
+    \ifShowPlainLists
+        \wlog{*** \string\@ShowPlainLists: main vertical list ***}%
+        \wlog{*** Page number (\string\count0): \the\count0
+                \space***}%
+        \ShowBoxDepthOne{255}%
+        \ifvoid\footins
+            \wlog{\string\@ShowPlainLists: no footnotes.}% 
+        \else
+            \wlog{*** \string\@ShowPlainLists: footnote box ***}%
+            \ShowBoxDepthOne{\footins}%
+        \fi
+        \ifvoid\topins
+            \wlog{\string\@ShowPlainLists: no topinserts.}% 
+        \else
+            \wlog{*** \string\@ShowPlainLists: top inserts ***}%
+            \ShowBoxDepthTwo{\topins}%
+        \fi
+        \wlog{*** \string\@ShowPlainLists: end dump of
+            page: \the\count0 \space ***}%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-showpll.tip}{}
+\def\SignatureLine #1#2{% 
+    \hbox{%
+        \hbox to 0pt{% 
+            \vrule width #1 height 0.6pt depth 0pt
+            \hss        % Equivalent to \hskip -#1.
+        }% 
+        \lower 10pt \hbox to #1{\hfil #2\hfil}% 
+    }% 
+}
+\NameDef{@InputD-sigline.tip}{}
+\catcode`\@ = 11
+\def\SaveSpaceFactor{% 
+    \xdef\@SavedSpaceFactor{%
+        \spacefactor = \the\spacefactor
+    }%
+}
+\def\RestoreSpaceFactor{%
+    \@SavedSpaceFactor
+}
+\catcode`\@ = 12
+\NameDef{@InputD-spacefac.tip}{}
+\catcode`\@ = 11
+\newcount\@PPLineNumber
+\newbox\@PrintParWithLinesBox
+\newbox\@PrintParWithLinesTemp
+\def\PrintParWithLineNumbers #1{%
+    \par
+    \@PPLineNumber = 1
+    \splittopskip = 0.6666\baselineskip
+    \setbox\@PrintParWithLinesBox = \vbox{#1}
+    \@PrintParWithLineNumbers
+}
+\def\@PrintParWithLineNumbers{
+    \ifvoid\@PrintParWithLinesBox
+        \let\@PPNext = \relax
+    \else
+        \setbox\@PrintParWithLinesTemp =
+            \vsplit\@PrintParWithLinesBox to 0.666\baselineskip
+        \hbox{%
+            \llap{% 
+                \the\@PPLineNumber:% 
+                \hskip 10pt
+            }% 
+            \box \@PrintParWithLinesTemp
+        }% 
+        \advance\@PPLineNumber by 1
+        \wlog{Line \the\@PPLineNumber}%
+        \let\@PPNext = \@PrintParWithLineNumbers
+    \fi
+    \@PPNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-splitpar.tip}{}
+\def\SameSizeMath{
+    \textfont0 = \tenrm
+    \scriptfont0 = \tenrm
+    \scriptscriptfont0 = \tenrm
+    \textfont1 = \tenit
+    \scriptfont1 = \tenit
+    \scriptscriptfont1 = \tenit
+    \textfont2 = \tensy
+    \scriptfont2 = \tensy
+    \scriptscriptfont2 = \tensy
+    \textfont3 = \tenex
+    \scriptfont3 = \tenex
+    \scriptscriptfont3 = \tenex
+    \textfont\itfam = \tenit
+    \textfont\slfam = \tensl
+    \textfont\bffam = \tenbf
+    \scriptfont\bffam = \tenbf
+    \scriptscriptfont\bffam = \tenbf
+    \textfont\ttfam = \tentt
+}
+\NameDef{@InputD-ssmath.tip}{}
+\catcode`\@ = 11
+\newcount\@StringSwitchMatchCount
+\def\StringSwitch #1#2{%
+    \edef\@StringSwitchMasterString{#1}%
+    \if\EmptyStringConditional{#1}%
+        \errmessage{\string\StringSwitch: master string
+            must not be the empty string.}%
+    \fi
+    \def\@StringSwitchMatchCommonCode{#2}%
+    \@StringSwitchMatchCount = 0
+    \@StringSwitch  
+}
+\def\@StringSwitchOne #1#2{%
+    \def\@StringSwitchString{#1}%
+    \def\@StringSwitchAction{#2}%
+}
+\def\@StringSwitch #1{%
+    \@StringSwitchOne #1%
+    \if\EmptyStringConditional{\@StringSwitchString}%
+        \ifcase\@StringSwitchMatchCount
+            \@StringSwitchAction
+        \or
+        \else
+            \errmessage{\string\StringSwitch: double match.}%
+        \fi
+        \def\@StringSwitchNext{}%
+    \else
+        \if\StringsEqualConditional{\@StringSwitchMasterString}%
+            {\@StringSwitchString}%
+            \advance\@StringSwitchMatchCount by 1
+            \@StringSwitchMatchCommonCode
+            \@StringSwitchAction
+        \fi
+        \def\@StringSwitchNext{\@StringSwitch}%
+    \fi 
+    \@StringSwitchNext
+}
+\catcode`\@ = 12
+\NameDef{@InputD-stswitch.tip}{}
+\def\SubstituteFontX #1#2#3#4{% 
+    \def#1{% 
+        \message{%
+            \string\SubstituteFontX: No \string#2 font of
+            #3pt, using \noexpand\rm instead.%
+        }%
+        \global\let #1 = #4% 
+        #1% 
+    }%
+}
+\NameDef{@InputD-substf.tip}{}
+\catcode`\@ = 11
+\newbox\@SwapBox
+\def\SwapBoxRegs #1#2{% 
+    \setbox\@SwapBox = \box#1% 
+    \setbox#1 = \box#2% 
+    \setbox#2 = \box\@SwapBox
+}
+\catcode`\@ = 12
+\NameDef{@InputD-swapbox.tip}{}
+\def\TableBeginCentered{% 
+    $$
+        \vbox\bgroup
+            \offinterlineskip
+                                \tabskip = 0pt
+            \halign\bgroup
+}
+\def\TableEndCentered{% 
+            \crcr
+            \egroup
+        \egroup
+    $$
+}
+\NameDef{@InputD-tabcent.tip}{}
+\catcode`\@ = 11
+\newbox\@WidthSavingBox
+\def\WidthSavingBox #1#2{% 
+    \setbox\@WidthSavingBox = \hbox{#1}% 
+    \MaxDimen{#2}{#2}{\wd\@WidthSavingBox}{\global}% 
+    \box\@WidthSavingBox
+}
+\catcode`\@ = 12
+\NameDef{@InputD-tabswb.tip}{}
+\catcode`\@ = 11
+\newcount\@GenTocEntryLevel
+\def\GenTocEntry #1#2#3#4{%
+    \par
+    \bgroup
+    \global\@GenTocEntryLevel = #1
+    \leftskip = #4
+    \parindent = #2
+    \advance\parindent by -#4
+    \dimen0 = #3
+    \advance\dimen0 by -#2
+    \@GenTocEntry
+}
+\def\@GenTocEntry #1#2#3#4#5#6#7#8{%
+    \rightskip = #1 plus 1in
+    \parfillskip = #2
+    \advance\parfillskip by -#1
+    #7
+    \ifdim #3 > 0pt
+        \setbox0 = \hbox to #3{\hfil.\hfil}
+    \else
+        \setbox0 = \box\voidb@x
+    \fi
+    \leavevmode
+    \hbox to \dimen0 {#5\hfil}%
+    {% 
+        #6% 
+        \unskip
+    }%
+    \ifvoid 0
+        \hfill
+    \else
+        \nobreak\leaders\copy0\hskip #4plus 1fil
+    \fi
+    #8%
+    \par
+    \egroup
+}
+\catcode`\@ = 12
+\NameDef{@InputD-toc-mac.tip}{}
+\def\Today{% 
+    \the\month/\the\day/\the\year
+}
+\NameDef{@InputD-today.tip}{}
+\catcode`\@ = 11
+\def\EndInsertTopInsFix{% 
+    \ifdim\dp0 > 10pt
+        \wlog{\string\endinsert: \string\topinsert
+            material deeper than 10pt}%
+        \dp0 = 10pt
+    \fi
+    \MaxDimen{\dimen0}{\dp0}{0pt}{}
+    \dimen1 = \vsize
+    \advance\dimen1 by -\dimen0
+    \advance\dimen1 by -12pt
+    \ifdim\ht0 > \dimen1
+        \wlog{\string\endinsert: \noexpand\topinsert
+            material too long (\the\ht0),}%
+        \wlog{\EightSpaces shortened to \the\dimen1.}%
+        \ht0 = \dimen1
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-topinfix.tip}{}
+\def\Bref #1#2#3{% 
+    #1 (19#2#3)% 
+}
+\NameDef{@InputD-ts-brefm.tip}{}
+\def\td{%
+    \hskip 0.5em plus 0.1em minus 0.1em
+    $\bullet$%
+    \hskip 0.5em plus 0.1em minus 0.1em
+}
+\NameDef{@InputD-ts-bul.tip}{}
+\def\ChapterHeadingTeXIP #1#2{%
+    \setbox 1 = 
+    \vbox to 13pc{
+        \hyphenpenalty = 10000
+        \parindent = 0pt
+        \huge
+        \bf
+        \baselineskip = 21pt
+        \AlwaysBaselineskip
+        \setbox 0 = \hbox{#1}%
+        \copy0
+        \parskip = 3pc
+        \advance\parskip by -\dp0
+        \advance\parskip by -\ht0
+        \advance\parskip by -\baselineskip
+        \wlog{\string\ChapterHeadingTeXIP: computed value
+            of \noexpand\parskip is \the\parskip.}%
+        \spaceskip = 0.3333em
+        \xspaceskip = \spaceskip
+        \rightskip = 0pt plus 4em
+        #2
+        \par
+        \vfil
+    }
+    \box 1
+    \SuppressNextParIndent
+}
+\NameDef{@InputD-ts-chhe.tip}{}
+\catcode`\@ = 11
+\NewCounter{ChapterNo}{\arabic}% 
+    {\TheCounter{ChapterNo}}{\TheCounter{ChapterNo}}
+\def\Chapter{\DblArg{\@Chapter}}%
+\def\@Chapter [#1]#2{% 
+    \ShouldBeRightHandPage
+    \StepCounter{ChapterNo}%
+    \gdef\@LeftRunningHead{#2}%
+    \SetPageLayout{4}
+    \ChapterHeadingTeXIP{\PrintCounter{ChapterNo}}{#2}
+    \WriteToAuxSpecial{toc}{1}% 
+        {\PrintCounter{ChapterNo}}{#1}{\PrintCounter{PageNo}}%
+    \WriteToAuxSpecial{lof}{0}{}{}{}%
+    \WriteToAuxSpecial{lot}{0}{}{}{}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{ChapterNo}}{1}}%
+}
+\NewCounter{AppendixNo}{\Alph}% 
+    {\TheCounter{AppendixNo}}{\TheCounter{AppendixNo}}
+\AddCounterToResetList{SectionNo}{AppendixNo}
+\AddCounterToResetList{AppendixNo}{VolumeNo}
+\def\Appendix{\DblArg{\@Appendix}}%
+\def\@Appendix [#1]#2{% 
+    \NewPageRightHand
+    \StepCounter{AppendixNo}%
+    \ReassignCounter{SectionNo}{\arabic}% 
+        {\PrintCounter{AppendixNo}.\TheCounter{SectionNo}}% 
+        {\PrintCounter{AppendixNo}.\TheCounter{SectionNo}}%
+    \SetPageLayout{4}
+    \ChapterHeadingTeXIP{Appendix \PrintCounter{AppendixNo}}{#2}
+    \WriteToAuxSpecial{toc}{1}% 
+        {\PrintCounter{AppendixNo}}{#1}{\PrintCounter{PageNo}}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{AppendixNo}}{1}}%
+    \ignorespaces
+}
+\def\DoneWithAppendices{%
+    \ReassignCounter{SectionNo}{\alph}%
+        {\TheCounter{ChapterNo}.\TheCounter{SectionNo}}% 
+        {\TheCounter{ChapterNo}.\TheCounter{SectionNo}}
+    \def\Label ##1{\@Label{##1}{\RefCounter{ChapterNo}}{1}}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-chap.tip}{}
+\catcode`\@ = 11
+\def\@PageRef #1{% 
+    \def\@PageRefResult{}%
+    \@ref{1}{#1}%
+    \if\StringsEqualConditional{\@TheExpandedLabel}{??}%
+        \def\@PageRefResult{??}%
+    \else
+        \if\PrefixConditional{\@TheExpandedLabel}%
+                            {\TheCounter{VolumeNo}-}%
+            \DropPrefix{\@TheExpandedLabel}{\TheCounter{VolumeNo}-}%
+                       {\@TheShortenedLabel}%
+            \edef\@PageRefResult{\@TheShortenedLabel}%
+        \else
+            \edef\@PageRefResult{\@TheExpandedLabel}%
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-pager.tip}{}
+\catcode`\@ = 11
+\newcount\@PageRefLimitLow
+\newcount\@PageRefLimitHigh
+\newif\if@CloseByReference
+\newcount\@PageCloseRefCount
+\newcount\@PageNumberActual
+\def\NoSpecialPageRef{%
+    \global\@NoSpecialPageReftrue
+}
+\newif\if@NoSpecialPageRef
+\@NoSpecialPageReffalse
+\def\@PageRef #1{% 
+    \def\@PageRefResult{}%
+    \global\@CloseByReferencefalse
+    \StepCounter{CloseByReferenceCount}%
+    \CounterToRegister{\global\@PageCloseRefCount}%
+        {CloseByReferenceCount}%
+    \@ref{1}{#1}%
+    \if\StringsEqualConditional{\@TheExpandedLabel}{??}%
+        \def\@PageRefResult{??}%
+    \else
+        \if\PrefixConditional
+            {\@TheExpandedLabel}%
+            {\TheCounter{VolumeNo}-}%
+            \DropPrefix{\@TheExpandedLabel}{\TheCounter{VolumeNo}-}%
+                       {\@TheShortenedLabel}%
+            \def\@PageRefResult{\@TheShortenedLabel}%
+            \Label{@READ@-%
+                \@ThisLabel-\the\@PageCloseRefCount}%
+            \@PageRefLimitLow = \@TheShortenedLabel
+            \advance\@PageRefLimitLow by -1
+            \@PageRefLimitHigh = \@TheShortenedLabel
+            \advance\@PageRefLimitHigh by 1
+            \edef\@Ref@Temp@Name{%
+                \@LabelRefPrefix @READ@-% 
+                \@ThisLabel-\the\@PageCloseRefCount
+            }%
+            \if\NameDefinedConditional{\@Ref@Temp@Name}%
+                \edef\@Ref@Temp@NameTwo{% 
+                    \NameUse{\@Ref@Temp@Name}% 
+                }%
+                \wlog{@READ@: 1 \@Ref@Temp@Name / 
+                    \@Ref@Temp@NameTwo}%
+                    \edef\@Ref@Temp@NameThree{%
+                        \expandafter\PickSecondOfTwo
+                            \@Ref@Temp@NameTwo
+                    }%
+                \wlog{@READ@ 1a: \@Ref@Temp@NameThree}% 
+                \DropPrefix
+                    {\@Ref@Temp@NameThree}%
+                    {\TheCounter{VolumeNo}-}%
+                    {\@ResultLocalRef}%
+                \@PageNumberActual = \@ResultLocalRef
+            \else
+                \wlog{@READ@ 2}%
+                \@PageNumberActual = \count0
+                \@PageRefLimitLow = -10
+                \@PageRefLimitHigh = -10
+            \fi
+            \if\InRangeConditional
+                {\@PageNumberActual}%
+                {\@PageRefLimitLow}%
+                {\@PageRefLimitHigh}%
+                \wlog{@READ@ 3}%
+                \@CloseByReferencetrue
+                \if@NoSpecialPageRef
+                    \@CloseByReferencefalse
+                \fi
+            \else
+                \wlog{@READ@ 4}%
+                \@CloseByReferencefalse
+            \fi
+            \global\@NoSpecialPageReffalse
+            \if@CloseByReference
+                \ifnum\@PageNumberActual = \@PageRefLimitLow
+                    \wlog{\string\PageRef: Reference "\@ThisLabel,"
+                        on page \the\@PageNumberActual
+                        \space refers to the next page.}%
+                    \def\@PageRefResult{the next}%
+                \fi
+                \ifnum\@PageNumberActual = \@TheShortenedLabel
+                    \wlog{\string\PageRef: Reference "\@ThisLabel"
+                        on page \the\@PageNumberActual
+                        \space refers to the current page.}%
+                    \def\@PageRefResult{this}%
+                \fi
+                \ifnum\@PageNumberActual = \@PageRefLimitHigh
+                    \wlog{\string\PageRef: Reference "\@ThisLabel"
+                        on page \the\@PageNumberActual
+                        \space refers to the preceding page.}%
+                    \def\@PageRefResult{the previous}%
+                \fi
+            \fi
+        \else
+            \def\@PageRefResult{\@TheExpandedLabel}%
+        \fi
+    \fi
+    \edef\@PageRefResult{\@PageRefResult}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-page2.tip}{}
+\catcode`\@ = 11
+\def\PageRef   #1{% 
+    \@PageRef{#1}%
+    \@PageRefResult
+    \@PrintAfterLabel
+}
+\def\Page      #1{% 
+    \PageShortForm~\@PageRef{#1}%
+    \@PageRefResult
+    \@PrintAfterLabel
+}
+\def\OnPage #1{%
+    \@PageRef{#1}%
+    \if@CloseByReference
+        on \@PageRefResult\space page%
+    \else
+        on \PageShortForm~\@PageRefResult
+    \fi
+    \@PrintAfterLabel
+}
+\def\AtPage #1{%
+    \@PageRef{#1}%
+    \if@CloseByReference
+        at \@PageRefResult\space page%
+    \else
+        at \PageShortForm~\@PageRefResult
+    \fi
+    \@PrintAfterLabel
+}
+\def\CommaPage #1{%
+    \@PageRef{#1}%
+    \if@CloseByReference
+        \space on \@PageRefResult\space page%
+        \@PrintAfterLabel
+    \else
+        ,\space
+        \PageShortForm~\@PageRefResult
+        \@PrintAfterLabel
+    \fi
+}
+\def\CommaPageComma{%
+    \@PageRef{,}%
+    \if@CloseByReference
+        \space on \@PageRefResult\space page\space
+    \else
+        ,\space
+        \PageShortForm~\@PageRefResult
+        \@PrintAfterLabel
+        \space
+    \fi
+}
+\def\PageShortForm{p.}
+\def\PagesShortForm{pp.}
+\def\see #1#2{% 
+    see \@SeeSee{#1}{#2}%
+}
+\def\See #1#2{% 
+    See \@SeeSee{#1}{#2}%
+}
+\def\@SeeSee #1#2{%
+    \SectionRef{#1}%
+    \if\StringsEqualConditional{#2}{,}%
+        \CommaPageComma
+        \let\@SeeSeeEnd = \ignorespaces
+    \else
+        \CommaPage
+        #2%
+        \let\@SeeSeeEnd = \relax
+    \fi
+    \@SeeSeeEnd
+}
+\def\ChapterRef #1{% 
+    Chapter~\Ref{#1}%
+}
+\def\SectionRef #1{% 
+    \Ref{#1}%
+}
+\def\ItemRef #1{% 
+    item~\Ref{#1}%
+}
+\def\FigRef #1{% 
+    Fig.~\Ref{#1}%
+}
+\def\FigureRef #1{% 
+    Figure~\Ref{#1}%
+}
+\def\TableRef #1{% 
+    Table~\Ref{#1}%
+}
+\def\AppendixRef #1{% 
+    Appendix~\Ref{#1}%
+}
+\def\PagesRef #1#2{% 
+    \PagesShortForm~\PageRef{#1}--\PageRef{#2}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-crm.tip}{}
+\newdimen\HsizeTeXIP
+\newdimen\VsizeTeXIP
+\newcount\ClubPenalty
+\newcount\WidowPenalty
+\newcount\InterlinePenalty
+\newcount\BrokenPenalty
+\NameDef{@InputD-ts-dime1.tip}{}
+\newif\ifWritePageLog
+\WritePageLogfalse
+\newwrite\PageLogStream
+\def\WritePageLogFile{%
+    \immediate\openout\PageLogStream = \jobname.plog
+    \WritePageLogtrue
+}
+\newcount\BadnessSave
+\ShowPlainListsfalse
+\catcode`\@ = 11
+\newcount\@PageLayoutCode
+\def\SetPageLayout #1{% 
+    \global\@PageLayoutCode = #1
+    \CheckRange{\@PageLayoutCode}{0}{5}%
+        {\string\SetPageLayout: }
+}
+\SetPageLayout{0}%
+\def\@LeftRunningHead{}
+\def\@RightRunningHead{}
+\newcount\@SavedPageLayoutCode
+\def\NewPageRightHandSpecial{% 
+    \vfill
+    \supereject
+    \ifodd\count0
+        \wlog{\string\NewPageRightHandSpecial: no empty
+            page to generate (\string\count0 = \the\count0)}%
+    \else
+        \hbox{}
+        \@SavedPageLayoutCode = \@PageLayoutCode
+        \SetPageLayout{1}%
+        \wlog{\string\NewPageRightHandSpecial: empty page
+            generated,
+            (\string\count0 = \the\count0).}%
+        \vfill
+        \eject
+        \SetPageLayout{\@SavedPageLayoutCode}%
+    \fi
+}
+\newdimen\OddPagesHorizontalShift
+\newdimen\EvenPagesHorizontalShift
+\newdimen\CurrentPageShift
+\def\plainoutput{% 
+    \@ShowPlainLists
+    \edef\@LeftRunningHead{\@LeftRunningHead}%
+    \edef\@RightRunningHead{\@RightRunningHead}%
+    \ifnum\@PageLayoutCode = 0
+    \else
+        \headline = {}
+        \footline = {}
+    \fi
+    \ifcase\@PageLayoutCode
+    \or
+    \or
+        \global\@PageLayoutCode = 3
+    \or
+        \@PageLayoutCodeThree
+    \or
+        \global\@PageLayoutCode = 5
+    \or
+        \ifodd\count0
+            \headline = {% 
+                \small\rm
+                \hfil
+                \botmark
+                \hskip 18pt
+                \PrintCounter{PageNo}%
+            }%
+        \else
+            \headline = {% 
+                \small\rm
+                \PrintCounter{PageNo}%
+                \hskip 18pt
+                \@LeftRunningHead
+                \hfil
+            }%
+        \fi
+    \else
+        \errmessage{\string\plainoutput: \string\@PageLayoutCode
+            out of range.}%
+    \fi
+    \setbox 4 = \vbox{%
+        \pagebody
+    }%
+    \ifWritePageLog
+        \immediate\write\PageLogStream{%
+            Part name: \CurrentPartName, Page \the\count0
+        }%
+        \immediate\write\PageLogStream{%
+            Page \the\count0:
+            stretch: \the\pagestretch,
+            shrink: \the\pageshrink,
+            outputpenalty: \the\outputpenalty
+        }%
+        \immediate\write\PageLogStream{%
+            pagefilstretch: \the\pagefilstretch,
+            pagefillstretch: \the\pagefillstretch
+        }%
+        \immediate\write\PageLogStream{%
+            ht 255: \the\ht255,
+            dp 255: \the\dp255
+        }%
+        \NaturalHeight{\dimen0}{255}%
+        \NaturalDepth{\dimen1}{255}%
+        \immediate\write\PageLogStream{%
+            Natural height: \the\dimen0,
+            Natural depth:  \the\dimen1
+        }%
+        \dimen2 = \vsize
+        \advance\dimen2 by -\dimen0
+        \immediate\write\PageLogStream{%
+            Ideal height: \the\vsize,
+            Difference:  \the\dimen2
+        }%
+        \immediate\write\PageLogStream{%
+            badness: \the\BadnessSave,
+            height: \the\ht4,
+            depth: \the\dp4
+        }%
+        \immediate\write\PageLogStream{}%
+    \fi
+    \setbox 5 = \vbox{%
+        \makeheadline
+        \box 4
+        \makefootline
+    }%
+    \@MakeRobustMacros
+    \ifodd\count0
+        \CurrentPageShift = \OddPagesHorizontalShift
+    \else
+        \CurrentPageShift = \EvenPagesHorizontalShift
+    \fi
+    \wlog{Redefined \string\plainoutput (ts-outpu.tip):
+        Shifting: shift amount is \the\CurrentPageShift\space\space
+        (page is \the\pageno).}%
+    \setbox 6 = \vbox{%
+        \moveright\CurrentPageShift \box5
+    }%
+    \shipout\box6
+    \advancepageno
+    \ifnum\outputpenalty > -10000
+    \else
+        \dosupereject
+    \fi
+}
+\def\@PageLayoutCodeThree{%
+    \ifodd\count0
+        \headline = {% 
+            \small\rm
+            \hfil
+            \@RightRunningHead
+            \hskip 18pt
+            \PrintCounter{PageNo}%
+        }%
+    \else
+        \headline = {% 
+            \small\rm
+            \PrintCounter{PageNo}%
+            \hskip 18pt
+            \@LeftRunningHead
+            \hfil
+        }%
+    \fi
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-outpu.tip}{}
+\def\SetUpTeXIPValues #1#2#3#4#5#6#7#8#9{%
+    \HsizeTeXIP = #1\relax
+    \hsize = \HsizeTeXIP
+    \VsizeTeXIP = #2\relax
+    \vsize = \VsizeTeXIP
+    \SetParIndent{20pt}
+    \ClubPenalty = #4\relax
+    \clubpenalty = \ClubPenalty
+    \WidowPenalty = #5\relax
+    \widowpenalty = \WidowPenalty
+    \InterlinePenalty = #6\relax
+    \interlinepenalty = \InterlinePenalty
+    \BrokenPenalty = #7\relax
+    \brokenpenalty = \BrokenPenalty
+    \OddPagesHorizontalShift = 0pt
+    \EvenPagesHorizontalShift = 0pt
+    \overfullrule = #8\relax
+    \parskip = #9\relax
+}
+\SetUpTeXIPValues{6.5in}{8.9in}{20pt}{100}{100}{100}{100}% 
+    {5pt}{0pt plus 1pt}
+\NameDef{@InputD-ts-dime2.tip}{}
+\def\SubstituteFont #1#2#3#4{% 
+    \expandafter\newifOF \csname if-\string#1\endcsname
+    \csname if-\string#1true\endcsname
+    \def#1{% 
+        \csname if-\string#1\endcsname
+            \message{%
+                \string\SubstituteFont: No \string#2 font at
+                size #3pt, using \noexpand\rm instead.%
+            }%
+            \global\csname if-\string#1false\endcsname
+        \fi
+        #4% 
+    }%
+}
+\NameDef{@InputD-ts-subst.tip}{}
+\font\RmLargerThanLife = cmr17 scaled \magstep5
+\NewFont\Vrm = cmr5
+\NewFont\Vit = cmti7 at 5pt
+\NewFont\Vbf = cmbx5
+\NewFont\Vsc = cmcsc10 at 5pt
+\SubstituteFont{\Vtt}{\tt}{7}{\VIIrm}
+\SubstituteFont{\Vsc}{\sc}{7}{\VIIrm}
+\SubstituteFont{\Vsl}{\sl}{7}{\VIIrm}
+\NewFont\VIIrm = cmr7
+\NewFont\VIIit = cmti7
+\NewFont\VIIbf = cmbx7
+\NewFont\VIIsc = cmcsc10 at 7pt
+\SubstituteFont{\VIItt}{\tt}{7}{\VIIrm}
+\SubstituteFont{\VIIsl}{\sl}{7}{\VIIrm}
+\NewFont\VIIIrm = cmr8
+\NewFont\VIIIit = cmti8
+\NewFont\VIIIbf = cmbx8
+\NewFont\VIIItt = cmtt8
+\NewFont\VIIIsc = cmcsc10 at 8pt
+\SubstituteFont{\VIIIsl}{\sl}{8}{\VIIIrm}
+\NewFont\IXrm = cmr9
+\NewFont\IXit = cmti9
+\NewFont\IXbf = cmbx9
+\NewFont\IXtt = cmtt9
+\NewFont\IXsc = cmcsc10 at 9pt
+\SubstituteFont{\IXsl}{\sl}{9}{\IXrm}
+\NewFont\Xrm = cmr10
+\NewFont\Xit = cmti10
+\NewFont\Xbf = cmbx10
+\NewFont\Xtt = cmtt10
+\NewFont\Xsc = cmcsc10
+\NewFont\Xsl = cmcsc10
+\NewFont\XIIrm = cmr12
+\NewFont\XIIit = cmti12
+\NewFont\XIIbf = cmbx12
+\NewFont\XIItt = cmtt12
+\NewFont\XIIsc = cmcsc10 scaled \magstep 1
+\NewFont\XIIsl = cmcsc10 scaled \magstep 1
+\NewFont\XIIIrm = cmr12 scaled \magstephalf
+\NewFont\XIIIit = cmti12 scaled \magstephalf
+\NewFont\XIIIbf = cmbx12 scaled \magstephalf
+\NewFont\XIIItt = cmtt12 scaled \magstephalf
+\NewFont\XIIIsc = cmcsc10 scaled \magstephalf
+\NewFont\XIIIsl = cmcsc10 scaled \magstephalf
+\NewFont\XVIIrm = cmr12 scaled \magstep 2
+\NewFont\XVIIit = cmti12 scaled \magstep 2
+\NewFont\XVIIbf = cmbx12 scaled \magstep 2
+\NewFont\XVIItt = cmtt12 scaled \magstep 2
+\NewFont\XVIIsc = cmcsc10 scaled \magstep 3
+\NewFont\XVIIsl = cmcsc10 scaled \magstep 3
+\NewFont\XXIrm = cmr17 scaled \magstep 1
+\NewFont\XXIit = cmti12 scaled \magstep 3
+\NewFont\XXIbf = cmbx12 scaled \magstep 3
+\NewFont\XXIsc = cmcsc10 scaled \magstep 4
+\LoadFontOnDemand{\XXItt}{cmtt12 scaled \magstep 3}
+\SubstituteFont{\XXIsl}{\sl}{20.74}{\XXIrm}
+\NewFont\XXVrm = cmr17 scaled \magstep 2
+\NewFont\XXVit = cmti12 scaled \magstep 4
+\NewFont\XXVbf = cmbx12 scaled \magstep 4
+\NewFont\XXVsc = cmcsc10 at 5pt
+\LoadFontOnDemand{\XXVtt}{cmtt12 scaled \magstep 4}
+\SubstituteFont{\XXVsl}{\sl}{20.74}{\XXVrm}
+\DefineFontSizeGroup{V}{5}
+\DefineFontSizeGroup{VII}{7}
+\DefineFontSizeGroup{VIII}{8}
+\DefineFontSizeGroup{IX}{9}
+\DefineFontSizeGroup{X}{10}
+\DefineFontSizeGroup{XII}{12}
+\DefineFontSizeGroup{XIII}{13.14}
+\DefineFontSizeGroup{XVII}{17.28}
+\DefineFontSizeGroup{XXI}{20.74}
+\DefineFontSizeGroup{XXV}{24.88}
+\let\tiny = \FontSizeV
+\let\scriptsize = \FontSizeVII
+\let\footnotesize = \FontSizeVIII
+\let\small = \FontSizeIX
+\let\normalsize = \FontSizeX
+\let\large = \FontSizeXII
+\let\Large = \FontSizeXIII
+\let\LARGE = \FontSizeXVII
+\let\huge  = \FontSizeXXI
+\let\Huge  = \FontSizeXXV
+\def\LineSpaceMultFactor{1.2}
+\normalsize
+\NameDef{@InputD-ts-fonts.tip}{}
+\catcode`\@ = 11
+\newcount\@WidestLoopCounter
+\newbox\@WidestLoopBox
+\def\FindWidestChar #1#2#3#4{% 
+    #1 = 0pt
+    \DoLoop{\@WidestLoopCounter}{#3}{1}{#4}{%
+        \setbox\@WidestLoopBox = \hbox{% 
+            #2%
+            \char\@WidestLoopCounter
+        }%
+        \MaxDimen{#1}{#1}{\wd\@WidestLoopBox}{}%
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-widestc.tip}{}
+\catcode`\@ = 11
+\newdimen\@WidthLevelOneLabels
+\FindWidestChar{\@WidthLevelOneLabels}{\normalsize\rm}%
+    {`\0}{`\9}
+\setbox 0 = \hbox{.\hskip 1em}
+\advance\@WidthLevelOneLabels by \wd0
+\def\@BeginEnumerateLevelOne{% 
+    \BeginAList{\@WidthLevelOneLabels}{0pt}{1em}%
+        {12pt}{0pt}%
+        {0pt}{15pt}%
+}
+\newdimen\@WidthLevelTwoLabels
+\FindWidestChar{\@WidthLevelTwoLabels}{\normalsize\rm}%
+    {`\a}{`\j}
+\setbox 0 = \hbox{()\hskip 1em}
+\advance\@WidthLevelTwoLabels by \wd0
+\def\@BeginEnumerateLevelTwo{%
+    \BeginAList{\@WidthLevelTwoLabels}{0pt}{10pt}%
+        {6pt}{0pt}%
+        {0pt}{15pt}%
+}
+\newdimen\@WidthLevelThreeLabels
+\setbox 0 = \hbox{viii.\hskip 1em}
+\@WidthLevelThreeLabels = \wd0
+\def\@BeginEnumerateLevelThree{%
+    \BeginAList{\@WidthLevelThreeLabels}{0pt}{10pt}%
+        {6pt}{0pt}%
+        {0pt}{15pt}%
+}
+\newdimen\@WidthLevelFourLabels
+\FindWidestChar{\@WidthLevelFourLabels}{\normalsize\rm}%
+    {`\A}{`\J}
+\setbox0 = \hbox{()\hskip 1em}
+\advance\@WidthLevelFourLabels by \wd0
+\def\@BeginEnumerateLevelFour{%
+    \BeginAList{\@WidthLevelFourLabels}{0pt}{10pt}%
+        {6pt}{0pt}%
+        {0pt}{15pt}%
+}
+\def\EnumerateLevelOneExtended{% 
+    \par
+    \FindWidestChar{\@WidthLevelOneLabels}{\normalsize\rm}%
+    {`\0}{`\9}
+    \multiply\@WidthLevelOneLabels by 2
+    \setbox 0 = \hbox{.\hskip 1em}%
+    \advance\@WidthLevelOneLabels by \wd0
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-enum.tip}{}
+\catcode`\@ = 11
+\NewCounter{FigureNo}{\arabic}% 
+    {\TheCounter{ChapterNo}.\TheCounter{FigureNo}}% 
+    {\TheCounter{ChapterNo}.\TheCounter{FigureNo}}%
+\NewCounter{TableNo}{\arabic}% 
+    {\TheCounter{ChapterNo}.\TheCounter{TableNo}}% 
+    {\TheCounter{ChapterNo}.\TheCounter{TableNo}}%
+\AddCounterToResetList{FigureNo}{ChapterNo}
+\AddCounterToResetList{TableNo}{ChapterNo}
+\def\Caption{\DblArg{\@Caption}}
+\def\@Caption [#1]#2{%
+    \errmessage{\string\@Caption: caption out of place, caption
+        text = #1.}%
+}
+\def\BeginFigure{% 
+    \DoFutureLet{\ifx}{[}{\@BeginFigure}{\@BeginFigure[t]}%
+}
+\newif\if@FigureInsertOk
+\def\@BeginFigure[#1]{% 
+    \begingroup
+    \def\@UseThisInsert{}%
+    \@FigureInsertOkfalse
+    \if\StringsEqualConditional{#1}{t}%
+        \def\@UseThisInsert{\topinsert}%
+        \@FigureInsertOktrue
+    \fi
+    \if\StringsEqualConditional{#1}{p}%
+        \def\@UseThisInsert{\pageinsert}%
+        \@FigureInsertOktrue
+    \fi
+    \if@FigureInsertOk
+    \else
+        \errmessage{\string\@BeginFigure: illegal argument
+            "#1." Use [t] instead.}%
+        \def\@UseThisInsert{\topinsert}%
+    \fi
+    \gdef\FigureCaptionText{}%
+    \gdef\FigureCaptionTextLof{}%
+    \StepCounter{FigureNo}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{FigureNo}}{0}}%
+    \def\@Caption [##1]##2{% 
+        \gdef\FigureCaptionTextLof{##1}%
+        \gdef\FigureCaptionText{##2}%
+        \wlog{\noexpand\@Caption (figures), caption text saved:
+                        ##2.}%
+    }%
+    \setbox 0 = \vbox\bgroup
+}
+\def\EndFigure{%
+    \egroup
+    \@UseThisInsert
+        \box0
+        \if\EmptyStringConditional{\FigureCaptionText}%
+        \else
+            \bigskip
+            \CenterOrParagraph{% 
+                \small
+                Figure~\PrintCounter{FigureNo}.
+                \FigureCaptionText
+            }%
+            \WriteToAuxSpecial{lof}{1}{\PrintCounter{FigureNo}}% 
+                {\FigureCaptionTextLof}{\PrintCounter{PageNo}}%
+        \fi
+    \endinsert
+    \endgroup
+}
+\def\BeginTable{% 
+    \begingroup
+    \gdef\TableCaptionText{}%
+    \gdef\TableCaptionTextLot{}%
+    \StepCounter{TableNo}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{TableNo}}{0}}%
+    \def\@Caption [##1]##2{% 
+        \gdef\TableCaptionText{##2}%
+        \gdef\TableCaptionTextLot{##1}%
+        \wlog{\noexpand\@Caption for tables: ##2}%
+    }%
+    \setbox 0 = \vbox\bgroup
+}
+\def\EndTable{%
+    \egroup
+    \topinsert
+        \if\EmptyStringConditional{\TableCaptionText}%
+        \else
+            \smallskip
+            \CenterOrParagraph{% 
+                \small
+                Table~\PrintCounter{TableNo}.
+                \TableCaptionText}%
+            \WriteToAuxSpecial{lot}{1}{\PrintCounter{TableNo}}% 
+                {\TableCaptionTextLot}{\PrintCounter{PageNo}}%
+            \smallskip
+        \fi
+        \box0
+    \endinsert
+    \endgroup
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-float.tip}{}
+\catcode`\@ = 11
+\NewCounter{FootNote}{\arabic}% 
+    {\TheCounter{FootNote}}%
+    {\PrintCounter{FootNote}}
+\AddCounterToResetList{FootNote}{ChapterNo}
+\def\FootNote #1{% 
+    \StepCounter{FootNote}%
+    \footnote{$^{\PrintCounter{FootNote}}$}% 
+        {% 
+            \small
+            \baselineskip = 9pt
+            #1% 
+        }%
+}
+\skip\footins = 18.4pt
+\def\@PrintFootnotePlain{%
+    \vskip 12pt plus 2pt minus 1pt
+    \hrule width 5pc height 0.4pt depth 0pt
+    \vskip 6pt plus 1pt minus 0.5pt
+    \unvbox\footins
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-foot.tip}{}
+\NewCounter{VolumeNo}{\Roman}% 
+    {\TheCounter{VolumeNo}}{\TheCounter{VolumeNo}}
+\ReassignCounter{PageNo}{\arabic}% 
+    {\TheCounter{PageNo}}% 
+    {\TheCounter{VolumeNo}-\TheCounter{PageNo}}
+\NameDef{@InputD-ts-vol.tip}{}
+\catcode`\@ = 11
+\NewCounter{SectionNo}{\arabic}% 
+    {\PrintCounter{ChapterNo}.\TheCounter{SectionNo}}%
+    {\PrintCounter{ChapterNo}.\TheCounter{SectionNo}}%
+\NewCounter{SubSectionNo}{\arabic}%
+    {\PrintCounter{SectionNo}.\TheCounter{SubSectionNo}}%
+    {\PrintCounter{SectionNo}.\TheCounter{SubSectionNo}}%
+\NewCounter{SubSubSectionNo}{\arabic}%
+    {\PrintCounter{SubSectionNo}.\TheCounter{SubSubSectionNo}}%
+    {\PrintCounter{SubSectionNo}.\TheCounter{SubSubSectionNo}}%
+\NewCounter{CloseByReferenceCount}{\arabic}%
+    {\PrintCounter{CloseByReferenceCount}}%
+    {\PrintCounter{CloseByReferenceCount}}%
+\AddCounterToResetList{SectionNo}{ChapterNo}%
+\AddCounterToResetList{SubSectionNo}{SectionNo}%
+\AddCounterToResetList{SubSubSectionNo}{SubSectionNo}%
+\def\Section{\DblArg{\@Section}}%
+\def\@Section [#1]#2{% 
+    \StepCounter{SectionNo}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{SectionNo}}{1}}%
+    \GenericHeading{2}{36pt plus 10pt minus 2pt}% 
+        {1}{1}{1}{24pt}{0}%
+        {\Large\baselineskip = 15pt}{-13pt}% 
+        {\PrintCounter{SectionNo}}{#2}{#1}% 
+    \gdef\EveryParB{%
+        {%
+            \@MakeRobustMacros
+            \def\LineBreakToc{ }%
+            \def\LineBreakHeading{ }%
+            \def\IgnoreInRunningHead ####1{%
+                \relax$\ldots$%
+            }%
+            \mark{#2}%
+        }%
+    }%
+}
+\def\SubSection{\DblArg{\@SubSection}}%
+\def\@SubSection [#1]#2{% 
+    \StepCounter{SubSectionNo}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{SubSectionNo}}{1}}%
+    \GenericHeading{3}{30pt plus 8pt minus 2pt}% 
+        {1}{1}{1}{18pt}{0}% 
+        {\large\baselineskip = 14pt}{-12pt}% 
+        {\PrintCounter{SubSectionNo}}{#2}{#1}% 
+}
+\def\SubSubSection{\DblArg{\@SubSubSection}}%
+\def\@SubSubSection [#1]#2{% 
+    \ifnum\TheCounter{SubSectionNo} = 0
+        \errhelp = {The reason is probably that \string\Section
+            occurred directly followed by \string\SubSubSection
+            (that is you forgot a \string\SubSection in between).}%
+        \errmessage{\string\@SubSubSection: Counter "SubSectionNo"
+            is zero.}%
+    \fi
+    \StepCounter{SubSubSectionNo}%
+    \def\Label ##1{\@Label{##1}{\RefCounter{SubSubSectionNo}}{1}}%
+    \GenericHeading{4}{24pt plus 6pt minus 1pt}% 
+        {1}{1}{1}{18pt}{0}% 
+        {\normalsize}{-10pt}% 
+        {\PrintCounter{SubSubSectionNo}}{#2}{#1}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-shead.tip}{}
+\NameDef{@InputD-ts-hall.tip}{}
+\catcode`\@ = 11
+\def\label{\Label}
+\def\WriteCountersToAuxFile{%
+    \@WriteCounter{VolumeNo}%
+    \@WriteCounter{ChapterNo}%
+    \@WriteCounter{AppendixNo}%
+    \@WriteCounter{SectionNo}%
+    \@WriteCounter{SubSectionNo}%
+    \@WriteCounter{SubSubSectionNo}%
+    \@WriteCounter{PageNo}%
+    \@WriteCounter{SWPageNo}%
+    \@WriteCounter{FigureNo}%
+    \@WriteCounter{TableNo}%
+    \@WriteCounter{CloseByReferenceCount}%
+}
+\def\Label #1{% 
+    \message{\noexpand\Label currently undefined,
+        label "#1" ignored.}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-hmore.tip}{}
+\lefthyphenmin  = 2
+\righthyphenmin = 3
+\hyphenation{Ado-be}
+\hyphenation{after}
+\hyphenation{base-line-skip}
+\hyphenation{man-u-script}
+\hyphenation{obey-lines}
+\hyphenation{obey-spaces}
+\hyphenation{other-wise}
+\NameDef{@InputD-ts-hyph.tip}{}
+\catcode`\@ = 11
+\def\@BeginItemizeLevelOne{% 
+    \BeginAList
+        {15pt}{0pt}{15pt}% 
+        {12pt}{0pt}%
+        {0pt}{15pt}%
+}
+\def\@BeginItemizeLevelTwo{% 
+    \BeginAList
+        {15pt}{0pt}{15pt}% 
+        {6pt}{0pt}%
+        {0pt}{15pt}%
+}
+\def\@BeginItemizeLevelThree{%
+    \BeginAList
+        {15pt}{0pt}{15pt}% 
+        {4pt}{0pt}%
+        {0pt}{15pt}%
+}
+\def\@BeginItemizeLevelFour{%
+    \BeginAList
+        {15pt}{0pt}{15pt}% 
+        {4pt}{0pt}%
+        {0pt}{15pt}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-itize.tip}{}
+\def\TeXIP{%
+    \TeX{} in Practice%
+}
+\def\WEB{% 
+    {\tt WEB}% 
+}
+\NameDef{@InputD-ts-lazy.tip}{}
+\def\EntryIntolof #1#2#3#4{% 
+    \ifcase #1
+        \MaxVskip{12pt}%
+    \or
+        \GenTocEntry{#1}{10pt}{50pt}{50pt}{25pt}%
+            {0pt}{5pt}{0.5in}{#2}{#3}{\rm}{#4}
+    \else
+        \errmessage{\string\EntryIntolof/lot: illegal level.}%
+    \fi
+}
+\let\EntryIntolot = \EntryIntolof
+\NameDef{@InputD-ts-loft.tip}{}
+\def\PS{{\sc Post\-Script}}
+\font\MetafontLogoFont = logo10 scaled \magstep0
+\def\MF{{\MetafontLogoFont METAFONT}}
+\def\textfontii{\the\textfont2}
+\def\AmSTeX{{\textfontii A}\kern-.1667em\lower.5ex\hbox
+    {\textfontii M}\kern-.125em{\textfontii S}-\TeX}
+\def\LaTeX{{\rm L\kern-.36em\raise.3ex\hbox{\sc a}\kern-.15em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\NameDef{@InputD-ts-logo.tip}{}
+\catcode`\@ = 11
+\def\@MakeRobustMacros{% 
+    \TreatAsRobust\rm
+    \TreatAsRobust\bf
+    \TreatAsRobust\it
+    \TreatAsRobust\tt
+    \TreatAsRobust\sc
+    \TreatAsRobust\mac
+    \TreatAsRobust\break
+    \TreatAsRobust\dots
+    \TreatAsRobust\MF
+    \TreatAsRobust\TeX
+    \TreatAsRobust\LaTeX
+    \TreatAsRobust\PS
+    \TreatAsRobust\AmSTeX
+    \TreatAsRobust\ldots
+    \TreatAsRobust\cdots
+    \TreatAsRobust\dots
+    \def\MakeRobust ##1{%
+        \noexpand\MakeRobust
+        \noexpand##1%
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-robst.tip}{}
+\def\TeXIPVersionNumber{1.0}
+\NameDef{@InputD-ts-vers.tip}{}
+\def\MyNarrower{\narrower\narrower}
+\frenchspacing
+\NameDef{@InputD-ts-set.tip}{}
+\def\EntryIntotoc #1#2#3#4{% 
+    \par
+    \ifcase #1
+        \bigskip
+    \or
+        \bigskip
+    \else
+        \relax
+    \fi
+    \ifcase #1
+        \GenTocEntry{0}{0pt}{20pt}{20pt}{30pt}% 
+            {0pt}{5pt}{0.5in}{#2}{#3}{\rm}{#4}
+    \or
+        \GenTocEntry{1}{0pt}{40pt}{40pt}{30pt}% 
+            {0pt}{10pt}{0.5in}{#2}{#3}{\bf}{#4}
+    \or
+        \GenTocEntry{2}{10pt}{50pt}{50pt}{30pt}% 
+            {0pt}{5pt}{0.5in}{#2}{#3}{\rm}{#4}
+    \or
+        \GenTocEntry{#1}{20pt}{60pt}{60pt}{30pt}% 
+            {0pt}{5pt}{0.5in}{#2}{#3}{\rm}{#4}
+    \or
+    \else
+        \errmessage{\string\EntryIntotoc: no level #1 subdivision
+            in this series.}
+    \fi
+}
+\NameDef{@InputD-ts-toc.tip}{}
+\newdimen\LeftSkipVerbatim
+\LeftSkipVerbatim = 0.3in
+\def\VerbatimFont{\tt}
+\newcount\VerbatimTab
+\VerbatimTab = 8
+\newif\ifVerbLineNum
+\VerbLineNumtrue
+\newskip\DisplayVerbatimVskip
+\DisplayVerbatimVskip = 0pt plus 2pt minus 1pt
+\newif\ifCaretTab
+\CaretTabfalse
+\newtoks\VerbatimTokBegin   \VerbatimTokBegin = {}
+\newtoks\VerbatimTokLine    \VerbatimTokLine = {}
+\newtoks\VerbatimTokEnd     \VerbatimTokEnd = {}
+\catcode`\@ = 11
+\newdimen\@VerbatimLr
+\@VerbatimLr = 1.5pt
+\newif\if@IgnoreFirstNewLine
+\if\FormatIsLaTeXConditional
+    \def\@VerbatimPar{\par\@@par}% 
+    \def\@VerbatimNlf{\tiny}% 
+\else
+    \def\@VerbatimPar{\par}% 
+    \def\@VerbatimNlf{\tiny}% 
+\fi
+\newcount\@VerbatimLineNumber
+\newif\if@VerbatimL
+\newdimen\Verb@TabSize
+\def\@VObeySpaces{% 
+    \MakeActive{\ }% 
+    \@@VObeySpaces
+}
+{%
+\MakeActive{\ }%
+\gdef\@@VObeySpaces{%
+\def {\VerbControlSpace}% 
+}%
+}
+\def\@VObeyTabs{% 
+    \MakeTabActive
+    \@@VObeyTabs
+}
+{
+    \MakeTabActive
+    \gdef\@@VObeyTabs{% 
+        \def^^I{\Verb@Tab}%
+    }
+}
+\def\Verb@Tab{% 
+    \leavevmode
+    \egroup
+    \dimen0 = \wd0
+    \divide\dimen0 by \Verb@TabSize
+    \advance\dimen0 by 1sp
+    \multiply\dimen0 by \Verb@TabSize
+    \wd0 = \dimen0
+    \box0
+    \setbox 0 = \hbox\bgroup
+}
+\def\@VObeyEol{% 
+    \MakeEolActive % 
+    \@@VObeyEol
+}
+{
+    \MakeEolActive % 
+    \gdef\@@VObeyEol{% 
+        \let^^M = \Verb@Eol% 
+    }% 
+}
+\def\Verb@Eol{%
+    \if@IgnoreFirstNewLine
+    \else
+        \leavevmode
+        \egroup
+        \box 0
+        \endgraf
+    \fi
+    \@IgnoreFirstNewLinefalse
+}
+\def\@VCaret{% 
+    \MakeActive{\^}% 
+    \@@VCaret
+}
+{
+    \MakeActive{\^}% 
+    \gdef\@@VCaret{% 
+        \def^{% 
+            \futurelet\@VSymbol\@@VCaretTwo
+        }% 
+        \def\@@VCaretTwo{%
+            \ifx \@VSymbol^%
+                \let\@VerbNext = \@@VCaretThree
+            \else
+                \CaretText
+                \let\@VerbNext = \relax
+            \fi
+            \@VerbNext
+        }% 
+        \def\@@VCaretThree ^{%
+            \futurelet\@VSymbol\@@VCaretFour
+        }%
+        \def\@@VCaretFour{% 
+            \ifx \@VSymbol I%
+                \Verb@Tab
+            \else
+                \CaretText\CaretText\@VSymbol
+            \fi
+            \GobbleOne
+        }% 
+    }% 
+}
+\def\@StartVerbatim #1{% 
+    \begingroup
+    \@VerbatimPar
+    \vskip\DisplayVerbatimVskip
+    \if\FormatIsLaTeXConditional
+    \else
+        \CancelSuppressNextParIndent
+    \fi
+    \setbox0 = \hbox{\VerbatimFont X}
+    \Verb@TabSize = \wd0
+    \multiply\Verb@TabSize by \VerbatimTab
+    \parskip = 0pt
+    \parindent = 0pt
+    \leftskip = \LeftSkipVerbatim
+    \rightskip = 0pt
+    \parfillskip = 0pt plus 1fil
+    \spaceskip = 0pt
+    \xspaceskip = 0pt
+    \VerbatimFont
+    \if@VerbatimL
+    \else
+        \global\@VerbatimLineNumber = 0
+    \fi
+    \global\@VerbatimLfalse
+    \ifnum #1 = 0
+        \@IgnoreFirstNewLinetrue
+    \else
+        \@IgnoreFirstNewLinefalse
+    \fi
+    \if\FormatIsLaTeXConditional
+        \everypar = {\EveryParZ}%
+    \fi
+    \def\EveryParZ{% 
+        \the\VerbatimTokLine
+        \global\advance\@VerbatimLineNumber by 1
+        \ifVerbLineNum
+            \raise \@VerbatimLr \hbox to 0pt{% 
+                \hss
+                \@VerbatimNlf
+                \the\@VerbatimLineNumber
+                \hskip 10pt
+            }% 
+        \fi
+        \setbox 0 = \hbox\bgroup
+    }%
+    \MkOthers
+    \@VObeySpaces
+    \@VObeyTabs
+    \@VObeyEol
+    \ifCaretTab
+        \@VCaret
+    \fi
+}
+\def\@DoneVerbatim{%
+    \endgroup
+    \vskip\DisplayVerbatimVskip
+    \def\@VerbatimEndSpecialDeal{}%
+    \if\FormatIsLaTeXConditional
+    \else
+        \def\@VerbatimEndSpecialDeal{%
+            \ParLookAhead
+                {\SuppressNextParIndent}%
+                {}
+        }%
+    \fi
+    \@VerbatimEndSpecialDeal
+}
+\def\BeginVerbatim{% 
+    \@StartVerbatim{0}% 
+    \@BeginVerbatim
+}
+{   \catcode `| = 0 % | becomes escape character.
+    \catcode`\\ =12 % \ becomes regular character.
+    |gdef|@BeginVerbatim #1\EndVerbatim{% 
+        #1% 
+        |@DoneVerbatim
+    }
+}
+\def\BVerB{% 
+    \@StartVerbatim{0}% 
+    \@BVerB
+}
+{
+    \catcode `| = 0 % | becomes escape character.
+    \catcode`\\ =12 % \ becomes regular character.
+    |gdef|@BVerB #1\EVerB{% 
+        #1% 
+        |@DoneVerbatim
+    }
+}
+\def\AppendVerbatimL #1{% 
+    \global\@VerbatimLtrue
+    \global\advance\@VerbatimLineNumber by #1\relax
+}
+\def\StartVerbatimL #1{% 
+    \global\@VerbatimLtrue
+    \global\@VerbatimLineNumber = #1\relax
+}
+\newcount\@SaveVerbatimLineNumber
+\def\PushVerbatimL{%
+    \global\@SaveVerbatimLineNumber = \@VerbatimLineNumber  
+    \global\VerbLineNumfalse
+}
+\def\PopVerbatimL{%
+    \global\@VerbatimLineNumber = \@SaveVerbatimLineNumber
+    \global\VerbLineNumtrue
+}
+\catcode`\@ = 12
+\NameDef{@InputD-verbdisp.tip}{}
+\catcode`\@ = 11
+\def\ListVerb #1{% 
+    \@StartVerbatim{1}% 
+    \input #1
+    \@DoneVerbatim
+}
+\def\ListVerbIfFileExists #1{% 
+    \par
+    \if\FileExistsConditional{#1}%
+        \ListVerb{#1}% 
+    \else
+        \centerline{$\bullet$ File {\tt #1} not found. $\bullet$}%
+        \wlog{\string\ListVerbIfFileExists: no file "#1".}%
+    \fi
+}
+\def\ListVerbAndSource #1{% 
+    \ListVerb{#1}% 
+    \input #1
+}
+\catcode`\@ = 12
+\NameDef{@InputD-verb-mac.tip}{}
+\catcode`\@ = 11
+{\catcode`\ = \active
+\gdef\@InitActiveSpace{\edef {\VerbControlSpace}}}
+\newif\if@VerbSpaceControl
+\def\Verb{%
+    \NextCharTest{*}{\@VerbSpaceControltrue \@VerbA}%
+                    {\@VerbSpaceControlfalse\@VerbA}%
+}
+\def\@VerbA #1{%
+    \bgroup
+    \tt
+    \MkOthers
+    \if@VerbSpaceControl
+    \else
+        \catcode`\ = \active
+        \@InitActiveSpace
+    \fi
+    \def\@VerbTemp ##1#1{%
+        ##1%        % Simply print the argument.
+        \egroup     % Undo font change and category code changes.
+    }% 
+    \@VerbTemp
+}
+\catcode`\@ = 12
+\NameDef{@InputD-verb.tip}{}
+\catcode`\@ = 11
+\newwrite\@VStream
+\newif\if@VStreamOpen
+\@VStreamOpenfalse
+\newcount\@VerbWriteCount
+\@VerbWriteCount = 0
+\def\BeginVerbWrite #1#2{%
+    \global\advance\@VerbWriteCount by 1
+    \wlog{\string\BeginVerbWrite: [\the\@VerbWriteCount]}%
+    \DefaultArg{\@VerbWriteBaseName}{#1}{\jobname}%
+    \DefaultArg{\@VerbWriteFileExt}{#2}{ver}% 
+    \xdef\@VerbWriteFileName{\@VerbWriteBaseName.\@VerbWriteFileExt}%
+    \if@VStreamOpen
+        \errmessage{\string\BeginVerbWrite: ERROR, file still open.}%
+    \fi
+    \OpenVerbWrFile{\@VerbWriteBaseName}{\@VerbWriteFileExt}% 
+                    {\@VStream}%
+    \global\@VStreamOpentrue
+    \BeginVerbWr{\@VStream}{\EndVerbWrite}%
+}
+\def\CloseVerbWriteFile{% 
+    \if@VStreamOpen
+        \CloseVerbWrFile{\@VStream}%
+        \global\@VStreamOpenfalse
+    \fi
+}
+\def\AppendVerbWrite{%
+    \wlog{\string\AppendVerbWrite: [\the\@VerbWriteCount]}%
+    \if@VStreamOpen
+    \else
+        \errmessage{\string\AppendVerbWrite: no file open.}%
+    \fi
+    \xdef\@VerbWriteFileName{\@VerbWriteBaseName.\@VerbWriteFileExt}%
+    \BeginVerbWr{\@VStream}{\EndVerbWrite}%
+}
+\def\VerbAsVerb{%
+    \CloseVerbWriteFile
+    {%
+        \CaretTabtrue
+        \ListVerb{\@VerbWriteFileName}%
+    }%
+}
+\def\VerbAsSource{%
+    \CloseVerbWriteFile
+    \input \@VerbWriteFileName \relax
+}
+\catcode`\@ = 12
+\NameDef{@InputD-vwrt-mac.tip}{}
+\catcode`\@ = 11
+\def\@btex{% 
+    \par
+    \bgroup
+    \small
+}
+\def\@etex{%
+    \nobreak
+    \egroup
+    \if\FormatIsLaTeXConditional
+        \def\@EtexEnd{}%
+    \else   
+        \def\@EtexEnd{%
+            \ParLookAhead 
+                {}%
+                {\SuppressNextParIndent}%
+        }%
+    \fi
+    \@EtexEnd
+}
+\def\btex{% 
+    \@btex
+    \@StartVerbatim{0}% 
+    \btex@more
+}
+{
+    \catcode `| =  0 % | becomes escape character.
+    \catcode`\\ = 12 % \ now prints.
+    |gdef|btex@more #1\etex{% 
+        #1% 
+        |@DoneVerbatim
+        |@etex
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-verb1.tip}{}
+\catcode`\@ = 11
+\def\Btexalt{% 
+    \@btex
+    \@StartVerbatim{0}% 
+    \btex@morealt
+}
+{
+    \catcode `| =  0 % | becomes escape character.
+    \catcode`\\ = 12 % \ now prints.
+    |gdef|btex@morealt #1\Etexalt{% 
+        #1% 
+        |@DoneVerbatim
+        |@etex
+    }%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-verb2.tip}{}
+\catcode`\@ = 11
+\def\verb{\Verb}
+\VerbLineNumtrue
+\VerbatimTab = 4
+\DisplayVerbatimVskip = 5pt
+\def\VerbatimFont{\small\tt}%
+\def\ListVerbTeXIP #1{%
+    \par
+    \medskip
+    \vskip 60pt
+    \vskip -60pt
+    \def\ListAsFileName{#1}% 
+    \def\LabelName{code-#1}% 
+    \if\SuffixConditional{#1}{.flf}% 
+        \def\ListAsFileName ##1.flf{\def\ListAsFileName{##1.log}}%
+        \ListAsFileName #1% 
+        \def\LabelName{}%
+    \else
+    \if\SuffixConditional{#1}{.flf2}%
+        \def\ListAsFileName ##1.flf2{\def\ListAsFileName{##1.log}}%
+        \ListAsFileName #1% 
+        \def\LabelName{}%
+    \fi
+    \fi
+    \if\StringsEqualConditional{#1}{\jobname.ver}%
+        \def\ListAsFileName{}%
+        \def\LabelName{}%
+    \fi
+    \if\StringsEqualConditional{#1}{ex-verbwr.ver}
+        \def\LabelName{}% 
+    \fi
+    \if\EmptyStringConditional{\LabelName}% 
+    \else
+        \Label{code-#1}% 
+    \fi
+    \if\EmptyStringConditional{\ListAsFileName}
+    \else
+        \centerline{% 
+            $\bullet$% 
+            \space
+            \tt\ListAsFileName
+            \space
+            $\bullet$% 
+        }%
+    \fi
+    \@btex
+    \@StartVerbatim{1}% 
+    \wlog{[\string\ListVerbTeXIP:}%
+    \input #1
+    \wlog{]}%   svb: this was \message before
+    \@DoneVerbatim
+    \@etex
+}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-verb.tip}{}
+\newif\ifIndexSpecial
+\IndexSpecialfalse
+\catcode`\@ = 11
+\newwrite\IdxStream
+\newwrite\IdxStreamSource
+\newif\if@IndexFilesOpen
+\@IndexFilesOpenfalse
+\def\OpenIndexFiles #1{%
+    \if\EmptyStringConditional{#1}%
+        \gdef\@IndexFileBaseName{\jobname}%
+    \else
+        \gdef\@IndexFileBaseName{#1}%
+    \fi
+    \if@IndexFilesOpen
+        \message{\string\OpenIndexFiles: index files
+            already open.}%
+        \message{\string\OpenIndexFiles: will close
+            old files, open new ones with basename
+            "\@IndexFileBaseName".}%
+        \immediate\closeout\IdxStream
+        \immediate\closeout\IdxStreamSource
+    \fi
+    \@IndexFilesOpentrue
+    \immediate\openout\IdxStream = \@IndexFileBaseName.idx
+    \immediate\openout\IdxStreamSource = \@IndexFileBaseName.idx2
+    \SetIndexStream{\IdxStream}%
+}
+\def\CloseIndexFiles{%
+    \if@IndexFilesOpen
+        \immediate\closeout\IdxStream
+        \immediate\closeout\IdxStreamSource
+        \@IndexFilesOpenfalse
+    \fi
+}
+\def\SetIndexStream #1{%
+    \let\IdxStreamUse = #1%
+}
+\def\Index{% 
+    \begingroup
+    \MkOthersNoCB
+    \@Index
+}
+\xdef\@IndexSuffixMod{}%
+\def\@Index #1{%
+    \let\PrintCounter = \relax
+    \xdef\IndexTemp{%
+        \write\IdxStreamUse{%
+            \string\indexentry{#1\@IndexSuffixMod}%
+                {\PrintCounter{SWPageNo}}}%
+    }%
+    \ifIndexSpecial
+        \SideNoteText{I: #1}%
+    \fi
+    \xdef\@IndexSuffixMod{}%
+    \endgroup
+    \IndexTemp
+}
+\def\IndexP #1{% 
+    \Index{#1}%
+    #1%
+}
+\def\IndexCS #1{% 
+    \CSToString{\@IndexCSTemp}{#1}%
+    \expandafter\expandafter\expandafter
+        \Index{% 
+            \@IndexCSTemp
+            @% 
+            {% 
+                \string\tt
+                \string\string
+                \string#1% 
+            }% 
+        }%
+}
+\def\IndexCSX #1{% 
+    \CSToString{\@IndexCSTemp}{#1}%
+    \expandafter\expandafter\expandafter
+        \Index{% 
+            #1% 
+            @% 
+            {% 
+                \string\tt
+                \string\string
+                \Backslash#1% 
+            }% 
+        }%
+}
+\def\IndexCSP #1{%
+    \IndexCS{#1}%
+    {\tt\string#1}%
+}
+\def\IndexPrim #1{% 
+    \CSToString{\@IndexCSTemp}{#1}%
+    \expandafter\expandafter\expandafter
+        \Index{\@IndexCSTemp @%
+            {\string\tt\string\string\string#1}|PRIMITIVE}%
+}
+\def\IndexPrimP #1{%
+    \IndexPrim{#1}%
+    {\tt\string #1}%
+}
+\def\IndexPar{\Index{par@\string\PrintParPrimitive}}
+\def\PrintParPrimitive{\BackslashTt{\tt par}}
+\def\IndexBye{\Index{bye@\string\PrintByePrimitive}}
+\def\PrintByePrimitive{\BackslashTt{\tt bye}}
+\def\IndexIf{\Index{if@\string\PrintIf|PRIMITIVE}}
+\def\PrintIf{{\tt\string\if}}
+\def\IndexElse{\Index{else@\string\PrintElse|PRIMITIVE}}
+\def\PrintElse{{\tt\string\else}}
+\def\IndexFi{\Index{fi@\string\PrintFi|PRIMITIVE}}
+\def\PrintFi{{\tt\string\fi}}
+\def\IndexIfCase{\Index{ifcase@\string\PrintIfCase|PRIMITIVE}}
+\def\PrintIfCase{{\tt\string\ifcase}}
+\def\IndexIfCat{\Index{ifcat@\string\PrintIfCat|PRIMITIVE}}
+\def\PrintIfCat{{\tt\string\ifcat}}
+\def\IndexIfX{\Index{ifx@\string\PrintIfX|PRIMITIVE}}
+\def\PrintIfX{{\tt\string\ifx}}
+\def\IndexIfOdd{\Index{ifodd@\string\PrintIfOdd|PRIMITIVE}}
+\def\PrintIfOdd{{\tt\string\ifodd}}
+\def\IndexIfHbox{\Index{ifhbox@\string\PrintIfHbox|PRIMITIVE}}
+\def\PrintIfHbox{{\tt\string\ifhbox}}
+\def\IndexIfVbox{\Index{ifvbox@\string\PrintIfVbox|PRIMITIVE}}
+\def\PrintIfVbox{{\tt\string\ifvbox}}
+\def\IndexIfVoid{\Index{ifvoid@\string\PrintIfVoid|PRIMITIVE}}
+\def\PrintIfVoid{{\tt\string\ifvoid}}
+\def\IndexIfNum{\Index{ifnum@\string\PrintIfNum|PRIMITIVE}}
+\def\PrintIfNum{{\tt\string\ifnum}}
+\def\IndexIfDim{\Index{ifdim@\string\PrintIfDim|PRIMITIVE}}
+\def\PrintIfDim{{\tt\string\ifdim}}
+\def\IndexIfHmode{\Index{ifhmode@\string\PrintIfHmode|PRIMITIVE}}
+\def\PrintIfHmode{{\tt\string\ifhmode}}
+\def\IndexIfVmode{\Index{ifvmode@\string\PrintIfVmode|PRIMITIVE}}
+\def\PrintIfVmode{{\tt\string\ifvmode}}
+\def\IndexIfMmode{\Index{ifvmode@\string\PrintIfMmode|PRIMITIVE}}
+\def\PrintIfMmode{{\tt\string\ifvmode}}
+\def\IndexIfInner{\Index{ifinner@\string\PrintIfInner|PRIMITIVE}}
+\def\PrintIfInner{{\tt\string\ifinner}}
+\def\IndexIfEof{\Index{ifeof@\string\PrintIfEof|PRIMITIVE}}
+\def\PrintIfEof{{\tt\string\ifeof}}%
+\def\IndexIfTrue{\Index{iftrue@\string\PrintIfTrue|PRIMITIVE}}
+\def\PrintIfTrue{{\tt\string\iftrue}}%
+\def\IndexIfFalse{\Index{iffalse@\string\PrintIfFalse|PRIMITIVE}}
+\def\PrintIfFalse{{\tt\string\iffalse}}%
+\def\IndexRepeat{\Index{repeat@\string\PrintRepeat}}
+\def\PrintRepeat{{\tt\string\repeat}}%
+\xdef\@IndexSuffixMod{}%
+\def\IndexPSet #1{%
+    \CSToString{\@IndexPSetResult}{#1}%
+    \xdef\@IndexSuffixMod{|IndexP\@IndexPSetResult}%
+}
+\def\IndexPit #1{{\it #1}}
+\def\IndexPbf #1{{\bf #1}}
+\catcode`\@ = 12
+\NameDef{@InputD-ts-wind.tip}{}
+\def\WriteCounterOutImmediately #1#2{%
+    \OpenGenericOStream{#1}%
+    \immediate\write\GenericOStream
+        {\PrintCounter{#2}}%
+    \CloseGenericOStream
+}
+\NameDef{@InputD-ts-writc.tip}{}
+\catcode`\@ = 11
+\newdimen\@VtboxDim
+\newbox\@VtboxBox
+\def\Vtbox #1#2{%
+    \@VtboxDim = \ht#1%
+    \advance\@VtboxDim by \dp#1%
+    \setbox\@VtboxBox = \vbox{\unvcopy #1}%
+    \advance\@VtboxDim by -\ht\@VtboxBox
+    \advance\@VtboxDim by -\dp\@VtboxBox
+    #2\setbox #1 = \vtop spread \@VtboxDim {\unvbox #1}%
+}
+\catcode`\@ = 12
+\NameDef{@InputD-vtbox.tip}{}
+\def\WritingParShape{%
+    \wlog{\string\WritingParShape: begin}%
+    \wlog{}%
+    \wlog{\string\pretolerance: \the\pretolerance}%
+    \wlog{\string\tolerance: \the\tolerance}%
+    \wlog{\string\prevgraf: \the\prevgraf}%
+    \wlog{}%
+    \wlog{\string\parskip: \the\parskip}%
+    \wlog{\string\baselineskip: \the\baselineskip}%
+    \wlog{\string\lineskip: \the\lineskip}%
+    \wlog{\string\lineskiplimit: \the\lineskiplimit}%
+    \wlog{}%
+    \wlog{\string\parindent: \the\parindent}%
+    \wlog{\string\hsize: \the\hsize}%
+    \wlog{\string\leftskip: \the\leftskip}%
+    \wlog{\string\rightskip: \the\rightskip}%
+    \wlog{\string\parfillskip: \the\parfillskip}%
+    \wlog{\string\spaceskip: \the\spaceskip}%
+    \wlog{\string\xspaceskip: \the\xspaceskip}%
+    \wlog{}%
+    \wlog{\string\hyphenpenalty: \the\hyphenpenalty}%
+    \wlog{\string\exhyphenpenalty: \the\exhyphenpenalty}%
+    \wlog{\string\lefthyphenmin: \the\lefthyphenmin}%
+    \wlog{\string\righthyphenmin: \the\righthyphenmin}%
+    \wlog{\string\lefthyphenmin: \the\lefthyphenmin}%
+    \wlog{}%
+    \wlog{\string\adjdemerits: \the\adjdemerits}%
+    \wlog{\string\doublehyphendemerits: \the\doublehyphendemerits}%
+    \wlog{\string\finalhyphendemerits: \the\finalhyphendemerits}%
+    \wlog{\string\linepenalty: \the\linepenalty}%
+    \wlog{\string\sfcode\string\`.: \the\sfcode`\.}%
+    \wlog{\string\hyphenchar: \the\hyphenchar\tenrm}%
+    \wlog{}%
+    \wlog{\string\binoppenalty: \the\binoppenalty}%
+    \wlog{\string\relpenalty: \the\relpenalty}%
+    \wlog{}%
+    \wlog{\string\everypar: \the\everypar}%
+    \wlog{\string\WritingParShape: end}%
+}
+\NameDef{@InputD-wl-parcp.tip}{}
+\catcode`\@ = 11
+\newwrite\@VerbArgStream
+\def\WriteVerbatimArgument #1#2{%
+    \immediate\openout\@VerbArgStream = #1
+    \def\@AfterWriteVerbatimArgument{#2}%
+    \begingroup
+        \MkOthersNoCB
+        \@WriteVerbatimArgument
+}
+\def\@WriteVerbatimArgument #1{%
+        \immediate\write\@VerbArgStream{#1}%
+        \immediate\closeout\@VerbArgStream
+    \endgroup
+    \@AfterWriteVerbatimArgument
+}
+\catcode`\@ = 12
+\NameDef{@InputD-wrverbar.tip}{}
+\catcode`\@ = 11
+\newcount\X@ParShapeCountA
+\newcount\X@ParShapeCountB
+\newcount\X@ParShapeCountC
+\newdimen\X@ParShapeDimenA
+\newdimen\X@ParShapeDimenB
+\def\XParShape{%
+    \def\X@ParShapeCollect{ }%
+    \X@ParShapeCountC = 0
+    \afterassignment\X@ParShapeB
+    \X@ParShapeCountA
+}
+\def\X@ParShapeB{%
+    \ifnum\X@ParShapeCountA = 0
+        \let\@XParShapeNext = \X@ParShapeD
+    \else
+        \advance\X@ParShapeCountA by -1
+        \let\@XParShapeNext = \X@ParShapeC
+    \fi
+    \@XParShapeNext
+}
+\def\X@ParShapeD{%
+    \parshape = \X@ParShapeCountC\X@ParShapeCollect
+}
+\def\X@ParShapeC #1 #2 #3 #4 #5 {%
+    \message{\string\X@ParShapeC: #1, #2, #3, #4, #5}%
+    \X@ParShapeDimenA = #2% 
+    \X@ParShapeDimenB = #4% 
+    \DoLoop{\X@ParShapeCountB}{1}{1}{#1}%
+        {% 
+            \edef\X@ParShapeCollect{%
+                \space
+                \X@ParShapeCollect
+                \the\X@ParShapeDimenA
+                \space
+                \the\X@ParShapeDimenB
+                \space
+            }%
+            \advance\X@ParShapeCountC by 1
+            \advance\X@ParShapeDimenA by #3\relax
+            \advance\X@ParShapeDimenB by #5\relax
+        }%
+    \X@ParShapeB
+}
+\catcode`\@ = 12
+\NameDef{@InputD-x-parsh.tip}{}
+\newif\ifInputDVerbose
+\InputDVerbosefalse
+\catcode`\@ = 11
+\newif\if@InputDList
+\@InputDListfalse
+\def\@InputDPrefix{@InputD-}
+\NameDef{\@InputDPrefix namedef.tip}{}
+\def\InputD #1{% 
+    \if\NameDefinedConditional{\@InputDPrefix #1}%
+        \ifInputDVerbose
+            \wlog{\string\InputD: file "#1" was read-in before.}%
+        \fi
+    \else
+        \NameDef{\@InputDPrefix #1}{}% 
+        \input #1
+        \if@InputDList
+            \immediate\write\@InputDStream{#1}% 
+        \fi
+    \fi
+}
+\catcode`\@ = 12
+\dump

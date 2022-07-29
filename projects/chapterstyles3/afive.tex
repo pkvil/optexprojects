@@ -1,0 +1,236 @@
+\fontfam[lmfonts]
+\typosize[11/14]
+
+\margins/1 a5 (16,16,16,24)mm
+
+\input mriezka
+\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+
+\parindent\baselineskip
+\parskip0pt\relax
+
+\long\def\loremipsum{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi. Nam iaculis diam est, a vestibulum nisi euismod vel. Ut euismod, velit eu bibendum tincidunt, lacus leo condimentum diam, ut posuere nisi dolor id ipsum. Duis at arcu mauris. Nullam quis velit velit. Maecenas ut elit eget felis sodales imperdiet nec non libero. Sed vel pellentesque ligula. Integer eleifend ultricies ornare. Maecenas sodales molestie libero non tristique. Phasellus odio neque, lacinia accumsan nulla quis, ultrices ornare tortor. Sed id lectus id mauris sodales commodo ac vel odio. Aenean ac commodo nunc.\par}
+
+%%% INTRODUCTION
+
+TO DO:
+\begitems
+* Numbered and unnumbered chapters
+    \begitems
+    * Arabic
+    * Roman
+    * Words
+    * Ordinal words
+    \enditems
+* Just numbers
+* Skip to recto page
+* Body text on grid
+* Drop caps
+* No headers
+\enditems
+
+%%% CHAPTER STYLE 1: DEFAULT
+
+\_def\_printchap #1{\_vfill\_supereject \_prevdepth=0pt
+   \_vglue\_medskipamount % shifted by topkip+\medskipamount
+   {\_chapfont \_noindent \_mtext{chap} \_printrefnum[@]\_par
+    \_nobreak\_smallskip
+    \_noindent \_raggedright #1\_nbpar}\_mark{}%
+   \_nobreak \_belowtitle{\_bigskip}%
+   \_firstnoindent
+}
+
+\chap Numbered chapter
+\loremipsum
+
+\nonum\chap Unnumbered chapter
+\loremipsum
+
+%%% CHAPTER STYLE 2: BRINGHURST
+
+\fontfam[ebgaramond]
+\margins/1 a5 (16,33,16,24)mm
+
+\_def\_printchap #1{
+    \_vfill\_supereject
+    \ifodd\pageno \else \null\vfil\break\fi
+    \_prevdepth=0pt
+    % Number in margin
+    \_ifnonum
+    \else
+        \noindent\rlap{%
+            \kern\hsize \kern\mnoteindent 
+            \smash{\lower 5\baselineskip 
+                \hbox {\typoscale[6000/]\_printrefnum[@]}%
+            }%
+        }%
+    \fi
+    % Title
+    {\_noindent \_raggedright%
+     \typoscale[1200/1200]\setletterspace{12}\rm \uppercase{#1}\_nbpar%
+    }%
+    \_mark{}%
+    \_nobreak\vskip\baselineskip
+    \hrule
+    \_nobreak \_belowtitle{\vskip\baselineskip}%
+    \_firstnoindent
+}
+
+\chap Numbered chapter
+\loremipsum
+
+\nonum\chap Unnumbered chapter
+\loremipsum
+
+
+%%% 
+
+\_def\_printchap #1{%
+    \_vfill\_supereject
+    \ifodd\pageno \else \vfil\break \fi
+    \_prevdepth=0pt%
+    \_vglue\_medskipamount
+    {\_chapfont 
+%        \_noindent \_mtext{chap} \_printrefnum[@]\_par
+%        \_nobreak\_smallskip
+        \_noindent \_raggedright #1\_nbpar
+    }%
+    \_mark{}%
+    \_nobreak \_belowtitle{\_bigskip}%
+    \_firstnoindent
+}
+
+\chap Numbered chapter
+\loremipsum
+
+\nonum\chap Unnumbered chapter
+\loremipsum
+
+%%% DIVIDING LINE
+
+\margins/1 a5 (16,16,16,24)mm
+
+\_def\_printchap #1{%
+    \_vfill\_supereject
+    \ifodd\pageno \else \null\vfil\break \fi
+    \leavevmode\_vglue2\baselineskip
+    {\typoscale[\magstep3/\magstep3]\rm
+     \thistable{%
+        \tabiteml{}\tabitemr{}%
+        \rulewidth1.2pt%
+        \tabstrut={\vrule height 2.5ex depth1.1ex width0pt}%
+     }
+     \table pxto\hsize {l(\enspace)|(\enspace)p{\tsize\fL}}{%
+        % left of dividing line
+        \_ifnonum 
+            \raise 0.25ex\hbox{\bullet}% 
+        \else 
+            \_mtext{chap} 
+            \_printrefnum[@]%
+        \fi 
+        & 
+        % right of dividing line
+        #1\cr
+     }%
+    }%
+    \_mark{}%
+    \_nobreak \_belowtitle{\vskip4\baselineskip}%
+    \_firstnoindent
+}
+
+\chap Numbered chapter
+
+\loremipsum
+
+\nonum\chap Unnumbered chapter that shows what happens with a long title
+\loremipsum
+
+
+%%% ROMAN NUMBER WITH LONG DESCRIPTIVE TITLES
+
+\margins/1 a5 (16,16,16,24)mm
+
+\def\Romannumeral#1{\uppercase\expandafter{\romannumeral #1}}
+ 
+\_def\_printchap #1{%
+    \_vfill\_supereject
+    \ifodd\pageno \else \vfil\break \fi
+    \_prevdepth=0pt%
+    \vglue4\baselineskip
+    {\scalemain\typoscale[\magstep0/\magstep0]%
+        \parindent0pt%
+        \leftskip=40pt plus 1fill\relax
+        \rightskip=\leftskip
+        \parfillskip=0pt%
+        \_ifnonum
+            \null
+        \else
+            {\setletterspace{12}\setff{+smcp,+c2sc}\rm
+                \_mtext{chap} \_printrefnum[\Romannumeral @]
+            }
+        \fi
+        \_par
+        \_nobreak\vskip\baselineskip
+        {\it #1}\_nbpar
+        \_mark{}%
+    }%
+    \_nobreak \vskip\baselineskip
+    \centerline{\vrule height4pt depth -3.7pt width3em}
+    \nobreak \_belowtitle{\vskip\baselineskip}%
+    \_firstnoindent
+}
+
+\chap Numbered chapter, in which a macro is introduced\nl to print capital roman numerals,\nl and the chapter titles are centered and long.
+       
+\loremipsum
+
+\nonum\chap Unnumbered chapter more than one\nl line long because it goes on and on
+\loremipsum
+
+
+%%% TEXT BOOK LEADERS
+
+\_def\_printchap #1{%
+    \_vfill\_supereject
+    \ifodd\pageno \else \vfil\break \fi
+    \leavevmode\par
+    \hbox to \hsize{%
+        \leaders\vrule height2pt depth-1.2pt\hfil 
+        \hskip0pt plus-1fil
+        \leaders\vrule height0.4pt depth0pt\hfil 
+        \_ifnonum
+        \else
+            \hskip5pt
+            \typoscale[3000/]\setff{+lnum,+tnum}\strut
+            \smash{\_printrefnum[@]}%
+            \hskip5pt
+        \fi
+        \leaders\vrule height2pt depth-1.2pt\hfil 
+        \hskip0pt plus-1fil
+        \leaders\vrule height0.4pt depth0pt\hfil
+    }%
+    \vskip\baselineskip
+    {\_raggedright
+        \leftskip 0pt plus 1fill\relax
+        \rightskip=\leftskip
+        \parfillskip=0pt
+        \noindent{\scalemain\typoscale[1728/1728]#1}\_nbpar
+    }%
+    \_mark{}%
+    \vskip\baselineskip
+    \hrule
+    \kern0.8pt
+    \hrule height 0pt depth 0.8pt
+    \_nobreak \_belowtitle{\vskip3\baselineskip}%
+    \_firstnoindent
+}
+
+\chap Numbered chapter with a very long line that goes on to flow over to the next line
+       
+\loremipsum
+
+\nonum\chap Unnumbered chapter
+\loremipsum
+
+
+\bye

@@ -1,0 +1,85 @@
+% numbertowords.tex
+% Typeset numbers into english lowercase words
+% Current limitations: only integers 0-999
+
+\fontfam[ebgaramond]
+
+
+
+\def\numbertowords#1{%
+    \newif\iffirstword \firstwordtrue
+    \def\firstuc##1{%
+        \iffirstword
+            \uppercase{##1}%
+            \firstwordfalse
+        \else ##1%     
+        \fi
+    }%
+    \def\undertwentywords##1{%
+        \ifcase ##1 zero\or\firstuc
+                    one\or\firstuc
+                    two\or\firstuc
+                    three\or\firstuc
+                    four\or\firstuc
+                    five\or\firstuc
+                    six\or\firstuc
+                    seven\or\firstuc 
+                    eight\or\firstuc
+                    nine \or\firstuc
+                    ten\or\firstuc
+                    eleven\or\firstuc
+                    twelve\or\firstuc
+                    thirteen\or\firstuc
+                    fourteen\or\firstuc
+                    fifteen\or\firstuc
+                    sixteen\or\firstuc
+                    seventeen\or\firstuc 
+                    eighteen\or\firstuc
+                    nineteen%
+        \fi
+    }%
+    \def\tenswords##1{%
+        \ifcase ##1 \or
+                    \or\firstuc
+                    twenty\or\firstuc
+                    thirty\or\firstuc 
+                    forty\or\firstuc
+                    fifty\or\firstuc
+                    sixty\or\firstuc 
+                    seventy\or\firstuc 
+                    eighty\or\firstuc
+                    ninety%
+        \fi
+    }%
+    \newcount\hundreds    
+    \newcount\tens
+    \newcount\ones
+    \ifnum #1=0
+        zero%
+    \else
+        \hundreds=\numexpr((#1-50)/100)\relax
+        \tens=\numexpr((#1-(\hundreds*100)-5)/10)\relax
+        \ones=\numexpr(#1-(\hundreds*100)-(\tens*10))\relax
+        \ifnum \hundreds>0
+            \undertwentywords{\hundreds} hundred%
+        \fi
+        \ifnum \the\tens\the\ones>0
+            \ifnum \hundreds>0
+                \space and\space
+            \fi            
+            \ifnum \tens>1
+                \tenswords{\tens}%
+                \ifnum \ones>0
+                    -\undertwentywords{\ones}%
+                \fi
+            \fi
+            \ifnum \tens<2
+                \undertwentywords{\the\tens\the\ones}%
+            \fi
+        \fi
+    \fi
+}
+
+Chapter \numbertowords{21}
+
+\bye

@@ -1,0 +1,240 @@
+Start
+
+%%% start be-env
+\newbox\BulletBox
+\setbox\BulletBox =
+    \hbox{% 
+        \hskip -2.3pt
+        \lower 2.5pt \hbox{$\bullet$}% 
+    }
+\ZeroBox{\BulletBox}
+%%% end be-env
+
+%%% arraymac
+\def\ZeroBox #1{%
+    \wd#1 = 0pt
+    \ht#1 = 0pt
+    \dp#1 = 0pt
+}
+\def\ZeroBoxOut #1{%
+    \ZeroBox{#1}%
+    \box#1%
+}
+%%% arraymac
+
+%%% start box-bul
+\newbox\BoxingBox
+\newbox\BaseLineLeaders
+%%% end box-bul
+
+%%% start box-bb
+\newdimen\BoxRuleThickness
+\BoxRuleThickness = 0.4pt
+%%% end box-bb
+
+%%%start box-thck
+\newif\ifBulletAndBaseLine
+\BulletAndBaseLinetrue
+\def\RulesOutSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{%
+            \ifBulletAndBaseLine
+                \copy\BulletBox
+            \fi
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3%
+            \vrule width \BoxRuleThickness height #1 depth #2%
+            \dimen0 = #3% 
+            \advance \dimen0 by 2\BoxRuleThickness
+            \hskip -\dimen0
+            \dimen2 = #1%
+            \advance\dimen2 by \BoxRuleThickness
+            \vrule width \dimen0 height \dimen2 depth -#1% 
+            \hskip -\dimen0
+            \dimen2 = #2% 
+            \advance\dimen2 by \BoxRuleThickness
+            \vrule width \dimen0 height -#2 depth \dimen2
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\RulesInSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{%
+            \ifBulletAndBaseLine
+                \copy\BulletBox
+            \fi
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3% 
+            \hskip -\BoxRuleThickness
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip -#3% 
+            \dimen2 = #1% 
+            \advance\dimen2 by -\BoxRuleThickness
+            \vrule width #3 height #1 depth -\dimen2
+            \hskip -#3% 
+            \dimen2 = #2% 
+            \advance\dimen2 by -\BoxRuleThickness
+            \vrule width #3 height -\dimen2 depth #2% 
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+\def\RulesOnSide #1#2#3{% 
+    {%
+        \setbox 0 = \hbox{% 
+            \ifBulletAndBaseLine
+                \copy\BulletBox
+            \fi
+            \hskip -0.5\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip #3% 
+            \hskip -\BoxRuleThickness
+            \vrule width \BoxRuleThickness height #1 depth #2% 
+            \hskip -#3% 
+            \hskip -\BoxRuleThickness
+            \dimen0 = #3% 
+            \advance\dimen0 by \BoxRuleThickness
+            \dimen2 = #1% 
+            \advance\dimen2 by 0.5\BoxRuleThickness
+            \dimen4 = #1% 
+            \advance\dimen4 by -0.5\BoxRuleThickness
+            \dimen4 = -\dimen4
+            \vrule width \dimen0 height \dimen2 depth \dimen4
+            \hskip -\dimen0
+            \dimen2 = #2% 
+            \advance\dimen2 by -0.5\BoxRuleThickness
+            \dimen2 = -\dimen2
+            \dimen4 = #2% 
+            \advance\dimen4 by 0.5\BoxRuleThickness
+            \vrule width \dimen0 height \dimen2 depth \dimen4
+        }%
+        \ZeroBoxOut{0}% 
+    }% 
+}
+%%% end box-tchk
+
+%%% start boxing5.tip
+\def\BoxingE #1{%
+    \hbox{% 
+        \setbox\BoxingBox = #1%
+        \setbox\BaseLineLeaders = \hbox to \wd\BoxingBox{%
+            \xleaders\hbox to 4pt{%
+                \hskip 1pt
+                \vrule depth 0.4pt height 0.4pt width 2pt
+                \hfil
+            }%
+            \hfil
+        }%
+        \ZeroBox{\BaseLineLeaders}% 
+        \ifBulletAndBaseLine
+            \box\BaseLineLeaders
+        \fi
+        \RulesOnSide
+            {\ht\BoxingBox}%
+            {\dp\BoxingBox}% 
+            {\wd\BoxingBox}% 
+        \box\BoxingBox
+    }%
+}
+%%% end boxing5.tip
+
+%%% start boxing7.tip
+\newdimen\BoxRDimen
+\newbox\BoxRBox
+\newcount\BoxRNumber
+\def\HboxR{%
+    \hbox\bgroup
+    \def\WhichBox{\hbox}%
+    \def\WhichBoxDimen{}%
+    \BoxRaa
+}
+\def\VboxR{%
+    \vbox\bgroup
+    \def\WhichBox{\vbox}%
+    \def\WhichBoxDimen{}%
+    \BoxRaa
+}
+\def\VtopR{%
+    \vtop\bgroup
+    \def\WhichBox{\vtop}%
+    \def\WhichBoxDimen{}%
+    \BoxRaa
+}
+\def\VcenterXR{%
+    \hbox\bgroup
+    \def\WhichBox{\VcenterX}%
+    \def\WhichBoxDimen{}%
+    \BoxRaa
+}
+\def\BoxR{%
+    \hbox\bgroup
+    \def\WhichBox{\hbox}%
+    \def\WhichBoxDimen{}%
+    \afterassignment\BoxRB
+    \BoxRNumber =
+}
+\def\BoxRB{%
+    \HboxR{\box\BoxRNumber}% 
+    \egroup
+}
+\def\CopyR{%
+    \hbox\bgroup
+    \def\WhichBox{\hbox}%
+    \def\WhichBoxDimen{}%
+    \afterassignment\CopyRbb
+    \BoxRNumber =
+}
+\def\CopyRbb{%
+    \HboxR{\copy\BoxRNumber}% 
+    \egroup
+}
+\def\BoxRaa{% 
+    \futurelet\BoxRSymbol\BoxRA
+}
+\def\BoxRA{%
+    \ifx\BoxRSymbol\bgroup
+        \let\BoxitNext = \BoxRb
+    \else
+        \if\BoxRSymbol t% 
+            \let\BoxitNext = \BoxRbTo
+        \else
+            \let\BoxitNext = \BoxRbSpread
+        \fi
+    \fi
+    \BoxitNext
+}
+\def\BoxRb{%
+    \afterassignment\BoxRbTwo
+    \let\BoxDrop =
+}
+\def\BoxRbTwo{% 
+    \setbox\BoxRBox = \expandafter\WhichBox\WhichBoxDimen\bgroup
+    \aftergroup\BoxRbThree
+}
+\def\BoxRbThree{% 
+    \BoxingE{\box\BoxRBox}% 
+    \egroup
+}
+\def\BoxRbTo to{%
+    \def\WhichBoxDimen{to}% 
+    \afterassignment\BoxRbMoreSpreadTo
+    \BoxRDimen =
+}
+\def\BoxRbSpread spread{%
+    \def\WhichBoxDimen{spread}%
+    \afterassignment\BoxRbMoreSpreadTo
+    \BoxRDimen =
+}
+\def\BoxRbMoreSpreadTo{%
+    \edef\WhichBoxDimen{\WhichBoxDimen \the\BoxRDimen}% 
+    \afterassignment\BoxRbTwo
+    \let\BoxDrop =
+}
+%%% end boxing7.tip
+
+\HboxR{test}
+
+\bye
