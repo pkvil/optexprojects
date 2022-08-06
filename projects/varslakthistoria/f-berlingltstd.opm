@@ -1,0 +1,24 @@
+%% This is part of the OpTeX project, see http://petr.olsak.net/optex
+
+\_famdecl [Berling_LT_Std] \Berling {Linotype Berling}
+        {\caps} {\rm \bf \it \bi} {}
+        {[BerlingLTStd-Roman]}
+        {\_def\_fontnamegen {[BerlingLTStd-\_currV]:\_capsV\_fontfeatures}}
+
+\_wlog{\_detokenize{%
+Modifier:^^J
+ \caps ...... caps & small caps^^J
+}}
+
+\_moddef \resetmod {\_fsetV caps={} \_fvars Roman Bold Italic BoldItalic }
+\_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
+
+\_initfontfamily % new font family must be initialized
+
+%\_loadmath {[texgyrebonum-math]}
+
+\_endcode
+
+See the file `f-heros.opm` for information about principles of such
+font-macro-files.
+

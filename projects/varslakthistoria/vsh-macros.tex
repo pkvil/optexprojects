@@ -1,0 +1,208 @@
+\fontfam[berlingltstd]
+\setff{+pnum,onum}
+
+\typosize[10/14]
+
+\svlang
+
+\newdimen\hdiv \hdiv=\dimexpr(148mm/9)\relax
+
+\hsize=99mm
+\vsize=\topskip \advance \vsize by 31\baselineskip
+
+\margins/1 a5 (,,18.5625,)mm
+
+\parindent1em
+\parskip0pt
+
+\def\birth{*}
+\def\death{†}
+\def\marriage{{\font\libertinus=LibertinusSerif-Regular scaled 2000\relax
+    \libertinus
+    \char"26AD\relax}%
+}
+
+
+\def\chapfont{}
+
+\def\chapS#1#2{%
+    \vfil\supereject
+%    \ifodd\pageno \else \null\vfil\break \fi
+    %\ref
+    \vglue\baselineskip
+    \centerline{%
+        \scalemain\typoscale[1000/]
+        \setletterspace{10}%
+        \setwordspace{1.65}%
+        \currvar 
+        #1%
+    }%
+    \vskip0.5\baselineskip
+    \centerline{
+        \font\libertinus=EBGaramond12-Regular scaled 1200\relax
+        \libertinus
+        \char"2766%
+    }%
+    \vskip0.5\baselineskip    
+    \centerline{%
+        \scalemain\typoscale[1200/]%
+        \it
+        #2%
+    }%
+    \vskip3\baselineskip
+    \_firstnoindent
+}
+\parindent0pt
+
+\def\chapT#1#2#3#4#5{%
+    \vfil\supereject
+%    \ifodd\pageno \else \null\vfil\break \fi
+    %\ref
+    \vglue\baselineskip
+    {%
+    \leftskip 0pt plus 1fill\relax
+    \rightskip=\leftskip\relax
+    % FIRST LINE
+    \leavevmode
+    \llap{%
+        #1%
+        \quad\quad
+    }
+    \null
+    \rlap{%
+        \quad\quad
+        #3%
+    }\par
+    \leavevmode
+    % SECOND LINE
+    \llap{%
+        #2%
+        \quad\quad
+    }
+    \null
+    \rlap{%
+        \quad\quad 
+        #4%
+    }\par
+    }%
+    \vskip-1.5\baselineskip
+\hbox to \hsize{\hss\marriage\hss}%
+%\hbox to \hsize{| | | | |}
+    \vskip2.5\baselineskip
+    \_firstnoindent
+}
+
+\def\chapU#1#2#3#4#5{%
+    \vfil\supereject
+%    \ifodd\pageno \else \null\vfil\break \fi
+    %\ref
+        \vglue0.2\baselineskip
+    {%
+    % FIRST LINE
+    \vtop to 0pt{\kern1.1em \hbox to \hsize{\hfill\marriage\hfill}}    
+    \leavevmode    
+    \hbox to 0.5\hsize{%
+        \hss #1\hss
+    }%
+    \hbox to 0.5\hsize{%
+        \hss #3\hss
+    }\par%
+    \leavevmode
+    \hbox to 0.5\hsize{%
+        \hss #2\hss
+    }%
+    \hbox to 0.5\hsize{%
+        \hss #4\hss
+    }\par%
+%    \hbox to \hsize{\Grey | | | | |}
+    }%
+    \vskip4.5\baselineskip
+    \_firstnoindent
+}
+
+\def\chapV#1#2#3#4#5{%
+    \vfil\supereject
+%    \ifodd\pageno \else \null\vfil\break \fi
+    %\ref
+    \vglue\baselineskip
+    {%
+    \leftskip 0pt plus 1fill\relax
+    \rightskip=\leftskip\relax
+    % FIRST LINE
+    \leavevmode
+    \llap{%
+        #1%
+        \quad\quad\quad
+    }
+    \null
+    \rlap{%
+        \quad\quad\quad\kern1.2em\relax
+        #3%
+    }\par
+    \leavevmode
+    % SECOND LINE
+    \llap{%
+        #2%
+        \quad\quad\quad\kern1.3em
+    }
+    \null
+    \rlap{%
+        \quad\quad\quad
+        #4%
+    }\par
+    }%
+    \vskip-1.5\baselineskip
+\hbox to \hsize{\hss\marriage\hss}%
+%\hbox to \hsize{| | | | |}
+    \vskip2.5\baselineskip
+    \_firstnoindent
+}
+
+\def\chapX#1#2#3#4#5{%
+    \vfil\supereject
+%    \ifodd\pageno \else \null\vfil\break \fi
+    %\ref
+    \vglue\baselineskip
+    {%
+        \setbox1=\hbox{\setletterspace{10}\currvar #1}% A firstname
+        \setbox2=\hbox{\setletterspace{10}\currvar #2}% A lastname
+        \setbox3=\hbox{\setletterspace{10}\currvar #3}% B firstname
+        \setbox4=\hbox{\setletterspace{10}\currvar #4}% B lastname
+        \newdimen\maxwA
+        \maxwA=\ifdim \wd1>\wd2 \wd1 \else \wd2 \fi
+        \newdimen\maxwB
+        \maxwB=\ifdim \wd3>\wd4 \wd3 \else \wd4 \fi
+        \centerline{
+            \vtop{\hsize=\maxwA
+                \centerline{\box1}\centerline{\box2}%
+            }%
+            \quad\quad
+            \lower 0.5\baselineskip\hbox{\marriage}%
+            \quad\quad
+            \vtop{\hsize\maxwB
+                \centerline{\box3}\centerline{\box4}%
+            }%
+        }%
+    }%
+%    \vskip-1.5\baselineskip
+%\hbox to \hsize{\hss\marriage\hss}%
+%\hbox to \hsize{| | | | |}
+    \vskip4\baselineskip
+    \_firstnoindent
+}
+
+
+\_def\chapold #1{%
+    \_vfill\_supereject \_prevdepth=0pt
+    \_vglue0\baselineskip
+    {\chapfont
+     \leftskip=0pt plus 1fill\relax
+     \rightskip=\leftskip\relax
+%        \_noindent \_mtext{chap} \_printrefnum[@]\_par
+        \_nobreak \vskip 0.5\baselineskip
+        \_noindent #1\_nbpar
+    }%
+    \_mark{}%
+    \_nobreak \_belowtitle{\_bigskip}%
+    \_firstnoindent
+}

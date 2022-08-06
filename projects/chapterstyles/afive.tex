@@ -1,13 +1,89 @@
 \fontfam[lmfonts]
 \typosize[11/14]
 
-\margins/1 a5 (16,16,16,24)mm
+\margins/1 a5 (,,,)bp
+
+\newdimen\hdiv \hdiv=\dimexpr(\pdfpagewidth/9)\relax
+\newdimen\vdiv \vdiv=\dimexpr(\pdfpageheight/9)\relax
+
+\newdimen\spinemarg \spinemarg=\hdiv
+\newdimen\topmarg   \topmarg=\vdiv
+
+\hsize=6\hdiv
+\vsize=\topmarg \advance \vsize by 33\baselineskip
+
+
+\margins/1 a5 (,,,)bp
 
 \input mriezka
-\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\vsize)
 
 \parindent\baselineskip
 \parskip0pt\relax
+
+\newif\ifrosarivogrid \rosarivogridtrue
+
+\pgbackground{%
+\ifrosarivogrid
+    \vbox to 0pt{%
+        \Grey
+        \rulewidth=0.4pt\relax
+        \parindent0pt\relax
+        \offinterlineskip
+        % VERTICAL LINES
+        \setbox0\hbox to 0pt{%
+            \hskip\dimexpr(\hdiv-0.5\rulewidth)\relax%
+            {\Red
+            \vrule depth \pdfpageheight%
+            }%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            {\Red
+            \vrule depth \pdfpageheight%
+            }%        
+            \hskip\dimexpr(\hdiv-\rulewidth)\relax%
+            \vrule depth \pdfpageheight%
+            \hss
+        }\ht0=0pt \dp0=0pt\relax 
+        \box0%
+        % HORIZONTAL LINES
+        \setbox1\hbox to 0pt{%
+            \vbox to 0pt{%
+            \vglue\dimexpr(\vdiv-0.5\rulewidth)\relax%
+            {\Red
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            }%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            {\Red
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            }%
+            \vskip \dimexpr(\vdiv-\rulewidth)\relax
+            \hrule height 0.5\rulewidth depth 0.5\rulewidth width \pdfpagewidth%
+            \vss}
+            \hss
+        }\ht1=0pt \dp1=0pt\relax \box1%
+    }
+\fi
+}
 
 \long\def\loremipsum{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi. Nam iaculis diam est, a vestibulum nisi euismod vel. Ut euismod, velit eu bibendum tincidunt, lacus leo condimentum diam, ut posuere nisi dolor id ipsum. Duis at arcu mauris. Nullam quis velit velit. Maecenas ut elit eget felis sodales imperdiet nec non libero. Sed vel pellentesque ligula. Integer eleifend ultricies ornare. Maecenas sodales molestie libero non tristique. Phasellus odio neque, lacinia accumsan nulla quis, ultrices ornare tortor. Sed id lectus id mauris sodales commodo ac vel odio. Aenean ac commodo nunc.\par}
 
@@ -41,15 +117,27 @@ TO DO:
 }
 
 \chap Numbered chapter
-\loremipsum
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
+
+\sec Numbered section
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
+
+\secc Numbered subsection
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
 
 \nonum\chap Unnumbered chapter
-\loremipsum
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
+
+\nonum\sec Unnumbered section
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
+
+\nonum\secc Unnumbered subsection
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pellentesque lectus in suscipit suscipit. Integer nec urna laoreet, suscipit turpis vitae, ornare mi.
 
 %%% CHAPTER STYLE 2: BRINGHURST
 
 \fontfam[ebgaramond]
-\margins/1 a5 (16,33,16,24)mm
+\margins/1 a5 (\bp\spinemarg,,\bp\topmarg,)bp
 
 \_def\_printchap #1{
     \_vfill\_supereject
