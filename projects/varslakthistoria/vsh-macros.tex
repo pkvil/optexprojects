@@ -1,13 +1,13 @@
-\fontfam[berlingltstd]
-\setff{+pnum,onum}
+\fontfam[aldusnova]
+\setff{+pnum,+onum}
 
-\typosize[10/14]
+\typosize[11/15]
 
 \svlang
 
 \newdimen\hdiv \hdiv=\dimexpr(148mm/9)\relax
 
-\hsize=99mm
+\hsize=110mm
 \vsize=\topskip \advance \vsize by 31\baselineskip
 
 \margins/1 a5 (,,18.5625,)mm
@@ -30,22 +30,22 @@
 %    \ifodd\pageno \else \null\vfil\break \fi
     %\ref
     \vglue\baselineskip
-    \centerline{%
-        \scalemain\typoscale[1000/]
+    \centerline{{%
+%        \scalemain\typoscale[1000/]
         \setletterspace{10}%
-        \setwordspace{1.65}%
+        \setwordspace{1.2}%
         \currvar 
         #1%
-    }%
+    }}%
     \vskip0.5\baselineskip
     \centerline{
-        \font\libertinus=EBGaramond12-Regular scaled 1200\relax
-        \libertinus
+        \font\ebgaramond=EBGaramond12-Regular scaled 1200\relax
+        \ebgaramond
         \char"2766%
     }%
     \vskip0.5\baselineskip    
     \centerline{%
-        \scalemain\typoscale[1200/]%
+        \scalemain\typoscale[1000/]%
         \it
         #2%
     }%

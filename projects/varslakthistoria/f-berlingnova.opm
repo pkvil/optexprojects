@@ -1,9 +1,9 @@
 %% This is part of the OpTeX project, see http://petr.olsak.net/optex
 
-\_famdecl [Domitian] \Aldusnova {Aldus Nova}
+\_famdecl [Berling Nova] \Berling {Berling Nova}
         {\caps} {\rm \bf \it \bi} {}
-        {[AldusNova-Regular]}
-        {\_def\_fontnamegen {[AldusNova-\_currV]:\_capsV\_fontfeatures}}
+        {[BerlingNovaText-Regular]}
+        {\_def\_fontnamegen {[BerlingNovaText-\_currV]:\_capsV\_fontfeatures}}
 
 \_wlog{\_detokenize{%
 Modifier:^^J
