@@ -1,23 +1,23 @@
-\fontfam[berlingltstd]
+\fontfam[berlingnova]
 \setff{+pnum,+onum}
 
-\typosize[11/15]
+\typosize[11/16]
 
 \svlang
 
 \newdimen\hdiv \hdiv=\dimexpr(148mm/9)\relax
 
-\hsize=110mm
-\vsize=\topskip \advance \vsize by 31\baselineskip
+\hsize=118mm
+\vsize=\topskip \advance \vsize by 29\baselineskip
 
 \margins/1 a5 (,,18.5625,)mm
 
 \parindent1em
-\parskip0pt
+\parskip0em
 
 \def\birth{*}
 \def\death{†}
-\def\marriage{{\font\libertinus=LibertinusSerif-Regular scaled 2000\relax
+\def\marriage{{\font\libertinus=LibertinusSerif-Regular scaled 2700\relax
     \libertinus
     \char"26AD\relax}%
 }
@@ -31,15 +31,15 @@
     %\ref
     \vglue\baselineskip
     \centerline{{%
-%        \scalemain\typoscale[1000/]
-        \setletterspace{10}%
-        \setwordspace{1.2}%
-        \currvar 
-        #1%
+        \scalemain\typoscale[1200/]
+%        \setletterspace{10}%
+        \currvar \it
+%        \spaceskip0.4em%
+        \relax#1%
     }}%
     \vskip0.5\baselineskip
     \centerline{
-        \font\ebgaramond=EBGaramond12-Regular scaled 1200\relax
+        \font\ebgaramond=EBGaramond12-Regular scaled 1440\relax
         \ebgaramond
         \char"2766%
     }%
@@ -52,7 +52,6 @@
     \vskip3\baselineskip
     \_firstnoindent
 }
-\parindent0pt
 
 \def\chapT#1#2#3#4#5{%
     \vfil\supereject
@@ -164,10 +163,11 @@
     %\ref
     \vglue\baselineskip
     {%
-        \setbox1=\hbox{\setletterspace{10}\currvar #1}% A firstname
-        \setbox2=\hbox{\setletterspace{10}\currvar #2}% A lastname
-        \setbox3=\hbox{\setletterspace{10}\currvar #3}% B firstname
-        \setbox4=\hbox{\setletterspace{10}\currvar #4}% B lastname
+        \scalemain\typoscale[1200/]
+        \setbox1=\hbox{\it #1}% A firstname
+        \setbox2=\hbox{\it #2}% A lastname
+        \setbox3=\hbox{\it #3}% B firstname
+        \setbox4=\hbox{\it #4}% B lastname
         \newdimen\maxwA
         \maxwA=\ifdim \wd1>\wd2 \wd1 \else \wd2 \fi
         \newdimen\maxwB
@@ -184,10 +184,7 @@
             }%
         }%
     }%
-%    \vskip-1.5\baselineskip
-%\hbox to \hsize{\hss\marriage\hss}%
-%\hbox to \hsize{| | | | |}
-    \vskip4\baselineskip
+    \vskip3\baselineskip
     \_firstnoindent
 }
 
