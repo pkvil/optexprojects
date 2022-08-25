@@ -1,9 +1,10 @@
-\margins/1 a5 (10,10,10,10)mm
+\fontfam[ebgaramond]
+\typosize[12/22]
+
+\margins/1 a5 (10,10,10,20)mm
 
 \parindent=0pt\relax
 
-\long\def\poem#1#2{%
-\setbox0\hbox{#1}%
-\leftskip=\dimexpr((\hsize-\wd0)/2)\relax
-#2\par%
-}
+\def\startpoem{\vfil\break\bgroup\obeylines}
+
+\def\stoppoem{\egroup}
