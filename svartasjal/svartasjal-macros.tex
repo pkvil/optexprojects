@@ -1,10 +1,32 @@
 \fontfam[ebgaramond]
-\typosize[12/22]
+\typosize[11/22]
 
-\margins/1 a5 (10,10,10,20)mm
+\margins/1 a5 (10,10,20,25)mm
+
+\footlinedist=40pt
 
 \parindent=0pt\relax
 
-\def\startpoem{\vfil\break\bgroup\obeylines}
+\newtoks\linetocenter
 
-\def\stoppoem{\egroup}
+\def\startpoem{%
+	\vfil\break
+	\bgroup
+	\obeylines
+	\leftskip0pt \rightskip=\leftskip
+	\smash{\centerline{\font\debgaramond "EBGaramond12-Regular" at 12pt\debgaramond \char"2766\relax}}
+	\vskip\baselineskip
+	\setbox0=\hbox{\the\linetocenter}\relax
+	\leftskip=\dimexpr(\hsize-\wd0)/2\relax
+}
+
+\def\stoppoem{%
+	\egroup
+}
+
+%\font\coelacanth "Coelacanth-Roman" at 12pt \coelacanth
+%\font\cloister "LTCCloister-Regular" at 12pt \cloister
+%\font\clara "clarar" at 12pt \clara
+%\font\goudy "OFLGoudyStM" at 10pt \goudy
+%\font\bembo "BemboBookMTStd-Regular" at 11pt \bembo
+\font\dante "DanteMTStd-Regular" at 11pt \dante
