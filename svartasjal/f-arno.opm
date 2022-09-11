@@ -1,0 +1,22 @@
+%% f-arno.opm
+
+\_famdecl [Arno] \Arno {Arno Pro by Robert Slimbach}
+        {\caps} {\rm \bf \it \bi} {}
+        {[ArnoPro-Regular]}
+        {\_def\_fontnamegen {[ArnoPro-\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
+
+\_wlog{\_detokenize{%
+Modifiers:^^J
+ \caps ...... caps & small caps^^J
+}}
+
+\_moddef \resetmod {\_fsetV caps={} \_fvars Regular Bold Italic BoldItalic }
+\_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
+
+\_initfontfamily % new font family must be initialized
+
+\_endcode
+
+See the file `f-heros.opm` for information about principles of such
+font-macro-files.
+

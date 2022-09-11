@@ -1,55 +1,99 @@
-% \startcanonpage{<measure>} ... \stopcanonpage
-% Typeset a Tschichold golden canon page in the center of the main type area.
-% Argument is the measure of the small/inner page, all other measurements are automatic except for the text and depth
+\fontfam[ebgaramond]
+\typosize[12/15.6]
 
-\def\startcanonpage#1{%
-\newdimen\smallpagemeasure      \smallpagemeasure=#1\relax%
-\newdimen\smallpagedepth        \smallpagedepth=1.5\smallpagemeasure\relax%
+\hsize=110mm
+\vsize=\topskip \advance\vsize by 29\baselineskip\relax
 
-\newdimen\smallpagewidth        \smallpagewidth=1.5\smallpagemeasure\relax%
-\newdimen\smallpageheight       \smallpageheight=1.5\smallpagewidth\relax%
+\margins/2 (165,247.5)mm (18.333,,27.5,)mm
 
-\newdimen\smallpageleftmargin   \smallpageleftmargin=\dimexpr(\smallpagewidth/9)\relax%
-\newdimen\smallpagetopmargin    \smallpagetopmargin=\dimexpr(\smallpageheight/9)\relax%
+\parskip=0pt
+\parindent=1em
+\widowpenalty=0
+\clubpenalty=0
 
-\newdimen\outerpageleftpadding  \outerpageleftpadding=\dimexpr(\hsize-\smallpagewidth)/2\relax%
-\newdimen\outerpagetoppadding   \outerpagetoppadding=\dimexpr(\vsize-\smallpageheight)/2\relax%
+\footlinedist=2\baselineskip
 
-\topglue\outerpagetoppadding%
-\noindent\leavevmode%
-\kern\outerpageleftpadding%
-\hbox\bgroup%
-    \vrule%
-    \vtop\bgroup%
-        \vbox\bgroup%
-            \hrule%
-            \hbox to \smallpagewidth\bgroup%
-                \vbox to \smallpageheight\bgroup%
-                    \hsize=\dimexpr(\smallpageleftmargin+\smallpagemeasure)\relax%
-                    \leftskip\smallpageleftmargin%
-                    \vskip\smallpagetopmargin%
-}
+\noindent
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
 
-\def\stopcanonpage{%
-                \vfil%
-                \egroup%
-            \egroup%
-        \egroup%
-        \hrule%
-    \egroup\vrule%
-\egroup%
-}
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
 
 
-%%% Start text
 
-\startcanonpage{22pc}
-\typosize[16/18.5]
-\noindent But that power often means considerable complexity. 
-Both have lots of commands that help to hide the low-level details. 
-However, a major challenge in typesetting most technical documents is to identify additional operations that are commonly needed for that particular document. One can then define private commands that strip the details entirely away, leaving just the name of the operation, and the text that it consumes. leaving just the name of the operation, and the text that it consumes.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
 
-{However, a major challenge in typesetting most technical documents is to identify additional operations that are commonly needed for that particular document. One can then define private commands that strip the details entirely away, leaving just the name of the operation, and the text that it consumes. But that power often\parfillskip=0pt\par}
-\stopcanonpage
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
 
-\bye
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
+
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
+
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
+
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
+
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus enim, viverra vitae pulvinar rutrum, pretium a nisi. Fusce vel facilisis sem, placerat varius felis. Morbi ut cursus ex. In nisl libero, ultricies quis ante tristique, malesuada pulvinar diam. Sed felis eros, convallis eu felis eget, ullamcorper facilisis nibh. Proin sagittis orci metus, ac maximus neque varius nec. Nam maximus rhoncus eros nec condimentum. Duis eleifend nulla mauris, sit amet porttitor neque facilisis at. Nullam ut convallis purus. Ut vestibulum venenatis neque, non consectetur mauris. In bibendum volutpat nibh, nec vestibulum ipsum convallis pulvinar. Fusce sed velit hendrerit, consectetur sapien quis, finibus nulla. Pellentesque porta et metus nec pretium. Duis purus arcu, consectetur sit amet erat sit amet, consequat maximus dui. Proin a commodo risus.
+
+Ut convallis felis mauris, in auctor lacus tristique id. Cras condimentum purus id ipsum consequat, quis lobortis ex vehicula. Donec luctus ut ipsum sed lobortis. Quisque porta enim pulvinar ex sollicitudin, et congue lacus imperdiet. Phasellus eleifend orci neque, vitae consequat turpis fringilla vel. Morbi bibendum placerat efficitur. Donec turpis ex, volutpat quis orci et, aliquet vehicula turpis.
+
+Suspendisse et enim aliquet, aliquam risus eget, tempor risus. Quisque sollicitudin ultrices ligula. Fusce sem augue, accumsan ac lectus in, vehicula maximus eros. Mauris vulputate massa nec lectus porta cursus. Aliquam erat volutpat. Morbi non consectetur nunc, a sollicitudin sem. Nullam vel massa eu est fringilla tempus at quis velit. Donec ac nibh ipsum.
+
+Vestibulum nec ipsum ac elit hendrerit gravida. Vestibulum ultricies pulvinar purus et dictum. Morbi enim dui, egestas sit amet metus at, cursus mollis justo. Donec hendrerit, ex vitae egestas hendrerit, nisi felis hendrerit dui, ac finibus justo nibh cursus quam. Duis vel dignissim est. Curabitur nisi tortor, condimentum sed varius nec, ultrices et massa. Curabitur sollicitudin erat sit amet augue rutrum, non hendrerit enim ornare.
+
+Nam risus velit, rhoncus sed ante laoreet, finibus imperdiet risus. Aliquam sed fermentum ante. Etiam pellentesque augue et mauris volutpat rutrum. Nullam condimentum, ipsum ut condimentum facilisis, arcu orci fermentum lectus, ac pharetra sem justo ac enim. Nam venenatis nibh rhoncus, elementum nulla eget, cursus sapien. Suspendisse consequat feugiat nisi, sed efficitur tortor finibus eu. Aliquam non tincidunt elit. Donec a vestibulum lectus. Ut sodales scelerisque rhoncus. 
+
+\bye 

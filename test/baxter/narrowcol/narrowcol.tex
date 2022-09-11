@@ -1,0 +1,51 @@
+\fontfam[ebgaramond]
+\typosize[12/14]
+
+\def\compareglyph#1#2#3{%
+}
+
+\font\fontone "EBGaramond12-Regular" at 400pt\relax
+%\font\fontone "Coelacanth" at 400pt\relax
+\font\fontonesmall "EBGaramond12-Regular" at 11pt\relax
+\font\fonttwo "EBGaramond08-Regular" at 400pt\relax
+\font\fonttwosmall "EBGaramond08-Regular" at 11pt\relax
+
+\setbox0\hbox{abcdefghijklmnopqrstuvwxyz}
+\the\wd0
+
+\leavevmode
+\rlap{%
+\transparency50 \Red
+\fontone b}%
+\rlap{%
+\transparency50 \Blue
+\fonttwo b}%
+
+\special{pdf:bcolor [1] [0]} % two arrays: first defines fill, second
+\special{pdf:literal direct 0 w 0 Tr} % .4 here is the stroke width
+\vskip2\baselineskip
+
+{\Blue\fontonesmall \xfontname\fontone}\par
+{\Red \fonttwosmall \xfontname\fonttwo}
+
+\vfil\break
+
+\fonttwosmall
+\hbox{%
+\vtop{\hsize70mm\fontonesmall
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus scelerisque efficitur sapien. Quisque in ultricies ligula. Etiam ac eros eget est hendrerit euismod. Fusce id mauris vitae ante pellentesque mollis fermentum sed sem. Pellentesque non dolor egestas, sollicitudin lectus id, tempus tellus. Nam viverra, mauris ac pulvinar tempus, nisi risus feugiat tortor, nec pellentesque lacus lectus in justo. Pellentesque lacinia, nisi ullamcorper elementum rhoncus, enim libero feugiat lorem, at bibendum odio nisi quis libero. Suspendisse vel metus id ligula finibus sollicitudin quis eu mi. Ut congue sem at nunc consectetur, at venenatis ante gravida.
+}%
+\hskip1em
+\vtop{\hsize70mm\fonttwosmall
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus scelerisque efficitur sapien. Quisque in ultricies ligula. Etiam ac eros eget est hendrerit euismod. Fusce id mauris vitae ante pellentesque mollis fermentum sed sem. Pellentesque non dolor egestas, sollicitudin lectus id, tempus tellus. Nam viverra, mauris ac pulvinar tempus, nisi risus feugiat tortor, nec pellentesque lacus lectus in justo. Pellentesque lacinia, nisi ullamcorper elementum rhoncus, enim libero feugiat lorem, at bibendum odio nisi quis libero. Suspendisse vel metus id ligula finibus sollicitudin quis eu mi. Ut congue sem at nunc consectetur, at venenatis ante gravida.
+}}
+\vfil\break
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus scelerisque efficitur sapien. Quisque in ultricies ligula. Etiam ac eros eget est hendrerit euismod. Fusce id mauris vitae ante pellentesque mollis fermentum sed sem. Pellentesque non dolor egestas, sollicitudin lectus id, tempus tellus. Nam viverra, mauris ac pulvinar tempus, nisi risus feugiat tortor, nec pellentesque lacus lectus in justo. Pellentesque lacinia, nisi ullamcorper elementum rhoncus, enim libero feugiat lorem, at bibendum odio nisi quis libero. Suspendisse vel metus id ligula finibus sollicitudin quis eu mi. Ut congue sem at nunc consectetur, at venenatis ante gravida.
+
+Curabitur venenatis, tortor a condimentum dapibus, neque arcu ultricies ante, in elementum urna orci non ipsum. Suspendisse vel semper dui. Integer a pellentesque lacus, non ultrices nisl. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi tempor commodo iaculis. Sed lobortis et lacus at consectetur. Donec risus arcu, maximus in quam a, mollis finibus nibh. Nullam nec est eu orci molestie porta. Maecenas dapibus consectetur lorem iaculis semper. Phasellus ac orci et metus tristique ullamcorper. Ut sodales leo libero, vitae luctus augue varius eget. Cras euismod fermentum fringilla. Sed mollis nunc in interdum euismod. In feugiat dapibus mi, at rutrum odio. Proin id odio dictum, faucibus velit in, placerat quam.
+
+Donec efficitur, metus ac mollis volutpat, neque lacus sodales dolor, vel gravida metus nulla faucibus mi. Etiam bibendum ante nec urna dapibus, sed vehicula purus blandit. Vivamus pellentesque lobortis convallis. Aenean in tortor diam. Vestibulum vitae luctus nunc. Donec risus enim, fringilla et euismod et, dictum non arcu. Mauris est lectus, lacinia ac lobortis in, molestie a arcu. Curabitur ullamcorper bibendum nunc id lobortis. Morbi maximus metus id massa lacinia rutrum vehicula eget odio. Nunc suscipit massa at vehicula bibendum. Mauris rhoncus nunc nunc, vehicula bibendum turpis imperdiet ut.
+
+Suspendisse eget mi at justo vehicula fringilla. Donec tincidunt vulputate justo id egestas. Nullam volutpat aliquam nisl eget vestibulum. Nulla in nibh urna. Curabitur euismod sodales diam, eget rhoncus dolor accumsan et. Morbi tincidunt ipsum risus, sed ullamcorper felis vehicula quis. Cras at pretium nibh. Aenean eu enim dapibus, ultrices mauris at, egestas lacus. Morbi in neque et tellus eleifend condimentum. Nulla facilisi. 
+
+\bye
