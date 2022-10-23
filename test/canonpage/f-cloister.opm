@@ -1,0 +1,22 @@
+%% This is part of the OpTeX project, see http://petr.olsak.net/optex
+
+\_famdecl [LTCCloister] \LTCCloister {P version of Cloister.}
+        {\caps} {\rm \bf \it \bi} {}
+        {[Cloister-Regular]}
+        {\_def\_fontnamegen {[LTCCloister-\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
+
+\_wlog{\_detokenize{%
+Modifiers:^^J
+ \caps ...... caps & small caps^^J
+}}
+
+\_moddef \resetmod {\_fsetV caps={} \_fvars Regular Regular Italic Cursive }
+\_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
+
+\_initfontfamily % new font family must be initialized
+
+\_endcode
+
+See the file `f-heros.opm` for information about principles of such
+font-macro-files.
+
