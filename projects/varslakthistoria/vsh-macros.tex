@@ -1,19 +1,30 @@
-\fontfam[berlingnova]
-\setff{+pnum,+onum}
+%\fontfam[duffnerebgaramond]
+%\fontfam[dante]
+%\fontfam[agmenapro]
+\fontfam[arno]
+\setff{+pnum,+onum}\currvar
 
-\typosize[10.5/15.5]
+\typosize[12/15.71]
+% 15.25 -> 31 lines
+% 15.71 -> 30 lines
+% 16.28 -> 29 lines
 
 \svlang
 
-\newdimen\hdiv \hdiv=\dimexpr(148mm/9)\relax
+\hsize=110mm
+\vsize=\topskip \advance \vsize by 29\baselineskip
 
-\hsize=27pc
-\vsize=\topskip \advance \vsize by 33\baselineskip
+\margins/2 (165,247.5)mm (18.333,,27.5,)mm
 
-\margins/2 (486,729)pt (54,,81,)pt
+\parskip=0pt
+\parindent=1em
+\widowpenalty=0
+\clubpenalty=0
 
-\parindent1em
-\parskip0em
+\footlinedist=2\baselineskip
+
+\input mriezka
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
 
 \def\birth{*}
 \def\death{†}

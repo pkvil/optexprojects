@@ -1,16 +1,16 @@
 %% This is part of the OpTeX project, see http://petr.olsak.net/optex
 
-\_famdecl [EBGaramond] \EBGaramond {Duffners open source digitalization of the EB specimen.}
-        {\caps} {\rm \it} {}
-        {[EBGaramond12-Regular]}
-        {\_def\_fontnamegen {[EBGaramond12-\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
+\_famdecl [Dante] \Dante {Giovanni Mardersteigs Dante, by Monotype and Adobe}
+        {\caps} {\rm \bf \it \bi} {}
+        {[DanteMTStd-Regular]}
+        {\_def \_fontnamegen {[DanteMTStd-\_currV]:script=latn;\_capsV\_fontfeatures}}
 
 \_wlog{\_detokenize{%
-Modifiers:^^J
+Modifier:^^J
  \caps ...... caps & small caps^^J
 }}
 
-\_moddef \resetmod {\_fsetV caps={} \_fvars Regular Italic }
+\_moddef \resetmod {\_fsetV caps={} \_fvars Regular Bold Italic BoldItalic }
 \_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
 
 \_initfontfamily % new font family must be initialized
@@ -19,4 +19,5 @@ Modifiers:^^J
 
 See the file `f-heros.opm` for information about principles of such
 font-macro-files.
+
 

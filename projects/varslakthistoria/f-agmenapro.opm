@@ -10,7 +10,7 @@ Modifiers:^^J
  \caps ...... caps & small caps^^J
 }}
 
-\_moddef \resetmod {\_fsetV caps={} \_fvars Regular Bold Italic BoldItalic }
+\_moddef \resetmod {\_fsetV caps={} \_fvars Book Bold BookItalic BoldItalic }
 \_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
 
 \_initfontfamily % new font family must be initialized
