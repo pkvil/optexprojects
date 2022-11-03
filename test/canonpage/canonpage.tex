@@ -1,14 +1,17 @@
 %\fontfam[arno]
-\fontfam[dante]
+%\fontfam[dante]
 %\fontfam[cochineal]
 %\fontfam[agmenapro]
 %\fontfam[ebgaramond]
+%\fontfam[domitian]
 %\fontfam[etbb]
+\fontfam[adobejenson]
 \setff{+pnum,+onum,+liga,+kern}
 
-% 15.25 -> 31 lines
-% 15.71 -> 30 lines
-% 16.28 -> 29 lines
+% 14.25 -> 30 lines
+% 14.75 -> 29 lines
+% 15.3 -> 28 lines
+% 15.89 -> 27 lines
 
 % Arno 12pt
 % Dante 11.73pt
@@ -17,12 +20,13 @@
 % EB Garamond 11.84pt
 % ETbb 11.05pt
 
-\typosize[12/15.71]
+\typosize[12/14.75]
+
 
 \svlang
 
 \hsize=110mm
-\vsize=\topskip \advance\vsize by 29\baselineskip\relax
+\vsize=\topskip \advance\vsize by 26\baselineskip\relax
 
 \margins/2 (165,247.5)mm (18.333,,27.5,)mm
 
@@ -42,84 +46,25 @@
 
 \def\capspace		{\hskip\dimexpr(1em/14)\relax}
 
-%\leavevmode
-%\noindent{\transparency50\typosize[12/15.71]abcdefghijklmnopqrstuvwxyz}\par
-%\noindent{\transparency50\Red\font\cala "Cala-Regular" at 11pt\cala abcdefghijklmnopqrstuvwxyz}
+\setbox0\hbox{abcdefghijklmnopqrstuvwxyz}
+\the\wd0
 
-%\font\cala "Cala-Regular" at 11pt\cala
-\font\ebgaramond "EBGaramond12-Regular" at 12pt\relax
-\def\aldusleaf{\ebgaramond \char"2767\relax}
-\setbox0\hbox{\aldusleaf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-{\leftskip\dimexpr(\wd0+0.5em)\relax
-\noindent\llap{\raise0.3ex\hbox{\aldusleaf}\enspace}%
-\noindent 
-T\capspace
-H\capspace 
-E\enspace
-%
-C\capspace 
-R\capspace 
-Y\capspace 
-S\capspace 
-T\capspace 
-A\capspace 
-L\enspace
-%
-G\capspace 
-O\capspace 
-B\capspace 
-L\capspace 
-E\capspace 
-T,\par
-%
-\noindent 
-or\enspace 
-%
-P\capspace 
-R\capspace 
-I\capspace 
-N\capspace 
-T\capspace 
-I\capspace 
-N\capspace 
-G\enspace
-%
-S\capspace 
-H\capspace 
-O\capspace 
-U\capspace 
-L\capspace 
-D\enspace
-%
-B\capspace 
-E\enspace 
-%
-I\capspace 
-N\capspace 
-V\capspace 
-I\capspace 
-S\capspace 
-I\capspace 
-B\capspace 
-L\capspace 
-E\par
+{%
+	\typosize[14.4/]
+	\setff{+swsh}\it
+	\centerline{Carl Johan Peterson}
+	\vskip0.5\baselineskip
+	\centerline{\rm \&}
+	\vskip0.5\baselineskip
+	\centerline{Cajsa Lisa Magnusdotter}
 }
+\vskip4\baselineskip
 
-%{\leftskip4\baselineskip\relax
-%\noindent
-%{\setletterspace{10}\currvar
-%\noindent THE LONG TITLE OF THE CHAPTER \par
-%\noindent SPANNING TWO LINES
-%}
-%\noindent {\it The Crystal Goblet, or Printing Should Be Invisible\par by Beatrice Warde {\rm(}1900\hairspace--\hairspace 1969{\rm)}}
-%\vskip\baselineskip
-%\par}
-
-\vskip\baselineskip
 \noindent
-Sommaren 1930 utbröt en konflikt om lönesänkningar vid Marma-Långrörs AB:s sulfatfabrik vid Marmaverken i Hälsingland där arbetsledningen meddelat att de gällande avtalslönerna skulle sänkas ytterligare med 4 öre i timmen, från 1 kr och 18 öre till 1 kr och 14 öre i timmen. Dessutom skulle andra arbetsvillkor försämras. Arbetarna protesterade men utan resultat. I början av oktober 1930 enades man och gick ut i strejk. Konflikten förvärrades sedan av att bolaget plockade in strejkbrytare från en särskild organisation som redarföreningen finansierade. Den ansvarade för att rekrytera strejkbrytare och transportera dem i organiserad trafik. Vid skeppningssäsongens inledning på våren 1931 var sulfatfabriken och bland annat Graningeverkens fabriker blockerade av strejk. Sympatiåtgärderna mot det sistnämnda berodde på att båda företagen kontrollerades av släkten Versteegh. Då skeppningen åter kunde starta efter att isen släppt sitt tag om sjöfarten var industrins lager fyllda och man var angelägen om att få levererat vad man trots lågkonjunkturen lyckats sälja. Då ingen förändring av löneläget skedde utbröt på olika håll under våren 1931 sympatistrejker, bland annat vid Graningekoncernens sulfat- och sulfitfabriker vid Sandviken och Utansjö i Ådalen. För att lasta lagrad pappersmassa anskaffade nu koncernens ägare, Gérard Versteegh, genom Ångermanälvens stuveribolag ett 60-tal strejkbrytare, förutom professionella strejkbrytare bland annat studenter. 
+Sommaren 1930 utbröt 1788 en konflikt om lönesänkningar vid Marma-Långrörs AB:s sulfatfabrik vid Marmaverken i Hälsingland där arbetsledningen meddelat att de gällande avtalslönerna skulle sänkas ytterligare med 4 öre i timmen, från 1kr och 18 öre till 1kr och 14 öre i timmen. Dessutom skulle andra arbetsvillkor försämras. Arbetarna protesterade men utan resultat. I början av oktober 1930 enades man och gick ut i strejk. Konflikten förvärrades sedan av att bolaget plockade in strejkbrytare från en särskild organisation som redarföreningen finansierade. Den ansvarade för att rekrytera strejkbrytare och transportera dem i organiserad trafik. Vid skeppningssäsongens inledning på våren 1931 var sulfatfabriken och bland annat Graningeverkens fabriker blockerade av strejk. Sympatiåtgärderna mot det sistnämnda berodde på att båda företagen kontrollerades av släkten Versteegh. Då skeppningen åter kunde starta efter att isen släppt sitt tag om sjöfarten var industrins lager fyllda och man var angelägen om att få levererat vad man trots lågkonjunkturen lyckats sälja. Då ingen förändring av löneläget skedde utbröt på olika håll under våren 1931 sympatistrejker, bland annat vid Graningekoncernens sulfat- och sulfitfabriker vid Sandviken och Utansjö i Ådalen. 
+För att lasta lagrad pappersmassa anskaffade nu koncernens ägare, Gérard Versteegh, genom Ångermanälvens stuveribolag ett 60-tal strejkbrytare, förutom professionella strejkbrytare bland annat studenter. 
 Imagine 1847, 1788 that you have before you a flagon of wine. You may choose your own favourite
 vintage for this imaginary demonstration, so that it be a deep shimmering crimson in
 colour. You have two goblets before you. One is of solid gold, wrought in the most
