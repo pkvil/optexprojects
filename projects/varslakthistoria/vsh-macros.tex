@@ -1,10 +1,14 @@
 %\fontfam[duffnerebgaramond]
 %\fontfam[dante]
 %\fontfam[agmenapro]
-\fontfam[arno]
-\setff{+pnum,+onum}\currvar
+%\fontfam[arno]
+\fontfam[berlingnova]
+\font\berlinglt "BerlingLTStd-Roman" at 12pt\berlinglt
+\setff{+onum,+pnum,+kern,+liga}\currvar
 
-\typosize[12/15.71]
+\font\stockholm "StockholmRegular" at 18pt\relax
+
+\typosize[10.5/15.71]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
@@ -22,6 +26,8 @@
 \clubpenalty=0
 
 \footlinedist=2\baselineskip
+
+\def\capsspace{\hskip0.1em}
 
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)

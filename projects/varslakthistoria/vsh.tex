@@ -1,18 +1,34 @@
 \input vsh-macros
 
-%\input vsh-titlepage
+{\footline{}%
+\input vsh-titlepage
+}
+
+\font\berlinglt "BerlingLTStd-Roman" at 10.5pt\berlinglt
+
 \noindent
 
-\smash{\centerline{\setfontsize{at16.5pt}\setff{+swsh}\it Carl Johan Peterson}}
+\smash{\centerline{\typosize[14/]\currvar
+Carl Johan Petersson}}
+
 \vskip0.5\baselineskip
-\smash{\centerline{\setfontsize{at16.5pt}\setff{+salt}\rm \&}}
+
+\smash{\centerline{\typosize[14/]\&}}
+
 \vskip0.5\baselineskip
-\smash{\centerline{\setfontsize{at16.5pt}\setff{+swsh}\it\it Cajsa Lisa Magnusdotter}}
+
+\smash{\centerline{\typosize[14/]\currvar
+Cajsa Lisa Magnusdotter}}
+
 %\centerline{\char"2767\relax}
 %\vskip\baselineskip
 %\centerline{\it Magnus mormors farföräldrar}
 
 \vskip4\baselineskip
+
+\setbox0\hbox{abcdefghijklmnopqrstuvwxyz}
+%\the\wd0
+
 
 \noindent
 Carl Johan föddes den 29 maj 1836 i Lilla Boda, Mörlunda. 
