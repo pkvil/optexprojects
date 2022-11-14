@@ -1,25 +1,111 @@
-\fontfam[berlingltstd]
-%\fontfam[berlingnova]
-\setff{+kern,+liga}\currvar
+%%
+%% Fonts
+%%
 
-\typosize[11/15.71]
+\fontfam[ebgaramond]
+
+%\fontfam[dante]
+\setff{+kern,+liga,+onum,+pnum,+cv11}\currvar
+
+
+
+\typosize[12.5/15.71]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
 
+\def\titlcap#1{%
+	{\setff{+titl}\currvar #1}%
+}
+
+%%
+%% Language specific
+%%
+
 \svlang
+
+%%
+%% Page layout
+%%
 
 \hsize=110mm
 \vsize=\topskip \advance \vsize by 29\baselineskip
 
 \margins/2 (165,247.5)mm (18.333,,27.5,)mm
 
+\footlinedist=2\baselineskip
+
+%%
+%% Colours
+%%
+
+\def\myred{\setcmykcolor{0 1 1 0.10}}
+
+%%
+%% Paragraphs
+%%
+
 \parskip=0pt
 \parindent=1em
 \widowpenalty=0
 \clubpenalty=0
 
-\footlinedist=2\baselineskip
+\def\startblockquote{%
+	\par
+	\vskip\baselineskip
+	\it
+	\advance\leftskip by 2\parindent
+	\rightskip=\leftskip
+	\_firstnoindent
+}
+
+\def\stopblockquote{%
+	\par
+	\vskip\baselineskip
+	\rm
+	\advance\leftskip by -2\parindent
+	\rightskip=\leftskip
+	\_firstnoindent
+}
+
+%%
+%% Sectioning
+%%
+
+\def\person#1{%
+	\vfill\break
+	\ifodd\pageno
+		\else \null \vfill\break
+	\fi
+	{\typosize[16/]\currvar
+	 \smash{\centerline{#1}}%
+	 \vskip4\baselineskip
+	 \_firstnoindent
+	}%
+}
+
+\def\couple#1#2{%
+	\vfill\break
+	\ifodd\pageno
+		\else \null \vfill\break
+	\fi
+	{\typosize[15/]\currvar 
+	 \smash{\centerline{#1}}%
+	 \vskip0.5\baselineskip
+	 \smash{\centerline{\&}}%
+	 \vskip0.5\baselineskip
+	 \smash{\centerline{#2}}%
+	 \vskip4\baselineskip
+	 \_firstnoindent
+	}%
+}
+
+%%
+%% Debugging
+%%
+
+\newbox\alphabetbox \setbox\alphabetbox\hbox{abcdefghijklmnopqrstuvwxyz}
+\the\wd\alphabetbox
 
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
