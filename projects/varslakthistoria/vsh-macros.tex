@@ -2,14 +2,20 @@
 %% Fonts
 %%
 
-\fontfam[ebgaramond]
+\fontfam[adobejenson]
+
+% Adobe Jenson Pro specific
+
+\def\downthreeleaf{{\setff{+ornm}\currvar 3}}
+\def\rightleaf{{\setff{+ornm}\currvar 4}}
+\def\downleaf{{\setff{+ornm}\currvar 5}}
 
 %\fontfam[dante]
 \setff{+kern,+liga,+onum,+pnum,+cv11}\currvar
 
 
 
-\typosize[12.5/15.71]
+\typosize[12.3/14.75]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
@@ -29,7 +35,7 @@
 %%
 
 \hsize=110mm
-\vsize=\topskip \advance \vsize by 29\baselineskip
+\vsize=\topskip \advance \vsize by 31\baselineskip
 
 \margins/2 (165,247.5)mm (18.333,,27.5,)mm
 
@@ -39,7 +45,7 @@
 %% Colours
 %%
 
-\def\myred{\setcmykcolor{0 1 1 0.10}}
+\def\myred{\setcmykcolor{0 1 1 0.25}}
 
 %%
 %% Paragraphs
@@ -77,11 +83,11 @@
 	\ifodd\pageno
 		\else \null \vfill\break
 	\fi
-	{\typosize[16/]\currvar
-	 \smash{\centerline{#1}}%
-	 \vskip4\baselineskip
-	 \_firstnoindent
-	}%
+	{\typosize[18/]\subh\currvar \smash{\centerline{#1}}}
+	\vskip1\baselineskip
+	\centerline{\smash{\typosize[14/]\lower1ex\hbox{\myred \downthreeleaf}}}
+	\vskip2\baselineskip
+	\_firstnoindent
 }
 
 \def\couple#1#2{%
@@ -89,15 +95,17 @@
 	\ifodd\pageno
 		\else \null \vfill\break
 	\fi
-	{\typosize[15/]\currvar 
+	{\typosize[18/]\subh\currvar 
 	 \smash{\centerline{#1}}%
-	 \vskip0.5\baselineskip
-	 \smash{\centerline{\&}}%
-	 \vskip0.5\baselineskip
-	 \smash{\centerline{#2}}%
-	 \vskip4\baselineskip
-	 \_firstnoindent
-	}%
+	\vskip0.5\baselineskip
+	\smash{\centerline{\it \&}}%
+	\vskip0.5\baselineskip
+	\smash{\centerline{#2}}}%
+	\vskip1\baselineskip
+	\centerline{\smash{\typosize[14/]\lower1ex\hbox{\Black \downthreeleaf}}}
+	\vskip2\baselineskip
+	\_firstnoindent
+	
 }
 
 %%
@@ -105,7 +113,9 @@
 %%
 
 \newbox\alphabetbox \setbox\alphabetbox\hbox{abcdefghijklmnopqrstuvwxyz}
-\the\wd\alphabetbox
+\newbox\xheightbox \setbox\xheightbox\hbox{x}
+%\the\wd\alphabetbox $\cdot$
+%\the\ht\xheightbox
 
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)

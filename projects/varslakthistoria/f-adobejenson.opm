@@ -1,0 +1,25 @@
+%% This is part of the OpTeX project, see http://petr.olsak.net/optex
+
+\_famdecl [adobejenson] \adobejenson {Robert Slimbachs Jenson.}
+        {\caps} {\rm \bf \it \bi} {}
+        {[AJensonPro-Regular]}
+        {\_def\_fontnamegen {[AJensonPro-\_currV]:script=latn,\_ffonum;\_capsV\_fontfeatures}}
+
+\_wlog{\_detokenize{%
+Modifiers:^^J
+ \caps ...... caps & small caps^^J
+}}
+
+\_moddef \resetmod 	{\_fsetV caps={} \_fvars Regular Bold It BoldIt }
+\_moddef \caps     	{\_fsetV caps=+smcp;\_ffonum; }
+\_moddef \capt   	{\_fvars Capt BoldCapt ItCapt BoldItCapt }
+\_moddef \subh  	{\_fvars Subh BoldSubh ItSubh BoldItSubh }
+\_moddef \disp     	{\_fvars Disp BoldDisp ItDisp BoldItDisp }
+
+\_initfontfamily % new font family must be initialized
+
+\_endcode
+
+See the file `f-heros.opm` for information about principles of such
+font-macro-files.
+
