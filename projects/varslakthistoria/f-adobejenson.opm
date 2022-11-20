@@ -10,11 +10,15 @@ Modifiers:^^J
  \caps ...... caps & small caps^^J
 }}
 
-\_moddef \resetmod 	{\_fsetV caps={} \_fvars Regular Bold It BoldIt }
-\_moddef \caps     	{\_fsetV caps=+smcp;\_ffonum; }
-\_moddef \capt   	{\_fvars Capt BoldCapt ItCapt BoldItCapt }
-\_moddef \subh  	{\_fvars Subh BoldSubh ItSubh BoldItSubh }
-\_moddef \disp     	{\_fvars Disp BoldDisp ItDisp BoldItDisp }
+\_moddef \resetmod 	   {\_fsetV caps={} \_fvars Regular Bold It BoldIt }
+\_moddef \caps     	   {\_fsetV caps=+smcp;\_ffonum; }
+\_moddef \regularlight {\_fvars Lt Semibold LtIt SemiboldIt }
+\_moddef \capt   	   {\_fvars Capt BoldCapt ItCapt BoldItCapt }
+\_moddef \captlight    {\_fvars LtCapt SemiboldCapt LtItCapt SemiboldItCapt }
+\_moddef \subh  	   {\_fvars Subh BoldSubh ItSubh BoldItSubh }
+\_moddef \subhlight    {\_fvars LtSubh SemiboldSubh LtItSubh SemiboldItSubh }
+\_moddef \disp     	   {\_fvars Disp BoldDisp ItDisp BoldItDisp }
+\_moddef \displight    {\_fvars LtDisp SemiboldDisp LtItDisp SemiboldItDisp }
 
 \_initfontfamily % new font family must be initialized
 

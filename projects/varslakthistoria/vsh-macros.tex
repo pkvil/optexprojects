@@ -2,20 +2,23 @@
 %% Fonts
 %%
 
-\fontfam[adobejenson]
 
+\fontfam[adobejenson]
+\regularlight
 % Adobe Jenson Pro specific
 
+\def\leftswashcolon{{\setff{+ornm}\currvar 1}}
+\def\rightswashcolon{{\setff{+ornm}\currvar 2}}
 \def\downthreeleaf{{\setff{+ornm}\currvar 3}}
 \def\rightleaf{{\setff{+ornm}\currvar 4}}
 \def\downleaf{{\setff{+ornm}\currvar 5}}
 
 %\fontfam[dante]
-\setff{+kern,+liga,+onum,+pnum,+cv11}\currvar
+\setff{+kern,+liga,+onum,+pnum}\currvar
 
 
 
-\typosize[12.3/14.75]
+\typosize[12/14.75]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
@@ -83,7 +86,7 @@
 	\ifodd\pageno
 		\else \null \vfill\break
 	\fi
-	{\typosize[18/]\subh\currvar \smash{\centerline{#1}}}
+	{\typosize[18/]\subhlight\currvar \smash{\centerline{#1}}}
 	\vskip1\baselineskip
 	\centerline{\smash{\typosize[14/]\lower1ex\hbox{\myred \downthreeleaf}}}
 	\vskip2\baselineskip
