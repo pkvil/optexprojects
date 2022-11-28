@@ -3,22 +3,17 @@
 %%
 
 
-\fontfam[adobejenson]
-%\regularlight
-% Adobe Jenson Pro specific
+\fontfam[dante]
 
-\def\leftswashcolon{{\setff{+ornm}\currvar 1}}
-\def\rightswashcolon{{\setff{+ornm}\currvar 2}}
-\def\downthreeleaf{{\setff{+ornm}\currvar 3}}
-\def\rightleaf{{\setff{+ornm}\currvar 4}}
-\def\downleaf{{\setff{+ornm}\currvar 5}}
+% Dante specific
+
 
 %\fontfam[dante]
-\setff{+kern,+liga,+onum,+pnum}\currvar
+\setff{+kern,+liga,+onum,+pnum,+salt}\currvar
 
 
 
-\typosize[12/14.75]
+\typosize[12/14.29]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
@@ -37,10 +32,10 @@
 %% Page layout
 %%
 
-\hsize=110mm
-\vsize=\topskip \advance \vsize by 31\baselineskip
+\hsize=100mm
+\vsize=\topskip \advance \vsize by 29\baselineskip
 
-\margins/2 (165,247.5)mm (18.333,,27.5,)mm
+\margins/2 (150,225)mm (16.666,,25,)mm
 
 \footlinedist=2\baselineskip
 
@@ -62,10 +57,10 @@
 \def\startblockquote{%
 	\par
 	\vskip\baselineskip
-	\it
 	\advance\leftskip by 2\parindent
 	\rightskip=\leftskip
 	\_firstnoindent
+	\it
 }
 
 \def\stopblockquote{%
@@ -81,15 +76,15 @@
 %% Sectioning
 %%
 
-\def\person#1{%
-	\vfill\break
+\def\person#1#2{%
+	\null\vfill\break
 	\ifodd\pageno
 		\else \null \vfill\break
 	\fi
-	{\typosize[18/]\subhlight\currvar \smash{\centerline{#1}}}
+	{\typosize[16/]\setff{+smcp,letterspace=10}\rm \smash{\centerline{#1}}}
 	\vskip1\baselineskip
-	\centerline{\smash{\typosize[14/]\lower1ex\hbox{\myred \downthreeleaf}}}
-	\vskip2\baselineskip
+	\centerline{\it #2}
+	\vskip4\baselineskip
 	\_firstnoindent
 }
 
@@ -98,15 +93,13 @@
 	\ifodd\pageno
 		\else \null \vfill\break
 	\fi
-	{\typosize[18/]\subh\currvar 
-	 \smash{\centerline{#1}}%
+	{\typosize[16/] 
+	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
 	\vskip0.5\baselineskip
 	\smash{\centerline{\it \&}}%
 	\vskip0.5\baselineskip
-	\smash{\centerline{#2}}}%
-	\vskip1\baselineskip
-	\centerline{\smash{\typosize[14/]\lower1ex\hbox{\Black \downthreeleaf}}}
-	\vskip2\baselineskip
+	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #2}}}%
+	\vskip4\baselineskip
 	\_firstnoindent
 	
 }
@@ -119,6 +112,11 @@
 \newbox\xheightbox \setbox\xheightbox\hbox{x}
 %\the\wd\alphabetbox $\cdot$
 %\the\ht\xheightbox
+
+%\hyphenpenalty=1000\relax
+%\emergencystretch=8pt\relax
+
+%\the\hyphenpenalty
 
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
