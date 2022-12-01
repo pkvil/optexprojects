@@ -1,8 +1,6 @@
 \input vsh-macros
 
-{\footline{}%
 \input vsh-titlepage
-}
 
 \input vsh-toc
 
@@ -18,3 +16,11 @@
 \input magnus/ErikMagnusNilsson
 
 \bye
+
+\vskip\baselineskip
+\mnote up -\baselineskip {\typosize[10.5/11.5]\it Picture 1, where we see a grey rectangle.}%
+\vbox to 0pt{\kern-1ex \picheight\dimexpr 8\baselineskip+1ex%
+	\centerline{\inspic{greyrectangle.png}}%
+}\_firstnoindent
+
+\kern 9\baselineskip 

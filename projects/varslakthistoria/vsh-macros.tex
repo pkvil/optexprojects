@@ -1,5 +1,5 @@
 %%
-%% Fonts
+%% F O N T S
 %%
 
 
@@ -7,29 +7,15 @@
 
 % Dante specific
 
-
-%\fontfam[dante]
 \setff{+kern,+liga,+onum,+pnum,+salt}\currvar
-
-
 
 \typosize[12/14.29]
 % 15.25 -> 31 lines
 % 15.71 -> 30 lines
 % 16.28 -> 29 lines
 
-\def\titlcap#1{%
-	{\setff{+titl}\currvar #1}%
-}
-
 %%
-%% Language specific
-%%
-
-\svlang
-
-%%
-%% Page layout
+%% T E X T   A R E A   A N D   P A G E   L A Y O U T
 %%
 
 \hsize=100mm
@@ -37,22 +23,44 @@
 
 \margins/2 (150,225)mm (16.666,,25,)mm
 
-\footlinedist=2\baselineskip
+%%
+%% F O O T L I N E
+%%
+
+\footlinedist=3\baselineskip
+\newif\iffootline \footlinetrue
+
+\footline={%
+	\iffootline
+		\ifodd\pageno
+			\_hss\_rmfixed\_folio\hskip\parindent
+		\else
+			\null\hskip\parindent\_rmfixed\_folio\_hss
+		\fi
+	\else
+		\global\footlinetrue
+	\fi
+}
 
 %%
-%% Colours
+%% C O L O U R S
 %%
 
 \def\myred{\setcmykcolor{0 1 1 0.25}}
 
 %%
-%% Paragraphs
+%% P A R A G R A P H   S T Y L I N G
 %%
+
+\svlang
 
 \parskip=0pt
 \parindent=1em
+
 \widowpenalty=0
 \clubpenalty=0
+
+% Block quotes
 
 \def\startblockquote{%
 	\par
@@ -73,13 +81,13 @@
 }
 
 %%
-%% Sectioning
+%% S E C T I O N I N G
 %%
 
 \def\person#1#2{%
-	\null\vfill\break
+	\vfill\break
 	\ifodd\pageno
-		\else \null \vfill\break
+		\else \null\footlinefalse\vfill\break
 	\fi
 	{\typosize[16/]\setff{+smcp,letterspace=10}\rm \smash{\centerline{#1}}}
 	\vskip1\baselineskip
@@ -91,7 +99,7 @@
 \def\couple#1#2{%
 	\vfill\break
 	\ifodd\pageno
-		\else \null \vfill\break
+		\else \null\footlinefalse\vfill\break
 	\fi
 	{\typosize[16/] 
 	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
@@ -105,7 +113,7 @@
 }
 
 %%
-%% Debugging
+%% D E B U G G I N G
 %%
 
 \newbox\alphabetbox \setbox\alphabetbox\hbox{abcdefghijklmnopqrstuvwxyz}
@@ -120,4 +128,32 @@
 
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
+
+%%
+%% S O L V I N G   W I D O W S
+%%
+
+\newdimen\vsizedefault
+\def\extravsizes#1{%
+   \foreach #1\do ##1:##2{%
+      \tmpnum=##1
+      \sxdef{vs:\the\tmpnum}{##2}
+      \advance\tmpnum by \ifodd\tmpnum -\fi 1
+      \sxdef{vs:\the\tmpnum}{##2}
+   }
+   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\pgbottomskip=0pt plus1fil minus\baselineskip
+}
+\addto\_begoutput{\global\vsize=\vsizedefault}
+\addto\_endoutput{\corrvsize}
+
+\def\corrvsize{
+   \global\vsize=\vsizedefault
+   \ifcsname vs:\the\pageno\endcsname
+      \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+   \fi
+}
+
+\extravsizes{ 23:+ }
+
 
