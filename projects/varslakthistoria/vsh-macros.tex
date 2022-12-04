@@ -1,7 +1,15 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% C O L O U R S
+%%
+
+\def\myred{\setcmykcolor{0 1 1 0.25}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% F O N T S
 %%
-
 
 \fontfam[dante]
 
@@ -9,11 +17,16 @@
 
 \setff{+kern,+liga,+onum,+pnum,+salt}\currvar
 
-\typosize[12/14.29]
-% 15.25 -> 31 lines
-% 15.71 -> 30 lines
-% 16.28 -> 29 lines
+\typosize[12/14.30]
+% 14.30 -> 30 lines
+% 14.81 -> 29 lines
 
+% Semantic names
+
+\def\mnotefont{\typosize[10.5/11.5]\it}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% T E X T   A R E A   A N D   P A G E   L A Y O U T
 %%
@@ -23,11 +36,23 @@
 
 \margins/2 (150,225)mm (16.666,,25,)mm
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% M A R G I N   N O T E S
+%%
+
+\everymnote{\noindent\mnotefont\parindent0.5em}
+\mnotesize=5pc
+\mnoteindent=1em
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% F O O T L I N E
 %%
 
-\footlinedist=3\baselineskip
+\footlinedist=2\baselineskip
 \newif\iffootline \footlinetrue
 
 \footline={%
@@ -42,12 +67,8 @@
 	\fi
 }
 
-%%
-%% C O L O U R S
-%%
 
-\def\myred{\setcmykcolor{0 1 1 0.25}}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% P A R A G R A P H   S T Y L I N G
 %%
@@ -80,15 +101,21 @@
 	\_firstnoindent
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% S E C T I O N I N G
 %%
 
+\def\part#1{%
+	\skiptorecto
+	\vglue 4\baselineskip
+	\footlinefalse
+	{\typosize[20/]\setff{+titl,letterspace=10}\rm \smash{\centerline{#1}}}
+}
+
 \def\person#1#2{%
-	\vfill\break
-	\ifodd\pageno
-		\else \null\footlinefalse\vfill\break
-	\fi
+	\skiptorecto
 	{\typosize[16/]\setff{+smcp,letterspace=10}\rm \smash{\centerline{#1}}}
 	\vskip1\baselineskip
 	\centerline{\it #2}
@@ -97,10 +124,7 @@
 }
 
 \def\couple#1#2{%
-	\vfill\break
-	\ifodd\pageno
-		\else \null\footlinefalse\vfill\break
-	\fi
+	\skiptorecto
 	{\typosize[16/] 
 	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
 	\vskip0.5\baselineskip
@@ -109,9 +133,29 @@
 	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #2}}}%
 	\vskip4\baselineskip
 	\_firstnoindent
-	
 }
 
+\def\section#1{%
+	\vskip\baselineskip
+	\noindent{\setff{+smcp,+c2sc, letterspace=10}\currvar #1\nbpar}
+	\nobreak\vskip\baselineskip
+	\_firstnoindent
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% M I S C
+%%
+
+\def\skiptorecto{%
+	\vfill\break
+	\ifodd\pageno
+		\else \null\footlinefalse\vfill\break
+	\fi
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% D E B U G G I N G
 %%
@@ -129,11 +173,14 @@
 \input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% S O L V I N G   W I D O W S
 %%
 
 \newdimen\vsizedefault
+\newdimen\footlinedistdefault
 \def\extravsizes#1{%
    \foreach #1\do ##1:##2{%
       \tmpnum=##1
@@ -141,7 +188,9 @@
       \advance\tmpnum by \ifodd\tmpnum -\fi 1
       \sxdef{vs:\the\tmpnum}{##2}
    }
-   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\vsizedefault=\vsize   % for page 1
+   \global\footlinedistdefault=\footlinedist
+   \corrvsize
    \global\pgbottomskip=0pt plus1fil minus\baselineskip
 }
 \addto\_begoutput{\global\vsize=\vsizedefault}
@@ -149,11 +198,13 @@
 
 \def\corrvsize{
    \global\vsize=\vsizedefault
+   \global\footlinedist=\footlinedistdefault
    \ifcsname vs:\the\pageno\endcsname
       \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+      \global\advance \footlinedist by \csname vs:\the\pageno\endcsname \baselineskip
+      
    \fi
 }
 
-\extravsizes{ 23:+ }
-
+\extravsizes{ }
 

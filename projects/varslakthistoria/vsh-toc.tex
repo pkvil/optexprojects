@@ -1,19 +1,72 @@
 % Innehållsförteckning
 
-\vfill\break
-\ifodd\pageno
-	\else \null\footlinefalse\vfill\break
-\fi
+\def\tocitem#1#2{%
+	#1\hskip0.5em\cdot\hskip0.5em{\it \pgref[#2]}\par
+}
 
-\centerline{Magnus släkt}
+\skiptorecto
 
-Carl Johan Petersson, \pgref[CJP]\par
-Cajsa Lisa Magnusdotter, \pgref[CLM]\par
-Carl Johan Petersson \&\ Cajsa Lisa Magnusdotter, \pgref[CJP_CLM]\par
-Carl Fredrik Sköld, \pgref[CFS]\par
-Helena Christina Henriksdotter, \pgref[HCH]\par
-Carl Fredrik Sköld \&\ Helena Christina Henriksdotter, \pgref[CFS_HCH]\par
-Carl August Bom, \pgref[CAB]\par
-Selma Terese Åberg, \pgref[STÅ]\par
-Carl August Bom \&\ Selma Terese Åberg, \pgref[CAB_STÅ]\par
-Erik Magnus Nilsson, \pgref[EMN]\par
+
+{\parindent=0em
+
+{\setff{letterspace=10}\rm\centerline{MAGNUS SLÄKT}}
+\vskip\baselineskip
+
+\tocitem{Carl Johan Petersson}{CJP}
+\tocitem{Cajsa Lisa Magnusdotter}{CLM}
+\tocitem{Carl Johan Petersson och Cajsa Lisa Magnusdotter}{CJP_CLM}
+\tocitem{Carl Fredrik Sköld}{CFS}
+\tocitem{Helena Christina Henriksdotter}{HCH}
+\tocitem{Carl Fredrik Sköld och Helena Christina Henriksdotter}{CFS_HCH}
+\tocitem{Carl August Bom}{CAB}
+\tocitem{Selma Terese Åberg}{STÅ}
+\tocitem{Carl August Bom och Selma Terese Åberg}{CAB_STÅ}
+\tocitem{Erik Magnus Nilsson}{EMN}
+\tocitem{Gustava Charlotta Carlsdotter}{GCC}
+\tocitem{Erik Magnus Nilsson och Gustava Charlotta Carlsdotter}{EMN_GCC}
+Oskar Karlsson\par
+Maria Kristina Sköld\par
+\tocitem{Oskar Karlsson och Maria Kristina Sköld}{OK_MKS}
+Arthur Bom \par
+Anna ?\par
+\tocitem{Arthur Bom och Anna ?}{AB_A} 
+Sigurd Karlsson\par
+Valborg Bom\par
+\tocitem{Sigurd Karlsson och Valborg Bom}{SK_VB}
+
+\skiptorecto
+
+{\setff{letterspace=10}\rm\centerline{LISBETHS SLÄKT}}
+\vskip\baselineskip
+
+\tocitem{Johan Peter Johansson}{JPJ}
+\tocitem{Kristina Sofia Johansdotter}{KSJ}
+\tocitem{Johan Peter Johansson och Kristina Sofia Johansdotter}{JPJ_KSJ}
+
+\tocitem{Isak Pettersson}{IP}
+\tocitem{Stina Maria Johansdotter}{SMJ}
+\tocitem{Isak Pettersson och Stina Maria Johansdotter}{IP_SMJ}
+
+\tocitem{Johan Peter Cederblad}{JPC}
+\tocitem{Johanna Christina Lång}{JCL}
+\tocitem{Johan Peter Cederblad och Johanna Christina Lång}{JPC_JCL}
+
+\tocitem{Johan August Caesar}{JAC}
+\tocitem{Johanna Lovisa Johansdotter}{JLJ}
+\tocitem{Johan August Caesar och Johanna Lovisa Johansdotter}{JAC_JLJ}
+
+Carl Johansson\par
+Linnéa Isaksson\par
+\tocitem{Carl Johansson och Linnéa Isaksson}{CJ_LI}
+
+Anders Cederblad\par
+Hilma Caesar\par
+\tocitem{Anders Cederblad och Hilma Caesar}{AC_HC}
+
+Carl-Eric Johansson\par
+Viva Gunhild Maria Cederblad\par
+\tocitem{Carl-Eric Johansson och Viva Gunhild Maria Cederblad}{CEJ_VGMC}
+
+
+
+}
