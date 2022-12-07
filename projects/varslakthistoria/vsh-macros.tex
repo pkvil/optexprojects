@@ -24,6 +24,7 @@
 % Semantic names
 
 \def\mnotefont{\typosize[10.5/11.5]\it}
+\def\captionfont{\typosize[10.5/11.5]\it}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,9 +59,9 @@
 \footline={%
 	\iffootline
 		\ifodd\pageno
-			\_hss\_rmfixed\_folio\hskip\parindent
+			\_hss\_rmfixed\_folio\hss
 		\else
-			\null\hskip\parindent\_rmfixed\_folio\_hss
+			\hss\_rmfixed\_folio\_hss
 		\fi
 	\else
 		\global\footlinetrue
@@ -74,6 +75,16 @@
 %%
 
 \svlang
+
+% Caption style for images, \captionp{<ReferenceName>}
+
+\newcount\piccount
+\def\picref#1{%
+	\incr\piccount
+	\label[#1]\wlabel{\the\piccount}%
+	\the\piccount
+}
+
 
 \parskip=0pt
 \parindent=1em
@@ -116,7 +127,10 @@
 
 \def\person#1#2{%
 	\skiptorecto
-	{\typosize[16/]\setff{+smcp,letterspace=10}\rm \smash{\centerline{#1}}}
+	{\typosize[16/]\setff{+smcp,letterspace=10}\rm 
+		%\fontdimen2\font=45pt\relax
+		\smash{\centerline{#1}}%
+	}%
 	\vskip1\baselineskip
 	\centerline{\it #2}
 	\vskip4\baselineskip
@@ -125,12 +139,15 @@
 
 \def\couple#1#2{%
 	\skiptorecto
-	{\typosize[16/] 
-	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
-	\vskip0.5\baselineskip
-	\smash{\centerline{\it \&}}%
-	\vskip0.5\baselineskip
-	\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #2}}}%
+	{\typosize[16/]\rm%
+		%\the\fontdimen2\font
+		%\fontdimen2\font=4.5pt\relax
+		\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
+		\vskip0.5\baselineskip
+		\smash{\centerline{\it \&}}%
+		\vskip0.5\baselineskip
+		\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #2}}%
+	}%
 	\vskip4\baselineskip
 	\_firstnoindent
 }
@@ -154,6 +171,17 @@
 	\fi
 }
 
+\def\putpic#1#2{%
+	\vskip\baselineskip
+	\vbox to 0pt{%
+		\kern-1ex 
+		\picheight=\dimexpr(#1\baselineskip+1ex)%
+		\centerline{\inspic{#2}}%
+	}%
+	\vskip#1\baselineskip
+	\vskip\baselineskip
+	\_firstnoindent
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
