@@ -1,0 +1,85 @@
+% Tufte style
+
+\_def\_printchap #1{%
+	\_vfill\_supereject \_prevdepth=0pt
+%	\_ifodd\_pageno \_else \_vfil\_break \_fi
+	%\_leavevmode\_par
+	{%
+	 %\_raggedright
+	 \_ifnonum
+	\hrule depth 0pt height 0pt
+	\vglue-\topskip
+	 \setbox0\vbox{\typosize[22/29]\it\noindent #1}%
+	 \copy0
+	 	\newdimen\headsize \headsize=\dimexpr(\ht0+\dp0)\relax
+	 	%\the\headsize
+		\loop \advance \headsize by -\baselineskip
+		\ifdim \headsize>\baselineskip \repeat
+		\dimen0=\dimexpr(\baselineskip-\headsize)
+		%\the\headsize
+		%\vskip-\headsize
+		\vskip-\topskip
+		%\vskip2\baselineskip
+		%\the\dimen0
+		\vskip-\headsize
+	 \_else
+	 	\leftskip1.5em
+	 	%
+	 	\llap{\hbox to 1.5em{\_printrefnum[@]\hfil}}#1\_nbpar
+	 \fi
+	}%
+	\_mark{}%
+	\_nobreak \_belowtitle{\vskip0pt}%
+	\_firstnoindent
+}
+
+\_def\_printsec#1{%
+	\_par
+	\_abovetitle{\_penalty-151}\_vskip\_baselineskip
+	{%
+	 \_bf 
+	 \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar
+	}%
+	\_insertmark{#1}%
+	\_nobreak \_belowtitle{\_vskip\_baselineskip}%
+\_firstnoindent
+}
+
+\_def\_printsecc#1{%
+	\_par
+	\_abovetitle{\_penalty-101}{\_vskip\_baselineskip}
+	{%
+	 \_it 
+	 \_noindent \_raggedright \_printrefnum[@\_quad]#1\_nbpar
+	}%
+	\_nobreak \_belowtitle{\_vskip\_baselineskip}%
+\_firstnoindent
+}
+
+\nonum\chap mAg
+
+
+
+For many people the first word that comes to mind when they think\par
+
+\loremone
+
+\sec Tufte section
+
+\loremtwo
+
+\secc Tufte subsection
+
+\loremthree
+
+\vfil\break
+\hrule depth 0pt height 0pt
+\vglue-\topskip
+
+For many people the first word that comes to mind when they think For many people the first word
+\vskip5pt
+trest
+\vskip 10pt
+test2
+
+

@@ -128,7 +128,7 @@
 \def\person#1#2{%
 	\skiptorecto
 	{\typosize[16/]\setff{+smcp,letterspace=10}\rm 
-		%\fontdimen2\font=45pt\relax
+		\spaceskip=4.3pt%
 		\smash{\centerline{#1}}%
 	}%
 	\vskip1\baselineskip
@@ -140,8 +140,7 @@
 \def\couple#1#2{%
 	\skiptorecto
 	{\typosize[16/]\rm%
-		%\the\fontdimen2\font
-		%\fontdimen2\font=4.5pt\relax
+		\spaceskip=4.3pt%
 		\smash{\centerline{\setff{+smcp, letterspace=10}\currvar #1}}%
 		\vskip0.5\baselineskip
 		\smash{\centerline{\it \&}}%

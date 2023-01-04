@@ -1,0 +1,56 @@
+% Tschichold style
+
+
+\_def\_printchap #1{%
+	%\_nonum % Uncomment to default to numbering
+	\_vfill\_supereject
+	\_ifodd\_pageno \_else \_vfil\_break \_fi
+	%\_vglue\_medskipamount % shifted by topkip+\medskipamount
+	{\_leftskip=0pt plus 1fill\_relax
+	 \_rightskip=\_leftskip
+	 \typosize[14/]%
+	 	\_noindent \_printrefnum[@\hbox to 1em{\hss\cdot\hss}]#1\_nbpar
+	}%
+	\_mark{}%
+	\_nobreak \_belowtitle{\_vskip4\_baselineskip}%
+	\_firstnoindent
+}
+
+
+\_def\_printsec#1{%
+	%\_nonum % Uncomment to default to numbering
+	\_par
+	\_abovetitle{\_penalty-151}{\_bigskip\vskip1ex}
+	{\_leftskip=0pt plus 1fill\_relax \_rightskip=\_leftskip
+	 \_setff{+smcp,+c2sc,+onum,letterspace=6}\rm 
+	 \_noindent \_printrefnum[@\hbox to 1em{\hss\cdot\hss}]#1\_nbpar
+	}%
+	\_insertmark{#1}%
+	\_nobreak \_belowtitle{\_bigskip\vskip-1ex}%
+	\_firstnoindent
+}
+
+
+\_def\_printsecc#1{%
+	%\_nonum % Uncomment to default to numbering
+	\_par
+	\_abovetitle{\_penalty-101}{\_bigskip\vskip1ex}
+	{\leftskip=0pt plus 1fill\relax \rightskip=\leftskip
+	 \_it 
+	 \_noindent \_printrefnum[@\hbox to 1em{\hss\cdot\hss}]#1\_nbpar
+	}%
+	\_nobreak \_belowtitle{\_bigskip\vskip-1ex}%
+	\_firstnoindent
+}
+
+\nonum\chap Tschichold numbered chapter style
+
+\loremone 
+
+\nonum\sec Tschichold numbered section style
+
+\loremtwo
+
+\nonum\secc Tschichold numbered subsection style
+
+\loremthree
