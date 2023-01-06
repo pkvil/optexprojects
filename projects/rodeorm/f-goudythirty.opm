@@ -1,16 +1,16 @@
 %% This is part of the OpTeX project, see http://petr.olsak.net/optex
 
-\_famdecl [Alcuin] \Alcuin {Gudrun Zapf von Hesse, carolingian minuscules}
+\_famdecl [GoudyThirty] \GoudyThirty {Goudy, rotunda}
         {\caps} {\rm \bf \it \bi} {}
-        {[AlcuinEF-Light]}
-        {\_def \_fontnamegen {[AlcuinEF-\_currV]:script=latn;\_capsV\_fontfeatures}}
+        {[GoudyThirtyH]}
+        {\_def \_fontnamegen {[GoudyThirty\_currV]:script=latn;\_capsV\_fontfeatures}}
 
 \_wlog{\_detokenize{%
 Modifier:^^J
  \caps ...... caps & small caps^^J
 }}
 
-\_moddef \resetmod {\_fsetV caps={} \_fvars Light Regular Bold ExtraBold }
+\_moddef \resetmod {\_fsetV caps={} \_fvars H HW HW HW }
 \_moddef \caps     {\_fsetV caps=+smcp;\_ffonum; }
 
 \_initfontfamily % new font family must be initialized

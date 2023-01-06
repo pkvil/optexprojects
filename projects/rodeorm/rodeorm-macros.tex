@@ -1,0 +1,72 @@
+\fontfam[alcuin]
+
+\font\Lombardic "GoudyTextMT-LombardicCapitals" at 32pt\relax
+
+\typosize[11/14]
+
+\hsize157.5mm
+\vsize=\topskip \advance \vsize by 42\baselineskip
+
+\parskip0pt
+\parindent0pt
+\widowpenalty0
+\clubpenalty0
+
+\margins/2 a4 (17.5,,27.5,)mm
+
+\onlycmyk
+\def\Red{\setcmykcolor{0 0.9 0.9 0.15}}
+\def\Blue{\setcmykcolor{0.7 0.5 0 0.3}}
+
+\def\kapitel#1#2{%
+	\noindent
+	{\Red {\setff{letterspace=14}\currvar #1} \cdot\ #2}%
+}
+
+\newif\ifblue \bluetrue
+
+\def\initial#1{%
+	% Change color between blue/red, put initial in box0
+	\par\null\par
+	\ifblue
+		\def\initialcolor{\Red}%
+		\bluefalse
+	\else
+		\def\initialcolor{\Blue}%
+		\bluetrue
+	\fi
+	\setbox0\hbox{\initialcolor\Lombardic #1}%
+	\dimen0=5pt % default initial margin hang
+	\dimen1=3pt % default distance from initial to text
+	% Adjust margin hang per letter
+	\if #1D \dimen1=2pt\fi
+	\if #1E \dimen0=3pt\fi
+	\if #1G \dimen0=3pt\fi
+	\if #1I \dimen0=6pt\fi
+	\if #1J \dimen0=8pt\fi
+	\if #1K \dimen0=6pt\fi
+	\if #1M \dimen0=8pt\fi
+	\if #1N \dimen0=6pt\fi
+	\if #1O \dimen0=3pt \dimen1=2pt\fi
+	\if #1P \dimen0=3.5pt\fi
+	\if #1Q \dimen0=3pt\fi
+	\if #1R \dimen0=6pt\fi
+	\if #1U \dimen0=4pt\fi
+	\if #1V \dimen0=7pt\fi
+	\if #1W \dimen0=3pt\fi
+	\if #1X \dimen0=3pt\fi
+	\if #1Y \dimen0=7pt\fi
+	\if #1Z \dimen0=2pt\fi
+	\if #1Ö \dimen0=3pt\fi
+	% Place box and shape the paragraph
+	\dimen2=\dimexpr(\wd0-\dimen0+\dimen1)\relax % width of initial box
+	\dimen3=\dimexpr(\hsize-\dimen2)\relax % width of remaining line length
+	\ht0=0pt \dp0=0pt% smash
+	\moveleft \dimen0 \box0
+	\nobreak
+	\vskip-2\baselineskip
+	\parshape 3 \dimen2 \dimen3 \dimen2 \dimen3 0pt \hsize
+	\noindent
+}
+
+\colsep=2.3em
