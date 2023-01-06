@@ -1,4 +1,6 @@
-\fontfam[ebgaramond]
+\fontfam[alcuin]
+
+\font\Lombardic "GoudyTextMT-LombardicCapitals" at 32pt\relax
 
 \typosize[12/14]
 
@@ -22,20 +24,64 @@
 	\fi
 }
 
-\def\initial #1{%
+%\def\initial #1{%
+%	\par\null\par
+%	\switchcolor
+%	\setbox0\hbox{\initialcolor\Lombardic #1}%
+%	\dimen0=\dimexpr(\wd0+1pt)
+%	\dimen1=\dimexpr(\hsize-\dimen0)\relax
+%	\ht0=0pt \dp0=0pt%
+%	\moveleft 3pt \box0
+%	\vskip-2\baselineskip
+%	\parshape 3 \dimen0 \dimen1 \dimen0 \dimen1 0pt \hsize
+%	\noindent
+%}
+
+\def\initial#1{%
+	% Change color between blue/red, put initial in box0
 	\par\null\par
 	\switchcolor
-	\setbox0\hbox{\initialcolor\typoscale[2700/]#1}%
-	\dimen0=\dimexpr(\wd0-1pt)
-	\dimen1=\dimexpr(\hsize-\dimen0)\relax
-	\ht0=0pt \dp0=0pt%
-	\moveleft 4pt \box0
+	\setbox0\hbox{\initialcolor\Lombardic #1}%
+	\dimen0=5pt % default initial margin hang
+	\dimen1=3pt % default distance from initial to text
+	% Adjust margin hang per letter
+	\if #1E \dimen0=3pt\fi
+	\if #1G \dimen0=3pt\fi
+	\if #1I \dimen0=6pt\fi
+	\if #1J \dimen0=8pt\fi
+	\if #1K \dimen0=6pt\fi
+	\if #1M \dimen0=8pt\fi
+	\if #1N \dimen0=6pt\fi
+	\if #1O \dimen0=3pt\fi
+	\if #1P \dimen0=3.5pt\fi
+	\if #1Q \dimen0=3pt\fi
+	\if #1R \dimen0=6pt\fi
+	\if #1U \dimen0=4pt\fi
+	\if #1V \dimen0=7pt\fi
+	\if #1W \dimen0=3pt\fi
+	\if #1X \dimen0=3pt\fi
+	\if #1Y \dimen0=7pt\fi
+	\if #1Z \dimen0=2pt\fi
+	\if #1Ö \dimen0=3pt\fi
+	% Place box and shape the paragraph
+	\dimen2=\dimexpr(\wd0-\dimen0+\dimen1)\relax % width of initial box
+	\dimen3=\dimexpr(\hsize-\dimen2)\relax % width of remaining line length
+	\ht0=0pt \dp0=0pt% smash
+	\moveleft \dimen0 \box0
 	\vskip-2\baselineskip
-	\parshape 3 \dimen0 \dimen1 \dimen0 \dimen1 0pt \hsize
+	\parshape 3 \dimen2 \dimen3 \dimen2 \dimen3 0pt \hsize
 	\noindent
 }
 
+%\centerline{\typoscale[2000/]\setff{letterspace=8}\currvar RÖDE ORM}
+
+\it
+
+%\colsep=2.3em
 \begmulti 2
+
+%\noindent \line{\Red\typoscale[1900/]\setff{letterspace=8}\currvar FÖRSTA KAPITLET}
+%\centerline{\Red Hur Orm kom med på resan}
 
 \initial Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pulvinar nunc at tellus lobortis dictum. Vestibulum ornare ante vel erat vulputate laoreet. Morbi tempus metus sit amet diam venenatis, et porttitor dui fringilla. Maecenas purus elit, laoreet nec nunc eu, egestas sagittis erat. Nunc nunc purus, vulputate at aliquam id, porta et augue. Curabitur sit amet dapibus risus. Aenean viverra auctor lorem sit amet mollis. Nunc condimentum faucibus velit, ut porta magna eleifend vitae.
 
@@ -51,9 +97,9 @@
 
 \initial Nullam iaculis aliquam purus, in accumsan dolor. Donec quam elit, ornare ut erat a, vehicula eleifend ipsum. Vestibulum auctor hendrerit nisl, at vestibulum sem elementum id. Cras eget lacus quis metus viverra volutpat sit amet at ipsum. Vivamus non ligula vel sem congue iaculis sit amet et urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ultrices metus at arcu lobortis accumsan. Phasellus placerat, massa at imperdiet pharetra, eros diam luctus nisi, in congue ex est eu tortor. Cras leo magna, tincidunt nec ipsum ac, molestie finibus nulla. Duis sit amet pharetra tellus. Pellentesque nibh dolor, lacinia ut congue et, tincidunt in est. Fusce vestibulum nunc vel ipsum bibendum, a blandit risus volutpat. Donec euismod ipsum eu elit sodales condimentum. Sed vestibulum felis egestas turpis cursus, nec fermentum libero hendrerit. Aliquam quis luctus tortor. Aenean eget bibendum felis.
 
-Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris a erat odio. Nulla faucibus bibendum lorem, at congue mi eleifend ac. Nunc at ligula vehicula, faucibus risus et, maximus mauris. Donec sit amet purus nisl. Vivamus eget dolor nec lectus iaculis pretium. Mauris tortor leo, condimentum quis posuere quis, dapibus id nisl.
+\initial Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris a erat odio. Nulla faucibus bibendum lorem, at congue mi eleifend ac. Nunc at ligula vehicula, faucibus risus et, maximus mauris. Donec sit amet purus nisl. Vivamus eget dolor nec lectus iaculis pretium. Mauris tortor leo, condimentum quis posuere quis, dapibus id nisl.
 
-Cras vestibulum, diam vitae iaculis semper, ante nibh consectetur leo, sagittis molestie quam libero at odio. Nulla ultrices neque et nunc condimentum porttitor. Morbi velit nulla, ullamcorper rutrum est at, tincidunt pulvinar nisl. Nulla mollis ante at mi dignissim commodo. Curabitur feugiat egestas nisl, ac suscipit metus feugiat vel. Pellentesque augue velit, imperdiet non arcu eget, volutpat viverra tortor. Proin eget augue eros. Nulla fringilla justo eget massa placerat, ac finibus mi porttitor. Nam sit amet lacus at tellus varius tempor at eu quam. Aenean in fringilla odio. Nulla in ligula orci. Aenean lacus felis, gravida sit amet odio ut, venenatis luctus neque. Aenean placerat lobortis tincidunt.
+\initial Cras vestibulum, diam vitae iaculis semper, ante nibh consectetur leo, sagittis molestie quam libero at odio. Nulla ultrices neque et nunc condimentum porttitor. Morbi velit nulla, ullamcorper rutrum est at, tincidunt pulvinar nisl. Nulla mollis ante at mi dignissim commodo. Curabitur feugiat egestas nisl, ac suscipit metus feugiat vel. Pellentesque augue velit, imperdiet non arcu eget, volutpat viverra tortor. Proin eget augue eros. Nulla fringilla justo eget massa placerat, ac finibus mi porttitor. Nam sit amet lacus at tellus varius tempor at eu quam. Aenean in fringilla odio. Nulla in ligula orci. Aenean lacus felis, gravida sit amet odio ut, venenatis luctus neque. Aenean placerat lobortis tincidunt.
 
 Vivamus egestas augue ac arcu posuere rhoncus. Sed purus ante, condimentum sed gravida et, viverra at purus. Nunc dignissim faucibus nisi, vel gravida leo malesuada id. Aliquam blandit arcu erat, eu elementum augue viverra cursus. Aenean vitae nisl vehicula, mattis urna eu, blandit tortor. Cras nec vulputate tellus. Fusce finibus consectetur maximus. Quisque eu feugiat arcu, sit amet egestas nibh.
 
