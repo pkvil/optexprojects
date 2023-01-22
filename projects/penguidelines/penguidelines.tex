@@ -1,6 +1,6 @@
 \load[minim-mp]
 
-\margins/1 (297,210)mm (10,10,10,10)mm
+\margins/1 (210,297)mm (15,15,10,10)mm
 
 \parskip0mm
 \parindent0mm
@@ -51,7 +51,8 @@
 \nib=2.4mm
 \vskip\nib
 \fivelines
-\oneline \oneline \oneline
+\fivelines
+\oneline \oneline
 \vfil\break
 
 \newbox\guidebox
@@ -113,6 +114,7 @@ end;
 }%
 }
 
+\def\guideboxline{%
 \leavevmode \copy\guidebox 
 \hskip 5\nib \copy\guidebox
 \hskip 5\nib \copy\guidebox
@@ -121,39 +123,13 @@ end;
 \hskip 5\nib \copy\guidebox
 \hskip 5\nib \copy\guidebox
 \hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
+\vskip 5\nib}
 
-\vskip 5\nib
+\guideboxline \guideboxline \guideboxline \guideboxline \guideboxline
+\guideboxline \guideboxline
 
-\leavevmode \copy\guidebox 
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
 
-\vskip 5\nib
 
-\leavevmode \copy\guidebox 
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
-\hskip 5\nib \copy\guidebox
+
 
 \bye
