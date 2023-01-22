@@ -1,0 +1,159 @@
+\load[minim-mp]
+
+\margins/1 (297,210)mm (10,10,10,10)mm
+
+\parskip0mm
+\parindent0mm
+\footline{}
+\offinterlineskip
+
+\newdimen\nib 
+
+\def\rule{%
+    \setbox0\vbox{\hrule width \hsize height 0.05pt depth 0.05pt}%
+    \ht0=0pt%
+    \dp0=0pt%
+    \box0
+}
+
+\def\nibsquare{%
+    \setbox0\vbox{\hrule width \nib height \nib depth0pt}%
+    \box0
+}
+
+\def\indentednibsquare{%
+    \setbox0\vbox{\hrule width \nib height \nib depth0pt}%
+    \moveright\nib \box0
+}
+
+\def\oneline{
+    \rule
+        \nibsquare
+        \indentednibsquare
+    \rule
+        \nibsquare
+        \indentednibsquare
+        \nibsquare
+        \indentednibsquare
+    \rule
+        \nibsquare
+        \indentednibsquare    
+    \rule
+    \vskip\nib
+}
+
+\def\fivelines{%
+    \oneline \oneline \oneline \oneline \oneline
+}
+
+
+2.4mm --- 2:4:2
+\nib=2.4mm
+\vskip\nib
+\fivelines
+\oneline \oneline \oneline
+\vfil\break
+
+\newbox\guidebox
+
+\setbox\guidebox\vbox{%
+\directmetapost{%
+beginfig(1);
+	% Variables (settings)
+	numeric nib,a,b,d;
+	nib=2.4mm; 			% nib width
+	a=3; 				% ascender height in nibs
+	b=4; 				% body height in nibs
+	d=3; 				% descender depth in nibs
+	
+	% Pens
+	pen fineliner;
+	fineliner = pencircle scaled 0.2pt;
+	pickup fineliner;
+	
+	% Coordinates (origin at bottom left corner of body square)
+	pair A[],B[],D[]; 			% Ascender points, Body points, Descender points 
+	A[0]:=( 0, (a+b)*nib ); 	% left point
+	A[1]:=( b*nib, (a+b)*nib ); % right point
+	B[0]:=( origin ); 			% southwest corner
+	B[1]:=( 0, b*nib ); 		% northwest corner
+	B[2]:=( b*nib, b*nib ); 	% northeast corner
+	B[3]:=( b*nib, 0); 			% southeast corner
+	D[0]:=( 0, -d*nib ); 		% left point
+	D[1]:=( b*nib, -d*nib ); 	% right point
+	
+	% Paths
+	path square, circle, ascenderline, descenderline, leftnarrower, rightnarrower;
+	square = B[0]--B[1]--B[2]--B[3]--cycle;
+	circle = fullcircle scaled (b*nib) shifted (0.5*b*nib,0.5*b*nib);
+	ascenderline = A[0]--A[1];
+	descenderline = D[0]--D[1];
+	leftnarrower = 1/8[A[0],A[1]] -- 1/8[D[0],D[1]];
+	rightnarrower = 7/8[A[0],A[1]] -- 7/8[D[0],D[1]];
+	
+	pair T[]; % Thirty degree guidelines derived from circle
+	T[0]:= point 2/3 of circle;
+	T[1]:= point 4+2/3 of circle;
+	T[2]:= point 2+2/3 of circle;
+	T[3]:= point 6+2/3 of circle;
+	
+	% Draw
+	
+	draw ascenderline;
+	draw square; 
+	draw circle ;
+	draw leftnarrower;
+	draw rightnarrower;
+	draw descenderline;
+	draw  T[0] -- T[1];
+	draw  T[2] -- T[3];
+
+endfig;
+end;
+}%
+}
+
+\leavevmode \copy\guidebox 
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+
+\vskip 5\nib
+
+\leavevmode \copy\guidebox 
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+
+\vskip 5\nib
+
+\leavevmode \copy\guidebox 
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+\hskip 5\nib \copy\guidebox
+
+\bye
