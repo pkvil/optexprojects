@@ -57,6 +57,8 @@
 
 \newbox\guidebox
 
+\newif\ifbaseline \baselinetrue
+
 \setbox\guidebox\vbox{%
 \directmetapost{%
 beginfig(1);
@@ -101,7 +103,7 @@ beginfig(1);
 	% Draw
 	
 	draw ascenderline;
-	draw square; 
+	draw square;
 	draw circle ;
 	draw leftnarrower;
 	draw rightnarrower;
