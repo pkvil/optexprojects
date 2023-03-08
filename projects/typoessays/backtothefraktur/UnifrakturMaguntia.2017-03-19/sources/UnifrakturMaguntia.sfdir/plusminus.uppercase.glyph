@@ -1,0 +1,13 @@
+StartChar: plusminus.uppercase
+Encoding: 65708 -1 791
+Width: 2048
+VWidth: 2120
+Flags: MW
+HStem: -398 109<101 1948> 689 109<101 970 1079 1948>
+VStem: 970 109<-180 689 798 1667>
+LayerCount: 2
+Fore
+Refer: 788 -1 N 1 0 0 1 0 -869 2
+Refer: 787 -1 N 1 0 0 1 0 218 2
+Substitution2: "Lowercase Numbers" plusminus
+EndChar

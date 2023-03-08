@@ -1,0 +1,15 @@
+StartChar: t_commasubcomb
+Encoding: 539 539 315
+AltUni2: 000163.ffffffff.0
+Width: 612
+VWidth: 2065
+HStem: -20 20<361.5 373.25> 849 109<368.094 570>
+VStem: 162 203<197.688 848.995>
+DStem2: 289 -426 312 -465 0.860055 0.510202<0 62.7694> 428.643 1238.3 463.642 1209.98 0.588922 0.80819<0 104.17> 460.663 189.338 494 161.67 0.652045 0.75818<0.759884 90.9997>
+LayerCount: 2
+Fore
+Refer: 342 806 N 1 0 0 1 841 -5 2
+Refer: 84 116 N 1 0 0 1 0 0 3
+LCarets2: 1 0 
+Ligature2: "Unicode Diacritics" t commasubcomb
+EndChar

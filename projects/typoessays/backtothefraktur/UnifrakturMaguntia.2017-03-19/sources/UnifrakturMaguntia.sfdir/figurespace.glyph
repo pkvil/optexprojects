@@ -1,0 +1,9 @@
+StartChar: figurespace
+Encoding: 8199 8199 380
+Width: 888
+VWidth: 17
+Flags: MW
+LayerCount: 2
+AlternateSubs2: "Access All Alternates" figurespace.upper
+Substitution2: "Uppercase Numbers" figurespace.upper
+EndChar

@@ -1,0 +1,21 @@
+StartChar: underscore
+Encoding: 95 95 63
+Width: 934
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -407 109<-22 956>
+LayerCount: 2
+Fore
+SplineSet
+-22 -320 m 2,0,1
+ -22 -298 -22 -298 0 -298 c 2,2,-1
+ 934 -298 l 2,3,4
+ 956 -298 956 -298 956 -320 c 2,5,-1
+ 956 -385 l 2,6,7
+ 956 -407 956 -407 934 -407 c 2,8,-1
+ 0 -407 l 2,9,10
+ -22 -407 -22 -407 -22 -385 c 2,11,-1
+ -22 -320 l 2,0,1
+EndSplineSet
+EndChar

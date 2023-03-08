@@ -1,0 +1,12 @@
+StartChar: bracketright
+Encoding: 93 93 62
+Width: 508
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -386 45<27.0056 165.994> 1403 45<27.0056 165.994>
+VStem: 166 184<-341 1403>
+LayerCount: 2
+Fore
+Refer: 60 91 N -1 0 0 -1 512 1062 2
+EndChar

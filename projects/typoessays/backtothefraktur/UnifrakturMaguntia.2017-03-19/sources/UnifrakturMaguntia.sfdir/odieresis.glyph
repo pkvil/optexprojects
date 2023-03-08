@@ -1,0 +1,19 @@
+StartChar: odieresis
+Encoding: 246 246 177
+Width: 939
+VWidth: 2065
+GlyphClass: 1
+HStem: -20 21<444.823 456.719> 1051 20<652.859 662.578> 1419 20<292 332 662 702>
+VStem: 162 203<270.75 920.849>
+DStem2: 362 301 242 136.5 0.810562 -0.585653<0 223.608> 352.352 952.657 367.008 910.004 0.965442 0.260617<3.03357 125.311> 579 181.5 605.5 146.5 0.815651 0.578544<1.36574 52.7186> 708.5 936.5 579.5 762.5 0.541948 -0.840412<0 76.3204>
+LayerCount: 2
+Back
+Refer: 79 111 N 1 0 0 1 0 0 2
+Fore
+Refer: 101 168 N 1 0 0 1 72 0 2
+Refer: 79 111 N 1 0 0 1 0 0 3
+AlternateSubs2: "Access All Alternates" odieresis.alt
+LCarets2: 1 0 
+Substitution2: "a^e, o^e, u^e" odieresis.alt
+Ligature2: "Unicode Diacritics" o dieresiscomb
+EndChar

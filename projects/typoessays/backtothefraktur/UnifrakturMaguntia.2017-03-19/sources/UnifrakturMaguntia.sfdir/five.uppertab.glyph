@@ -1,0 +1,14 @@
+StartChar: five.uppertab
+Encoding: 65561 -1 644
+Width: 1024
+VWidth: 1688
+Flags: W
+HStem: -20 45<366.134 547.395> 759 199<416 507> 1428 20<207 219 803 814>
+VStem: 197 45<1139 1216>
+DStem2: 176.227 920.832 221.4 920.334 0.0995013 0.995037<3.99928 79.9995>
+LayerCount: 2
+Fore
+Refer: 624 -1 N 1 0 0 1 -4 0 2
+Substitution2: "Proportional Numbers" five.uppercase
+Substitution2: "Lowercase Numbers" five.tab
+EndChar

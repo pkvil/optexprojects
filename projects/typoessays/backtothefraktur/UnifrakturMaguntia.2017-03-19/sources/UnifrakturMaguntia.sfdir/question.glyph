@@ -1,0 +1,14 @@
+StartChar: question
+Encoding: 63 63 32
+Width: 673
+VWidth: 2065
+GlyphClass: 1
+Flags: MW
+HStem: -20 318<324 348> 1428 20<329.5 344.5>
+VStem: 177 318<127 151> 316 38<473.063 584.032>
+DStem2: 60 1203 90 1170 0.732793 0.680451<0 53.0752> 199 139 336 2 0.707107 0.707107<0 193.747>
+LayerCount: 2
+Fore
+Refer: 802 -1 N 1 0 0 1 0 0 2
+Refer: 15 46 N 1 0 0 1 84 0 2
+EndChar

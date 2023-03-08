@@ -1,0 +1,13 @@
+StartChar: two.uppertab
+Encoding: 65558 -1 641
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: -21 20<77.125 90.625 825 842.75> -1 203<282.011 833.502> 1402 45<367.26 546.199>
+DStem2: 837 238 896 378 0.0962363 0.995359<-36.5664 179.672>
+LayerCount: 2
+Fore
+Refer: 621 -1 N 1 0 0 1 12 -1 2
+Substitution2: "Proportional Numbers" two.uppercase
+Substitution2: "Lowercase Numbers" two.tab
+EndChar

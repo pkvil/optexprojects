@@ -1,0 +1,21 @@
+StartChar: figuredash.upper
+Encoding: 65711 -1 794
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: 554 148<42 982>
+LayerCount: 2
+Fore
+SplineSet
+42 577 m 2,0,-1
+ 42 680 l 2,1,2
+ 42 702 42 702 65 702 c 26,3,-1
+ 959 702 l 18,4,5
+ 982 702 982 702 982 680 c 2,6,-1
+ 982 577 l 2,7,8
+ 982 554 982 554 959 554 c 18,9,-1
+ 65 554 l 2,10,11
+ 42 554 42 554 42 577 c 2,0,-1
+EndSplineSet
+Substitution2: "Lowercase Numbers" figuredash
+EndChar

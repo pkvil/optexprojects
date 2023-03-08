@@ -1,0 +1,13 @@
+StartChar: seven.uppertab
+Encoding: 65563 -1 646
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: 0 21<304 644> 1225 203<169.498 769.99> 1428 20<162 178 912 928>
+DStem2: 107 1049 152 1044 0.0962363 0.995359<-34.6435 181.595> 715 1120 767 1078 0.596939 0.802286<-3.63014 102.046>
+LayerCount: 2
+Fore
+Refer: 626 -1 N 1 0 0 1 70 0 2
+Substitution2: "Proportional Numbers" seven.uppercase
+Substitution2: "Lowercase Numbers" seven.tab
+EndChar

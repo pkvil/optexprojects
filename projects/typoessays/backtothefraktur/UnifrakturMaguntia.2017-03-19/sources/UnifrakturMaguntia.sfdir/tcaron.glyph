@@ -1,0 +1,18 @@
+StartChar: tcaron
+Encoding: 357 357 279
+Width: 612
+VWidth: 17
+Flags: W
+HStem: -20 20<361.5 373.25> 849 109<368.094 570>
+VStem: 162 203<197.688 848.995>
+DStem2: 404 1273 446.75 1259.25 0.334937 0.94224<1.36275 67.9232> 460.663 189.338 494 161.67 0.652045 0.75818<0.759884 90.9997> 533 1283 556 1244 0.860055 0.510202<0 62.7694>
+LayerCount: 2
+Fore
+Refer: 798 -1 N 1 0 0 1 0 0 2
+Refer: 342 806 N 1 0 0 1 1085 1704 2
+LCarets2: 1 0 
+AlternateSubs2: "Access All Alternates" tcaron.alt
+AlternateSubs2: "Alternative t with caron" tcaron.alt
+Substitution2: "Alternative d and t with caron" tcaron.alt
+Ligature2: "Unicode Diacritics" t caroncomb
+EndChar

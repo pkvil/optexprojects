@@ -1,0 +1,21 @@
+StartChar: minus.uppercase
+Encoding: 65705 -1 788
+Width: 2048
+VWidth: 2065
+Flags: W
+HStem: 471 109<101 1948>
+LayerCount: 2
+Fore
+SplineSet
+101 494 m 2,0,-1
+ 101 557 l 2,1,2
+ 101 580 101 580 124 580 c 26,3,-1
+ 1925 580 l 18,4,5
+ 1948 580 1948 580 1948 557 c 2,6,-1
+ 1948 494 l 2,7,8
+ 1948 471 1948 471 1925 471 c 18,9,-1
+ 124 471 l 2,10,11
+ 101 471 101 471 101 494 c 2,0,-1
+EndSplineSet
+Substitution2: "Lowercase Numbers" minus
+EndChar

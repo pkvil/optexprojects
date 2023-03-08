@@ -1,0 +1,20 @@
+StartChar: macron_for_i
+Encoding: 65732 -1 826
+Width: 527
+VWidth: 0
+Flags: MW
+HStem: 1234 148<33 444>
+LayerCount: 2
+Fore
+SplineSet
+33 1257 m 2,0,-1
+ 33 1360 l 2,1,2
+ 33 1382 33 1382 55 1382 c 2,3,-1
+ 422 1382 l 2,4,5
+ 444 1382 444 1382 444 1360 c 2,6,-1
+ 444 1257 l 2,7,8
+ 444 1234 444 1234 422 1234 c 2,9,-1
+ 55 1234 l 2,10,11
+ 33 1234 33 1234 33 1257 c 2,0,-1
+EndSplineSet
+EndChar

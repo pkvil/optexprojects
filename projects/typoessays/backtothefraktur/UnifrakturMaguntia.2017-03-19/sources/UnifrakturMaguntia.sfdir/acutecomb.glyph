@@ -1,0 +1,11 @@
+StartChar: acutecomb
+Encoding: 769 769 332
+Width: 0
+VWidth: 2065
+Flags: W
+HStem: 1428 20<-484 -478>
+DStem2: -466 1441 -475 1426 0.812104 -0.583512<1.44374 166.235>
+LayerCount: 2
+Fore
+Refer: 111 180 N 1 0 0 1 -727 0 2
+EndChar

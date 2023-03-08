@@ -1,0 +1,13 @@
+StartChar: three.uppertab
+Encoding: 65559 -1 642
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: -20 45<375.834 579.122> 1403 45<374.276 550.676>
+DStem2: 321.104 751.583 331.919 707.345 0.965367 0.260894<0 59.9088>
+LayerCount: 2
+Fore
+Refer: 622 -1 N 1 0 0 1 4 0 2
+Substitution2: "Proportional Numbers" three.uppercase
+Substitution2: "Lowercase Numbers" three.tab
+EndChar

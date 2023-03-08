@@ -1,0 +1,12 @@
+StartChar: parenright
+Encoding: 41 41 10
+Width: 508
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -407 20<-54 -27.5> 1428 20<-53.999 -27.499>
+VStem: 167 203<350 691>
+LayerCount: 2
+Fore
+Refer: 9 40 N -1 0 0 -1 508 1041 2
+EndChar

@@ -1,0 +1,65 @@
+%XeLaTeX README file for switched-on features variants of UnifrakturMaguntia
+%Version 2016-02-21
+%Copyright 2016 j. 'mach' wust
+%This work is licensed under the Creative Commons Attribution-Share Alike 3.0 License.
+%see also http://unifraktur.sourceforge.net/maguntia.html#features
+\documentclass{scrartcl}
+\usepackage{fontspec,longtable,booktabs}
+\begin{document}
+\title{README: Switched-on Features}
+\date{2016-02-21}
+\maketitle
+\section{Background}
+An increasing number of applications is able to display advanced OpenType features. However, the interface for switching on particular features can be very complicated, and some applications lack such an interface altogether. Therefore, we offer the following ready-to-use variant fonts. In each of them, a compilation of features from the normal UnifrakturMaguntia font is switched on by default. The actual display will still depend on the displaying software’s advanced OpenType abilities, but you do not have to switch the features on by yourself.
+
+The names of these ready-to-use variant fonts approximately correspond to the century when the respective compilation of features was used. For instance, the font \texttt{UnifrakturMaguntia18.ttf} has a compilation of features that might have been used in the 18th century.
+\section{Overview}
+\begin{longtable}{lll}
+	\toprule
+		Variants &
+		Feature &
+		Sample
+	\\\midrule
+	\endhead
+		21 &
+		Modern forms (\texttt{ss01}) &
+		{\fontspec{UnifrakturMaguntia}ASVYkſxy} \textrightarrow{} {\fontspec[StylisticSet=1]{UnifrakturMaguntia}ASVYkſxy}
+	\\\midrule
+		16, 17, 18, 19, 20 &
+		Long ſ (\texttt{cv11}) &
+		{\fontspec{UnifrakturMaguntia}schönstes} \textrightarrow{} {\fontspec[CharacterVariant=11]{UnifrakturMaguntia}schönstes}
+	\\
+		&
+		Wide – (\texttt{cv19}) &
+		{\fontspec{UnifrakturMaguntia}–} \textrightarrow{} {\fontspec[CharacterVariant=19]{UnifrakturMaguntia}–}
+	\\
+		&
+		Uppercase num. (\texttt{lnum}) &
+		{\fontspec{UnifrakturMaguntia}12345} \textrightarrow{} {\fontspec[Numbers=Uppercase]{UnifrakturMaguntia}12345}
+	\\\midrule
+		16, 17, 18, 19 &
+		I \textrightarrow{} J (\texttt{cv13}) &
+		{\fontspec{UnifrakturMaguntia}Igel} \textrightarrow{} {\fontspec[CharacterVariant=13]{UnifrakturMaguntia}Igel}
+	\\
+		&
+		ÄÖÜ \textrightarrow{} AeOeUe (\texttt{cv14}) &
+		{\fontspec{UnifrakturMaguntia}Ärger} \textrightarrow{} {\fontspec[CharacterVariant=14]{UnifrakturMaguntia}Ärger}
+	\\
+		&
+		Historic etc. (\texttt{hlig}) &
+		{\fontspec{UnifrakturMaguntia}etc.} \textrightarrow{} {\fontspec[Ligatures=Historic]{UnifrakturMaguntia}etc.}
+	\\\midrule
+		16, 17, 18 &
+		Diaeresis \textrightarrow{} small e (\texttt{cv15}) &
+		{\fontspec{UnifrakturMaguntia}ſchön Üben} \textrightarrow{} {\fontspec[CharacterVariant=15]{UnifrakturMaguntia}ſchön Üben}
+	\\\midrule
+		16, 17 &
+		Historic u and v (\texttt{ss02}) &
+		{\fontspec{UnifrakturMaguntia}Und bevor} \textrightarrow{} {\fontspec[StylisticSet=2]{UnifrakturMaguntia}Und bevor}
+	\\\midrule
+		16 &
+		Round r (\texttt{cv12}) &
+		{\fontspec{UnifrakturMaguntia}error} \textrightarrow{} {\fontspec[CharacterVariant=12]{UnifrakturMaguntia}error}
+	\\\bottomrule
+\end{longtable}
+\end{document}

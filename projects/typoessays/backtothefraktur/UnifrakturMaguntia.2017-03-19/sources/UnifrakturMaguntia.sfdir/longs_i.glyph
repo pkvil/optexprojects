@@ -1,0 +1,20 @@
+StartChar: longs_i
+Encoding: 65644 -1 727
+Width: 1019
+VWidth: 2065
+GlyphClass: 2
+Flags: W
+HStem: -407 20<258 274> -20 20<829 843> 849 45<7.5 71.9045> 1051 20<697.5 706.5> 1419 20<769 798> 1428 20<299 333 605 615>
+VStem: 145 242<707 849> 159 45<1155 1230> 646 203<195.546 843.352>
+DStem2: 479 1383 284 1258 0.875795 -0.482683<-110.445 0> 530 832 587 836 0.56311 0.826382<-17.2195 47.8282> 568 1380.5 609 1363 0.351123 0.936329<0 66.3623> 762 1006 644.5 799 0.707107 -0.707107<0 63.286> 927 195 965 170 0.563337 0.826227<0.751116 53.2541>
+LayerCount: 2
+Fore
+Refer: 799 -1 N 1 0 0 1 506 0 2
+Refer: 233 305 N 1 0 0 1 484 0 2
+Refer: 303 383 N 1 0 0 1 0 0 2
+LCarets2: 2 0 0 
+MultipleSubs2: "No long s" s.noswash i
+Ligature2: "Standard Ligatures" s.long i
+Ligature2: "ZWJ" longs ZWJ i
+Ligature2: "Standard Ligatures" longs i
+EndChar

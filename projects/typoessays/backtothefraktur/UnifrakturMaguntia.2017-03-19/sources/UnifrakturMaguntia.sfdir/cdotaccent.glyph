@@ -1,0 +1,13 @@
+StartChar: cdotaccent
+Encoding: 267 267 198
+Width: 762
+VWidth: 17
+HStem: -20 20<361 370> 1032 20<517 543> 1419 20<387 427>
+DStem2: 318 983 365 955 0.913812 0.406138<0 31.5773> 549 1045 372 941 0.369534 -0.929217<17.5987 288.615> 614.668 184.666 637.665 146.332 0.875441 0.483325<1.6048 73.106>
+LayerCount: 2
+Fore
+Refer: 326 729 N 1 0 0 1 167 0 2
+Refer: 67 99 N 1 0 0 1 0 0 3
+LCarets2: 1 0 
+Ligature2: "Unicode Diacritics" c dotcomb
+EndChar

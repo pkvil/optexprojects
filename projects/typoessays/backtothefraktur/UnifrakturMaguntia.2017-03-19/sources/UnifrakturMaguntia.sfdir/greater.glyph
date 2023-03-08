@@ -1,0 +1,11 @@
+StartChar: greater
+Encoding: 62 62 31
+Width: 1215
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+DStem2: 853 542 1002 541 0.70661 -0.707604<-923.49 22.598> 1002 510 853 510 0.707107 0.707107<-1029.55 -82.737>
+LayerCount: 2
+Fore
+Refer: 29 60 N -1 0 0 -1 1215 1051 2
+EndChar

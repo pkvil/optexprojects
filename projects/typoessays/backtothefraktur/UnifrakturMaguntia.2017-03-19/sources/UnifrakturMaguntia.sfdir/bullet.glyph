@@ -1,0 +1,13 @@
+StartChar: bullet
+Encoding: 8226 8226 400
+Width: 662
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: 331 477<313 349>
+VStem: 92 477<551.5 587.5>
+DStem2: 125.5 569.5 331 364 0.707107 0.707107<0 290.621>
+LayerCount: 2
+Fore
+Refer: 15 46 N 1.5 0 0 1.5 -47 361 2
+EndChar

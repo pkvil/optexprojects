@@ -1,0 +1,8 @@
+StartChar: figurespace.upper
+Encoding: 65710 -1 793
+Width: 1024
+VWidth: 0
+Flags: W
+LayerCount: 2
+Substitution2: "Lowercase Numbers" figurespace
+EndChar

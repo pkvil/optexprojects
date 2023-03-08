@@ -1,0 +1,17 @@
+StartChar: scaron.long
+Encoding: 65690 -1 773
+Width: 484
+VWidth: 2065
+Flags: W
+HStem: -407 20<258 274> 849 45<7.5 71.9045> 1428 20<299 333 605 615> 1519 20<316 328> 1824 20<72 91 572 584>
+VStem: 145 242<707 849> 159 45<1155 1230>
+DStem2: 479 1383 284 1258 0.875795 -0.482683<-110.445 0> 568 1380.5 609 1363 0.351123 0.936329<0 66.3623> 602.796 1817.5 570.05 1848.5 0.675233 0.737604<-96.2576 0>
+LayerCount: 2
+Fore
+Refer: 324 711 N 1 0 0 1 7 396 2
+Refer: 303 383 N 1 0 0 1 0 0 3
+LCarets2: 1 0 
+Substitution2: "Modern variants" scaron
+MultipleSubs2: "No long s" scaron
+Ligature2: "Non-Unicode Diacritics" longs caroncomb
+EndChar

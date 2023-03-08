@@ -1,0 +1,16 @@
+StartChar: i
+Encoding: 105 105 73
+Width: 527
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -20 20<345 359> 1051 20<213.5 222.5> 1420 20<282 322>
+VStem: 162 203<195.546 843.352>
+DStem2: 46 832 103 836 0.56311 0.826382<-17.2195 47.8282> 278 1006 160.5 799 0.707107 -0.707107<0 63.286> 443 195 481 170 0.563337 0.826227<0.751116 53.2541>
+LayerCount: 2
+Fore
+Refer: 326 729 N 1 0 0 1 62 0 2
+Refer: 233 305 N 1 0 0 1 0 0 3
+AlternateSubs2: "Access All Alternates" i.hist
+Substitution2: "Historical variants" i.hist
+EndChar

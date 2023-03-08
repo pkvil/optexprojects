@@ -1,0 +1,19 @@
+StartChar: yacute
+Encoding: 253 253 184
+Width: 978
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -395 21<226 242> -20 21<363.5 374.5> 1051 20<635.25 647.75> 1451 20<544 550>
+VStem: 162 203<197.688 854.328>
+DStem2: 214 1071 137 876 0.809942 -0.58651<0 52.0039> 153 1207 185 1175 0.725953 0.687745<1.22266 52.345> 221.021 -359.351 249.338 -394.332 0.78968 0.613519<0.899891 102.151> 378 886 381 833 0.805056 0.593199<-13.2799 83.5485> 461.417 191.333 495.5 161.333 0.651699 0.758478<0 89.9901> 562 1464 553 1449 0.812104 -0.583512<1.44374 166.235> 691 991 599 793 0.700932 -0.713229<0 76.7336>
+LayerCount: 2
+Fore
+Refer: 111 180 N 1 0 0 1 301 23 2
+Refer: 89 121 N 1 0 0 1 0 0 3
+AlternateSubs2: "Access All Alternates" yacute.modern
+Substitution2: "Modern variants" yacute.modern
+Substitution2: "Modern y" yacute.modern
+LCarets2: 1 0 
+Ligature2: "Unicode Diacritics" y acutecomb
+EndChar

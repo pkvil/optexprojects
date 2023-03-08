@@ -1,0 +1,13 @@
+StartChar: six.uppertab
+Encoding: 65562 -1 645
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: -20 45<459.422 583.774> 835 45<460.01 585.375> 1403 45<457.323 613.495>
+VStem: 75 232<688 826> 710 210<359 489>
+LayerCount: 2
+Fore
+Refer: 625 -1 N 1 0 0 1 -11 0 2
+Substitution2: "Lowercase Numbers" six.tab
+Substitution2: "Proportional Numbers" six.uppercase
+EndChar

@@ -1,0 +1,15 @@
+StartChar: scircumflex
+Encoding: 349 349 273
+Width: 871
+VWidth: 17
+HStem: -20 20<451 461> 1051 20<410 420> 1145 20<227 239 720 739> 1450 20<483 495>
+DStem2: 169 822 206 798 0.640184 0.768221<5.24951 61.8418> 208.204 1171.5 240.95 1140.5 0.675233 0.737604<0 96.2576> 319 568 263 372 0.907255 -0.420582<0 31.6277> 398 269.5 342 73.5 0.907255 -0.420582<0 31.6277> 442 568 312 343 0.641014 0.767529<-285.164 -273.339 -48.9571 -24.6161 199.125 211.59> 529 978 473 782 0.907255 -0.420582<0 31.6277> 608 679 552 483 0.907255 -0.420582<0 31.6277> 625 205 663 181 0.640184 0.768221<5.8897 62.482>
+LayerCount: 2
+Fore
+Refer: 805 -1 N 1 0 0 1 0 0 3
+Refer: 323 710 N 1 0 0 1 162 22 2
+AlternateSubs2: "Access All Alternates" scircumflex.swash scircumflex.long
+AlternateSubs2: "scircumflex alternates" scircumflex.swash scircumflex.long
+Substitution2: "s diacritics with long s" scircumflex.long
+Substitution2: "s diacritcs with swash" scircumflex.swash
+EndChar

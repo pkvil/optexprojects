@@ -1,0 +1,38 @@
+StartChar: one
+Encoding: 49 49 18
+Width: 627
+VWidth: 17
+Flags: MW
+HStem: -20 21G<386 396> 1051 20G<470.75 490.25>
+VStem: 287 203<189.461 783.022>
+DStem2: 73 759 101 724 0.779416 0.626506<0 470.761>
+LayerCount: 2
+Fore
+SplineSet
+490 994 m 2,0,-1
+ 490 365 l 2,1,2
+ 490 217 490 217 531 192 c 24,3,4
+ 543 185 543 185 543 173.5 c 131,-1,5
+ 543 162 543 162 529 157 c 0,6,7
+ 454 130 454 130 407 -3 c 0,8,9
+ 401 -20 401 -20 391 -20 c 131,-1,10
+ 381 -20 381 -20 371 -6 c 0,11,12
+ 287 111 287 111 287 365 c 2,13,-1
+ 287 685 l 2,14,15
+ 287 785 287 785 228 785 c 3,16,17
+ 177 785 177 785 118 737 c 0,18,19
+ 106 727 106 727 96 727 c 3,20,21
+ 74 727 74 727 74 749 c 3,22,23
+ 74 760 74 760 87 770 c 10,24,-1
+ 441 1055 l 18,25,26
+ 461 1071 461 1071 480.5 1071 c 131,-1,27
+ 500 1071 500 1071 500 1053 c 3,28,29
+ 500 1047 500 1047 497 1038 c 0,30,31
+ 490 1016 490 1016 490 994 c 2,0,-1
+EndSplineSet
+Substitution2: "Subscript forms" one.inferior
+Substitution2: "Superscript forms" one.superior
+AlternateSubs2: "Access All Alternates" one.uppercase one.tab one.uppertab
+Substitution2: "Tabular Numbers" one.tab
+Substitution2: "Uppercase Numbers" one.uppercase
+EndChar

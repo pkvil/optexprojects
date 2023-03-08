@@ -1,0 +1,22 @@
+StartChar: minus
+Encoding: 8722 8722 445
+Width: 1215
+VWidth: 2065
+Flags: W
+HStem: 471 109<82 1133>
+LayerCount: 2
+Fore
+SplineSet
+82 494 m 2,0,-1
+ 82 557 l 2,1,2
+ 82 580 82 580 105 580 c 26,3,-1
+ 1110 580 l 18,4,5
+ 1133 580 1133 580 1133 557 c 2,6,-1
+ 1133 494 l 2,7,8
+ 1133 471 1133 471 1110 471 c 18,9,-1
+ 105 471 l 2,10,11
+ 82 471 82 471 82 494 c 2,0,-1
+EndSplineSet
+AlternateSubs2: "Access All Alternates" minus.uppercase
+Substitution2: "Uppercase Numbers" minus.uppercase
+EndChar

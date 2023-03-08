@@ -1,0 +1,17 @@
+StartChar: divide
+Encoding: 247 247 178
+Width: 1215
+VWidth: 2065
+Flags: W
+HStem: -20 318<595 619> 471 109<82 1133> 753 318<595 619>
+VStem: 448 318<127 151 900 924>
+DStem2: 470 912 607 775 0.707107 0.707107<0 193.747> 470 139 607 2 0.707107 0.707107<0 193.747>
+CounterMasks: 1 e0
+LayerCount: 2
+Fore
+Refer: 15 46 N 1 0 0 1 355 773 2
+Refer: 15 46 N 1 0 0 1 355 0 2
+Refer: 445 8722 N 1 0 0 1 0 0 2
+AlternateSubs2: "Access All Alternates" divide.uppercase
+Substitution2: "Uppercase Numbers" divide.uppercase
+EndChar

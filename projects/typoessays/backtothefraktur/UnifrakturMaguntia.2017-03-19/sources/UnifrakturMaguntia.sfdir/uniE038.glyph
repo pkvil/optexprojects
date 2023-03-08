@@ -1,0 +1,12 @@
+StartChar: uniE038
+Encoding: 57400 57400 501
+Width: 1024
+VWidth: 2065
+Flags: W
+HStem: -20 45<495 540> 1403 45<472 517>
+VStem: 89 156<317 403> 741 131<1098 1164>
+DStem2: 522 908.7 519.063 647.482 0.884597 -0.466356<0 119.223>
+LayerCount: 2
+Fore
+Refer: 647 -1 N 1 0 0 1 0 0 3
+EndChar

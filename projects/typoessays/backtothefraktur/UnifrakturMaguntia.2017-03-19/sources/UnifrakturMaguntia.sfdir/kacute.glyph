@@ -1,0 +1,18 @@
+StartChar: kacute
+Encoding: 7729 7729 348
+Width: 648
+VWidth: 2065
+Flags: W
+HStem: -20 20<361.5 373.25> 849 45<24.5142 95.9338> 849 109<380.071 605> 1079 203<485.794 605> 1403 45<470.068 605.991> 1824 20<343 349>
+VStem: 162 203<197.688 848.995 1118.01 1220.25> 586 20<849 958 1079 1282 1417 1432>
+DStem2: 71.5 1366.5 35.5 1337.5 0.587645 -0.809119<2.30924 169.32> 361 1837 352 1822 0.812104 -0.583512<1.44374 166.235> 460.663 189.338 494 161.67 0.652045 0.75818<0.759884 90.9997>
+LayerCount: 2
+Fore
+Refer: 111 180 N 1 0 0 1 100 396 2
+Refer: 75 107 N 1 0 0 1 0 0 3
+LCarets2: 1 0 
+AlternateSubs2: "Access All Alternates" kacute.modern
+Substitution2: "Modern variants" kacute.modern
+Substitution2: "Modern k" kacute.modern
+Ligature2: "Unicode Diacritics" k acutecomb
+EndChar

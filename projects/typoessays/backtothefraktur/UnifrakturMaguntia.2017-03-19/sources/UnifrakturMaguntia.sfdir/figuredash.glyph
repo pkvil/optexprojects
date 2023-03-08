@@ -1,0 +1,22 @@
+StartChar: figuredash
+Encoding: 8210 8210 389
+Width: 888
+VWidth: 2065
+Flags: W
+HStem: 554 148<42 846>
+LayerCount: 2
+Fore
+SplineSet
+42 577 m 2,0,-1
+ 42 680 l 2,1,2
+ 42 702 42 702 65 702 c 26,3,-1
+ 823 702 l 18,4,5
+ 846 702 846 702 846 680 c 2,6,-1
+ 846 577 l 2,7,8
+ 846 554 846 554 823 554 c 18,9,-1
+ 65 554 l 2,10,11
+ 42 554 42 554 42 577 c 2,0,-1
+EndSplineSet
+AlternateSubs2: "Access All Alternates" figuredash.upper
+Substitution2: "Uppercase Numbers" figuredash.upper
+EndChar

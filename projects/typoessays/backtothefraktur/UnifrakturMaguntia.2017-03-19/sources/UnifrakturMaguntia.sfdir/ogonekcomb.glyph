@@ -1,0 +1,11 @@
+StartChar: ogonekcomb
+Encoding: 808 808 344
+Width: 0
+VWidth: 0
+Flags: W
+HStem: -407 20<-172 -159>
+DStem2: -80 204 -47 173 0.690075 0.723738<0.336622 59.4138> -78 -189 -44 -218 0.597481 0.801883<0 60.6601>
+LayerCount: 2
+Fore
+Refer: 328 731 N 1 0 0 1 -390 0 2
+EndChar

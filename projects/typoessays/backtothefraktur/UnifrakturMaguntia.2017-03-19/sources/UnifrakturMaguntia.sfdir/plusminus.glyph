@@ -1,0 +1,15 @@
+StartChar: plusminus
+Encoding: 177 177 108
+Width: 1215
+VWidth: 2065
+GlyphClass: 1
+Flags: MW
+HStem: -109 109<82 1133> 580 109<82 553 662 1133>
+VStem: 553 109<109 580 689 1160>
+LayerCount: 2
+Fore
+Refer: 445 8722 N 1 0 0 1 0 -580 2
+Refer: 12 43 N 1 0 0 1 0 109 2
+AlternateSubs2: "Access All Alternates" plusminus.uppercase
+Substitution2: "Uppercase Numbers" plusminus.uppercase
+EndChar

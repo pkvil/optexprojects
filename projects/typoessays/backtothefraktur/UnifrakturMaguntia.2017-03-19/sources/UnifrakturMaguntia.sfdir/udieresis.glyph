@@ -1,0 +1,19 @@
+StartChar: udieresis
+Encoding: 252 252 183
+Width: 965
+VWidth: 2064
+GlyphClass: 1
+Flags: W
+HStem: -20 20<354.651 365.651 785 796> 1051 20<168.68 179.68 697.349 705.349> 1419 20<311 351 681 721>
+VStem: 162 203<212.135 855.454> 600 203<217.062 844.372>
+DStem2: 83 856 45 881 0.563337 0.826227<-53.2541 -0.751116> 334.5 4.5 370.5 243.5 0.752802 -0.658247<-130.22 0> 376 -12 583 243 0.731172 0.682194<185.21 298.926> 950 214 912 239 0.563337 0.826227<-53.2541 -0.751116>
+LayerCount: 2
+Fore
+Refer: 101 168 N 1 0 0 1 91 0 2
+Refer: 85 117 N 1 0 0 1 0 0 3
+Substitution2: "Historical variants" udieresis.hist
+AlternateSubs2: "Access All Alternates" udieresis.alt
+LCarets2: 1 0 
+Substitution2: "a^e, o^e, u^e" udieresis.alt
+Ligature2: "Unicode Diacritics" u dieresiscomb
+EndChar

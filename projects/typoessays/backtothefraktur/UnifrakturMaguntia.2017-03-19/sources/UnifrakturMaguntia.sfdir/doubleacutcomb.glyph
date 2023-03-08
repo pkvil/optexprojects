@@ -1,0 +1,11 @@
+StartChar: doubleacutcomb
+Encoding: 779 779 823
+Width: 0
+VWidth: 2065
+Flags: W
+HStem: 1428 20<-557 -551 -265 -259>
+DStem2: -539 1441 -548 1426 0.812104 -0.583512<1.44374 166.235> -247 1441 -256 1426 0.812104 -0.583512<1.44374 166.235>
+LayerCount: 2
+Fore
+Refer: 330 733 N 1 0 0 1 -800 0 2
+EndChar

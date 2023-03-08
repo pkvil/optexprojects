@@ -1,0 +1,13 @@
+StartChar: questiondown
+Encoding: 191 191 122
+Width: 672
+VWidth: 2065
+GlyphClass: 1
+Flags: MW
+HStem: -407 20<369.5 384.5> 743 318<366 390>
+VStem: 219 318<890 914> 360 38<456.968 567.937>
+DStem2: 515 902 378 1039 0.707107 0.707107<-193.747 0> 654 -162 624 -129 0.732793 0.680451<-53.0752 0>
+LayerCount: 2
+Fore
+Refer: 32 63 N -1 0 0 -1 714 1041 2
+EndChar

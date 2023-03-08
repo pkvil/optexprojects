@@ -1,0 +1,1539 @@
+SplineFontDB: 3.0
+FontName: UnifrakturMaguntia
+FullName: UnifrakturMaguntia
+FamilyName: UnifrakturMaguntia
+Weight: Book
+Copyright: Copyright (c) 2010-2016 j. 'mach' wust, Gerrit Ansmann, Georg Duffner with Reserved Font Name UnifrakturMaguntia.\nCopyright (c) 2009 Peter Wiegel.\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.
+FontLog: "UnifrakturMaguntia FontLog+AAoAPQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AAoACgAA-UnifrakturMaguntia has been created by j. 'mach' wust, Gerrit Ansmann and Georg Duffner. You can reach us at: http://unifraktur.sf.net/unifraktur-forum/ or at: j_mach_wust at shared-files dot de+AAoACgAA-UnifrakturMaguntia is a modification of Peter Wiegel's font Berthold Mainzer Fraktur that can be found at the following site (retrieved 2010-03-14) and that is in turn based on a 1901 typeface by Carl Albert Fahrenwaldt:+AAoACgAA-http://www.peter-wiegel.de/KochFraktur.html+AAoACgAA-Up to version 2010-11-24, UnifrakturMaguntia was basically identical to Wiegel's font with two exceptions: (1) The glyphs were allocated to their correct codepoints according to the Unicode standard, and (2) smart font rendering was added in order to generate the font's ligatures. By version 2012-10-17, Gerrit Ansmann had redrawn most of Wiegel's original letters from scratch. By version 2014-07-06, he has redrawn all of them up to the very last special character.+AAoACgAK-Purpose+AAoAPQA9AD0APQA9AD0APQAKAAoA-UnifrakturMaguntia has been created in order to provide a Fraktur typeface that may be embedded on websites. It is in accordance with the Unicode standard. It has suitable font licenses (GPL with font exception and OFL).+AAoACgAK-License+AAoAPQA9AD0APQA9AD0APQAKAAoA-This Font Software is licensed under the SIL Open Font License, Version 1.1. Note that this license is suited for embedding on webpages.+AAoACgAK-Files+AAoAPQA9AD0APQA9AAoACgAA* UnifrakturMaguntia.ttf+AAoA-An OpenType font version of UnifrakturMaguntia. This is the main font file you will want to install. It includes OpenType features.+AAoACgAA* OFL.txt+AAoA-The Open Font License.+AAoACgAA* FontLog.txt+AAoA-This FontLog file as required by the OFL.+AAoACgAA* OFL-FAQ.txt+AAoA-The Open Font License FAQ.+AAoACgAA* sources.zip+AAoA-A ZIP archive that contains the source code, consisting of the following files:+AAoACgAA* sources/UnifrakturMaguntia.sfdir+AAoA-The FontForge source directory of UnifrakturMaguntia. FontForge is a free font editor ( http://fontforge.sourceforge.net/ ). FontForge has been used to add OpenType features and to generate UnifrakturMaguntia.ttf+AAoACgAA* sources/make.py+AAoA-Python script for building UnifrakturMaguntia along with the preconfigured variants that emulate historic typesetting or provide modern variants. In addition to FontForge, the script also requires ttfautohint.+AAoACgAA* sources/make.ff+AAoA* sources/make_modern_variant.py+AAoA* sources/manipulation.py+AAoA* sources/make_old_variants.py+AAoA-Auxiliary files for make.py+AAoACgAK-Files only included in the extended release+AAoAPQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQAKAAoA* switched-on features/UnifrakturMaguntia16.ttf+AAoA* switched-on features/UnifrakturMaguntia17.ttf+AAoA* switched-on features/UnifrakturMaguntia18.ttf+AAoA* switched-on features/UnifrakturMaguntia19.ttf+AAoA* switched-on features/UnifrakturMaguntia20.ttf+AAoA* switched-on features/UnifrakturMaguntia21.ttf+AAoA-Variants with certain selections of OpenType features from UnifrakturMaguntia.ttf switched-on by default.+AAoACgAA* switched-on features/README.pdf+AAoA* switched-on features/README.tex+AAoA-A short explanation of these variants.+AAoACgAA* documentation/Dokumentation_de_antiqua.pdf+AAoA* documentation/Dokumentation_de_fraktur.pdf+AAoA* documentation/Dokumentation_en_antiqua.pdf+AAoA* documentation/Dokumentation_en_fraktur.pdf+AAoA-Extensive documentation by Gerrit Ansmann.+AAoACgAA* documentation/sources.zip+AAoA-A ZIP archives that contains the source code of the documentation, consisting of the following files:+AAoACgAA* documentation/sources/beamercolorthemesolarized.sty+AAoA* documentation/sources/Dokumentation.tex+AAoA* documentation/sources/Features_englisch.svg+AAoA* documentation/sources/Features.svg+AAoA* documentation/sources/Fragen_englisch.svg+AAoA* documentation/sources/Fragen.svg+AAoA* documentation/sources/ligatures.map+AAoA* documentation/sources/make.py+AAoA* documentation/sources/Sonderzeichen_englisch.svg+AAoA* documentation/sources/Sonderzeichen.svg+AAoA* documentation/sources/W_tex.svg+AAoA-The python script make.py will build the documentation. It requires XeTeX and Inkscape. Also, the current versions of the UnifrakturMaguntia fonts must be installed (with all the switched-on features variant fonts), as well as the free font Yanone Kaffeesatz (in the TTF variants), which can be obtained at: http://www.yanone.de/typedesign/kaffeesatz/+AAoACgAK-UnifrakturMaguntia change list+AAoAPQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQA9AD0APQAKAAoA* 2016-02-21+AAoA  Double release, either in a basic version that includes UnifrakturMaguntia.ttf, or in an extended version that includes additional font variants and extensive documentation by Gerrit Ansmann. Minor changes:+AAoA    - Updates to the FontLog so it reflects the additional font variants and documentation.+AAoA    - Minor improvement to the build scripts.+AAoACgAA* 2016-02-18+AAoA  Changes by G. Ansmann:+AAoA    - Added preconfigured variants emulating historic typesetting or providing modern variants.+AAoA    - The roman numerals were completely redone.+AAoA    - The lowercase 1 was replaced by a more frakturesque number.+AAoA    - New Glyphs: +Ho8A, +ATMDAQAA, +ATIDAQAK    - Improved horizontal metrics of capital letters.+AAoA    - Tons of tiny fixes.+AAoACgAA* 2014-07-06+AAoA  Changes by G. Ansmann:+AAoA    - Several special characters have been redesigned or added: super- and subscript numbers and from 0 to 4 and fractions containing those; percent sign; +AKkA, +AK4A and +ISIA; +AKoA and +ALoA; $ and +AKUA.+AAoA    - Modern variants of S, V and Y and derived characters have been designed (cv08+IBMA-cv10, ss01).+AAoA    - New feature for replacing s with s (cv00, cv41)+AAoA    - New feature for replacing s with a swashless variant, except at the end of the word (cv20, ss20)+AAoA    - For old Czech and Slovak texts, G and g with Caron with h+AOEBDQAA-ek have been added.+AAoACgAA* 2013-08-21+AAoA  Changes by G. Ansmann:+AAoA    - The characters +-, +IhIA, +APcA, +ANcA, +ALEA, +AD0A and # have been redesigned in two variants, one for lowercase and one for uppercase numbers.+AAoA    - The characters -, +AH4A, _, +ALYA and +A7wA have been redesigned.+AAoA    - The aalt feature has been added.+AAoA    - An +AX8A9gAA--ligature has been added.+AAoA    - Manual kerning has been performed for most characters.+AAoA    - The +AX8A--heuristic for German has been improved (cv11).+AAoA    - Modern variants of k, x (2+ANcA), y, A (2+ANcA), G, K, N and derived glyphs have been designed (cv01+IBMA-cv07, ss01) (more are to follow).+AAoA    - For old Latvian texts, +AUIBQgAA-- and +HpwenAAA--ligatures have been added (cv28).+AAoA    - For old Norse texts, A and a with a stroke have been added.+AAoA    - Variants of uppercase umlauts with a small e above the letter have been added (cv15).+AAoACgAA* 2012-10-19+AAoA  Bugfixes:+AAoA    - Fixing h with acute (G. Ansmann).+AAoA    - Fixing OpenType Layout features (j. 'mach' wust).+AAoACgAA* 2012-10-17+AAoA  General overhaul by G. Ansmann is finished:+AAoA    - The remaining capital letters (A, B, H+IBMA-Z) have been redigitalized or redesigned, respectively. With this, all letters are based on an own digitalization or design.+AAoA    - There are now historical variants of +AOQA, +APYA and +APwA with a little e instead of the dieresis. These can be assessed using U+-0364 or Stylistic Set 03. Stylistic Set 04 replaces +AMQA, +ANYA and +ANwA with Ae, Oe and Ue.+AAoA    - Several special characters were created or improved for modern variants of the Latin alphabet, thus supporting: Albanian, Azerbaijani, Czech, Dansk, Dieth System for Swiss dialects, Dutch, Esperanto, Estonian, Finnish, French, Hungarian, Irish, Islandic, Italian, Latvian, Lithuanian, Maltese, Norsk, Polish, Portuguese, Romanian, Serbo-Croatian, Slovak, Slovenian, Sorbian, Spanish, Swedish, Turkish, Welsh.+AAoA    - Several special characters used by old Czech, Slovak, Latvian and especially Sorbian orthographies were added (mainly thanks to hints by F. Kaulf+APwA-rst, S. W+APYA-lke and K. Stumpf).+AAoA    - Glyphs with diacritics can now be accessed via combining diacritical marks.+AAoA    - Character Variants 03 gives access to six variants of +AWEA. Stylistic Sets 5 and 6 contain variants of s-based special characters. Stylistic Set 07 provide variants of +AQ8A and +AWUA with a caron instead of the comma.+AAoA    - Lowercase numbers now have kerning. Tabular upper- and lowercase numbers have been added.+AAoA    - Some ligatures have been added: +AX8A-b, ffj, f+ATEA, ff+ATEACgAA    - Some special characters have been redesigned: +IKwA, +AKMA, *+AAoA    - Some historical special characters (mostly units) were moved to a new font +ALsA-UnifrakturSupplement+AKsA, since they are not fitted to the Maguntia font (and will not be before long).+AAoA    - Some minor improvements.+AAoACgAA* 2012-07-26+AAoA    - Glyphs: +APAA, +APgA, E, f-ligatures, remaining ligatures (Gerrit Ansmann).+AAoA    - Fixed +AN8A width (Gerrit Ansmann).+AAoA    - Fixed fontlog typos (j. 'mach' wust).+AAoACgAA* 2012-07-21+AAoA    - Redrawn or improved glyphs by Gerrit Ansmann: Punctuation, lower case letters, C, D, F, G.+AAoA    - New casing numerals by Gerrit Ansmann.+AAoA    - ccmp instead of rlig by j. 'mach' wust (thanks to http://code.google.com/p/chromium/issues/detail?id+AD0A-22240#c36 ).+AAoA    - ttfautohint+AAoACgAA* 2012-02-11+AAoA    Major improvements of all Latin letters -- A+IBMA-Z, a+IBMA-z, long s (+AX8A), round r (+p1sA) -- and their ligatures by Gerrit Ansmann:+AAoA      - Simplification, smoothing and alignment of all glyphs;+AAoA      - new hinting, including +ACIA-BlueValues+ACIA (global hinting settings);+AAoA      - improvement of glyph width;+AAoA      - significant changes to the bar height on f, k, t, long s (+AX8A);+AAoA      - significant changes or new design of many glyphs, including: s, I, J, +AMYA, +AVIA, +ANgA, +AN4A, +ANAA, +APgA, +AOYA, +AVMA, /, <, >, all ligatures, all accents (except i-dot and diaeresis) and accented letters;+AAoA      - the following glyphs have been removed: +AZIA, all ligatures with +AX8BfwAA, ll (replaced by a kerning pair), +AX8A-ch, +AX8A-s;+AAoA      - new glyphs: +AX8A-j, ij, IJ, several accented glyphs.+AAoACgAA    Overhaul of the OpenType features by Georg Duffner:+AAoA      - cv01 will turn round s into long s (+AX8A) except at the ends of words -- manual override: ZWNJ;+AAoA      - cv02 will turn regular r into round r (+p1sA) after round letters and r;+AAoA      - cv03 will turn capital +AMQA +ANYA +ANwA into Ae Oe Ue;+AAoA      - ss01 will use historic stylistic variants of u U v V;+AAoA      - ss02 will use historic stylistic variants of i I j J;+AAoA      - hlig will turn etc. into +p1sA-c.;+AAoA      - dlig will turn double nn and mm into n and m with bar above (formerly hlig).+AAoACgAA    AAT and Graphite support has been dropped for the normal release which is intended for web use since no browser supports them. In the future, a special release with AAT and Graphite support is planned (mainly for LibreOffice).+AAoACgAA* 2010-11-24+AAoA    License change: UnifrakturMaguntia is now OFL only (with kind consent by Peter Wiegel); the name is now +ACIA-UnifrakturMaguntia+ACIA in order to prevent problems with a space in the font name. +AAoACgAA* 2010-08-17+AAoA    Ligatures may now be forced with ZWJ as recommended by Unicode.+AAoACgAA* 2010-07-21+AAoA    Added longs-t to required ligatures. Duplicated rlig ligatures in liga for pango compatibility.+AAoACgAA* 2010-06-19+AAoA    Moved ch, ck and tz required ligatures, so correct letterspacing is possible.+AAoACgAA* 2010-06-01+AAoA    Replaced README.txt by FontLog.txt, added new WOFF, SVG and EOT generated with Font Squirrel's @font-face generator.+AAoACgAA* 2010-05-25+AAoA    Added new glyps from Berthold Mainzer Fraktur UNZ1A.ttf; changed name from UnifrakturMaguntia to Unifraktur Maguntia.+AAoACgAA* 2010-03-24+AAoA    New version, based on a new version of Peter Wiegel's font that includes the additional ligatures longs_longs_i, longs_h, longs_j, longs_k, longs_s, s_k.+AAoACgAA* 2010-03-19+AAoA    Who whould have thought of that: AAT converts the sequence longs-longs-i into the ligature ffl. Ha ha, very funny... except it isn't.+AAoACgAA* 2010-03-18+AAoA    Added combining macron, so m_macron and n_macron no longer require AAT or Graphite. Fix for what appears to be a XeTeX bug with zero width characters.+AAoACgAA* 2010-03-17+AAoA    UnifrakturMaguntia has been created by j. 'mach' wust, as a modification of Peter Wiegel's font Bertholdr Mainzer Fraktur." 
+Version: 
+ItalicAngle: 0
+UnderlinePosition: 0
+UnderlineWidth: 0
+Ascent: 1624
+Descent: 424
+LayerCount: 2
+Layer: 0 1 "Back"  1
+Layer: 1 1 "Fore"  0
+XUID: [1021 23 658460014 14350351]
+FSType: 0
+OS2Version: 3
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1267895263
+PfmFamily: 17
+TTFWeight: 400
+TTFWidth: 5
+LineGap: 0
+VLineGap: 0
+Panose: 2 11 6 3 5 3 2 2 2 4
+OS2TypoAscent: -31
+OS2TypoAOffset: 1
+OS2TypoDescent: -104
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: -299
+OS2WinAOffset: 1
+OS2WinDescent: 16
+OS2WinDOffset: 1
+HheadAscent: -299
+HheadAOffset: 1
+HheadDescent: -16
+HheadDOffset: 1
+OS2SubXSize: 1434
+OS2SubYSize: 1331
+OS2SubXOff: 0
+OS2SubYOff: 293
+OS2SupXSize: 1434
+OS2SupYSize: 1331
+OS2SupXOff: 0
+OS2SupYOff: 1331
+OS2StrikeYSize: 102
+OS2StrikeYPos: 512
+OS2Vendor: '    '
+OS2CodePages: 00000001.00000000
+OS2UnicodeRanges: 00000001.00000000.00000000.00000000
+Lookup: 3 0 0 "'aalt' Access All Alternates"  {"Access All Alternates"  } ['aalt' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'locl' Cedilla to Comma for Romanian"  {"'locl' Cedilla to Comma"  } ['locl' ('latn' <'ROM ' > 'latn' <'MOL ' > ) ]
+Lookup: 4 0 0 "'cv16' Alternate sdieresis composition"  {"Alternate sdieresis composition"  } ['cv16' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 4 0 1 "'ccmp' Character Composition"  {"Non-Unicode Diacritics"  "Slashed W and w"  "Unicode Diacritics"  "ZWJ"  } ['ccmp' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'sups' Superscript forms"  {"Superscript forms" ("superior" ) } ['sups' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'subs' Subscript forms"  {"Subscript forms" ("inferior" ) } ['subs' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'pnum' Proportional Numbers"  {"Proportional Numbers" ("tab" ) } ['pnum' ('DFLT' <'dflt' > 'hani' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'tnum' Tabular Numbers"  {"Tabular Numbers" ("uppertab" ) } ['tnum' ('DFLT' <'dflt' > 'hani' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'onum' Lowercase Numbers"  {"Lowercase Numbers" ("oldstyle" ) } ['onum' ('DFLT' <'dflt' > 'hani' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'lnum' Uppercase Numbers"  {"Uppercase Numbers" ("uppercase" ) } ['lnum' ('DFLT' <'dflt' > 'hani' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'ss01' Modern variants"  {"Modern variants" ("modern" ) } ['ss01' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'ss02' Uvu to Vuv"  {"letter-u -> do nothing"  "Uu -> hist"  "letter-v -> hist"  } ['ss02' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'ss03' Iji to Jij"  {"letter-i -> do nothing"  "Ii -> hist"  "letter-j -> hist"  } ['ss03' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'xxxx' Historical variants"  {"Historical variants" ("hist" ) } []
+Lookup: 6 0 0 "'calt' Plan B for Contextuals 1"  {"u.hist and i.hist"  } ['calt' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'xxxx' hist to non-hist"  {"hist to non-hist" ("hist" ) } []
+Lookup: 2 0 0 "'cv00/40' No long s"  {"No long s"  } ['cv00' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'cv40' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss01' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss10' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv01' Modern k"  {"Modern k" ("modern" ) } ['cv01' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv02' Modern x"  {"Modern x"  } ['cv02' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv03' Modern y"  {"Modern y" ("modern" ) } ['cv03' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv04' Modern A"  {"Modern A"  } ['cv04' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv05' Modern G"  {"Modern G"  } ['cv05' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv06' Modern K"  {"Modern K"  } ['cv06' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv07' Modern N"  {"Modern N"  } ['cv07' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv08' Modern S"  {"Modern S"  } ['cv08' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv09' Modern V"  {"Modern V"  } ['cv09' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv10' Modern Y"  {"Modern Y"  } ['cv10' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'cv11' long s"  {"guessed s -> do nothing"  "otherwise -> hist"  } ['cv11' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss11' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'cv12' rrotunda"  {"roundletter-r -> r to rrot"  } ['cv12' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss12' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'xxxx' Round r and long s"  {"Round r and long s"  } []
+Lookup: 6 0 0 "'calt' Plan B for contextuals 2"  {"guessed s -> longs to s"  } ['calt' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'xxxx' longs to s"  {"longs to s"  } []
+Lookup: 1 0 0 "'cv13' I to J"  {"I to J"  } ['cv13' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss13' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 2 0 0 "'cv14' Ae, Oe, Ue"  {"Ae, Oe, Ue"  } ['cv14' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss14' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv15' a^e, o^e, u^e"  {"a^e, o^e, u^e"  } ['cv15' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss15' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv16' s diacritcs with swash"  {"s diacritcs with swash" ("swash" ) } ['cv16' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss16' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv17' s diacritics with long s"  {"s diacritics with long s" ("long" ) } ['cv17' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss17' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv18' Alternative d and t with caron"  {"Alternative d and t with caron"  } ['cv18' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss18' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv19' en dash to em dash"  {"en dash to em dash"  } ['cv19' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss19' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'cv20' Swashless s"  {"s-letter -> s to s.noswash"  } ['cv20' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss01' ('DFLT' <'dflt' > 'latn' <'dflt' > ) 'ss20' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'xxxx' s to s.noswash"  {"s to s.noswash"  } []
+Lookup: 3 0 0 "'cv21' sacute alternates"  {"sacute alternates"  } ['cv21' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv22' scircumflex alternates"  {"scircumflex alternates"  } ['cv22' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv23' scaron alternates"  {"scaron alternates"  } ['cv23' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv24' sdotaccent alternate"  {"sdotaccent alternate"  } ['cv24' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 1 0 0 "'cv25' sdiaeresis alternate"  {"sdiaeresis alternate"  } ['cv25' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv26' Alternative d with caron"  {"Alternative d with caron"  } ['cv26' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 3 0 0 "'cv27' Alternative t with caron"  {"Alternative t with caron"  } ['cv27' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 4 0 0 "'cv28' Double lslash and longsslash ligatures"  {"Double lslash and longsslash ligatures"  } ['cv28' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'hlig' etc to et-rrot"  {"etc -> et to rrot"  } ['hlig' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 6 0 0 "'cv81' Jan's long s"  {"s_letter -> longs_letter"  } ['cv81' ('DFLT' <'dflt' > 'latn' <'MOL ' 'NLD ' 'ROM ' 'dflt' > ) ]
+Lookup: 4 0 0 "'xxxx' et to rrot"  {"et to rrot"  } []
+Lookup: 4 0 0 "'dlig' Double m/n to m/n with macron"  {"Double m/n to m/n with macron"  } ['dlig' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 4 0 1 "'liga' Standard Ligatures"  {"Standard Ligatures"  "Double figure dash"  } ['liga' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 4 0 1 "'locl' IJ ligatures for Dutch"  {"IJ Ligatures for Dutch"  } ['locl' ('latn' <'NLD ' > ) ]
+Lookup: 4 0 0 "'ccmp' Character Composition, Part 2"  {"Forced Ligatures"  } ['ccmp' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "ll pseudoligature"  {"ll-pseudoligature" [307,30,4] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning of lowercase letters"  {"Kerning of lowercase letters" [307,0,6] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with second letter non-lowercase"  {"Last character non-lowercase" [307,0,6] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with first letter non-lowercase"  {"First character non-lowercase" [307,0,2] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with both letters non-lowercase"  {"Both characters non-lowercase" [200,30,4] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with first letter k"  {"First letter k" [-45,0,0] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with first letter longs or f"  {"First letter longs or f" [307,0,4] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning with first letter lcaron or tcaron"  {"First letter lcaron and tcaron" [307,15,0] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning of lowercase numerals"  {"Kerning of lowercase numerals" [410,0,2] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning of uppercase numerals"  {"Kerning of uppercase numerals" [307,0,4] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+Lookup: 258 0 0 "Kerning of Roman numerals"  {"Kerning of Roman numerals" [-10,0,2] } ['kern' ('DFLT' <'dflt' > 'latn' <'dflt' > ) ]
+MarkAttachClasses: 1
+DEI: 91125
+KernClass2: 12 12 "Kerning of uppercase numerals" 
+ 45 uniE010 uniE019 zero.uppercase nine.uppercase
+ 21 uniE011 one.uppercase
+ 21 uniE012 two.uppercase
+ 23 uniE013 three.uppercase
+ 22 uniE014 four.uppercase
+ 22 uniE015 five.uppercase
+ 21 uniE016 six.uppercase
+ 23 uniE017 seven.uppercase
+ 23 uniE018 eight.uppercase
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 14 hyphen uni2010
+ 44 uniE010 uniE016 zero.uppercase six.uppercase
+ 21 uniE011 one.uppercase
+ 21 uniE012 two.uppercase
+ 23 uniE013 three.uppercase
+ 22 uniE014 four.uppercase
+ 22 uniE015 five.uppercase
+ 23 uniE017 seven.uppercase
+ 23 uniE018 eight.uppercase
+ 22 uniE019 nine.uppercase
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 14 hyphen uni2010
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 30 {} 0 {} 30 {} -90 {} -45 {} 0 {} 0 {} 0 {} 15 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -60 {} -120 {} 0 {} 0 {} 0 {} -15 {} 0 {} -15 {} 0 {} 0 {} 0 {} -15 {} -90 {} -60 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -15 {} 0 {} 0 {} -90 {} 0 {} 0 {} 0 {} -15 {} 15 {} 0 {} 0 {} 0 {} -30 {} 15 {} 0 {} -75 {} 0 {} 0 {} 0 {} -30 {} -30 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} -60 {} 0 {} 0 {} 0 {} -30 {} 0 {} 30 {} 0 {} -15 {} 30 {} 0 {} 0 {} -90 {} -60 {} 0 {} 0 {} 0 {} 30 {} 30 {} -75 {} 0 {} 60 {} -30 {} 0 {} -210 {} -180 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -60 {} -30 {} 0 {} -30 {} 0 {} 60 {} 0 {} -60 {} 45 {} -60 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -120 {} -90 {} -45 {} 0 {} -45 {} -90 {} -45 {} -30 {} 0 {} 0 {}
+KernClass2: 19 17 "Both characters non-lowercase" 
+ 437 dollar B G I S V W Igrave Iacute Icircumflex Idieresis Gcircumflex Gbreve Gdotaccent Gcommaaccent Itilde Imacron Ibreve Iogonek Idotaccent Sacute Scircumflex Scedilla Scaron Wcircumflex Gcaron Scommaaccent Bdotaccent Wgrave Wacute Wdieresis Wdotaccent Gslash Sslash Wstroke uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0C8 S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern U.hist
+ 37 H P Hcircumflex Hbar Pdotaccent Thorn
+ 154 D O Eth Ograve Oacute Ocircumflex Otilde Odieresis Dcaron Omacron Obreve Ohungarumlaut Schwa Oslashacute uniE00B uniE050 Odieresis_gravecomb Odieresis.alt
+ 196 M N Nacute Ncommaaccent Ncaron Mdotaccent Ndotaccent Nslash uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern
+ 46 R Racute Rcommaaccent Rcaron Rdotaccent Rslash
+ 171 E AE Egrave Eacute Ecircumflex Edieresis Emacron Ebreve Edotaccent Ecaron OE AEmacron uniE09C uniE09D uniE0AC uniE0AD AE.modern AE.modern2 AEmacron.modern AEmacron.modern2
+ 1 F
+ 45 Y Yacute Ycircumflex Ydieresis Ymacron Ygrave
+ 23 T Tcaron T_commasubcomb
+ 762 A U Agrave Aacute Acircumflex Atilde Adieresis Aring Ugrave Uacute Ucircumflex Udieresis Amacron Abreve Aogonek Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Udieresisgrave Aslash uniE00C uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE0B0 uniE0B1 uniE0B2 uniE0B3 uniE0B4 uniE0B6 uniE0B7 A.modern A.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern Adieresis.alt K.modern Udieresis.alt Kcommaaccent.modern
+ 49 C X Ccedilla Cacute Ccircumflex Cdotaccent Ccaron
+ 129 J K L Z IJ Jcircumflex Lacute Lcommaaccent Lcaron Lslash Zacute Zdotaccent Zcaron uniE02D Z_macroncomb I.hist Kslash Kcommaaccent
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 59 hyphen endash emdash arrowleft arrowright arrowboth uni2010
+ 167 parenleft bracketleft braceleft uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern
+ 34 parenright bracketright braceright
+ 5 slash
+ 68 quotedbl quotesingle quoteleft quoteright quotedblleft quotedblright
+ 18 P Thorn Pdotaccent
+ 58 B Y Yacute Ycircumflex Ydieresis Ymacron Bdotaccent Ygrave
+ 288 A Agrave Aacute Acircumflex Atilde Adieresis Aring AE Amacron Abreve Aogonek AEmacron Aslash uniE0B6 uniE0B7 uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF Adieresis.alt K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern
+ 292 D X Eth Dcaron uniE0A0 uniE0A1 uniE0A2 uniE0A3 uniE0A4 uniE0A5 uniE0A6 uniE0A7 uniE0A8 uniE0A9 uniE0AC uniE0AD A.modern2 AE.modern2 Agrave.modern2 Aacute.modern2 Acircumflex.modern2 Atilde.modern2 Adieresis.modern2 Aring.modern2 Amacron.modern2 Abreve.modern2 Aogonek.modern2 AEmacron.modern2
+ 82 V W Wcircumflex Wgrave Wacute Wdieresis Wdotaccent Wstroke uniE0C8 U.hist V.modern
+ 21 K Kcommaaccent Kslash
+ 18 H Hcircumflex Hbar
+ 139 F M N R T Ntilde Nacute Ncommaaccent Ncaron Racute Rcommaaccent Rcaron Tcaron T_commasubcomb Mdotaccent Ndotaccent Rdotaccent Nslash Rslash
+ 782 I L U sterling Igrave Iacute Icircumflex Idieresis Ugrave Uacute Ucircumflex Udieresis Itilde Imacron Ibreve Iogonek Idotaccent IJ Lacute Lcommaaccent Lcaron Lslash Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Udieresisgrave uniE00D uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE09C uniE09D uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF Agrave.modern Aacute.modern Acircumflex.modern Atilde.modern Adieresis.modern Aring.modern Amacron.modern Abreve.modern Aogonek.modern AEmacron.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern Udieresis.alt IJacute
+ 68 J Z Jcircumflex Zacute Zdotaccent Zcaron uniE02D Z_macroncomb I.hist
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 59 hyphen endash emdash arrowleft arrowright arrowboth uni2010
+ 84 exclam quotedbl quotesingle question quoteleft quoteright quotedblleft quotedblright
+ 34 parenright bracketright braceright
+ 5 slash
+ 18 Fiveroman Sixroman
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 195 {} 90 {} 30 {} 120 {} 105 {} 0 {} 60 {} 75 {} 30 {} 30 {} -135 {} 0 {} 0 {} 0 {} 0 {} 109 {} 0 {} 135 {} 75 {} 0 {} 90 {} 30 {} 105 {} 105 {} 60 {} 30 {} 0 {} -105 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 195 {} 105 {} 30 {} 135 {} 90 {} 0 {} 0 {} 90 {} 30 {} 60 {} -210 {} 0 {} 0 {} 0 {} -75 {} 0 {} 0 {} 270 {} 180 {} 120 {} 165 {} 160 {} 105 {} 120 {} 135 {} 60 {} 90 {} -105 {} -75 {} 0 {} 0 {} 0 {} 137 {} 0 {} 195 {} 120 {} 60 {} 120 {} 90 {} 135 {} 180 {} 60 {} 90 {} 45 {} -45 {} -75 {} 0 {} 0 {} 0 {} 109 {} 0 {} 255 {} 150 {} 90 {} 165 {} 150 {} 60 {} 90 {} 90 {} 60 {} 90 {} -135 {} -60 {} 45 {} 90 {} 0 {} 82 {} 0 {} 210 {} 150 {} 90 {} 135 {} 105 {} 0 {} 0 {} 90 {} 60 {} 60 {} -210 {} -30 {} 30 {} 60 {} -165 {} 164 {} 0 {} 315 {} 240 {} 150 {} 210 {} 210 {} 105 {} 135 {} 150 {} 120 {} 150 {} -75 {} -30 {} 60 {} 60 {} 0 {} 109 {} 0 {} 300 {} 240 {} 165 {} 180 {} 195 {} 120 {} 165 {} 150 {} 120 {} 150 {} -45 {} -60 {} 120 {} 75 {} 0 {} 273 {} 0 {} 165 {} 60 {} 0 {} 90 {} 60 {} 165 {} 210 {} 60 {} 55 {} 60 {} 0 {} 0 {} 0 {} 105 {} 45 {} 164 {} 0 {} 270 {} 180 {} 90 {} 135 {} 165 {} 180 {} 128 {} 90 {} 120 {} 90 {} 0 {} 0 {} 165 {} 210 {} 60 {} 191 {} 0 {} 210 {} 135 {} 60 {} 90 {} 120 {} 135 {} 165 {} 90 {} 90 {} 75 {} -60 {} -30 {} 45 {} 30 {} 0 {} 109 {} 0 {} -75 {} -120 {} -105 {} 30 {} -60 {} 135 {} 180 {} 0 {} 60 {} 105 {} -33 {} 0 {} 0 {} 0 {} 60 {} -82 {} 0 {} 135 {} 75 {} 30 {} 105 {} 75 {} -30 {} -60 {} 60 {} -60 {} 0 {} -135 {} 0 {} 0 {} 0 {} -180 {} -137 {} 0 {} 225 {} 150 {} 90 {} 120 {} 150 {} 75 {} 75 {} 105 {} 60 {} 90 {} 0 {} -75 {} 60 {} 210 {} 0 {} 191 {} 0 {} 105 {} 60 {} 0 {} 90 {} 60 {} 30 {} 75 {} 75 {} 0 {} 30 {} -105 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 180 {} 120 {} 0 {} 0 {} 75 {} -210 {} -205 {} 30 {} 0 {} 0 {} -270 {} -195 {} 0 {} 165 {} -270 {} 82 {} 0 {} 270 {} 180 {} 105 {} 165 {} 150 {} -60 {} -90 {} 120 {} 60 {} 105 {} -150 {} 0 {} 0 {} 135 {} -180 {} 137 {}
+KernClass2: 16 17 "Last character non-lowercase" 
+ 86 z eszett zacute zdotaccent zcaron uniE02E uniE03E uniE058 t_z z_macroncomb z_tildecomb
+ 123 h y yacute ydieresis hcircumflex hbar ycircumflex ymacron ygrave uniE03B uniE041 uniE053 longs_h c_h ydotaccent h_acutecomb
+ 341 b d o p v w eth ograve oacute ocircumflex otilde odieresis thorn dcaron omacron obreve ohungarumlaut wcircumflex odotaccent bdotaccent pacute pdotaccent wgrave wacute wdieresis wdotaccent wstroke uniE01C uniE040 uniE051 uniE052 uniE060 uniE06E longs_b longs_odieresis b_acutecomb odieresis_gravecomb dcaron.alt odieresis.alt u.hist s.noswash
+ 86 j q exclamdown questiondown ij uniE043 uniE048 uniE04A f_j longs_j f_f_j f_ij longs_ij
+ 240 c e g ae ccedilla egrave eacute ecircumflex edieresis cacute ccircumflex cdotaccent ccaron emacron ebreve edotaccent eogonek ecaron gcircumflex gbreve gdotaccent gcommaaccent oe aemacron gcaron etilde rrot uniE087 uniE088 x.modern x.modern2
+ 580 ampersand a i m n u agrave aacute acircumflex atilde adieresis aring igrave iacute ntilde ugrave uacute ucircumflex udieresis amacron abreve aogonek imacron iogonek dotlessi kra nacute ncommaaccent ncaron utilde umacron ubreve uring uhungarumlaut uogonek udieresisgrave adotaccent macute mdotaccent ndotaccent aslash nslash uniE01B uniE01D uniE02B uniE02C uniE042 uniE080 uniE081 uniE082 uniE083 uniFB01 m_macroncomb n_macroncomb f_i f_f_i f_dotlessi f_f_dotlessi u_dotcomb adieresis.alt udieresis.alt a_dotcomb_dotcomb v.hist k.modern kcommaaccent.modern kacute.modern c_k.modern
+ 48 r x racute rcommaaccent rcaron rdotaccent rslash
+ 110 l lacute lcommaaccent lslash uniE045 uniE056 uniE05E uniFB02 uniFB04 longs_l f_l f_f_l l_dotcomb lslash_lslash
+ 36 f tcaron uniE03F uniFB00 f_f f_f.alt
+ 138 k t kcommaaccent t_commasubcomb kacute kslash uniE03C uniE03D uniE044 uniE049 uniE04B uniFB05 c_k f_t f_f_t t_t longs_k longs_t tcaron.alt
+ 256 s sacute scircumflex scedilla scaron scommaaccent sslash uniE061 uniE062 uniE064 uniE066 uniE068 uniE06A scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash sdotaccent s_dieresiscomb oslash oslashacute
+ 105 longs longsslash uniE05F scaron.alt scircumflex.long scaron.long sacute.long s.long longsslash_longsslash
+ 44 lcaron uniE046 uniE047 longs_lcaron f_lcaron
+ 47 icircumflex idieresis itilde ibreve jcircumflex
+ 135 y.modern uniE08A uniE08B uniE08C uniE08D uniE08E uniE08F ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern
+ 18 P Thorn Pdotaccent
+ 58 B Y Yacute Ycircumflex Ydieresis Ymacron Bdotaccent Ygrave
+ 288 A Agrave Aacute Acircumflex Atilde Adieresis Aring AE Amacron Abreve Aogonek AEmacron Aslash uniE0B6 uniE0B7 uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF Adieresis.alt K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern
+ 292 D X Eth Dcaron uniE0A0 uniE0A1 uniE0A2 uniE0A3 uniE0A4 uniE0A5 uniE0A6 uniE0A7 uniE0A8 uniE0A9 uniE0AC uniE0AD A.modern2 AE.modern2 Agrave.modern2 Aacute.modern2 Acircumflex.modern2 Atilde.modern2 Adieresis.modern2 Aring.modern2 Amacron.modern2 Abreve.modern2 Aogonek.modern2 AEmacron.modern2
+ 82 V W Wcircumflex Wgrave Wacute Wdieresis Wdotaccent Wstroke uniE0C8 U.hist V.modern
+ 21 K Kcommaaccent Kslash
+ 18 H Hcircumflex Hbar
+ 139 F M N R T Ntilde Nacute Ncommaaccent Ncaron Racute Rcommaaccent Rcaron Tcaron T_commasubcomb Mdotaccent Ndotaccent Rdotaccent Nslash Rslash
+ 801 I L U sterling Igrave Iacute Icircumflex Idieresis Ugrave Uacute Ucircumflex Udieresis Itilde Imacron Ibreve Iogonek Idotaccent IJ Lacute Lcommaaccent Lcaron Lslash Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Udieresisgrave uniE00D uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE09C uniE09D uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF A.modern AE.modern Agrave.modern Aacute.modern Acircumflex.modern Atilde.modern Adieresis.modern Aring.modern Amacron.modern Abreve.modern Aogonek.modern AEmacron.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern Udieresis.alt IJacute
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 59 hyphen endash emdash arrowleft arrowright arrowboth uni2010
+ 77 quotedbl quotesingle question quoteleft quoteright quotedblleft quotedblright
+ 34 parenright bracketright braceright
+ 5 slash
+ 6 exclam
+ 68 J Z Jcircumflex Zacute Zdotaccent Zcaron uniE02D Z_macroncomb I.hist
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 75 {} 0 {} 0 {} 90 {} 0 {} 135 {} 150 {} 30 {} 0 {} -30 {} -30 {} -155 {} 0 {} 30 {} 0 {} 105 {} 0 {} 105 {} 60 {} 0 {} 90 {} 45 {} 30 {} 90 {} 60 {} 0 {} -90 {} 0 {} -135 {} 0 {} -30 {} -30 {} 60 {} 0 {} 165 {} 60 {} 0 {} 120 {} 60 {} 0 {} 0 {} 90 {} 0 {} -120 {} -30 {} -105 {} 0 {} -90 {} -30 {} 60 {} 0 {} 165 {} 90 {} 30 {} 120 {} 75 {} 0 {} 60 {} 90 {} 0 {} -75 {} -60 {} 0 {} 105 {} 0 {} 0 {} 90 {} 0 {} 165 {} 90 {} 0 {} 90 {} 60 {} 105 {} 135 {} 60 {} 0 {} -60 {} -90 {} -105 {} 0 {} 0 {} 0 {} 60 {} 0 {} 195 {} 90 {} 30 {} 120 {} 75 {} 150 {} 180 {} 90 {} 60 {} 0 {} 0 {} -90 {} 0 {} 30 {} 0 {} 90 {} 0 {} 210 {} 150 {} 90 {} 150 {} 120 {} 45 {} 60 {} 120 {} 60 {} -150 {} -60 {} -75 {} 0 {} -105 {} 0 {} 90 {} 0 {} 210 {} 90 {} 0 {} 60 {} 60 {} 150 {} 180 {} 60 {} 90 {} -30 {} -45 {} 0 {} 180 {} 0 {} 0 {} 60 {} 0 {} 270 {} 180 {} 90 {} 165 {} 165 {} 0 {} 0 {} 120 {} 75 {} -165 {} -90 {} 60 {} 210 {} -90 {} 30 {} 105 {} 0 {} 270 {} 180 {} 120 {} 195 {} 180 {} 90 {} 105 {} 120 {} 90 {} -60 {} -45 {} 60 {} 165 {} -60 {} 0 {} 105 {} 0 {} 270 {} 180 {} 120 {} 195 {} 189 {} 0 {} 75 {} 135 {} 90 {} -105 {} 0 {} 0 {} 45 {} -75 {} 0 {} 105 {} 0 {} 345 {} 240 {} 150 {} 195 {} 225 {} 90 {} 90 {} 165 {} 120 {} -75 {} -15 {} 150 {} 300 {} 0 {} 120 {} 150 {} 0 {} 435 {} 405 {} 315 {} 350 {} 360 {} 165 {} 180 {} 330 {} 270 {} -30 {} -45 {} 255 {} 360 {} 0 {} 255 {} 330 {} 0 {} 285 {} 180 {} 105 {} 135 {} 165 {} 165 {} 180 {} 135 {} 90 {} 0 {} 0 {} 60 {} 165 {} 30 {} 30 {} 90 {} 0 {} 165 {} 90 {} 30 {} 105 {} 75 {} 60 {} 90 {} 60 {} 0 {} -105 {} -60 {} -120 {} 0 {} -15 {} 0 {} 60 {}
+KernClass2: 17 15 "First character non-lowercase" 
+ 437 dollar B G I S V W Igrave Iacute Icircumflex Idieresis Gcircumflex Gbreve Gdotaccent Gcommaaccent Itilde Imacron Ibreve Iogonek Idotaccent Sacute Scircumflex Scedilla Scaron Wcircumflex Gcaron Scommaaccent Bdotaccent Wgrave Wacute Wdieresis Wdotaccent Gslash Sslash Wstroke uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0C8 S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern U.hist
+ 37 H P Hcircumflex Hbar Pdotaccent Thorn
+ 154 D O Eth Ograve Oacute Ocircumflex Otilde Odieresis Dcaron Omacron Obreve Ohungarumlaut Schwa Oslashacute uniE00B uniE050 Odieresis_gravecomb Odieresis.alt
+ 196 M N Nacute Ncommaaccent Ncaron Mdotaccent Ndotaccent Nslash uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern
+ 46 R Racute Rcommaaccent Rcaron Rdotaccent Rslash
+ 171 E AE Egrave Eacute Ecircumflex Edieresis Emacron Ebreve Edotaccent Ecaron OE AEmacron uniE09C uniE09D uniE0AC uniE0AD AE.modern AE.modern2 AEmacron.modern AEmacron.modern2
+ 1 F
+ 45 Y Yacute Ycircumflex Ydieresis Ymacron Ygrave
+ 45 K T Kcommaaccent Tcaron T_commasubcomb Kslash
+ 842 A U Agrave Aacute Acircumflex Atilde Adieresis Aring Ugrave Uacute Ucircumflex Udieresis Amacron Abreve Aogonek Utilde Umacron Ubreve Uring Uhungarumlaut Uogonek Udieresisgrave Aslash uniE00C uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE0A0 uniE0A1 uniE0A2 uniE0A3 uniE0A4 uniE0A5 uniE0A6 uniE0A7 uniE0A8 uniE0A9 uniE0B0 uniE0B1 uniE0B2 uniE0B3 uniE0B4 uniE0B6 uniE0B7 A.modern A.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern Adieresis.alt K.modern Udieresis.alt Kcommaaccent.modern
+ 49 C X Ccedilla Cacute Ccircumflex Cdotaccent Ccaron
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 59 hyphen endash emdash arrowleft arrowright arrowboth uni2010
+ 31 parenleft bracketleft braceleft
+ 74 quotedbl quotesingle slash quoteleft quoteright quotedblleft quotedblright
+ 135 uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern
+ 248 b h k l hcircumflex hbar kcommaaccent lacute lcommaaccent lcaron ldot lslash bdotaccent kacute kslash uniE052 uniE053 uniE056 uniE05E uniE080 uniE081 uniE082 b_acutecomb h_acutecomb l_dotcomb k.modern kcommaaccent.modern kacute.modern lslash_lslash
+ 25 p pacute pdotaccent thorn
+ 20 ccaron ebreve ecaron
+ 350 a c e g q agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis amacron abreve aogonek cacute ccircumflex cdotaccent emacron edotaccent eogonek gcircumflex gbreve gdotaccent gcommaaccent aemacron gcaron etilde gslash uniE01B uniE03B uniE03C uniE059 uniE083 c_h c_k c_k.modern a_dotcomb_dotcomb adieresis.alt
+ 145 o ograve oacute ocircumflex otilde odieresis oslash omacron obreve ohungarumlaut oe oslashacute uniE01C uniE051 odieresis_gravecomb odieresis.alt
+ 283 s sacute scircumflex scedilla scaron scommaaccent sslash uniE060 uniE061 uniE062 uniE064 uniE066 uniE068 uniE06A uniE06B uniE06C sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash scaron.alt2 s.noswash scedilla.noswash scommaaccent.noswash
+ 534 f eszett longs longsslash uniE03F uniE040 uniE041 uniE042 uniE043 uniE044 uniE045 uniE046 uniE047 uniE048 uniE049 uniE04A uniE04B uniE05F uniE063 uniE065 uniE067 uniE069 uniFB00 uniFB01 uniFB02 uniFB03 uniFB04 uniFB05 longs_h longs_i longs_l f_j f_t f_f_t longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_dotlessj f_f_dotlessj f_f.alt longs_b longs_lcaron f_lcaron scaron.alt scircumflex.long scaron.long sacute.long s.long longs_odieresis f_ij uniE04C uniE04D longs_ij f_dotlessij longsslash_longsslash
+ 31 d eth dcaron uniE06E dcaron.alt
+ 67 z zacute zdotaccent zcaron uniE02E uniE058 z_macroncomb z_tildecomb
+ 8 v u.hist
+ 113 w y yacute ydieresis wcircumflex ycircumflex ymacron wgrave wacute wdieresis wdotaccent ygrave ydotaccent wstroke
+ 47 idieresis ibreve itilde icircumflex jcircumflex
+ 34 uniE087 uniE088 x.modern x.modern2
+ 17 j dotlessj i.hist
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} -45 {} 0 {} 60 {} -30 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} -45 {} 0 {} 0 {} 0 {} 0 {} -45 {} -45 {} -30 {} 0 {} 0 {} 0 {} -30 {} 0 {} 0 {} 60 {} -30 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} -15 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -75 {} -30 {} -45 {} 30 {} -30 {} -30 {} 0 {} 0 {} 75 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 60 {} -60 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} -30 {} 0 {} 0 {} 0 {} 45 {} 45 {} 105 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -60 {} -45 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} 75 {} -15 {} 0 {} 0 {} 0 {} 15 {} 0 {} -15 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 75 {} 0 {} 0 {} 0 {} 60 {} 30 {} 75 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 165 {} 0 {} 0 {} 0 {} 0 {} 30 {} 0 {} -60 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -45 {} -15 {} 0 {} 0 {} -45 {} 0 {} 0 {} -45 {} -30 {} 0 {} 0 {} 0 {} -90 {} 0 {} 0 {} 90 {} 0 {} 60 {} 0 {} -45 {} 0 {} 0 {} 0 {} 45 {} 0 {} 0 {} 210 {} 0 {} 210 {} 0 {} 15 {} 0 {} 0 {} -180 {} -135 {} -135 {} 0 {} 0 {} -90 {} 0 {} 0 {} 105 {} -90 {} 0 {} 0 {} 0 {} 15 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 135 {} 0 {} 30 {}
+KernClass2: 3 16 "First letter lcaron and tcaron" 
+ 44 lcaron uniE046 uniE047 longs_lcaron f_lcaron
+ 6 tcaron
+ 77 a c e g q s z uniE03B uniE03C uniE064 uniE083 c_k c_h scaron.swash c_k.modern
+ 13 aacute oacute
+ 32 t tcaron uniE03D uniE03E t_t t_z
+ 9 adieresis
+ 13 ccaron scaron
+ 18 eacute ocircumflex
+ 68 m n r u x uacute racute uring uniE08A uniE08F y.modern yacute.modern
+ 67 uniE062 sdieresis.swash scaron.alt2.swash uniE06F tcaron.alt ecaron
+ 38 uniE061 s_dieresiscomb scaron.alt2 i j
+ 1 p
+ 6 zcaron
+ 10 w y yacute
+ 393 d f v dcaron ncaron rcaron longs uniE03F uniE040 uniE041 uniE042 uniE043 uniE044 uniE045 uniE046 uniE047 uniE048 uniE049 uniE04A uniE04B uniE063 uniE06E uniFB00 uniFB01 uniFB02 uniFB03 uniFB04 uniFB05 longs_h longs_i longs_l f_j f_t f_f_t longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_dotlessj f_f_dotlessj f_f.alt longs_lcaron f_lcaron scaron.long dcaron.alt
+ 21 b h l lacute lcaron k
+ 6 iacute
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 75 {} 90 {} 105 {} 120 {} 135 {} 165 {} 165 {} 180 {} 195 {} 210 {} 225 {} 225 {} 240 {} 265 {} 0 {} -30 {} -30 {} 0 {} 0 {} 45 {} -30 {} 0 {} 90 {} 60 {} 30 {} 135 {} 0 {} 75 {} 135 {} 75 {}
+KernClass2: 2 6 "First letter k" 
+ 33 k kcommaaccent kacute c_k longs_k
+ 16 idieresis ibreve
+ 30 icircumflex itilde jcircumflex
+ 157 c e ccedilla egrave eacute ecircumflex edieresis cacute ccircumflex cdotaccent ccaron emacron ebreve edotaccent eogonek ecaron etilde uniE03B uniE03C c_k c_h
+ 280 a g q z agrave aacute acircumflex atilde adieresis aring ae amacron abreve aogonek gcircumflex gbreve gdotaccent gcommaaccent zacute zdotaccent zcaron aemacron gcaron adotaccent aslash gslash uniE01B uniE02E uniE058 uniE059 z_macroncomb a_dotcomb_dotcomb z_tildecomb adieresis.alt
+ 431 o s oacute ocircumflex otilde odieresis oslash omacron obreve ohungarumlaut oe sacute scircumflex scedilla scaron oslashacute scommaaccent odotaccent uniE01C uniE051 uniE060 uniE061 uniE062 uniE064 uniE066 uniE068 uniE06A uniE06B uniE06C odieresis_gravecomb odieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash scaron.alt2 scedilla.noswash scommaaccent.noswash
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 105 {} 60 {} -30 {} -45 {} -60 {}
+KernClass2: 4 10 "First letter longs or f" 
+ 40 f oslash oslashacute uniE03F uniFB00 f_f
+ 96 longs uniE063 uniE065 uniE067 uniE069 scaron.alt scircumflex.long scaron.long sacute.long s.long
+ 9 idieresis
+ 375 b h k l igrave thorn hcircumflex hbar itilde imacron kcommaaccent lacute lcommaaccent lcaron ldot lslash zcaron bstroke bdotaccent kacute kslash uniE052 uniE053 uniE056 uniE05E uniE063 uniE067 uniE069 uniE06F uniE080 uniE081 uniE082 b_acutecomb h_acutecomb l_dotcomb scircumflex.long scaron.long sacute.long tcaron.alt k.modern kcommaaccent.modern kacute.modern lslash_lslash
+ 36 edieresis emacron rcaron r_tildecomb
+ 8 v u.hist
+ 44 icircumflex ccaron ebreve ecaron jcircumflex
+ 218 d i j egrave iacute eth dcaron iogonek ij ncaron omacron scaron umacron ubreve etilde uniE062 uniE064 uniE068 uniE06E z_macroncomb z_tildecomb dcaron.alt scaron.swash scircumflex.swash sdieresis.swash scaron.alt2.swash
+ 16 ibreve idieresis
+ 336 a c e g q agrave aacute acircumflex atilde adieresis aring ae ccedilla eacute ecircumflex amacron abreve aogonek cacute ccircumflex cdotaccent edotaccent eogonek gcircumflex gbreve gdotaccent gcommaaccent aemacron gcaron adotaccent aslash gslash uniE01B uniE03B uniE03C uniE059 uniE083 c_h c_k c_k.modern a_dotcomb_dotcomb adieresis.alt
+ 338 o s z ograve oacute ocircumflex otilde odieresis oslash ohungarumlaut oe sacute scircumflex scedilla zacute zdotaccent oslashacute scommaaccent odotaccent sdotaccent uniE060 uniE061 uniE066 uniE06A uniE06B uniE06C odieresis_gravecomb s_dieresiscomb sacute.swash sdotaccent.swash scaron.alt2 s.noswash scedilla.noswash scommaaccent.noswash
+ 21 uniE01C odieresis.alt
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 25 {} 15 {} 30 {} 30 {} 0 {} 150 {} -30 {} -60 {} 0 {} 0 {} 165 {} 120 {} 60 {} 135 {} 60 {} 255 {} 0 {} 0 {} 30 {} 0 {} 75 {} 0 {} 0 {} 75 {} 60 {} 165 {} 0 {} 0 {} 0 {}
+KernClass2: 12 12 "Kerning of lowercase letters" 
+ 155 j ij dotlessj uniE043 uniE048 uniE04A f_j longs_j f_f_j f_dotlessj dotlessj.liga dotlessij i.hist f_ij longs_ij ijacute uniE04C uniE04D uniE04F f_dotlessij
+ 335 b d o p v w ograve oacute ocircumflex otilde odieresis thorn dcaron omacron obreve ohungarumlaut wcircumflex bstroke odotaccent schwa bdotaccent pacute pdotaccent wgrave wacute wdieresis wdotaccent wstroke uniE01C uniE051 uniE052 uniE060 uniE06E longs_odieresis b_acutecomb odieresis_gravecomb dcaron.alt odieresis.alt u.hist s.noswash
+ 148 c e ae ccedilla egrave eacute ecircumflex edieresis cacute ccircumflex cdotaccent ccaron emacron ebreve edotaccent eogonek ecaron oe aemacron etilde
+ 123 h y yacute ydieresis hcircumflex hbar ycircumflex ymacron ygrave uniE03B uniE041 uniE053 longs_h ydotaccent c_h h_acutecomb
+ 99 z eszett zacute zdotaccent zcaron rrot uniE02E uniE03E uniE058 t_z z_macroncomb z_tildecomb r.round
+ 137 q uniE08A uniE08B uniE08C uniE08D uniE08E uniE08F y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern
+ 92 l lacute lcommaaccent lslash uniE045 uniE05E uniFB02 uniFB04 longs_l f_l f_f_l lslash_lslash
+ 89 kra uniE080 uniE081 uniE082 uniE083 k.modern kcommaaccent.modern kacute.modern c_k.modern
+ 48 r x racute rcommaaccent rcaron rdotaccent rslash
+ 93 g gcircumflex gbreve gdotaccent gcommaaccent gcaron gslash uniE087 uniE088 x.modern x.modern2
+ 88 t t_commasubcomb uniE03D uniE049 uniE04B uniE06F f_t f_f_t t_t longs_t t.liga tcaron.alt
+ 176 c e ccedilla egrave eacute ecircumflex edieresis cacute ccircumflex cdotaccent ccaron emacron ebreve edotaccent eogonek ecaron etilde uniE03B uniE03C uniE083 c_k c_h c_k.modern
+ 309 s sacute scircumflex scedilla scaron scommaaccent sdotaccent sslash uniE060 uniE061 uniE062 uniE064 uniE066 uniE068 uniE06A uniE06B uniE06C s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash scaron.alt2 s.noswash scedilla.noswash scommaaccent.noswash
+ 212 a g q agrave aacute acircumflex atilde adieresis aring ae amacron abreve aogonek gcircumflex gbreve gdotaccent gcommaaccent aemacron gcaron adotaccent aslash gslash uniE01B uniE059 a_dotcomb_dotcomb adieresis.alt
+ 28 lslash uniE05E lslash_lslash
+ 113 w y yacute ydieresis wcircumflex ycircumflex ymacron wgrave wacute wdieresis wdotaccent ydotaccent ygrave wstroke
+ 473 f eszett longs uniE03F uniE040 uniE041 uniE042 uniE043 uniE044 uniE045 uniE046 uniE047 uniE048 uniE049 uniE04A uniE04B uniE063 uniE065 uniE067 uniE069 uniFB00 uniFB01 uniFB02 uniFB03 uniFB04 longs_h longs_i longs_l f_j f_t f_f_t longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_dotlessj f_f_dotlessj f_f.alt longs_b longs_lcaron f_lcaron scaron.alt scircumflex.long scaron.long sacute.long s.long longs_odieresis f_ij uniE04C uniE04D longs_ij
+ 230 b d h l eth dcaron hcircumflex hbar lacute lcommaaccent lcaron ldot bstroke bdotaccent uniE052 uniE053 uniE056 uniE06E uniE080 uniE081 uniE082 b_acutecomb h_acutecomb l_dotcomb dcaron.alt k.modern kcommaaccent.modern kacute.modern
+ 156 o ograve oacute ocircumflex otilde odieresis oslash omacron obreve ohungarumlaut oe oslashacute odotaccent uniE01C uniE051 odieresis_gravecomb odieresis.alt
+ 67 z zacute zdotaccent zcaron uniE02E uniE058 z_macroncomb z_tildecomb
+ 19 p pacute pdotaccent
+ 34 x.modern x.modern2 uniE087 uniE088
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} -30 {} 0 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} -30 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} 0 {} -45 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -30 {} 0 {} 0 {} -30 {} -60 {} -30 {} 0 {} -45 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -30 {} -15 {} -30 {} 0 {} 0 {} 0 {} 0 {} -30 {} 0 {} 15 {} 0 {} 0 {} -30 {} -45 {} -45 {} -30 {} 0 {} 0 {} -30 {} -60 {} -60 {} 0 {} 0 {} 0 {} -30 {} -60 {} -30 {} -60 {} -30 {} 0 {} -60 {} -60 {} 0 {} 0 {} -30 {} 0 {} -30 {} -30 {} -30 {} 0 {} 0 {} 0 {} 0 {} -30 {} 0 {} 0 {} 0 {}
+KernClass2: 13 12 "Kerning of lowercase numerals" 
+ 14 zero six eight
+ 3 one
+ 3 two
+ 5 three
+ 4 four
+ 4 five
+ 5 seven
+ 4 nine
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 17 minus divide plus
+ 26 numbersign equal plusminus
+ 14 hyphen uni2010
+ 15 zero eight nine
+ 3 one
+ 3 two
+ 5 three
+ 4 four
+ 4 five
+ 3 six
+ 5 seven
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 44 numbersign plus equal plusminus divide minus
+ 14 hyphen uni2010
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -60 {} 0 {} -100 {} 40 {} 20 {} 0 {} -100 {} 40 {} 0 {} 0 {} 60 {} 0 {} 0 {} 0 {} 0 {} 80 {} 40 {} 0 {} 0 {} 0 {} 0 {} 0 {} -20 {} 0 {} 0 {} 0 {} -20 {} 0 {} 0 {} -40 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -40 {} 0 {} 20 {} 0 {} -75 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -60 {} 0 {} 0 {} 0 {} -80 {} -20 {} 0 {} -30 {} 0 {} -40 {} -80 {} -60 {} -80 {} 0 {} 0 {} 0 {} 0 {} -60 {} 0 {} 0 {} 0 {} 20 {} 0 {} -20 {} 0 {} -40 {} 0 {} 20 {} 0 {} -100 {} 0 {} 0 {} 0 {} 20 {} 0 {} 0 {} 0 {} 0 {} 20 {} 0 {} 0 {} 0 {} 40 {} 30 {} 0 {} 0 {} -80 {} 0 {} -100 {} 40 {} 0 {} 0 {} -120 {} 0 {} 0 {} 0 {} 0 {} 40 {} 0 {} 0 {} 0 {} -100 {} 60 {} 40 {} -40 {} 0 {} 0 {} 0 {} 0 {} 40 {} 0 {} 0 {} 0 {} 0 {} 40 {} 40 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -105 {} 0 {} 30 {} 0 {} 0 {} 0 {} 0 {}
+KernClass2: 7 9 "Kerning of Roman numerals" 
+ 83 Oneroman Tworoman Threeroman Sixroman Sevenroman Eightroman Elevenroman Twelveroman
+ 19 Fourroman Fiveroman
+ 18 Nineroman Tenroman
+ 10 Fiftyroman
+ 12 Hundredroman
+ 16 Fivehundredroman
+ 48 Oneroman Tworoman Threeroman Fourroman Nineroman
+ 40 Fiveroman Sixroman Sevenroman Eightroman
+ 32 Tenroman Elevenroman Twelveroman
+ 12 Hundredroman
+ 24 Fiftyroman Thousandroman
+ 49 comma period quotesinglbase quotedblbase ellipsis
+ 86 quotedbl quotesingle asterisk question quoteleft quoteright quotedblleft quotedblright
+ 34 parenright bracketright braceright
+ 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} 0 {} -122 {} -147 {} -203 {} 0 {} 0 {} -82 {} 0 {} 0 {} 0 {} -91 {} 0 {} -109 {} 0 {} 0 {} -109 {} 137 {} 191 {} 0 {} -203 {} -109 {} -191 {} -109 {} 0 {} -82 {} 0 {} 0 {} 0 {} 0 {} -55 {} 0 {} 0 {} 0 {} 0 {} -82 {} 0 {} 0 {} 0 {} 82 {} 0 {} -82 {} 0 {} -45 {} 0 {} 0 {} 0 {} 0 {} 0 {} -109 {} 45 {} 0 {} -137 {} -109 {} 0 {}
+ChainSub2: class "s_letter -> longs_letter"  2 1 2 1
+  Class: 1 s
+  FClass: 4802 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent kra Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute Scommaaccent scommaaccent T_commasubcomb t_commasubcomb adotaccent odotaccent Ymacron ymacron dotlessj Aslash schwa Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent longsslash etilde Ygrave ygrave uni2010 aslash rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke uniE00B uniE00C uniE00D uniE02B uniE02C uniE02D uniE02E uniE03B uniE03C uniE03D uniE03E uniE03F uniE040 uniE041 uniE042 uniE043 uniE044 uniE045 uniE046 uniE047 uniE048 uniE049 uniE04A uniE04B uniE050 uniE051 uniE052 uniE053 uniE055 uniE056 uniE057 uniE058 uniE059 uniE05E uniE05F uniE060 uniE061 uniE062 uniE063 uniE064 uniE065 uniE066 uniE067 uniE068 uniE069 uniE06A uniE06E uniE06F uniE080 uniE081 uniE082 uniE083 uniE087 uniE088 uniE08A uniE08B uniE08C uniE08D uniE08E uniE08F uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE09C uniE09D uniE0A0 uniE0A1 uniE0A2 uniE0A3 uniE0A4 uniE0A5 uniE0A6 uniE0A7 uniE0A8 uniE0A9 uniE0AC uniE0AD uniE0B0 uniE0B1 uniE0B2 uniE0B3 uniE0B4 uniE0B6 uniE0B7 uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0C8 uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF uniFB00 uniFB01 uniFB02 uniFB03 uniFB04 uniFB05 k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash
+ 1 0 1
+  ClsList: 1
+  BClsList:
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+  ClassNames: "All_Others"  "s"  
+  BClassNames: "All_Others"  
+  FClassNames: "All_Others"  "letter"  
+EndFPST
+ChainSub2: class "s-letter -> s to s.noswash"  2 1 2 1
+  Class: 23 s scedilla scommaaccent
+  FClass: 4801 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent kra Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron Rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute Scommaaccent scommaaccent T_commasubcomb t_commasubcomb adotaccent odotaccent Ymacron ymacron dotlessj Aslash schwa Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent longsslash etilde Ygrave ygrave aslash rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke uniE00B uniE00C uniE00D uniE02B uniE02C uniE02D uniE02E uniE03B uniE03C uniE03D uniE03E uniE03F uniE040 uniE041 uniE042 uniE043 uniE044 uniE045 uniE046 uniE047 uniE048 uniE049 uniE04A uniE04B uniE050 uniE051 uniE052 uniE053 uniE055 uniE056 uniE057 uniE058 uniE059 uniE05E uniE05F uniE060 uniE061 uniE062 uniE063 uniE064 uniE065 uniE066 uniE067 uniE068 uniE069 uniE06A uniE06E uniE06F uniE080 uniE081 uniE082 uniE083 uniE087 uniE088 uniE08A uniE08B uniE08C uniE08D uniE08E uniE08F uniE090 uniE091 uniE092 uniE093 uniE094 uniE095 uniE096 uniE097 uniE098 uniE099 uniE09C uniE09D uniE0A0 uniE0A1 uniE0A2 uniE0A3 uniE0A4 uniE0A5 uniE0A6 uniE0A7 uniE0A8 uniE0A9 uniE0AC uniE0AD uniE0B0 uniE0B1 uniE0B2 uniE0B3 uniE0B4 uniE0B6 uniE0B7 uniE0BA uniE0BB uniE0BC uniE0BD uniE0BE uniE0BF uniE0C0 uniE0C1 uniE0C2 uniE0C3 uniE0C4 uniE0C5 uniE0C8 uniE0CA uniE0CB uniE0CC uniE0CD uniE0CE uniE0CF uniFB00 uniFB01 uniFB02 uniFB03 uniFB04 uniFB05 k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash
+ 1 0 1
+  ClsList: 1
+  BClsList:
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' s to s.noswash" 
+  ClassNames: "All_Others"  "s"  
+  BClassNames: "All_Others"  
+  FClassNames: "All_Others"  "letter"  
+EndFPST
+ChainSub2: class "guessed s -> longs to s"  2 5 6 11
+  Class: 6 s.long
+  BClass: 862 c j m n p q v w ccedilla eth thorn cacute ccircumflex cdotaccent ccaron dcaron gcircumflex gbreve gdotaccent gcommaaccent hcircumflex hbar jcircumflex kcommaaccent lacute lcommaaccent lcaron ldot lslash nacute ncommaaccent ncaron racute rcommaaccent rcaron sacute scircumflex scedilla scaron tcaron zacute zdotaccent zcaron bstroke scommaaccent t_commasubcomb bdotaccent kacute macute mdotaccent ndotaccent pacute pdotaccent rdotaccent sdotaccent wdotaccent longsslash gslash kslash nslash rslash sslash wstroke m_macroncomb n_macroncomb longs_t f_f_j f_dotlessj longs_b s_dieresiscomb l_dotcomb Z_macroncomb z_macroncomb longs_lcaron f_lcaron r_tildecomb z_tildecomb scaron.alt scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash j.hist v.hist scircumflex.long scaron.long sacute.long dcaron.alt tcaron.alt
+  BClass: 90 b d f h k l r t u longs longs_h longs_l c_k f_t f_f_t t_t c_h longs_k f_f f_l f_f_l s.long
+  BClass: 1325 seven A E I O U Y a e i o y Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute agrave aacute acircumflex atilde adieresis aring ae egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute ydieresis Amacron amacron Abreve abreve Aogonek aogonek Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute adotaccent odotaccent Ymacron ymacron schwa Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent Ygrave ygrave uniE01B uniE01C uniE01D f_dotlessi f_i f_ij f_f_dotlessi longs_i longs_ij longs_odieresis u_dotcomb a_dotcomb_dotcomb odieresis_gravecomb Odieresis_gravecomb adieresis.alt odieresis.alt udieresis.alt i.hist I.hist u.hist U.hist
+  BClass: 1 g
+  FClass: 9 a c t c_h
+  FClass: 655 e i o p u y agrave aacute acircumflex atilde adieresis aring ae egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute ydieresis amacron abreve aogonek emacron ebreve edotaccent eogonek ecaron itilde imacron ibreve iogonek dotlessi ij omacron obreve ohungarumlaut oe utilde umacron ubreve uring uhungarumlaut uogonek wcircumflex udieresisgrave aemacron oslashacute adotaccent odotaccent wgrave wacute wdieresis ygrave uniE01B uniE01C uniE01D odieresis_gravecomb u_dotcomb adieresis.alt odieresis.alt udieresis.alt a_dotcomb_dotcomb i.hist u.hist
+  FClass: 3 k r
+  FClass: 1033 b d f g h j l m n q v w x z ccedilla eth ntilde thorn cacute ccircumflex cdotaccent ccaron dcaron gcircumflex gbreve gdotaccent gcommaaccent hcircumflex hbar jcircumflex kcommaaccent lacute lcommaaccent lcaron ldot lslash nacute ncommaaccent ncaron racute rcommaaccent rcaron sacute scircumflex scedilla scaron tcaron zacute zdotaccent zcaron bstroke scommaaccent t_commasubcomb bdotaccent kacute macute mdotaccent ndotaccent pacute pdotaccent rdotaccent sdotaccent wdotaccent longsslash rrot gslash kslash nslash rslash sslash wstroke m_macroncomb n_macroncomb longs_h longs_l c_k f_j f_t f_f_t t_t t_z longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_f.alt longs_b b_acutecomb h_acutecomb s_dieresiscomb l_dotcomb z_macroncomb longs_lcaron f_lcaron r_tildecomb z_tildecomb scaron.alt scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash r.round e_t j.hist v.hist scircumflex.long scaron.long sacute.long dcaron.alt tcaron.alt longs_odieresis f_ij
+  FClass: 31 s longs longs_i s.long longs_ij
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 2
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 3
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 5
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 3
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 3
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 5
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 4
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 5
+ 1
+  SeqLookup: 0 "'xxxx' longs to s" 
+  ClassNames: "All_Others"  "s"  
+  BClassNames: "All_Others"  "v2"  "v3"  "v4"  "v5"  
+  FClassNames: "All_Others"  "n1"  "n2"  "n3"  "n4"  "n5"  
+EndFPST
+ChainSub2: class "otherwise -> hist"  2 1 2 1
+  Class: 1 s
+  FClass: 1716 quotesingle a b c d e f g h i j k l m n o p q r s t u v w x y z agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis amacron abreve aogonek cacute ccircumflex cdotaccent ccaron dcaron emacron ebreve edotaccent eogonek ecaron gcircumflex gbreve gdotaccent gcommaaccent hcircumflex hbar itilde imacron ibreve iogonek dotlessi ij jcircumflex kcommaaccent lacute lcommaaccent lcaron lslash nacute ncommaaccent ncaron omacron obreve ohungarumlaut oe racute rcommaaccent rcaron sacute scircumflex scedilla scaron tcaron utilde umacron ubreve uring uhungarumlaut uogonek wcircumflex ycircumflex zacute zdotaccent zcaron longs bstroke udieresisgrave aemacron oslashacute scommaaccent t_commasubcomb adotaccent odotaccent ymacron schwa bdotaccent kacute macute mdotaccent ndotaccent pacute pdotaccent rdotaccent sdotaccent wgrave wacute wdieresis wdotaccent longsslash etilde ygrave quoteright rrot gslash kslash nslash rslash sslash m_macroncomb n_macroncomb longs_h longs_i longs_l c_k f_j f_t f_f_t t_t t_z c_h longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_f.alt odieresis_gravecomb b_acutecomb h_acutecomb s_dieresiscomb u_dotcomb l_dotcomb z_macroncomb adieresis.alt odieresis.alt udieresis.alt longs_lcaron f_lcaron r_tildecomb z_tildecomb a_dotcomb_dotcomb scaron.alt scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash r.round e_t j.hist i.hist v.hist u.hist scircumflex.long scaron.long sacute.long dcaron.alt tcaron.alt s.long
+ 1 0 1
+  ClsList: 1
+  BClsList:
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+  ClassNames: "All_Others"  "s"  
+  BClassNames: "All_Others"  
+  FClassNames: "All_Others"  "n234"  
+EndFPST
+ChainSub2: class "guessed s -> do nothing"  2 5 6 20
+  Class: 1 s
+  BClass: 862 c j m n p q v w ccedilla eth thorn cacute ccircumflex cdotaccent ccaron dcaron gcircumflex gbreve gdotaccent gcommaaccent hcircumflex hbar jcircumflex kcommaaccent lacute lcommaaccent lcaron ldot lslash nacute ncommaaccent ncaron racute rcommaaccent rcaron sacute scircumflex scedilla scaron tcaron zacute zdotaccent zcaron bstroke scommaaccent t_commasubcomb bdotaccent kacute macute mdotaccent ndotaccent pacute pdotaccent rdotaccent sdotaccent wdotaccent longsslash gslash kslash nslash rslash sslash wstroke m_macroncomb n_macroncomb longs_t f_f_j f_dotlessj longs_b s_dieresiscomb l_dotcomb Z_macroncomb z_macroncomb longs_lcaron f_lcaron r_tildecomb z_tildecomb scaron.alt scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash j.hist v.hist scircumflex.long scaron.long sacute.long dcaron.alt tcaron.alt
+  BClass: 90 b d f h k l r t u longs longs_h longs_l c_k f_t f_f_t t_t c_h longs_k f_f f_l f_f_l s.long
+  BClass: 1319 A E I O U Y a e i o y Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute agrave aacute acircumflex atilde adieresis aring ae egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute ydieresis Amacron amacron Abreve abreve Aogonek aogonek Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute adotaccent odotaccent Ymacron ymacron schwa Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent Ygrave ygrave uniE01B uniE01C uniE01D f_dotlessi f_i f_ij f_f_dotlessi longs_i longs_ij longs_odieresis u_dotcomb a_dotcomb_dotcomb odieresis_gravecomb Odieresis_gravecomb adieresis.alt odieresis.alt udieresis.alt i.hist I.hist u.hist U.hist
+  BClass: 1 g
+  FClass: 9 a c t c_h
+  FClass: 655 e i o p u y agrave aacute acircumflex atilde adieresis aring ae egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute ydieresis amacron abreve aogonek emacron ebreve edotaccent eogonek ecaron itilde imacron ibreve iogonek dotlessi ij omacron obreve ohungarumlaut oe utilde umacron ubreve uring uhungarumlaut uogonek wcircumflex udieresisgrave aemacron oslashacute adotaccent odotaccent wgrave wacute wdieresis ygrave uniE01B uniE01C uniE01D odieresis_gravecomb u_dotcomb adieresis.alt odieresis.alt udieresis.alt a_dotcomb_dotcomb i.hist u.hist
+  FClass: 3 k r
+  FClass: 1033 b d f g h j l m n q v w x z ccedilla eth ntilde thorn cacute ccircumflex cdotaccent ccaron dcaron gcircumflex gbreve gdotaccent gcommaaccent hcircumflex hbar jcircumflex kcommaaccent lacute lcommaaccent lcaron ldot lslash nacute ncommaaccent ncaron racute rcommaaccent rcaron sacute scircumflex scedilla scaron tcaron zacute zdotaccent zcaron bstroke scommaaccent t_commasubcomb bdotaccent kacute macute mdotaccent ndotaccent pacute pdotaccent rdotaccent sdotaccent wdotaccent longsslash rrot gslash kslash nslash rslash sslash wstroke m_macroncomb n_macroncomb longs_h longs_l c_k f_j f_t f_f_t t_t t_z longs_k f_f f_i f_l f_f_i f_f_l longs_t longs_j f_f_j f_dotlessi f_f_dotlessi f_f.alt longs_b b_acutecomb h_acutecomb s_dieresiscomb l_dotcomb z_macroncomb longs_lcaron f_lcaron r_tildecomb z_tildecomb scaron.alt scircumflex.swash scaron.swash sdieresis.swash sacute.swash sdotaccent.swash scaron.alt2 scaron.alt2.swash r.round e_t j.hist v.hist scircumflex.long scaron.long sacute.long dcaron.alt tcaron.alt longs_odieresis f_ij
+  FClass: 31 s longs longs_i s.long longs_ij
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 2
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 3
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 4
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 5
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 3
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 4
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 3
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 4
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 5
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 4
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 5
+ 0
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 2
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 1
+  FClsList: 3
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 2
+  FClsList: 2
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 2
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 3
+  FClsList: 5
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+ 1 1 1
+  ClsList: 1
+  BClsList: 4
+  FClsList: 1
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+  ClassNames: "All_Others"  "s"  
+  BClassNames: "All_Others"  "v2"  "v3"  "v4"  "v5"  
+  FClassNames: "All_Others"  "n1"  "n2"  "n3"  "n4"  "n5"  
+EndFPST
+ChainSub2: class "u.hist and i.hist"  2 2 1 1
+  Class: 28 u.hist i.hist udieresis.hist
+  BClass: 4026 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute Scommaaccent scommaaccent T_commasubcomb t_commasubcomb adotaccent odotaccent Ymacron ymacron schwa gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotcomb dieresiscomb ringcomb caroncomb commaturnedabovecomb commasubcomb cedillacomb ogonekcomb ecomb Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent longsslash etilde Ygrave ygrave quoteright rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash
+ 1 1 0
+  ClsList: 1
+  BClsList: 1
+  FClsList:
+ 1
+  SeqLookup: 0 "'xxxx' hist to non-hist" 
+  ClassNames: "All_Others"  "ui"  
+  BClassNames: "All_Others"  "letter"  
+  FClassNames: "All_Others"  
+EndFPST
+ChainSub2: class "letter-j -> hist"  2 2 0 1
+  Class: 1 j
+  BClass: 4140 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent kra Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron T_commasubcomb t_commasubcomb Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Gcaron gcaron Oslashacute oslashacute Scommaaccent scommaaccent adotaccent odotaccent Ymacron ymacron dotlessj Aslash schwa gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotcomb dieresiscomb ringcomb caroncomb commaturnedabovecomb commasubcomb cedillacomb ogonekcomb ecomb Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent ydotaccent longsslash etilde Ygrave ygrave quoteright rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash udieresis.hist scedilla.noswash scommaaccent.noswash IJacute ijacute
+ 1 1 0
+  ClsList: 1
+  BClsList: 1
+  FClsList:
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+  ClassNames: "All_Others"  "j"  
+  BClassNames: "All_Others"  "letter"  
+EndFPST
+ChainSub2: glyph "Ii -> hist"  0 0 0 2
+ String: 1 i
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+ String: 1 I
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+EndFPST
+ChainSub2: class "letter-i -> do nothing"  2 2 1 1
+  Class: 1 i
+  BClass: 3998 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron T_commasubcomb t_commasubcomb Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Gcaron gcaron Oslashacute oslashacute Scommaaccent scommaaccent adotaccent odotaccent Ymacron ymacron dotlessj Aslash schwa gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotcomb dieresiscomb ringcomb caroncomb commaturnedabovecomb commasubcomb cedillacomb ogonekcomb ecomb Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent ydotaccent longsslash etilde Ygrave ygrave quoteright aslash rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t
+ 1 1 0
+  ClsList: 1
+  BClsList: 1
+  FClsList:
+ 0
+  ClassNames: "All_Others"  "i"  
+  BClassNames: "All_Others"  "letter"  
+  FClassNames: "All_Others"  
+EndFPST
+ChainSub2: glyph "Uu -> hist"  0 0 0 4
+ String: 1 U
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+ String: 1 u
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+ String: 9 udieresis
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+ String: 13 udieresis.alt
+ BString: 0 
+ FString: 0 
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+EndFPST
+ChainSub2: class "letter-v -> hist"  2 2 0 1
+  Class: 1 v
+  BClass: 4033 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute Scommaaccent scommaaccent T_commasubcomb t_commasubcomb adotaccent odotaccent Ymacron ymacron schwa gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotcomb dieresiscomb ringcomb caroncomb commaturnedabovecomb commasubcomb cedillacomb ogonekcomb ecomb Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent longsslash etilde Ygrave ygrave quoteright aslash rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash
+ 1 1 0
+  ClsList: 1
+  BClsList: 1
+  FClsList:
+ 1
+  SeqLookup: 0 "'xxxx' Historical variants" 
+  ClassNames: "All_Others"  "v"  
+  BClassNames: "All_Others"  "letter"  
+EndFPST
+ChainSub2: class "letter-u -> do nothing"  2 2 1 1
+  Class: 25 u udieresis.alt udieresis
+  BClass: 4033 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z Agrave Aacute Acircumflex Atilde Adieresis Aring AE Ccedilla Egrave Eacute Ecircumflex Edieresis Igrave Iacute Icircumflex Idieresis Eth Ntilde Ograve Oacute Ocircumflex Otilde Odieresis Oslash Ugrave Uacute Ucircumflex Udieresis Yacute Thorn eszett agrave aacute acircumflex atilde adieresis aring ae ccedilla egrave eacute ecircumflex edieresis igrave iacute icircumflex idieresis eth ntilde ograve oacute ocircumflex otilde odieresis oslash ugrave uacute ucircumflex udieresis yacute thorn ydieresis Amacron amacron Abreve abreve Aogonek aogonek Cacute cacute Ccircumflex ccircumflex Cdotaccent cdotaccent Ccaron ccaron Dcaron dcaron Emacron emacron Ebreve ebreve Edotaccent edotaccent eogonek Ecaron ecaron Gcircumflex gcircumflex Gbreve gbreve Gdotaccent gdotaccent Gcommaaccent gcommaaccent Hcircumflex hcircumflex Hbar hbar Itilde itilde Imacron imacron Ibreve ibreve Iogonek iogonek Idotaccent dotlessi IJ ij Jcircumflex jcircumflex Kcommaaccent kcommaaccent Lacute lacute Lcommaaccent lcommaaccent Lcaron lcaron ldot Lslash lslash Nacute nacute Ncommaaccent ncommaaccent Ncaron ncaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut OE oe Racute racute Rcommaaccent rcommaaccent Rcaron rcaron Sacute sacute Scircumflex scircumflex Scedilla scedilla Scaron scaron Tcaron tcaron Utilde utilde Umacron umacron Ubreve ubreve Uring uring Uhungarumlaut uhungarumlaut Uogonek uogonek Wcircumflex wcircumflex Ycircumflex ycircumflex Ydieresis Zacute zacute Zdotaccent zdotaccent Zcaron zcaron longs bstroke Schwa Udieresisgrave udieresisgrave AEmacron aemacron Oslashacute oslashacute Scommaaccent scommaaccent T_commasubcomb t_commasubcomb adotaccent odotaccent Ymacron ymacron Aslash schwa gravecomb acutecomb circumflexcomb tildecomb macroncomb brevecomb dotcomb dieresiscomb ringcomb caroncomb commaturnedabovecomb commasubcomb cedillacomb ogonekcomb ecomb Bdotaccent bdotaccent kacute macute Mdotaccent mdotaccent Ndotaccent ndotaccent pacute Pdotaccent pdotaccent Rdotaccent rdotaccent Sdotaccent sdotaccent Wgrave wgrave Wacute wacute Wdieresis wdieresis Wdotaccent wdotaccent longsslash etilde Ygrave ygrave quoteright rrot Gslash gslash Kslash kslash Nslash nslash Rslash rslash Sslash sslash Wstroke wstroke k.modern kcommaaccent.modern kacute.modern x.modern x.modern2 y.modern ycircumflex.modern ygrave.modern ydieresis.modern ymacron.modern yacute.modern A.modern A.modern2 AE.modern AE.modern2 Agrave.modern Agrave.modern2 Aacute.modern Aacute.modern2 Acircumflex.modern Acircumflex.modern2 Atilde.modern Atilde.modern2 Adieresis.modern Adieresis.modern2 Aring.modern Aring.modern2 Amacron.modern Amacron.modern2 Abreve.modern Abreve.modern2 Aogonek.modern Aogonek.modern2 AEmacron.modern AEmacron.modern2 G.modern Gcircumflex.modern Gbreve.modern Gdotaccent.modern Gcommaaccent.modern K.modern Kcommaaccent.modern N.modern Ntilde.modern Nacute.modern Ncommaaccent.modern Ncaron.modern Ndotaccent.modern S.modern Sacute.modern Scircumflex.modern Scedilla.modern Scaron.modern Scommaaccent.modern V.modern Y.modern Ycircumflex.modern Ygrave.modern Ydieresis.modern Ymacron.modern Yacute.modern f_f f_f.alt f_dotlessi f_i f_dotlessj f_j f_dotlessij f_ij f_l f_t f_lcaron f_f_dotlessi f_f_i f_f_dotlessj f_f_j f_f_l f_f_t longs_i longs_j longs_ij longs_l longs_t longs_lcaron longs_b longs_h longs_k longs_odieresis c_h c_k c_k.modern t_t t_z lslash_lslash longsslash_longsslash m_macroncomb n_macroncomb z_macroncomb Z_macroncomb l_dotcomb u_dotcomb a_dotcomb_dotcomb b_acutecomb h_acutecomb r_tildecomb z_tildecomb odieresis_gravecomb Odieresis_gravecomb dcaron.alt tcaron.alt adieresis.alt odieresis.alt udieresis.alt Adieresis.alt Odieresis.alt Udieresis.alt s_dieresiscomb sacute.swash scaron.swash scircumflex.swash sdieresis.swash sdotaccent.swash scaron.alt2.swash sacute.long scaron.long scircumflex.long scaron.alt scaron.alt2 s.long i.hist I.hist j.hist u.hist U.hist v.hist r.round e_t s.noswash
+ 1 1 0
+  ClsList: 1
+  BClsList: 1
+  FClsList:
+ 0
+  ClassNames: "All_Others"  "u"  
+  BClassNames: "All_Others"  "letter"  
+  FClassNames: "All_Others"  
+EndFPST
+ChainSub2: glyph "etc -> et to rrot"  0 0 0 1
+ String: 3 e t
+ BString: 0 
+ FString: 8 c period
+ 1
+  SeqLookup: 0 "'xxxx' et to rrot" 
+EndFPST
+ChainSub2: coverage "roundletter-r -> r to rrot"  0 0 0 1
+ 1 1 0
+  Coverage: 1 r
+  BCoverage: 494 B D G H O P S b d h o p r v w y Eth Ograve Oacute Ocircumflex Otilde Odieresis Oslash Thorn eth ograve oacute ocircumflex otilde odieresis yacute thorn ydieresis Dcaron dcaron Omacron omacron Obreve obreve Ohungarumlaut ohungarumlaut Sacute Scircumflex Scedilla Scaron wcircumflex ycircumflex bstroke odotaccent ymacron schwa Bdotaccent bdotaccent pacute pdotaccent wgrave wacute ydotaccent wdieresis wdotaccent ygrave longs_b longs_h c_h h_acutecomb r_tildecomb dcaron.alt odieresis.alt u.hist
+ 1
+  SeqLookup: 0 "'xxxx' Round r and long s" 
+EndFPST
+TtTable: prep
+PUSHW_1
+ 511
+SCANCTRL
+PUSHB_1
+ 1
+SCANTYPE
+SVTCA[y-axis]
+MPPEM
+PUSHB_1
+ 8
+LT
+IF
+PUSHB_2
+ 1
+ 1
+INSTCTRL
+EIF
+PUSHB_2
+ 70
+ 6
+CALL
+IF
+POP
+PUSHB_1
+ 16
+EIF
+MPPEM
+PUSHB_1
+ 20
+GT
+IF
+POP
+PUSHB_1
+ 128
+EIF
+SCVTCI
+PUSHB_1
+ 6
+CALL
+NOT
+IF
+SVTCA[y-axis]
+PUSHB_1
+ 5
+DUP
+RCVT
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 6
+DUP
+RCVT
+PUSHB_3
+ 5
+ 110
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 7
+DUP
+RCVT
+PUSHB_3
+ 6
+ 38
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 8
+DUP
+RCVT
+PUSHB_3
+ 7
+ 21
+ 2
+CALL
+PUSHB_1
+ 3
+CALL
+WCVTP
+SVTCA[x-axis]
+PUSHB_1
+ 9
+DUP
+RCVT
+PUSHB_1
+ 3
+CALL
+WCVTP
+PUSHB_1
+ 10
+DUP
+RCVT
+PUSHB_3
+ 9
+ 16
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 11
+DUP
+RCVT
+PUSHW_3
+ 9
+ 32767
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+PUSHB_1
+ 12
+DUP
+RCVT
+PUSHB_3
+ 11
+ 55
+ 2
+CALL
+PUSHB_2
+ 3
+ 70
+SROUND
+CALL
+WCVTP
+EIF
+PUSHB_1
+ 20
+CALL
+EndTTInstrs
+TtTable: fpgm
+PUSHB_1
+ 0
+FDEF
+PUSHB_1
+ 0
+SZP0
+MPPEM
+PUSHB_1
+ 42
+LT
+IF
+PUSHB_1
+ 74
+SROUND
+EIF
+PUSHB_1
+ 0
+SWAP
+MIAP[rnd]
+RTG
+PUSHB_1
+ 6
+CALL
+IF
+RTDG
+EIF
+MPPEM
+PUSHB_1
+ 42
+LT
+IF
+RDTG
+EIF
+DUP
+MDRP[rp0,rnd,grey]
+PUSHB_1
+ 1
+SZP0
+MDAP[no-rnd]
+RTG
+ENDF
+PUSHB_1
+ 1
+FDEF
+DUP
+MDRP[rp0,min,white]
+PUSHB_1
+ 12
+CALL
+ENDF
+PUSHB_1
+ 2
+FDEF
+MPPEM
+GT
+IF
+RCVT
+SWAP
+EIF
+POP
+ENDF
+PUSHB_1
+ 3
+FDEF
+ROUND[Black]
+RTG
+DUP
+PUSHB_1
+ 64
+LT
+IF
+POP
+PUSHB_1
+ 64
+EIF
+ENDF
+PUSHB_1
+ 4
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+POP
+SWAP
+POP
+ROFF
+IF
+MDRP[rp0,min,rnd,black]
+ELSE
+MDRP[min,rnd,black]
+EIF
+ELSE
+MPPEM
+GT
+IF
+IF
+MIRP[rp0,min,rnd,black]
+ELSE
+MIRP[min,rnd,black]
+EIF
+ELSE
+SWAP
+POP
+PUSHB_1
+ 5
+CALL
+IF
+PUSHB_1
+ 70
+SROUND
+EIF
+IF
+MDRP[rp0,min,rnd,black]
+ELSE
+MDRP[min,rnd,black]
+EIF
+EIF
+EIF
+RTG
+ENDF
+PUSHB_1
+ 5
+FDEF
+GFV
+NOT
+AND
+ENDF
+PUSHB_1
+ 6
+FDEF
+PUSHB_2
+ 34
+ 1
+GETINFO
+LT
+IF
+PUSHB_1
+ 32
+GETINFO
+NOT
+NOT
+ELSE
+PUSHB_1
+ 0
+EIF
+ENDF
+PUSHB_1
+ 7
+FDEF
+PUSHB_2
+ 36
+ 1
+GETINFO
+LT
+IF
+PUSHB_1
+ 64
+GETINFO
+NOT
+NOT
+ELSE
+PUSHB_1
+ 0
+EIF
+ENDF
+PUSHB_1
+ 8
+FDEF
+SRP2
+SRP1
+DUP
+IP
+MDAP[rnd]
+ENDF
+PUSHB_1
+ 9
+FDEF
+DUP
+RDTG
+PUSHB_1
+ 6
+CALL
+IF
+MDRP[rnd,grey]
+ELSE
+MDRP[min,rnd,black]
+EIF
+DUP
+PUSHB_1
+ 3
+CINDEX
+MD[grid]
+SWAP
+DUP
+PUSHB_1
+ 4
+MINDEX
+MD[orig]
+PUSHB_1
+ 0
+LT
+IF
+ROLL
+NEG
+ROLL
+SUB
+DUP
+PUSHB_1
+ 0
+LT
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+ROLL
+ROLL
+SUB
+DUP
+PUSHB_1
+ 0
+GT
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+EIF
+RTG
+ENDF
+PUSHB_1
+ 10
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+POP
+SRP0
+ELSE
+SRP0
+POP
+EIF
+ENDF
+PUSHB_1
+ 11
+FDEF
+DUP
+MDRP[rp0,white]
+PUSHB_1
+ 12
+CALL
+ENDF
+PUSHB_1
+ 12
+FDEF
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+DUP
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SUB
+ROUND[White]
+DUP
+IF
+DUP
+ABS
+DIV
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+EIF
+ENDF
+PUSHB_1
+ 13
+FDEF
+SRP2
+SRP1
+DUP
+DUP
+IP
+MDAP[rnd]
+DUP
+ROLL
+DUP
+GC[orig]
+ROLL
+GC[cur]
+SUB
+SWAP
+ROLL
+DUP
+ROLL
+SWAP
+MD[orig]
+PUSHB_1
+ 0
+LT
+IF
+SWAP
+PUSHB_1
+ 0
+GT
+IF
+PUSHB_1
+ 64
+SHPIX
+ELSE
+POP
+EIF
+ELSE
+SWAP
+PUSHB_1
+ 0
+LT
+IF
+PUSHB_1
+ 64
+NEG
+SHPIX
+ELSE
+POP
+EIF
+EIF
+ENDF
+PUSHB_1
+ 14
+FDEF
+PUSHB_1
+ 6
+CALL
+IF
+RTDG
+MDRP[rp0,rnd,white]
+RTG
+POP
+POP
+ELSE
+DUP
+MDRP[rp0,rnd,white]
+ROLL
+MPPEM
+GT
+IF
+DUP
+ROLL
+SWAP
+MD[grid]
+DUP
+PUSHB_1
+ 0
+NEQ
+IF
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+EIF
+ENDF
+PUSHB_1
+ 15
+FDEF
+SWAP
+DUP
+MDRP[rp0,rnd,white]
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+SWAP
+DUP
+IF
+MPPEM
+GTEQ
+ELSE
+POP
+PUSHB_1
+ 1
+EIF
+IF
+ROLL
+PUSHB_1
+ 4
+MINDEX
+MD[grid]
+SWAP
+ROLL
+SWAP
+DUP
+ROLL
+MD[grid]
+ROLL
+SWAP
+SUB
+SHPIX
+ELSE
+POP
+POP
+POP
+POP
+EIF
+ELSE
+POP
+POP
+POP
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 16
+FDEF
+DUP
+MDRP[rp0,min,white]
+PUSHB_1
+ 18
+CALL
+ENDF
+PUSHB_1
+ 17
+FDEF
+DUP
+MDRP[rp0,white]
+PUSHB_1
+ 18
+CALL
+ENDF
+PUSHB_1
+ 18
+FDEF
+DUP
+MDAP[rnd]
+PUSHB_1
+ 7
+CALL
+NOT
+IF
+DUP
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SUB
+ROUND[White]
+ROLL
+DUP
+GC[orig]
+SWAP
+GC[cur]
+SWAP
+SUB
+ROUND[White]
+ADD
+DUP
+IF
+DUP
+ABS
+DIV
+SHPIX
+ELSE
+POP
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 19
+FDEF
+DUP
+ROLL
+DUP
+ROLL
+SDPVTL[orthog]
+DUP
+PUSHB_1
+ 3
+CINDEX
+MD[orig]
+ABS
+SWAP
+ROLL
+SPVTL[orthog]
+PUSHB_1
+ 32
+LT
+IF
+ALIGNRP
+ELSE
+MDRP[grey]
+EIF
+ENDF
+PUSHB_1
+ 20
+FDEF
+PUSHB_4
+ 0
+ 64
+ 1
+ 64
+WS
+WS
+SVTCA[x-axis]
+MPPEM
+PUSHW_1
+ 4096
+MUL
+SVTCA[y-axis]
+MPPEM
+PUSHW_1
+ 4096
+MUL
+DUP
+ROLL
+DUP
+ROLL
+NEQ
+IF
+DUP
+ROLL
+DUP
+ROLL
+GT
+IF
+SWAP
+DIV
+DUP
+PUSHB_1
+ 0
+SWAP
+WS
+ELSE
+DIV
+DUP
+PUSHB_1
+ 1
+SWAP
+WS
+EIF
+DUP
+PUSHB_1
+ 64
+GT
+IF
+PUSHB_3
+ 0
+ 32
+ 0
+RS
+MUL
+WS
+PUSHB_3
+ 1
+ 32
+ 1
+RS
+MUL
+WS
+PUSHB_1
+ 32
+MUL
+PUSHB_1
+ 25
+NEG
+JMPR
+POP
+EIF
+ELSE
+POP
+POP
+EIF
+ENDF
+PUSHB_1
+ 21
+FDEF
+PUSHB_1
+ 1
+RS
+MUL
+SWAP
+PUSHB_1
+ 0
+RS
+MUL
+SWAP
+ENDF
+EndTTInstrs
+ShortTable: cvt  22
+  -386
+  -294
+  0
+  1051
+  1438
+  45
+  56
+  109
+  203
+  203
+  56
+  203
+  226
+  201
+  182
+  105
+  269
+  42
+  75
+  215
+  148
+  71
+EndShort
+ShortTable: maxp 16
+  0
+  0
+  0
+  0
+  0
+  0
+  0
+  2
+  1
+  2
+  22
+  0
+  256
+  0
+  0
+  0
+EndShort
+LangName: 1033 "" "" "" "" "" "" "" "" "" "j. 'mach' wust, Gerrit Ansmann, Georg Duffner, based on a font by Peter Wiegel, original typeface by Carl Albert Fahrenwaldt 1901" "" "" "http://unifraktur.sourceforge.net/maguntia.html" "Copyright (c) 2010-2016, j. 'mach' wust, Gerrit Ansmann, Georg Duffner, with Reserved Font Name UnifrakturMaguntia.+AAoA-Copyright (c) 2009, Peter Wiegel.+AAoACgAA-This Font Software is licensed under the SIL Open Font License, Version 1.1.+AAoA-This license is copied below, and is also available with a FAQ at:+AAoA-http://scripts.sil.org/OFL+AAoACgAK------------------------------------------------------------+AAoA-SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007+AAoA------------------------------------------------------------+AAoACgAA-PREAMBLE+AAoA-The goals of the Open Font License (OFL) are to stimulate worldwide+AAoA-development of collaborative font projects, to support the font creation+AAoA-efforts of academic and linguistic communities, and to provide a free and+AAoA-open framework in which fonts may be shared and improved in partnership+AAoA-with others.+AAoACgAA-The OFL allows the licensed fonts to be used, studied, modified and+AAoA-redistributed freely as long as they are not sold by themselves. The+AAoA-fonts, including any derivative works, can be bundled, embedded, +AAoA-redistributed and/or sold with any software provided that any reserved+AAoA-names are not used by derivative works. The fonts and derivatives,+AAoA-however, cannot be released under any other type of license. The+AAoA-requirement for fonts to remain under this license does not apply+AAoA-to any document created using the fonts or their derivatives.+AAoACgAA-DEFINITIONS+AAoAIgAA-Font Software+ACIA refers to the set of files released by the Copyright+AAoA-Holder(s) under this license and clearly marked as such. This may+AAoA-include source files, build scripts and documentation.+AAoACgAi-Reserved Font Name+ACIA refers to any names specified as such after the+AAoA-copyright statement(s).+AAoACgAi-Original Version+ACIA refers to the collection of Font Software components as+AAoA-distributed by the Copyright Holder(s).+AAoACgAi-Modified Version+ACIA refers to any derivative made by adding to, deleting,+AAoA-or substituting -- in part or in whole -- any of the components of the+AAoA-Original Version, by changing formats or by porting the Font Software to a+AAoA-new environment.+AAoACgAi-Author+ACIA refers to any designer, engineer, programmer, technical+AAoA-writer or other person who contributed to the Font Software.+AAoACgAA-PERMISSION & CONDITIONS+AAoA-Permission is hereby granted, free of charge, to any person obtaining+AAoA-a copy of the Font Software, to use, study, copy, merge, embed, modify,+AAoA-redistribute, and sell modified and unmodified copies of the Font+AAoA-Software, subject to the following conditions:+AAoACgAA-1) Neither the Font Software nor any of its individual components,+AAoA-in Original or Modified Versions, may be sold by itself.+AAoACgAA-2) Original or Modified Versions of the Font Software may be bundled,+AAoA-redistributed and/or sold with any software, provided that each copy+AAoA-contains the above copyright notice and this license. These can be+AAoA-included either as stand-alone text files, human-readable headers or+AAoA-in the appropriate machine-readable metadata fields within text or" 
+Encoding: Custom
+UnicodeInterp: none
+NameList: Adobe Glyph List
+FitToEm: 1
+BeginPrivate: 6
+BlueValues 27 [-45 0 1051 1071 1438 1471]
+OtherBlues 21 [-407 -386 -300 -294]
+StdHW 4 [45]
+StemSnapH 15 [45 56 109 203]
+StdVW 5 [203]
+StemSnapV 15 [45 56 203 226]
+EndPrivate
+Grid
+1608 -45 m 25
+ 226 -45 l 25
+326 1844 m 25
+ 1533 1844 l 25
+77 1071 m 25
+ 913 1071 l 25
+1608 -20 m 25
+ 226 -20 l 25
+-162 1471 m 25
+ 1624 1471 l 25
+-305 -386 m 25
+ 795 -386 l 25
+EndSplineSet
+EndSplineFont

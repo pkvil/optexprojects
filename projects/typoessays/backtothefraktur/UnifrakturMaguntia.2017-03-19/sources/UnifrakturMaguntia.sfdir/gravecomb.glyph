@@ -1,0 +1,11 @@
+StartChar: gravecomb
+Encoding: 768 768 331
+Width: 0
+VWidth: 2065
+Flags: W
+HStem: 1428 20<-596 -590>
+DStem2: -743 1344 -734 1329 0.812104 0.583512<0 164.791>
+LayerCount: 2
+Fore
+Refer: 64 96 N 1 0 0 1 -800 0 2
+EndChar

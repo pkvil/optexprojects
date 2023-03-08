@@ -1,0 +1,24 @@
+StartChar: figuredash_figuredash.upper
+Encoding: 65712 -1 795
+Width: 2048
+VWidth: 2065
+Flags: W
+HStem: 554 148<42 2006>
+LayerCount: 2
+Fore
+SplineSet
+42 577 m 2,0,-1
+ 42 680 l 2,1,2
+ 42 702 42 702 65 702 c 26,3,-1
+ 1983 702 l 18,4,5
+ 2006 702 2006 702 2006 680 c 2,6,-1
+ 2006 577 l 2,7,8
+ 2006 554 2006 554 1983 554 c 18,9,-1
+ 65 554 l 2,10,11
+ 42 554 42 554 42 577 c 2,0,-1
+EndSplineSet
+Ligature2: "ZWJ" figuredash.upper ZWJ figuredash.upper
+LCarets2: 2 0 0 
+Ligature2: "Double figure dash" figuredash.upper figuredash.upper
+Substitution2: "Lowercase Numbers" figuredash_figuredash
+EndChar

@@ -1,0 +1,13 @@
+; TECkit mapping for Unicode-encoded ligatures
+
+LHSName	"ligatures"
+RHSName	"LIGATURES"
+
+pass(Unicode)
+
+U+0066 U+0066 <> U+FB00; ff
+U+0066 U+0069 <> U+FB01; fi
+U+0066 U+006C <> U+FB02; fl
+U+0066 U+0066 U+0069 <> U+FB03; ffi
+U+0066 U+0066 U+006C <> U+FB04; ffl
+

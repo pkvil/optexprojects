@@ -1,0 +1,11 @@
+StartChar: circumflexcomb
+Encoding: 770 770 333
+Width: 0
+VWidth: 2065
+Flags: W
+HStem: 1123 20<-765 -753 -272 -253> 1428 20<-509 -497>
+DStem2: -783.796 1149.5 -751.05 1118.5 0.675233 0.737604<0 96.2576>
+LayerCount: 2
+Fore
+Refer: 323 710 N 1 0 0 1 -830 0 2
+EndChar

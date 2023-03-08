@@ -1,0 +1,12 @@
+StartChar: caron
+Encoding: 711 711 324
+Width: 642
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: 1123 20<309 321> 1428 20<65 84 565 577>
+DStem2: 595.796 1421.5 563.05 1452.5 0.675233 0.737604<-96.2576 0>
+LayerCount: 2
+Fore
+Refer: 323 710 N -1 0 0 -1 642 2571 2
+EndChar

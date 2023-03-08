@@ -1,0 +1,13 @@
+StartChar: exclamdown
+Encoding: 161 161 96
+Width: 504
+VWidth: 1678
+GlyphClass: 1
+Flags: MW
+HStem: -407 20<247 257> 743 318<240 264>
+VStem: 93 318<890 914> 234 36<356.605 567.993>
+DStem2: 389 902 252 1039 0.707107 0.707107<-193.747 0>
+LayerCount: 2
+Fore
+Refer: 2 33 N -1 0 0 -1 504 1041 2
+EndChar

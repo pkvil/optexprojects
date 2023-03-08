@@ -1,0 +1,13 @@
+StartChar: quoteleft
+Encoding: 8216 8216 392
+Width: 444
+VWidth: 3214
+GlyphClass: 1
+Flags: MW
+HStem: 900 20<240 264>
+VStem: 93 25<1046 1111> 391 20<1046 1070>
+DStem2: 301.331 1421.34 266.999 1442.33 0.505226 0.862987<-105.446 0> 252 922 391 1057 0.707107 -0.707107<-193.747 0>
+LayerCount: 2
+Fore
+Refer: 13 44 N -1 0 0 -1 504 1198 3
+EndChar

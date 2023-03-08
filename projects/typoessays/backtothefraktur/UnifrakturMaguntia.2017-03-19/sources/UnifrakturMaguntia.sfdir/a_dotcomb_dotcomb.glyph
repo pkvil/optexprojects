@@ -1,0 +1,17 @@
+StartChar: a_dotcomb_dotcomb
+Encoding: 65667 -1 750
+Width: 935
+VWidth: 2065
+Flags: W
+HStem: -20 20<291.5 303 752.5 769> 1051 20<478.5 492> 1420 20<492 532> 1790 20<492 532>
+VStem: 570 203<198.812 779.75>
+DStem2: 335.25 258.5 242.25 59.5 0.684532 -0.728983<0 81.406> 509 1046 386 884 0.80987 -0.586609<0 223.848> 500 180 328 -3 0.805406 0.592723<-45.4472 54.4933> 851.5 194.25 889.5 170.25 0.563194 0.826325<1.56956 54.1554>
+LayerCount: 2
+Fore
+Refer: 326 729 N 1 0 0 1 272 371 2
+Refer: 326 729 N 1 0 0 1 272 1 2
+Refer: 65 97 N 1 0 0 1 0 0 3
+LCarets2: 2 0 0 
+Ligature2: "Non-Unicode Diacritics" adotaccent dotcomb
+Ligature2: "Non-Unicode Diacritics" a dotcomb dotcomb
+EndChar

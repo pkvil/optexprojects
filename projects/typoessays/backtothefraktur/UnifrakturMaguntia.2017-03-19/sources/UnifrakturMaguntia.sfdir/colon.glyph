@@ -1,0 +1,14 @@
+StartChar: colon
+Encoding: 58 58 27
+Width: 444
+VWidth: 2065
+GlyphClass: 1
+Flags: MW
+HStem: -20 318<240 264> 694 318<240 264>
+VStem: 93 318<127 151 841 865>
+DStem2: 115 853 252 716 0.707107 0.707107<0 193.747> 115 139 252 2 0.707107 0.707107<0 193.747>
+LayerCount: 2
+Fore
+Refer: 15 46 N 1 0 0 1 0 714 2
+Refer: 15 46 N 1 0 0 1 0 0 2
+EndChar

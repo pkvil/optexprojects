@@ -1,0 +1,11 @@
+StartChar: caroncomb
+Encoding: 780 780 340
+Width: 0
+VWidth: 2065
+Flags: W
+HStem: 1123 20<-491 -479> 1428 20<-735 -716 -235 -223>
+DStem2: -204.204 1421.5 -236.95 1452.5 0.675233 0.737604<-96.2576 0>
+LayerCount: 2
+Fore
+Refer: 324 711 N 1 0 0 1 -800 0 2
+EndChar

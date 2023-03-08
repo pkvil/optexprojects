@@ -1,0 +1,23 @@
+StartChar: endash
+Encoding: 8211 8211 390
+Width: 1220
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: 554 148<98 1122>
+LayerCount: 2
+Fore
+SplineSet
+98 576 m 2,0,-1
+ 98 681 l 2,1,2
+ 98 702 98 702 120 702 c 26,3,-1
+ 1100 702 l 18,4,5
+ 1122 702 1122 702 1122 681 c 2,6,-1
+ 1122 576 l 2,7,8
+ 1122 554 1122 554 1100 554 c 18,9,-1
+ 120 554 l 2,10,11
+ 98 554 98 554 98 576 c 2,0,-1
+EndSplineSet
+AlternateSubs2: "Access All Alternates" emdash
+Substitution2: "en dash to em dash" emdash
+EndChar

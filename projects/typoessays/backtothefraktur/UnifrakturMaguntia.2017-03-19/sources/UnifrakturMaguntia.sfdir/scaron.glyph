@@ -1,0 +1,19 @@
+StartChar: scaron
+Encoding: 353 353 277
+Width: 871
+VWidth: 2065
+GlyphClass: 1
+Flags: W
+HStem: -20 20<451 461> 1051 20<410 420> 1145 20<411 423> 1450 20<167 186 667 679>
+DStem2: 169 822 206 798 0.640184 0.768221<5.24951 61.8418> 319 568 263 372 0.907255 -0.420582<0 31.6277> 398 269.5 342 73.5 0.907255 -0.420582<0 31.6277> 442 568 312 343 0.641014 0.767529<-285.164 -273.339 -48.9571 -24.6161 199.125 211.59> 529 978 473 782 0.907255 -0.420582<0 31.6277> 608 679 552 483 0.907255 -0.420582<0 31.6277> 625 205 663 181 0.640184 0.768221<5.8897 62.482> 697.796 1443.5 665.05 1474.5 0.675233 0.737604<-96.2576 0>
+LayerCount: 2
+Fore
+Refer: 324 711 N 1 0 0 1 102 22 2
+Refer: 805 -1 N 1 0 0 1 0 0 3
+LCarets2: 1 0 
+AlternateSubs2: "Access All Alternates" scaron.swash scaron.long scaron.alt scaron.alt2 scaron.alt2.swash
+AlternateSubs2: "scaron alternates" scaron.swash scaron.long scaron.alt scaron.alt2 scaron.alt2.swash
+Substitution2: "s diacritics with long s" scaron.long
+Substitution2: "s diacritcs with swash" scaron.swash
+Ligature2: "Unicode Diacritics" s caroncomb
+EndChar

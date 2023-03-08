@@ -1,0 +1,13 @@
+StartChar: six.tab
+Encoding: 65552 -1 635
+Width: 888
+VWidth: 2065
+Flags: W
+HStem: -20 19<440 457> 1051 20<437 452>
+DStem2: 246.5 888.5 293.5 864.5 0.643848 0.765153<0 11.8972> 457 243 397 33 0.805133 -0.593094<0 76.2418> 486 1023 426 813 0.805133 -0.593094<0 76.2418> 603.5 1425 608.5 1378.5 0.979293 0.20245<0 101.682> 628 207 663 181 0.6 0.8<0.199999 59.4>
+LayerCount: 2
+Fore
+Refer: 23 54 N 1 0 0 1 0 0 2
+Substitution2: "Proportional Numbers" six
+Substitution2: "Uppercase Numbers" six.uppertab
+EndChar

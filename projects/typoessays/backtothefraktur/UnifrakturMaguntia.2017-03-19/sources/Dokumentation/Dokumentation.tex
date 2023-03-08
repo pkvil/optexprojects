@@ -1,0 +1,1494 @@
+\documentclass[xcolor=dvipsnames, aspectratio=54]{beamer}
+\usefonttheme{professionalfonts}
+\usepackage{fontspec}
+
+\usepackage{adjustbox, array, calc, color, diagbox, etoolbox, forloop, gensymb, graphicx, icomma, multicol, newunicodechar, pgffor, placeins, relsize, rotating, tabularx, tikz, varwidth, xspace, xstring}
+
+\providecommand{\fraq}[2]{#1} % #1 Fraktur – #2 Antiqua
+\providecommand{\DTEN}[2]{#1} % #1 Deutsch – #2 Englisch
+
+\newtoggle{longs}
+\newunicodechar{ſ}{\iftoggle{longs}{ſ}{s}}
+\toggletrue{longs}
+
+
+% Schriften
+\setsansfont[BoldFont=UnifrakturMaguntia, BoldFeatures={LetterSpace=8.0,Ligatures=NoCommon,Kerning=Off}]{UnifrakturMaguntia}
+% \newfontfamily\aqfamily[Scale=0.9]{Roboto Slab}
+\newfontfamily\aqfamily[StylisticSet={1,5},Ligatures={Common,Discretionary},AutoFakeSlant=0.2, Mapping=ligatures]{Yanone Kaffeesatz}
+%TODO Hand-made map
+\setmonofont{Yanone Kaffeesatz}
+
+\newcommand{\dten}[2]{%
+{\fraq{\toggletrue{longs}}{\togglefalse{longs}\aqfamily\XeTeXinterchartokenstate=1}\DTEN{{#1}}{{#2}}\toggletrue{longs}\XeTeXinterchartokenstate=0}%
+\write\deutschOut{\detokenize{#1}}\write\englischOut{\detokenize{#2}}%
+\xspace
+}
+\newwrite\deutschOut
+\immediate\openout\deutschOut=deutsch.dat
+\newwrite\englischOut
+\immediate\openout\englischOut=englisch.dat
+
+
+
+\newcommand{\textaq}[1]{{\aqfamily\XeTeXinterchartokenstate=1 #1\XeTeXinterchartokenstate=0}\xspace}
+\newcommand{\textfraq}[1]{{\fraq{\textsf{#1}}{\textaq{#1}}}}
+\newcommand{\textgr}[1]{{\fontspec[Scale=0.95]{Ubuntu Condensed}#1}}
+\renewcommand{\textsf}[1]{\iftoggle{longs}{{\sffamily #1}}{{\toggletrue{longs}\sffamily #1\togglefalse{longs}}}}
+\newcommand{\textbsp}[1]{\fraq{\dten{»\textsf{#1}«}{“\textsf{#1}”}}{\textsf{#1}}}
+
+
+\newcommand{\Begriff}[1]{\fraq{\dten{»#1«}{“#1”}}{\textit{#1}}}
+
+% Statt babel:
+\usepackage{polyglossia}
+\DTEN{\setdefaultlanguage[script=fraktur]{german}}{\setdefaultlanguage[variant=uk]{english}}
+
+% sonstige Einstellungen
+\usetheme[height=10mm]{Rochester}
+\useinnertheme{circles}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded]
+
+
+%---- Kerning correction for Yanone Kaffeesatz ----
+
+\newXeTeXintercharclass\letterclass
+\newcounter{char}
+\forloop{char}{65}{\value{char}<123}{\XeTeXcharclass \arabic{char} \letterclass}
+
+\newXeTeXintercharclass\Tclass
+\XeTeXcharclass `\T \Tclass
+
+\newXeTeXintercharclass\ueclass
+\XeTeXcharclass `\ü \ueclass
+
+\newXeTeXintercharclass\rclass
+\XeTeXcharclass `\r \rclass
+
+\newXeTeXintercharclass\endashclass
+\XeTeXcharclass `\– \endashclass
+
+\newXeTeXintercharclass\Jclass
+\XeTeXcharclass `\J \Jclass
+
+\newXeTeXintercharclass\apostrophclass
+\XeTeXcharclass `\’ \apostrophclass
+
+
+\XeTeXinterchartoks\Tclass\ueclass={\kern-0.3pt}
+\XeTeXinterchartoks\Tclass\rclass={\kern-0.7pt}
+\XeTeXinterchartoks\endashclass\Jclass={\kern-1.5pt}
+\XeTeXinterchartoks\letterclass\apostrophclass={\kern-0.2pt}
+\XeTeXinterchartoks\apostrophclass\letterclass={\kern-0.4pt}
+\XeTeXinterchartoks\rclass\apostrophclass={\kern-0.2pt}
+\XeTeXinterchartoks\apostrophclass\rclass={\kern-0.4pt}
+
+
+%-------------- Colours ----------------
+
+\usecolortheme[accent=orange]{solarized}
+
+\newcommand{\switchtodark}{%
+\setbeamercolor{normal text}{fg=solarized@rebase00, bg=solarized@rebase3}%
+\setbeamercolor{frametitle}{fg = solarized@accent, bg=solarized@rebase2}%
+}
+
+\newcommand{\switchtolight}{%
+\setbeamerfont{normal text}{family=\sffamily}
+\setbeamercolor{normal text}{fg=solarized@rebase0, bg=solarized@rebase03}%
+\setbeamercolor{frametitle}{fg = solarized@accent, bg=solarized@rebase02}%
+}
+
+\setbeamercolor{block title example}{fg = solarized@accent, bg=solarized@rebase2}
+\setbeamercolor{block body example}{fg = solarized@rebase00, bg=solarized@rebase3}
+
+% \setbeamercolor{block title}{fg = solarized@accent, bg=solarized@rebase3}
+\setbeamercolor{block body}{fg = solarized@rebase0, bg=solarized@rebase02}
+
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{subtitle}{family=\sffamily}
+
+\setbeamerfont{frametitle}{size=\LARGE}
+
+\hypersetup{
+	colorlinks=true,
+	allcolors=solarized@blue,
+	}
+
+
+%-------- Formating Commands -----------
+
+\setbeamertemplate{itemize item}{\fraq{✥}{\textaq{◊}}}
+\fraq{}{\setbeamerfont{enumerate item}{family = \aqfamily}}
+\fraq{}{\setbeamerfont{enumerate subitem}{family = \aqfamily}}
+
+\newcolumntype{?}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}#1\ignorespaces}
+
+\newcommand{\startexpandframe}{\begin{center}\begin{adjustbox}{scale=100, max width=\linewidth, max height=4.2 cm, valign=c}\begin{varwidth}{\linewidth}\noindent}
+\newcommand{\stopexpandframe}{\end{varwidth}\end{adjustbox}\end{center}}
+
+\newenvironment{expandframe}[1]
+{\begin{frame}{#1}\startexpandframe\ignorespaces}
+{\stopexpandframe\end{frame}}
+
+\newenvironment{tab}{\begin{tabular}{@{}?c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{\,}^c@{}}}{\end{tabular}}
+
+\newcommand{\showfeature}[3][0]{%
+#3%
+\foreach \n in {0,...,#1}{ → {\addfontfeature{#2%
+\ifboolexpe{test {\ifnumless{#1}{1}}}{}{:\n}%
+} #3}}%
+}
+
+\newcommand{\deffeature}[1]{\texttt{\hypertarget{#1}{#1}}}
+\newcommand{\linkfeature}[1]{\texttt{\hyperlink{#1}{#1}}}
+
+\newcommand{\kerningexample}[1]{{\addfontfeature{Kerning=Off} #1} & #1}
+
+
+\newcommand{\Abschnitt}[3]{
+\switchtodark
+\begin{frame}[plain]{}%
+\hypertarget{#1}{}%
+\section{#2}%
+\begin{tikzpicture}[remember picture,overlay]%
+\node at (current page.north west)%
+[anchor=north west, inner sep = 0pt]%
+{\includegraphics[width=\paperwidth]{#3\DTEN{}{_englisch}}};%
+\end{tikzpicture}%
+\end{frame}
+\switchtolight
+}
+
+%---------------------------------------
+
+\usepackage{environ}
+\newsavebox\mybox
+\NewEnviron{beispielblock}{%
+	\sbox{\mybox}{\color{solarized@rebase00}\BODY}%
+	\setlength{\textwidth}{\wd\mybox}%
+	\def\insertblocktitle{}%
+	\begin{center}\unskip%
+		\begin{minipage}{\textwidth}%
+			\usebeamertemplate{block example begin}%
+			\BODY%
+			\usebeamertemplate{block example end}%
+		\end{minipage}
+	\end{center}%
+}{}%
+
+
+%---------------------------------------
+
+\title{Unifraktur Maguntia}
+
+\subtitle{\DTEN{Gebrauchsanweisung}{Manual}}
+\author{Gerrit Ansmann}
+
+
+\begin{document}
+% \switchtolight
+\switchtodark
+
+\def\svgwidth{\paperwidth}
+\begin{frame}[plain]{}%
+\begin{tikzpicture}[remember picture,overlay]%
+\node at (current page.north west)%
+[anchor=north west, inner sep = 0pt]%
+{\input{W_tex.pdf_tex}};%
+\end{tikzpicture}%
+\end{frame}
+
+\switchtolight
+
+
+\newcommand{\formel}[1]{\textcolor{solarized@green}{\texttt{#1}}}
+
+\begin{frame}{\dten{Für Eilige}{Quick and Sometimes Dirty}}
+\dten{Wenn Du Dich nicht durch dieſe Anleitung arbeiten möchteſt, verſuche es mit den vorkonfektionierten Varianten}{If you do not want to read through this manual, try the ready-to-uſe variants} \texttt{UnifrakturMaguntia}\formel{x} \dten{(\hyperlink{vorkonfektioniert}{mehr}):}{(\hyperlink{vorkonfektioniert}{more}):}
+
+
+\begin{itemize}
+	\item \formel{x\,=\,16,\,17,\,18,\,19,\,20}:
+	\dten{Die Schrift ſtellt den Text möglichſt im Schriftſatz des \formel{x}-ten Jahrhunderts dar. Dies beruht ſtark auf OpenType-Features (und funktioniert daher nicht mit jedem Programm) und Heuriſtiken (und iſt daher nicht perfekt).}{The font tries to render your text in (German) \formel{x}th-century typeſetting. This ſtrongly relies on OpenType features (and thus does not work with every program) and heuriſtics (and thus is not perfect).}
+	\item \formel{x\,=\,21}: \dten{Moderne Variante ohne Anſpruch auf hiſtoriſche Korrektheit –~insbeſondere für Leſer, die Fraktur\fraq{\\}{} nicht gewohnt ſind.}{Modern variant ignoring hiſtorical accuracy and aimed at readers\fraq{}{\\} who are not uſed to fraktur.}
+\end{itemize}
+
+\begin{beispielblock}
+	\newcommand{\Beispieltext}{Küss unsre 48 Äxte vor Ivan – etc.}
+	\begin{tabular}{ll}
+% 		~ & \texttt{\Beispieltext} \\
+		\texttt{UnifrakturMaguntia16} & {\fontspec{UnifrakturMaguntia16} \Beispieltext}\\
+		\texttt{UnifrakturMaguntia17} & {\fontspec{UnifrakturMaguntia17} \Beispieltext}\\
+		\texttt{UnifrakturMaguntia18} & {\fontspec{UnifrakturMaguntia18} \Beispieltext}\\
+		\texttt{UnifrakturMaguntia19} & {\fontspec{UnifrakturMaguntia19} \Beispieltext}\\
+		\texttt{UnifrakturMaguntia20} & {\fontspec{UnifrakturMaguntia20} \Beispieltext}\\
+		\texttt{UnifrakturMaguntia21} & {\fontspec{UnifrakturMaguntia21} \Beispieltext}
+	\end{tabular}
+\end{beispielblock}
+
+\end{frame}
+
+
+\begin{frame}{\dten{Über die Unifraktur Maguntia}{About Unifraktur Maguntia}}
+	\dten{Die Unifraktur Maguntia iſt in eine Digitaliſierung der Mainzer Fraktur\fraq{}{\\} von Carl Albert Fahrenwaldt (1901), die um zahlreiche Glyphen erweitert wurde.}{Unifraktur Maguntia is a digitaliſation of the 1901 typeface Mainzer Fraktur\fraq{}{\\} by Carl Albert Fahrenwaldt that has been extended by ſeveral glyphs.}
+	
+	\vfill
+	
+	\dten{Sie ſtrebt die folgenden Paradigmata an:}{It aſpires the following paradigms:}
+	\begin{itemize}
+		\item \dten{Unicode-Konformität}{Unicode conformity}
+		\item \dten{Ausnutzung intelligenter Schriftformate wie OpenType}{Uſage of intelligent font ſtandards ſuch as OpenType}
+		\item \dten{Unterſtützung ſämtlicher Zeichen,\fraq{\\}{} die jemals als Frakturlettern exiſtierten}{Support of all characters which have ever exiſted as fraktur types}
+		\item \dten{Abdeckung des gegenwärtigen Zeichenbedarfs lebender\fraq{\\}{\\} Sprachen, die das lateiniſche Alphabet nutzen –~ſofern\fraq{\\}{\\} nicht mit unverhältnismäßigem Aufwand verbunden}{Support of all currently uſed Latin-baſed alphabets\goodbreak –~unleſs a disproportional effort is required}
+	\end{itemize}
+
+	\vfill
+
+	\dten{Während die erſten Verſionen der Schrift auf einer Digitaliſierung Peter Wiegels baſierten, ſind mittlerweile ſämtliche Glyphen eigens digitaliſiert oder neu gezeichnet worden.}{While the firſt verſions of this font were baſed on a digitaliſation by Peter Wiegel,\fraq{}{\\} all glyphs have been digitaliſed again or been redrawn by now.}
+
+	\vfill
+
+	\dten{Der Name \Begriff{Maguntia} entſtammt einem lateiniſchen Namen Mainz’.}{The name \Begriff{Maguntia} is derived from a Latin name of Mainz.}
+\end{frame}
+
+
+\begin{frame}{\dten{Über dieſe Anleitung}{About this Manual}}
+	\dten{Der Begriff \Begriff{Fraktur} wird hier immer im engeren Sinne verwendet, alſo für eine beſtimmte Untergruppe gebrochener Schriften und nicht\fraq{}{\\} für gebrochene Schriften im Allgemeinen.}{The term \Begriff{fraktur} is uſed in its narrower ſenſe, i.e., for a certain kind\fraq{\\}{} of blackletter fonts and not for blackletter fonts in general.}
+	
+	\vfill
+	
+	\dten{Sofern nicht anders angegeben, baſieren alle Beſchreibungen alter Satzregeln\fraq{}{\\} und -gebräuche auf Beobachtungen hiſtoriſcher Texte\fraq{\\}{} und Wörterbücher.}
+	{Unleſs noted otherwiſe, all deſcriptions of hiſtorical typeſetting conventions\fraq{}{\\} and cuſtoms are baſed on ſurveying actual hiſtorical \fraq{\\}{} texts and dictionaries.}
+	
+	\vfill
+	
+	\dten{Inhaltsverzeichnis:}{Table of contents:}
+		\begin{itemize}
+			\item \hyperlink{glyphs}{\dten{Sprachabdeckung und Zeichenvorrat}{Language ſupport and glyph coverage}}
+			\item \hyperlink{features}{\dten{Frakturſatzregeln und Features der Schrift}{Rules for typeſetting fraktur and font features}}
+			\item \hyperlink{faq}{\dten{Vorweggenommene Fragen (\textaq{FAQ}) und Dankſagung}{Queſtions the author would like to anſwer (\textaq{FAQ}) and acknowledgements}}
+		\end{itemize}
+	
+	\vfill
+	
+	\dten{Dieſe Anleitung iſt mit der \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International Licence} lizenſiert.}
+	{This manual is licenſed under the \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International Licence}.}
+\end{frame}
+
+\Abschnitt{glyphs}{Sprachabdeckung und Zeichenvorrat}{Sonderzeichen}
+
+\begin{frame}{\dten{Unterſtützte aktuelle Alphabete}{Supported Current Alphabets}}
+	\dten{Unifraktur Maguntia deckt die aktuellen lateiniſchen Alphabete\\ der folgenden Sprachen ab:}
+	{The following languages’ current latin-baſed alphabets\\ are covered by Unifraktur Maguntia:}
+	
+
+	\dten{%
+	\begin{multicols}{3}
+		Albaniſch \\
+		Aſerbaidſchaniſch \\
+		Däniſch \\
+		Deutſch \\
+		Engliſch \\
+		Eſperanto \\
+		Eſtniſch \\
+		Färöiſch \\
+		Finniſch \\
+		Franzöſiſch \\
+		Iriſch \\
+		Isländiſch \\
+		Italieniſch \\
+		Katalaniſch \\
+		Latein \\
+		Lettiſch \\
+		Litauiſch \\
+		Luxemburgiſch \\
+		Malteſiſch \\
+		Niederländiſch \\
+		Niederſorbiſch \\
+		Norwegiſch \\
+		Oberſorbiſch \\
+		Polniſch \\
+		Portugieſiſch \\
+		Rumäniſch \\
+		Schwediſch \\
+		Serbokroatiſch\\
+		Slowakiſch \\
+		Sloweniſch \\
+		Spaniſch \\
+		Tſchechiſch \\
+		Türkiſch \\
+		Ungariſch \\
+		Waliſiſch
+	\end{multicols}%
+	}{%
+	\begin{multicols}{3}
+		Albanian \\
+		Azerbaijani \\
+		Catalan \\
+		Czech \\
+		Dansk \\
+		Dutch \\
+		Engliſh \\
+		Eſperanto \\
+		Eſtonian \\
+		Faroeſe \\
+		Finniſh \\
+		French \\
+		German \\
+		Icelandic \\
+		Iriſh \\
+		Italian \\
+		Hungarian \\
+		Latin \\
+		Latvian \\
+		Lithuanian \\
+		Lower Sorbian \\
+		Luxembourgiſh \\
+		Malteſe \\
+		Norwegian \\
+		Poliſh \\
+		Portugueſe \\
+		Romanian \\
+		Serbo-Croatian \\
+		Slovak \\
+		Slovene \\
+		Spaniſh \\
+		Swediſh \\
+		Turkiſh \\
+		Upper Sorbian \\
+		Welſh
+	\end{multicols}%
+	}
+	
+	\smaller[2] 
+
+	\dten{Dieſe Liſte iſt nicht erſchöpfend und läſſt insbeſondere Alphabete aus, die keinen zuſätzlichen Zeichenbedarf gegenüber dem dominanten Alphabet des jeweiligen Landes haben.
+	Endgültige Klarheit über die Unterſtützung einer Sprache kann nur ein Blick in den \hyperlink{zeichen}{Zeichenvorrat} ſchaffen.}
+	{This liſt is not exhauſtive and in particular omits alphabets that do not contain any characters in addition to the reſpective country’s dominant alphabet.
+	To concluſively tell whether a language is ſupported, you need to check the \hyperlink{zeichen}{glyph coverage}.}
+
+\end{frame}
+
+\begin{frame}{\dten{Unterſtützte hiſtoriſche Alphabete}{Supported Hiſtoric Alphabets}}
+	\dten{Im Folgenden ſind hiſtoriſche verwendete Zeichen aufgeliſtet, ſortiert nach den Sprachen, für die ſie verwendet wurden. Außerdem ſind Features aufgeliſtet, die für den hiſtoriſchen Satz der entſprechenden Sprachen von beſonderem Intereſſe ſein können.}
+	{The following is a liſt of hiſtorically uſed characters ſorted by language.\fraq{}{\\}
+	It alſo liſts features that are of particular intereſt for hiſtorically typeſetting\fraq{}{\\} the reſpective languages.}
+
+	\begin{itemize}
+		\item \dten{Deutſch}{German}: Aͤ aͤ Oͤ oͤ ꝛ ſ Uͤ uͤ ů \linkfeature{cv11} \linkfeature{cv12} \linkfeature{cv13} \linkfeature{cv14} \linkfeature{cv15} \linkfeature{ss02} \linkfeature{ss03}
+		\item \dten{Lettiſch}{Latvian}:\fraq{\\}{} {\addfontfeature{CharacterVariant=28} Â â Ê ê Ꞡ ꞡ Î î Ꞣ ꞣ Ł ł łł Ꞥ ꞥ Ô ô Ꞧ ꞧ Ꞩ ꞩ ẜ ẜẜ Û û} \linkfeature{cv28}
+		\item \dten{Norwegiſch}{Norwegian}: Aͤ aͤ Ⱥ ⱥ
+		\item \dten{Tſchechiſch und Slowakiſch}{Czech and Slovak}:\DTEN{\\}{} {\addfontfeature{CharacterVariant=18} ď} ẽ Ǧ ǧ ñ r̃ s̈ {\addfontfeature{CharacterVariant=25} s̈} {\addfontfeature{CharacterVariant=23:2} š} {\addfontfeature{CharacterVariant=18} ť} z̃ \linkfeature{cv16} \linkfeature{cv18} \linkfeature{cv23} \linkfeature{cv25} \linkfeature{cv26} \linkfeature{cv27}
+		\item \dten{Sorbiſch}{Sorbian}:\fraq{\\}{}
+		ȧ ȧ̇ ä á â Ḃ ḃ ƀ b́ Ċ ċ ė é ẽ ê h́ ḱ l̇ Ṁ ṁ ḿ Ṅ ṅ ȯ ô õ Ṗ ṗ ṕ Ṙ ṙ Ŕ ŕ ꝛ ſ Ṡ ṡ Ꞩ ẜ Ś ś u̇   Ẃ ẃ ẏ ÿ Ż ż Z̄ z̄ \linkfeature{cv16} \linkfeature{cv18} \linkfeature{cv24}
+	\end{itemize}
+	
+	\dten{Zeichen, die nicht mit einem eigenen Unicode-Platz verſehen ſind oder über ein Feature angeſteuert werden, können mit Hilfe kombinierender diakritiſcher Zeichen angeſteuert werden.
+	\textsf{W̷} und~\textsf{w̷} können über \texttt{U+E002} und \texttt{U+E003} oder unter Verwendung von \texttt{U+0337} angeſteuert werden.}
+	{Characters that are neither acceſſible via their own Unicode points\fraq{\\}{} nor via a feature\fraq{}{\\} can be acceſſed uſing combining diacritical marks.
+	\textsf{W̷}~and~\textsf{w̷} can be acceſſed\fraq{}{\\} via \texttt{U+E002} and \texttt{U+E003} or uſing \texttt{U+0337}.}
+	
+\end{frame}
+
+
+
+\colorlet{original}{solarized@cyan}
+\colorlet{kompat}{solarized@violet}
+\colorlet{modern}{solarized@red}
+\colorlet{hist}{solarized@yellow}
+\colorlet{sonst}{solarized@rebase00}
+
+\begin{frame}{\dten{Zeichenvorrat – Farben}{Glyph Coverage – Colours}}
+	\hypertarget{zeichen}{}
+	
+	\dten{Auf den folgenden Seiten ſind alle Glyphen aufgeliſtet,\fraq{\\}{} die in der Unifraktur Maguntia enthalten ſind.\fraq{\\}{}
+	Sie ſind folgendermaßen farbkodiert:}
+	{The following pages contain all glyphs of Unifraktur Maguntia.\\ They are colour-coded as follows:}
+	
+	\begin{itemize}
+		\item \color{original} \dten{Glyphen, die in der Mainzer Fraktur enthalten waren\linebreak (wenn auch manchmal mit abweichendem Ausſehen)}{Glyphs which were contained in Mainzer Fraktur\linebreak (ſometimes with a different deſign)}
+		\item \color{kompat} \dten{Glyphen zur Unterſtützung aktueller Texte lebender Sprachen}{Glyphs for ſupport of contemporary texts of living languages}
+		\item \color{hist} \dten{Glyphen, die in irgendeiner hiſtoriſchen Fraktur exiſtierten}{Glyphs contained in ſome hiſtoric fraktur} 
+		\item \textcolor{modern}{\dten{Moderne Varianten}{Modern variants}} \dten{\hyperlink{ss01}{(mehr hierzu)}}{\hyperlink{ss01}{(more information)}}
+		\item \color{sonst} \dten{Sonſtige Glyphen}{Other Glyphs}
+	\end{itemize}
+\end{frame}
+
+\switchtodark
+
+\begin{expandframe}{A, a \dten{und Ähnliche}{and Similar}}%
+	\begin{tab}
+		\rowstyle{\color{kompat}} \color{original} A & Ä & À & Á & Â & Ã & Å & Ā & Ă & Ą \\
+		\rowstyle{\addfontfeature{CharacterVariant=4:0}\color{modern}} A & Ä & À & Á & Â & Ã & Å & Ā & Ă & Ą \\
+		\rowstyle{\addfontfeature{CharacterVariant=4:1}\color{modern}} A & Ä & À & Á & Â & Ã & Å & Ā & Ă & Ą \\
+		\rowstyle{\color{kompat}} \color{original} a & \color{original} ä & à & á & â & ã & å & ā & ă & ą \\
+		\rowstyle{\color{hist}} Aͤ & aͤ & Ⱥ & ⱥ & ȧ & ȧ̇
+	\end{tab}\\
+	\color{kompat} Æ \addfontfeature{CharacterVariant=4:0} \color{modern} Æ \addfontfeature{CharacterVariant=4:1} Æ \color{kompat} æ Ǣ \addfontfeature{CharacterVariant=4:0} \color{modern} Ǣ \addfontfeature{CharacterVariant=4:1} Ǣ \color{kompat} ǣ
+\end{expandframe}
+
+
+\begin{expandframe}{B, b, C, c, D, d, E, e \dten{und Ähnliche}{and Similar}}
+	\color{original} B b \color{hist} Ḃ ḃ ƀ b́\\
+	\color{original} C c \color{kompat} Ç ç Ć ć Ĉ ĉ Ċ ċ Č č \\
+	\color{original} D d \color{kompat} Ď ď {\color{hist}\addfontfeature{CharacterVariant=26:0} ď} \color{kompat} Đ đ \\
+	\color{original} E e \color{kompat} È è É é Ê ê Ë ë \\
+	Ē ē Ĕ ĕ Ė ė ę Ě ě \color{hist} ẽ
+\end{expandframe}
+
+\begin{expandframe}{F, f, G, g \dten{und Ähnliche}{and Similar}}
+	\begin{tab}
+		\color{original} F & \color{original} f & \\
+		\rowstyle{\color{kompat}} \color{original} G & Ĝ & Ğ & Ġ & Ģ & \color{hist} Ǧ & \color{hist} Ꞡ\\
+		\rowstyle{\addfontfeature{CharacterVariant=5:0}\color{modern}} G & Ĝ & Ğ & Ġ & Ģ\\
+		\rowstyle{\color{kompat}} \color{original} g & ĝ & ğ & ġ & ģ & \color{hist} ǧ & \color{hist} ꞡ
+	\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{H, h, I, i, J, j \dten{und Ähnliche}{and Similar}}%
+		\color{original} H h \color{kompat} Ĥ ĥ Ħ ħ \color{hist} h́\\
+		\color{original} I i \color{kompat} Ì ì Í í Î î Ï ï\\
+		Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı\\
+		J \textcolor{original}{j} Ĵ ĵ \hfill Ĳ ĳ Ĳ́ ĳ́%
+\end{expandframe}
+
+
+\begin{expandframe}{K, k, L, l, M, m \dten{und Ähnliche}{and Similar}}
+		\begin{tab}
+			\color{original} K & \color{original} k & \color{kompat} Ķ & \color{kompat} ķ & \color{kompat} ḱ & \color{hist} Ꞣ & \color{hist} ꞣ & \\
+			\rowstyle{\color{modern}\addfontfeature{CharacterVariant={1:0, 6:0}}} K & k & Ķ & ķ & ḱ & \color{sonst} ĸ\\
+			\rowstyle{\color{kompat}} \color{original} L & \color{original} l & Ĺ & ĺ & Ļ & ļ \\
+			\rowstyle{\color{kompat}} Ľ & ľ & Ł & ł & ŀ & \color{hist} l̇ \\
+			\rowstyle{\color{hist}} \color{original} M & \color{original} m & Ṁ & ṁ & ḿ & m̄
+		\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{N, n \dten{und Ähnliche}{and Similar}}
+		\begin{tab}
+			\rowstyle{\color{kompat}} \color{original} N & Ñ & Ń & Ņ & Ň & Ṅ\\
+			\rowstyle{\color{modern}\addfontfeature{CharacterVariant=7:0}} N & Ñ & Ń & Ņ & Ň & Ṅ\\
+			\rowstyle{\color{kompat}} \color{original} n & ñ & ń & ņ & ň & ṅ\\
+			\rowstyle{\color{hist}} Ꞥ & ꞥ & n̄
+		\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{O, o \dten{und Ähnliche}{and Similar}}%
+		\color {original} O o \color{kompat} Ö \color{original} ö \color{kompat} Ò ò Ó ó \\
+		Ô ô Õ õ Ø ø Ō ō \\
+		Õ ŏ Ő ő Ǿ ǿ \color{hist} Oͤ oͤ \\
+		\color{sonst} Ö̀ ö̀ \color{hist} ȯ \color{kompat} \hfill Œ œ
+\end{expandframe}
+
+\begin{expandframe}{P, p, Q, q, R, r \dten{und Ähnliche}{and Similar}}
+	\color{original} P p \color{hist} Ṗ ṗ ṕ \\
+	\color{original} Q q \\
+	\color{original} R r ꝛ \color{kompat} Ŕ ŕ Ŗ ŗ \\
+	Ř ř \color{hist} Ṙ ṙ Ꞧ ꞧ r̃
+\end{expandframe}
+
+\begin{expandframe}{S, ſ, s \dten{und Ähnliche}{and Similar}}
+	\begin{tab}
+		\rowstyle{\color{kompat}} \color{original} S & Ś & Ŝ & Š & Ş & Ș & \color{hist} Ꞩ & \color{hist} Ṡ\\
+		\rowstyle{\color{modern}\addfontfeature{CharacterVariant=8:0}} S & Ś & Ŝ & Š & Ş & Ș \\
+		\rowstyle{\color{hist} \addfontfeature{StylisticSet=17}} \color{original} ſ & ś & ŝ & š & & & ẜ & & \multicolumn{1}{@{}c@{\,}}{\addfontfeature{CharacterVariant=23:2} \color{hist} š}\\
+		\rowstyle{\color{hist} \addfontfeature{StylisticSet=16}} \color{original} s & ś & ŝ & š & \color{kompat} ş & \color{kompat} ș & ꞩ & ṡ & s̈\\
+		\addfontfeature{StylisticSet=1} \color{modern} ſ & \color{kompat} ś & \color{kompat} ŝ & \color{kompat} š & \color{modern}  & \color{modern}  & & \color{hist} ṡ & \color{hist} s̈\\
+	\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{T, t, U, u, V, v \dten{und Ähnliche}{and Similar}}
+	\color{original} T t \color{kompat} Ť ť {\color{hist}\addfontfeature{CharacterVariant=27:0} ť} Ț ț \\
+	\color{original} U u \color{kompat} Ü \color{original} ü \color{kompat} Ù ù Ú ú \\
+	Û û Ũ ũ Ū ū Ŭ ŭ \\
+	Ů ů Ű ű Ų ų\\
+	\color{sonst} Ǜ ǜ \color{hist} Uͤ uͤ u̇
+\end{expandframe}
+
+\begin{expandframe}{V, v, W, w, X, x \dten{und Ähnliche}{and Similar}}
+	\color{original} V v \color{modern}\addfontfeature{CharacterVariant=9} V\\
+	\color{original} W w \color{kompat} Ŵ ŵ Ẁ ẁ\\
+	Ẃ ẃ Ẅ ẅ\\
+	\color{hist} Ẇ ẇ   \\
+	\color{original} X x \color{modern} {\addfontfeature{CharacterVariant=2:0} x} {\addfontfeature{CharacterVariant=2:1} x}
+\end{expandframe}
+
+\begin{expandframe}{Y, y \dten{und Ähnliche}{and Similar}}
+	\begin{tab}
+	\rowstyle{\color{kompat}} \color{original} Y & Ý & Ŷ & Ÿ & Ỳ & Ȳ & \hphantom{Y}\\
+	\rowstyle{\color{modern}\addfontfeature{CharacterVariant=10}} Y & Ý & Ŷ & Ÿ & Ỳ & Ȳ \\
+	\rowstyle{\color{kompat}} \color{original} y & ý & ŷ & ÿ & ỳ & ȳ & \color{hist} ẏ\\
+	\rowstyle{\color{modern}\addfontfeature{CharacterVariant=3}} y & ý & ŷ & ÿ & ỳ & ȳ
+	\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{Z, z, \dten{Ähnliche und ſonſtige Buchſtaben}{Similar and Miſcellaneous Letters}}
+		\color{original} Z z \color{kompat} Ź ź Ż ż\\
+		Ž ž \color{hist} Z̄ z̄ z̃\\
+		\color{kompat} Þ þ \hfill Ə ə
+\end{expandframe}
+
+\begin{expandframe}{\dten{Satz- und Rechenzeichen}{Punctuation and Mathematical Operators}}
+	\color{original} . , ; : - \color{kompat} – \color{original} — ? \color{kompat} ¿ \color{original} ! \color{kompat} ¡ \_ \color{sonst} \textasciitilde{} " '\\
+	\color{original} ( ) [ ] \color{kompat} \{ \} < > / | \color{sonst} \textbackslash{} \color{kompat} \& \color{original} § † \color{kompat} ‡ \\ 
+	\color{kompat} › ‹ » « \color{original} ‚ ‘ ’ „ “ \color{kompat} ” • \color{sonst} · \textcolor{original}{*}  ✥\\
+	\begin{tab}
+		\rowstyle{\color{kompat}} + & − & × & ÷ & ± & = & \# \\
+		\rowstyle{\addfontfeature{Numbers=Uppercase}\color{hist}} + & − & × & ÷ & ± & = & \#
+	\end{tab}
+\end{expandframe}
+
+\begin{expandframe}{\dten{Ziffern}{Numerals}}%
+	\begin{tab}
+		\rowstyle{\color{sonst}\addfontfeature{Numbers={Proportional,Lowercase}}} 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & ‒ \\
+		\rowstyle{\color{sonst}\addfontfeature{Numbers={Monospaced,Lowercase}}} & 1 & & 3 & 4 & & & 7 & & \\
+		\rowstyle{\color{original}\addfontfeature{Numbers={Proportional,Uppercase}}} 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & ‒\\
+		\rowstyle{\color{sonst}\addfontfeature{Numbers={Monospaced,Uppercase}}} 0 & 1 & & & & & & & 8 & \\
+	\end{tab}%
+\end{expandframe}
+
+\begin{expandframe}{\dten{Mehr Zahlen und Ziffern}{More Number Forms}}
+	\color{kompat}%
+	⁰ ¹ ² ³ ⁴ ₀ ₁ ₂ ₃ ₄\\
+	¼ ½ ¾ ⅓ ⅔ \\
+	Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ\\
+	Ⅸ Ⅹ Ⅺ Ⅻ Ⅼ Ⅽ Ⅾ Ⅿ
+\end{expandframe}
+
+\begin{expandframe}{\dten{Sonſtige Sonderzeichen}{Miſcellaneous Characters}}
+	\color{kompat}
+	ª º \% ‰ ‱ ° µ \textcolor{original}{¶}\\
+	€ \$ ¢ £ ¥ © ® ™\\
+	← ↑ → ↓ ↔ \\
+	↖ ↗ ↘ ↙ ↕
+\end{expandframe}
+
+\begin{expandframe}{\dten{Ligaturen}{Ligatures}}%
+	\color{kompat}%
+	\begin{tab}
+	\color{original} ff & \color{original} fi & \color{original} fl & ft & fj & fı & fľ & fĳ\\
+	\color{original} ch & \color{original} ſi & ſl & \color{original} ſt & ſj & & ſľ & ſĳ\\
+	\color{original} ck & ffi & ffl & fft & ffj & ffı & \addfontfeature{CharacterVariant=28}\color{hist} łł & \addfontfeature{CharacterVariant=28}\color{hist} ẜẜ \\
+	\addfontfeature{CharacterVariant=1}\color{modern} ck & ſb & ſh & ſk & ſö & tt & \color{original} tz
+	\end{tab}%
+\end{expandframe}
+
+\Abschnitt{features}{Frakturſatzregeln und Features}{Features}
+
+\begin{frame}{\dten{Ligaturen}{Ligatures}}
+	\hypertarget{ligaturen}{}%
+	
+	\dten{%
+	Im Frakturſatz ſind zwei Klaſſen von Ligaturen zu unterſcheiden:
+	\vfill
+
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item Typografiſche Ligaturen, die dazu dienten, unſchöne Kolliſionen bzw. große Buchſtabenabſtände zu vermeiden, z.\,B. \textsf{fi} oder \textsf{ſl}.\fraq{\\}{}
+		Dieſe Ligaturen ſind über das ſtandardmäßig aktive Feature \texttt{liga} implementiert.
+		
+		\item Die ſogenannten Zwangsligaturen \textsf{ch}, \textsf{ck}, \textsf{ſt}, \textsf{tz} und \textsf{ß}.\fraq{\\}{}
+		Ob \textsf{ß} hierzu zählt oder ein eigener Buchſtabe iſt, hat keine praktiſchen Auswirkungen.
+		Außer \textsf{ß} ſind die Zwangsligaturen\fraq{\\}{} über das ſtandardmäßig aktive Feature \texttt{ccmp} implementiert.
+		
+		Dieſe Ligaturen wurden nicht \hyperlink{sperren}{geſperrt} und waren mit Ausnahme von \textsf{ſt} in faſt allen Frakturſchriften und -texten vorhanden.\fraq{\\}{}
+		\textsf{ck} und \textsf{ß} waren für diejenigen Laute reſerviert, die ſie vorwiegend repräſentieren, und wurden z.\,B. nicht in Wörtern\fraq{}{\\} wie \textbsp{obſzön} oder \textbsp{Ranic\/ki} genutzt.
+	\end{itemize}
+
+	\vfill
+
+	Wie heute auch unterbrachen Wortfugen Ligaturen.
+	Es wurde alſo \textbsp{auf\/legen} und \textbsp{ent\/zwei} ſtatt \textbsp{auflegen} oder \textbsp{entzwei} geſetzt.%
+}{%
+	In fraktur typeſetting, there are two kinds of ligatures:
+	\vfill
+
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item Typographic ligatures, which avoid ugly collions or large gaps between letters, reſpectively, e.g., \textsf{fi} or \textsf{ſl}.
+		Theſe ligatures are implemented in the feature \texttt{liga},\fraq{}{\\} which is uſually activated by default.
+		\item The required ligatures \textsf{ch}, \textsf{ck}, \textsf{ſt}, \textsf{tz} and \textsf{ß}.
+		It does not matter whether \textsf{ß}~is regarded as a ſeparate letter or belonging to this group.
+		Except for~\textsf{ß}, the required ligatures are implemented\fraq{\\}{} in the feature \texttt{ccmp}, which is activated by default.
+		
+		Theſe ligatures were not affected by \hyperlink{sperren}{letter-ſpacing} and except~\textsf{ſt}, they were uſed\fraq{}{\\} in almoſt all fraktur typefaces and texts.
+		\textsf{ck} and~\textsf{ß} were excluſively uſed for the ſounds they typically repreſent and therefore they weren’t uſed in words like \textbsp{obſzön} or \textbsp{Ranic\/ki}.
+	\end{itemize}
+	
+	\vfill
+	
+	Like today, Ligatures weren’t uſed over boundaries in compoſite words.
+	For example,\fraq{}{\\} one would typeſet \textbsp{auf\/legen} and \textbsp{ent\/zwei} inſtead of \textbsp{auflegen} and \textbsp{entzwei}.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]{\dten{Auszeichnungen im Frakturſatz – Sperren}{Emphaſis in Fraktur Typeſetting – Letter-Spacing}}
+		\hypertarget{sperren}{}%
+		\dten{Die gebräuchlichſte Auszeichnung im Frakturſatz war das Sperren, wobei \hyperlink{ligatures}{Zwangsligaturen} intakt belaſſen wurden.
+		Da letztere über das Feature \texttt{ccmp} und nicht \texttt{liga} angeſteuert werden, kann der Sperrſatz einfach implementiert werden.
+		
+		\vfill
+		
+		Mit dem \textaq{LaTeX}-Paket Fontſpec kann beiſpielsweiſe folgendermaßen Sperrſatz anſtelle von fetter Schrift genutzt werden:}
+		{The predominant mode of emphaſis in fraktur typeſetting was letter-ſpacing, which did not affect \hyperlink{ligatures}{required ligatures}, however.\fraq{\\}{}
+		The latter are implmented via the feature \texttt{ccmp} inſtead of \texttt{liga},\fraq{\\}{} which facilitates the implementation of fraktur letter-ſpacing.
+		
+		\vfill
+		
+		For example, uſing the \textaq{LaTeX} package Fontſpec, letter-ſpacing\fraq{\\}{} can be uſed\fraq{}{\\} in place of boldface as follows:}
+
+		\begin{block}{}
+		\begin{verbatim}
+\setsansfont[
+        BoldFont = UnifrakturMaguntia,
+        BoldFeatures = {LetterSpace=8.0, Ligatures=NoCommon, Kerning=Off}
+    ]{UnifrakturMaguntia}
+		\end{verbatim}
+		\end{block}
+
+		\vfill
+
+		\begin{beispielblock}
+			Ach, wie gut, daſs niemand weiß, daſs ich \textbf{Rumpelſtilzchen} heiß!%
+		\end{beispielblock}
+\end{frame}
+
+\begin{frame}{\dten{Auszeichnungen im Frakturſatz – Antiqua}{Emphaſis in Fraktur Typeſetting – Roman Type}}
+	\hypertarget{antiqua}{}
+	\dten{Gewiſſe Fremd- und Lehnwörter wurden im Frakturſatz\fraq{\\}{} in Antiqua geſetzt,\fraq{}{\\} wobei der Duden empfahl:}
+	{Certain loaned and foreign words were ſet in roman type in fraktur typeſetting.\fraq{}{\\}
+	The Duden dictionary recommended for the German language:}
+
+	\begin{itemize}
+		\item \dten{Wörter aus romaniſchen Sprachen (Latein, Franzöſiſch,~…)\fraq{\\}{} in Antiqua zu ſetzen, ſofern ſie nicht deutſch gebeugt, ausgeſprochen oder zuſammengeſetzt wurden (ohne Bindeſtrich),}
+		{Uſe roman type for words from Romance languages (Latin, French,~…),\fraq{}{\\} unleſs their pronunciation or inflection is German\fraq{\\}{} or they are part\fraq{}{\\} of an unhyphenated word compoſition.}
+		\item \dten{Perſonen- und Ortsnamen nie in Antiqua zu ſetzen,}
+		{Never uſe roman type for names of perſons or places.}
+		\item \dten{die Abkürzungen \textaq{Dr.}, \textaq{Lic.} und \textaq{Mag.} ſowie ähnliche wie \textaq{Dr.~rer.~nat.}\fraq{\\}{} in Antiqua zu ſetzen, nicht jedoch \textsf{Prof.}, \textsf{Dr.-Ing.}, \textsf{Doktor}, \textsf{Magiſter} oder \textsf{Lizentiat}.}
+		{Uſe roman type for the abbreviations \textaq{Dr.}, \textaq{Lic.} and \textaq{Mag.}\fraq{\\}{} as well as ſimilar ones ſuch as \textaq{Dr.~rer.~nat.}, but not for\fraq{\\}{} \textsf{\,Prof.}, \textsf{Dr.-Ing.}, \textsf{Doktor}, \textsf{Magiſter} or \textsf{Lizentiat}.}
+	\end{itemize}
+	
+	\vspace{-\baselineskip}
+	
+	\begin{beispielblock}
+		\begin{tabular}{c}
+		Im \textaq{Grand Hôtel} von Chalon-ſur-Saône frönte Prof. \textaq{Dr.} François Dupont\\
+		dem Dolcefarniente bei \textaq{Crêpes}, Horsd’œuvres und \textaq{Vol-au-Vents}.
+		\end{tabular}
+	\end{beispielblock}
+	
+	\vfill
+
+	\dten{Akronyme aus Großbuchſtaben wurden gelegentlich in Antiqua geſetzt,\fraq{}{\\} aber überwiegend gänzlich vermieden.}{Roman type was occaſionally uſed for all-caps acronyms, but moſtly thoſe were avoided altogether.}
+
+	\begin{beispielblock}
+		Direkt nach dem Abc lernte er das \textaq{CGS}-Maßſyſtem.
+	\end{beispielblock}
+
+\end{frame}
+
+\begin{frame}{\dten{Auszeichnungen im Frakturſatz – Verſalſatz}{Emphaſis in Fraktur Typeſetting – All Caps}}
+	\hypertarget{versalsatz}{}%
+	\dten{Verſalſatz (nur Großbuchſtaben) wurde vor allem in alten religiöſen \fraq{Tex-\\ten}{Texten} für \Begriff{Gott}, \Begriff{Jeſus} u.\,Ä. ſowie zugehörige Pronomen verwendet:}
+	{All caps were particularly uſed in old religious texts for \Begriff{God}, \Begriff{Jeſus} and ſimilar as well as\fraq{}{\\} for pronouns referring to them:}
+	
+	\begin{beispielblock}
+		\DTEN{GOTT, der HERR, ſprach zu SEINEM Sohn, JESUS.}{GOD, the LORD, ſpoke to JESUS, HIS ſon.}
+	\end{beispielblock}
+	
+	\dten{Alternativ wurden nur die erſten beiden Buchſtaben großgeſchrieben:}
+	{In a variant of this, only the firſt two letters were capitaliſed:}
+	
+	\begin{beispielblock}
+		\DTEN{GOtt, der HErr, ſprach zu SEinem Sohn, JEſus.}{GOd, the LOrd, ſpoke to JEſus, HIs ſon.}
+	\end{beispielblock}
+	
+	\dten{Gelegentlich wurden auch Teile von Titelſeiten verſal geſetzt.}
+	{Moreover, ſometimes parts of title pages were ſet in all caps.}
+	
+	\vfill~\vfill
+	
+	\dten{Im Allgemeinen iſt aber von der Verwendung des Verſalſatzes\fraq{\\}{} in Frakturtexten abzuraten, da er ſelbſt für geübte Frakturleſer\fraq{\\}{} nur mit Mühen zu ent\/ziffern iſt:}
+	{In general, uſing all-caps fraktur is not recommended as even\fraq{\\}{} trained fraktur readers\fraq{}{\\} have trouble deciphering it:}
+	\begin{beispielblock}
+		\DTEN{DIESER TEXT IST GRAUENVOLL ZU LESEN.}
+		{THIS TEXT IS HIGHLY UNPLEASANT TO READ.}
+	\end{beispielblock}
+	\dten{So wurden auch Akronyme aus Großbuchſtaben meiſtens entweder vermieden oder\fraq{}{\\} \hyperlink{antiqua}{in Antiqua} geſetzt.}
+	{Accordingly, all-caps acronyms were moſtly either avoided or ſet\fraq{\\}{} \hyperlink{antiqua}{in roman type}.}
+\end{frame}
+
+\begin{frame}{\dten{Auszeichnungen im Frakturſatz – Andere}{Emphaſis in Fraktur Typeſetting – Others}}
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item \dten{Gelegentlich wurden andere, fettere gebrochene Schriften oder ein fetter Schnitt derſelben Fraktur zur Auszeichnung verwendet.}
+		{Sometimes, other, bolder blackletter typefaces or a bolder variant of the ſame typeface were uſed for emphaſis.}
+		\item \dten{Es exiſtieren einzelne ſchräggeſellte Frakturen;\\ dieſe haben ſich in der Anwendung jedoch nie durchgeſetzt.}
+		{There are a few ſlanted fraktur typefaces,\fraq{\\}{} which however never took hold.}
+		\item \dten{Eine Schwabacher \textbf{mit gleichem Schriftgewicht} wurde nur ſelten zur Auszeichnung verwendet, meiſtens für Eigennamen o. Ä.
+		Die Einſchränkung auf derartige Anwendungen liegt vermutlich darin begründet, daſs viele Kleinbuchſtaben\fraq{}{\\} und damit gewiſſe kleingeſchriebene Wörter kaum von ihren unausgezeichneten Gegenſtücken zu unterſcheiden geweſen wären, während die Großbuchſtaben hinreichend unterſchiedlich waren.}
+		{An \textbf{equal-weight} ſchwabacher was rarely uſed for emphaſis, moſtly for proper names or ſimilar.
+		The reſtriction to ſuch an application was probably due the fact that certain lowercaſe letters and thus certain uncapitaliſed words were hardly diſtinguiſhable from there fraktur counterparts, while\fraq{\\}{} the uppercaſe letters were ſufficiently diſtinct.}\\[0.5\baselineskip]
+
+		\dten{Die im Internet kurſierende Behauptung, daſs Schwabacher neben Sperren\fraq{}{\\} \textbf{die} Auszeichnungsmethode im Frakturſatz war, konnte ich weder durch Beiſpiele noch durch zeitgenöſſiſche Quellen beſtätigen.}
+		{Neither with ſamples nor hiſtorical ſources could I confirm\fraq{\\}{} the common claim that, beſides letter-ſpacing, ſchwabacher\fraq{\\}{} was the predominant method for emphaſis in fraktur typeſetting.}
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{\dten{Das lange~s im Deutſchen – Vorwort}{The Long~S in German – Preface}}
+	\dten{Die auf den folgenden Seiten angegebenen Regeln beſchreiben die Schreibung\fraq{}{\\} in Wörterbüchern des frühen 20.~Jahrhunderts, die ſich\fraq{\\}{} in Hinblick auf das lange~s\fraq{}{\\} zuletzt nicht weſentlich geändert hatte.
+	
+	\vfill
+	
+	Einige Vorbemerkungen und Definitionen:
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item Die Kenntnis der gewünſchten ß-Schreibung\fraq{\\}{} (Adelung/alt oder Heyſe/neu)\fraq{}{\\} wird vorausgeſetzt.
+		\item Eine Grundtendenz iſt, daſs das \textsf{ſ} Vorrang hat.
+		Dadurch\fraq{\\}{} bedingt erfordern\fraq{}{\\} öfters mehrere der folgenden Regeln ein \textsf{ſ}.
+		\item \Begriff{Sinntragende Einheit} bezeichnet Wörter, Teilwörter, Vorſilben, Nachſilben (Morpheme ohne Flexionsmorpheme), auch wenn die Einheiten bereits zuſammengefügt ins Deutſche entlehnt wurden.
+	\end{itemize}
+	}{
+	The following rules capture the ſpelling of dictionaries from\fraq{\\}{} the early 1900s,\fraq{}{\\} which had not undergone a recent change\fraq{\\}{} affecting the uſage of the long~s.
+	
+	\vfill
+	
+	Some preliminary remarks and defintions:
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item Knowing the ß ſpelling paradigm of your choice\fraq{\\}{} (old/Adelung or new/Heyſe)\fraq{}{\\} is regarded as a prerequiſite.
+		\item In general, \textsf{ſ}~has precedence over~\textsf{s} and thus a given \textsf{ſ}\fraq{\\}{\\} is often required by more than one rule.
+		\item A \Begriff{meaningful unit} denotes a non-inflectional morpheme,\fraq{\\}{\\} i.e., a word, part of a compoſite word, prefix, or ſuffix.\fraq{\\}{\\}
+		This alſo applies if compoſites that were loaned as a whole.
+	\end{itemize}
+	}
+\end{frame}
+
+\newcommand{\herkunftfr}[1]{\dten{(von~\textsf{#1})}{(from \textsf{#1})}}
+\newcommand{\herkunftaq}[1]{\dten{(von~\textaq{#1})}{(from \textaq{#1})}}
+\newcommand{\herkunftgr}[1]{\dten{(von~\textgr{#1})}{(from \textgr{#1})}}
+
+\begin{frame}{\dten{Das lange~s im Deutſchen – Regeln, Teil 1}{The Long~S in German – Rules, Part 1}}
+	\dten{1) \textsf{ſ} ſteht am Anfang ſinntragender Einheiten.
+	Dies gilt auch,\fraq{\\}{} falls eines von zwei~\textaq{s}\fraq{}{\\} an einer Morphemgrenze entfallen iſt.}
+	{1) \textsf{ſ} is uſed at the beginning of meaningful units.\fraq{}{\\}
+	This alſo applies\fraq{\\}{} if two~\textaq{s} were merged into one at a morpheme boundary.}
+	
+	\begin{exampleblock}{}
+		ſieben, ſtill, ſpät, kreiſte, ſchwarz, ſkandalös, ſlawiſch, ſzeniſch, wieſo, Wildſau, Anſatz, Schickſal, Botſchaft, Neckarſulm, Weilerſwiſt,\\
+		Aſbeſt \herkunftgr{ἄ-σβεστος},
+		Aſphalt \herkunftgr{ἀ-σφαλής},
+		tranſzendent \herkunftaq{tran(s)-scandere},
+		Diſtrikt \herkunftaq{di(s)-strictus},
+		Jablonſki, Skłodowſka
+	\end{exampleblock}
+	
+	\vfill
+	
+	\dten{2) \textsf{ſ} ſteht im Silbenanlaut.}
+	{2) \textsf{ſ} is uſed before the vowel of a ſyllable.}
+	\begin{exampleblock}{}
+		roſig, Leſung, Raſerei, Tranſit, Proſodie, Pſyche, Tſingtau, Cſárdás
+	\end{exampleblock}
+	
+	\vfill
+	
+	\dten{3) \textsf{ſ} ſteht in Buchſtabengruppen, die eine geſonderte Ausſprache kennzeichnen,\fraq{}{\\} wie \textaq{sch} oder \textaq{ss} (Digraph, Trigraph, …), es ſei denn,\fraq{\\}{} es iſt der letzte Buchſtabe\fraq{}{\\} der Gruppe \textbf{und} der ſinntragenden Einheit.}
+	{3) \textsf{ſ} is uſed in groups of letters denoting a ſpecial pronunciation (digraph, trigraph, …).
+	This does not apply, if the \textaq{s} is the laſt letter\fraq{\\}{} of the group \textbf{and} of a meaningful unit.}
+	\begin{exampleblock}{}
+		Fiſch, laſſen, aſſoziieren, Diſſertation, Squaſh, Krzyſztof, Cſárdás\\
+			\dten{aber:}{but:} daſs, häſslich \dten{(nach Heyſe)}{(Heyſe ſpelling)};
+			Ischias \dten{(kein ſch-Laut)}{(no ſch ſound)}
+	\end{exampleblock}
+	
+
+\end{frame}
+
+\begin{frame}{\dten{Das lange~s im Deutſchen – Regeln, Teil 2}{The Long~S in German – Rules, Part 2}}
+	\dten{4) \textsf{ſ} ſteht \textbf{innerhalb} ſinntragender Einheiten, wenn ein \textsf{p}, \textsf{t} oder \textsf{z} folgt.}
+	{4) \textsf{ſ} is uſed in the middle of meaningful units,\fraq{\\}{} if the following letter is \textsf{p}, \textsf{t} or \textsf{z}.}
+	\begin{exampleblock}{}
+		Leiſtung, Weſpe, laſziv, Feſt, brauſte
+		
+		\dten{aber:}{but:} Maske, grotesk, Roswitha, Zynismus, Dresden, lesbiſch, Gleisner, Kosmos, Oslo, Esquire, Esra \dten{(kein \textsf{p}, \textsf{t} oder \textsf{z} folgt)}{(not followed by \textsf{p}, \textsf{t} or \textsf{z})}
+		
+		Samstag, Bistum, Disput, Transport \dten{(Ende ſinntragender Einheit)}{(end of the meaningful unit)}
+	\end{exampleblock}
+
+	\vfill
+	
+	\dten{5) \textsf{ſ} ſteht vor einem ausgelaſſenen tonloſen~e (Schwa).}
+	{5) \textsf{ſ} is uſed before an omitted reduced~e (ſchwa, /\fraq{ə}{\rotatebox[origin=c]{180}{e}}/).}
+	\begin{exampleblock}{}
+		unſre \herkunftfr{unſere}, Drechſler \herkunftfr{Drechſeler}, Pilſner \herkunftfr{Pilſener}
+	\end{exampleblock}
+	
+	\vfill
+	
+	\dten{6) In allen anderen Fällen ſteht~\textsf{s}.}
+	{6) In all other caſes, \textsf{s} is uſed.}
+	\begin{exampleblock}{}
+		das, bis, Haus, lies, Aasgeier, Blaskapelle, Drecksvieh, deshalb, Samstag, grasgrün, löslich, Wachstum, Häuschen, Ausfahrt, dasſelbe, Phosphor \herkunftgr{φωσ-φόρος}
+	\end{exampleblock}
+\end{frame}
+
+
+
+
+\begin{frame}{\dten{Das lange~s im Deutſchen – Anmerkungen}{The Long~S in German – Notes}}
+	\dten{%
+	\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item In nur etwa einem von fünfhundert Fällen iſt folgende Vereinfachung der Regeln nicht ausreichend:\fraq{}{\\}
+		\textsf{s} ſteht am Ende getrennt geſprochener ſinntragender Einheiten; ſonſt ſteht \textsf{ſ}.
+		\item Bei einer ſehr kleinen Menge von Wörtern wurde \textbf{überwiegend} von den obigen Regeln abgewichen, und zwar
+		\textsf{Iſlam, Iſmael, Iſrael} und \textsf{Moſlem}.\fraq{}{\\}
+		Es gab aber auch Wörterbücher, die die jeweils andere Schreibweiſe (mit~\textsf{s}) empfahlen oder gar in ſich inkonſiſtent waren.
+		\item Es gibt heut\/zutage keine Grundlage, die generelle Verwendung des langen~s\fraq{}{\\} in Frakturtexten als einzig richtig anzuſehen:
+		\begin{itemize}
+			\item In den Rechtſchreibregeln findet ſie keine Erwähnung mehr.
+			\item Eine Leſeerleichterung ſtellt ſie nur noch für äußerſt wenige dar.
+			\item Der vorherrſchende Standard iſt ſie auch nicht mehr.
+		\end{itemize}
+		\item Die Lang-s-Regeln des aktuellen Duden liefern im Weſentlichen dieſelben Ergebniſſe wie die hier angegebenen Regeln ohne Einbeziehen des~\textsf{z} in Regel~4.\fraq{}{\\}
+		Sie führen alſo z.\,B. zu \textbsp{lasziv} ſtatt \textbsp{laſziv}.
+	\end{itemize}%
+	}{%
+		\begin{itemize}
+		\setlength{\itemsep}{\fill}
+		\item The following rule of thumb fails only in one of about five hundred caſes:\fraq{}{\\}
+		\textsf{s}~is uſed at the end of ſeperately pronounced meaningful units; otherwiſe \textsf{ſ} is uſed.
+		\item The ſpelling of a very ſmall ſet of words \textbf{uſually} deviated\fraq{\\}{} from the above rules:
+		\textsf{Iſlam, Iſmael, Iſrael} and \textsf{Moſlem}.\fraq{\\}{}
+		Some dictionaries recommended\fraq{}{\\} the alternative ſpelling (with~\textsf{s}) or were even inconſiſtent.
+		\item Nowadays, there is no baſis for regarding uſing\\ the long~s in blackletter texts as excluſively correct:
+		\begin{itemize}
+			\item The official ſpelling rules do not mention the long~s. 
+			\item Only for very few people, if any, does it make texts eaſier to read.
+			\item Uſing the long~s for blackletter not prevalent anymore.
+		\end{itemize}
+		\item The rules for long-s ſpelling in the current Duden dictionary yield the ſame reſults as our ones, except for omitting~\textsf{z} in rule~4.
+		They thus yield, e.g., \textbsp{lasziv} inſtead\fraq{}{\\} of \textbsp{laſziv}.
+	\end{itemize}%
+	}
+\end{frame}
+
+
+
+\newcommand{\vwc}[1]{\begin{varwidth}{0.3\textwidth}\begin{center}#1\end{center}\end{varwidth}}
+
+\begin{frame}{\dten{Das lange~s im Deutſchen – Heuriſtik}{The Long~S in German – Heuriſtic}}
+	\dten{Charaktervariante~11 (\deffeature{cv11}/\deffeature{ss11}) aktiviert eine Heuriſtik, die anhand\\ des vorangehenden und nachfolgenden Zeichens entſcheidet, ob ein \textaq{s}\fraq{}{\\} rund oder lang iſt.
+	Sie liegt bei ca.~0,7\,\% aller~\textaq{s} falſch.
+	Zu ihrer Korrektur\fraq{}{\\} kann ein Bindehemmer eingeſetzt werden (vor \textsf{ſ}, nach \textsf{s}).}
+	{Character Variant~11 (\deffeature{cv11}/\deffeature{ss11}) activates a heuriſtic that \fraq{\\}{} decides whether an \textaq{s}\fraq{}{\\} ſhould be \textsf{s} or \textsf{ſ} on baſis of the preceding\fraq{\\}{} and ſucceeding letter.
+	It fails for about\fraq{}{\\} 0.7\,\% of all~\textaq{s}.
+	It can be corrected with a zero-width non-joiner (before \textsf{ſ}, after \textsf{s}).}
+
+	\vfill~
+
+	\setlength{\extrarowheight}{0.5\baselineskip}
+	\newlength{\kopfspaltenbreite}
+	\setlength{\kopfspaltenbreite}{\widthof{\fraq{\dten{Vokale außer \textsf{u}~}{vowels except \textsf{u}~}}{b\,d\,f\,h\,k\,l\,r\,ſ\,t\,u~}}}
+	\begin{tabular}{@{}l@{~}||@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|@{~}c@{~}|@{~}c@{}}
+		\diagbox[width=\kopfspaltenbreite, height=5em, trim=l]{\dten{vor}{before}}{\dten{nach}{after}} &
+		a\,c\,t &
+		\vwc{e\,i\,o\,u\,y\,ä\,ö\,ü\,p \\ \strut\textsmaller{\dten{und ſonſtige\\ Minuskelvokale}{and other lowercaſe vowels}}} &
+		k\,r &
+		\vwc{b\,d\,f\,g\,h\,j\,l\,m\\n\,q\,v\,w\,x\,z\,ß\,.\,’\\ \smaller \dten{und ſonſtige\\ Minuskel\fraq{-\\ }{}konſonanten}{and other\fraq{}{\\} lowercaſe conſonants}} &
+		ſ s &
+		\vwc{\dten{ſonſtige}{other}}\\\hline
+		
+		g &
+		ſ & s & s & s & s & s \\
+		
+		\vwc{\dten{Vokale außer \textsf{u}}{vowels except~\textsf{u}}} &
+		ſ & ſ & s & s & ſ & s \\
+		
+		b\,d\,f\,h\,k\,l\,r\,ſ\,t\,u &
+		ſ & ſ & s & s & s & s \\
+		
+		c\,j\,m\,n\,p\,q\,v\,w &
+		ſ & ſ & ſ & s & s & s \\
+		
+		\dten{ſonſtige}{other} &
+		ſ & ſ & ſ & ſ & ſ & s \\
+		
+	\end{tabular}
+
+\end{frame}
+
+\begin{frame}{\dten{Das lange~s in anderen Sprachen}{The Long~S in Other Languages}}
+	\dten{Im Gegenſatz zum Deutſchen waren in anderen weſteuropäiſchen Sprachen \textbf{eher} typografiſche als morphologiſche Kriterien dafür ausſchlaggebend, ob ein langes oder rundes~s geſetzt wurde.
+	Andrew Weſt berichtet auf ſeinem Blog \href{http://babelstone.blogspot.de/2006/06/rules-for-long-s.html}{Babelſtone} ausführlich von ſeinen Funden hierzu, aus denen ich folgendes, vorwiegende Schema ableite:}
+	{In Weſt European languages other than German, the diſtinction between the long\fraq{}{\\} and round~s was rather a typographical than\fraq{\\}{} a morphological one.
+	Andrew Weſt\fraq{}{\\} gives a meticulous account\fraq{\\}{} of his findings on this on his blog \href{http://babelstone.blogspot.de/2006/06/rules-for-long-s.html}{Babelſtone},\fraq{}{\\} from which\fraq{\\}{} I hypotheſiſe following:}
+	
+	\dten{%
+	\begin{itemize}
+		\item Am Wortende ſteht ausſchließlich~\textsf{s}.
+		\item Anſonſten ſteht~\textsf{ſ}, es ſei denn, nur ein großer Leerraum zwiſchen\fraq{}{\\} \textsf{ſ}~und dem folgenden Zeichen hätte eine Kolliſion vermieden\\ und es ſtand auch keine entſprechende Ligatur zur Verfügung.
+	\end{itemize}%
+	}{%
+	\begin{itemize}
+		\item At the end of a word, only \textsf{s} was uſed.
+		\item Otherwiſe \textsf{ſ} was uſed, except if only a big gap could\fraq{\\}{} have avoided a colliſion\fraq{}{\\} of \textsf{ſ} and the following glyph\fraq{\\}{} and the reſpective ligature was not available.
+	\end{itemize}%
+	}
+	
+	\dten{\textbf{Demnach} wurde das engliſche Wort \Begriff{husband} \textbsp{huſband} geſchrieben, wenn eine \textsf{ſb}-Ligatur zur Verfügung ſtand, aber ſonſt \textbsp{husband},\fraq{\\}{} um das unſchöne \textbsp{huſ\/band} zu vermeiden.\fraq{}{\\}
+	Es wurde aber in beiden Fällen am Zeilenende \textbsp{huſ-band} getrennt, da \textsf{ſ} und~\textsf{-} nicht kollidierten.}
+	{According to this, the Engliſh word \textaq{husband} would have been typeſet \textbsp{huſband}\fraq{}{\\} if an \textsf{ſb}-ligature was available.
+	Otherwiſe it would have been typeſet \textbsp{husband}\fraq{}{\\} to avoid the ugly \textbsp{huſ\/band}.
+	Either way,\fraq{\\}{} it was hyphenated \textbsp{huſ-band}\fraq{}{\\} as \textsf{ſ} and~\textsf{-} do not collide.}
+\end{frame}
+
+\begin{frame}{\dten{Sonſtige Eigenheiten des Frakturſatzes}{Miſcellaneous Features of Fraktur Typeſetting}}
+	\dten{Für alle heutigen Verwendungen des Halbgeviertſtrichs\fraq{\\}{} (Gedanken-,\fraq{}{\\} Strecken-, Bisſtrich u.\,Ä.) wurde im Frakturſatz\fraq{\\}{} der Geviertſtrich genutzt.\fraq{}{\\}
+	Charaktervariante~19 (\deffeature{cv19}) erſetzt\fraq{\\}{} alle Halbgeviert- durch Geviertſtriche.}
+	{In fraktur typeſetting, an em daſh was uſed for all current uſes\fraq{\\}{} of the en daſh.\fraq{}{\\}
+	Character variant~19 (\deffeature{cv19}) automatically replaces\fraq{\\}{} en daſhes with em daſhes.}
+		
+	\providecommand{\Beispieltext}{\DTEN{Island–Peru – 15 Tore in Minute 27–36}{Iceland–Peru – 15 goals in minutes 27–36}}
+	\begin{beispielblock}
+		\begin{tabular}{l@{ }r@{~}l}
+			\texttt{cv19:} & & \Beispieltext\\
+			& → & \addfontfeature{CharacterVariant=19} \Beispieltext
+		\end{tabular}
+	\end{beispielblock}
+	
+	\vfill
+	
+\end{frame}
+
+\begin{frame}{\dten{Was vor der Fraktur ausſtarb –~das runde~r}{What Died Out Before Fraktur –~The Round~R}}
+	\dten{Das runde r (\textsf{ꝛ}) wurde ſtatt des normalen~r in frühen Frakturtexten hinter gewiſſen Buchſtaben genutzt, und zwar:
+	\begin{itemize}
+		\item Buchſtaben, die zwiſchen Grund- und Mittel\/linie nach rechts\fraq{\\}{} rund abſchloſſen,\fraq{}{\\} wie \textsf{B}, \textsf{D}, \textsf{G}, \textsf{O}, \textsf{P}, \textsf{b}, \textsf{d}, \textsf{h}, \textsf{o} und \textsf{p};
+		\item \textsf{r} und \textsf{ꝛ} (es gibt hierfür aber auch Gegenbeiſpiele).
+	\end{itemize}
+	Charaktervariante~12 (\deffeature{cv12}) erſetzt in dieſen Fällen das normale~r\fraq{\\}{} durch das runde:}
+	{In early fraktur texts, the round~r (\textsf{ꝛ}) replaced the regular~r\fraq{\\}{} after certain characters, namely:
+	\begin{itemize}
+		\item Letters that were round to the right between baſeline\fraq{\\}{} and midline\fraq{}{\\} ſuch as \textsf{B}, \textsf{D}, \textsf{G}, \textsf{O}, \textsf{P}, \textsf{b}, \textsf{d}, \textsf{h}, \textsf{o} and \textsf{p};
+		\item \textsf{r} and \textsf{ꝛ} (there are counterexamples for theſe though).
+	\end{itemize}
+	Character variant~12 (\deffeature{cv12}) automatically performs this replacement:
+	}
+
+	\begin{beispielblock}
+		\texttt{cv12:} \showfeature{CharacterVariant=12}{Herr Hrdlic\/ka fror in Syrien.}
+	\end{beispielblock}
+	
+	\vfill
+	
+	\dten{Bis etwa 1900 wurde das runde~r auch anſtelle von \textbsp{et} in der Abkürzung \textbsp{etc.} genutzt.
+	Dieſe Verwendung rührt von der Ähnlichkeit des runden~r mit dem tironiſchen Et her\fraq{}{\\} und überlebte ironiſcherweiſe das runde~r in ſeiner urſprünglichen Verwendung.\fraq{}{\\}
+	Dieſe Erſetzung iſt als hiſtoriſche Ligatur (\deffeature{hlig}) implementiert.%
+	}{%
+	The round~r was alſo uſed to replace \textbsp{et} in the abbreviation \textbsp{etc.}
+	This uſage originated from the round~r’s ſimilarity to the Tironian Et and ſurvived until ca. 1900 and hence, ironically, the round~r in its orig\fraq{-\\}{}inal uſe.
+	This replacement is automated via a hiſtorical ligature (\deffeature{hlig}).%
+	}
+	
+	\begin{beispielblock}
+		\texttt{hlig:} \showfeature{Ligatures=Historic}{etc.}
+	\end{beispielblock}
+\end{frame}
+
+\begin{frame}{\dten{Was vor der Fraktur ausſtarb –~alte Umlaute}{What Died Out Before Fraktur –~Old Umlauts}}
+	\dten{%
+	Die heutigen Umlautpunkte entſtammen einem kleinen~\textsf{e}, das bis ins 19.~Jahrhundert über den jeweiligen zugrundeliegenden Kleinbuchſtaben geſetzt wurde, alſo z.\,B.~\textsf{aͤ}.\fraq{}{\\}
+	Die Großbuchſtaben der Umlaute kamen hingegen erſt um die Wende zum 20.~Jahr\fraq{}{-\\}hundert überhaupt auf\fraq{\\}{} und wurden vorher durch den Grundbuchſtaben plus~\textsf{e} dargeſtellt,\fraq{\\}{} alſo z.\,B.~\textsf{Ae}. Ein kleines~\textsf{e} über Großbuchſtaben wurde nur vereinzelt genutzt.
+	}{%
+	Today’s umlaut dots originate from a ſmall~\textsf{e} that was placed above the reſpective\fraq{}{\\} baſic letter up to the 19\textsuperscript{th} century, e.g.~\textsf{aͤ}.
+	Capital umlauts, however, emerged only\fraq{}{\\} at the beginning of the 20\textsuperscript{th} century. Before,\fraq{\\}{} the baſic capital letter plus~\textsf{e} was uſed, e.g.~\textsf{Ae}.
+	There are only\fraq{\\}{} few examples of a ſmall~\textsf{e} over a capital letter.
+	}
+
+	\vfill~\vfill
+	
+	\dten{%
+	\begin{itemize}
+		\item Charaktervariante~15 (\deffeature{cv15}) erſetzt die Umlautpunkte\fraq{\\}{\\} durch ein kleines~\textsf{e}, auch über Großbuchſtaben.
+		\item Charaktervariante~14 (\deffeature{cv14}) erſetzt die Umlaut-\fraq{\\}{}Großbuchſtaben durch\fraq{}{\\} den Grundbuchſtaben plus~\textsf{e}\fraq{\\}{} und hat Priorität über Charaktervariante~15.
+	\end{itemize}%
+	}{%
+	\begin{itemize}
+		\item Character Variant~15 (\deffeature{cv15}) replaces the umlaut dots\fraq{\\}{} with a ſmall~\textsf{e},\fraq{}{\\} even over capital letters.
+		\item Character variant~14 (\deffeature{cv14}) replaces the capital umlauts\fraq{\\}{} with the reſpective\fraq{}{\\} baſe letter plus~\textsf{e} and has priority\fraq{\\}{} over Character Variant~15.
+	\end{itemize}%
+	}
+	
+	\vfill
+	
+	\begin{beispielblock}
+		\begin{tabular}{l@{ }l}
+			\texttt{cv15:} & \showfeature{CharacterVariant=15}{Übergrößengeſchäft} \\
+			\texttt{cv14:} & \showfeature{CharacterVariant=14}{Übergrößengeſchäft} \\
+			\texttt{cv14+cv15:} & \showfeature{CharacterVariant={14,15}}{Übergrößengeſchäft}
+		\end{tabular}
+	\end{beispielblock}
+
+\end{frame}
+
+\begin{frame}{\dten{Was vor der Fraktur ausſtarb –~IJ-Vereinigung}{What Died Out Before Fraktur –~I–J Merger}}
+	\dten{Bis ins frühe 20.~Jahrhundert wurde nicht zwiſchen den Großbuchſtaben \textsf{I} und~\textsf{J} unterſchieden und für beide \textsf{J}\fraq{\\}{} genutzt.
+	Charaktervariante~13 (\deffeature{cv13}) implementiert dies:
+	}{%
+	Until the early 20\textsuperscript{th} century, there was no diſtinction between\fraq{\\}{} the capital letters \textsf{I} and~\textsf{J} and both were written as~\textsf{J}.\fraq{\\}{}
+	Character Variant~13 (\deffeature{cv13}) implements this:
+	}
+	
+	\begin{beispielblock}
+		\texttt{cv13:} \showfeature{CharacterVariant=13}{Im Juni in Ingolſtadt}
+	\end{beispielblock}
+	
+	\vfill
+	
+	\dten{In einigen frühen Frakturtexten wurde~\textsf{j} am Wortanfang ſowohl\fraq{\\}{} für~i als auch für~j genutzt, während im Wortinnern~\textsf{i} für beide\fraq{\\}{} genutzt wurde.
+	Das ſtiliſtiſche Set~3 (\deffeature{ss03}) implementiert dieſes\fraq{\\}{} zuſammen mit der I-J-Vereinigung.%
+	}{%
+	In ſome early fraktur texts,~\textsf{j} was uſed at the beginning of a word\fraq{\\}{} for both, i and~j,\fraq{}{\\} while everywhere elſe \textsf{i} was uſed for both.\fraq{\\}{}
+	Styliſtic Set~3 (\deffeature{ss03}) implements this together with the above:}
+
+	\begin{beispielblock}
+		\texttt{ss03:} \showfeature{StylisticSet=3}{In der Kajüte iſt jemand.}
+	\end{beispielblock}
+\end{frame}
+
+\begin{frame}{\dten{Was vor der Fraktur ausſtarb –~UV-Vereinigung}{What Died Out Before Fraktur –~U–V Merger}}
+	\dten{%
+	Die heutige Unterſcheidung zwiſchen u und v kam erſt im 17.~Jahrhundert auf.\fraq{}{\\}
+	Zuvor wurde \textsf{v} für ein u oder~v am Wortanfang genutzt, während im Wortinnern und -ende \textsf{u}~für beide genutzt wurde.
+	Als Großbuchſtabe wurde für beide~\textsf{V} genutzt.%
+	}{%
+	Today’s diſtinction between u and~v emerged in the 17\textsuperscript{th} century.\fraq{\\}{}
+	Until then,\fraq{}{\\} \textsf{v} was uſed for both, u and~v at the beginning of words,\fraq{\\}{} while \textsf{u}~was uſed elſewhere.\fraq{}{\\}
+	As a capital letter, \textsf{V}~was uſed for both.%
+	}
+	
+	\vspace{\baselineskip}
+
+	\dten{Das ſtiliſtiſche Set~2 (\deffeature{ss02}) implementiert dies:}{The Styliſtic Set~2 (\deffeature{ss02}) implements this:}
+	
+	\begin{beispielblock}
+		\texttt{ss02:} \showfeature{StylisticSet=2}{unſer Univerſum}
+	\end{beispielblock}
+
+\end{frame}
+
+
+\begin{frame}{\dten{Leſeerleichterungen –~kein langes~s}{Eaſy Reading –~No Long S}}
+	\dten{Die nächſtliegende Möglichkeit, heutigen Leſern die Lektüre von Frakturtexten\fraq{}{\\} zu vereinfachen, iſt, auf das langes~s zu verzichten.}
+	{If you want to eaſe reading for an audience that is not familiar with reading fraktur,\fraq{}{\\} the firſt thing that ſuggeſts itſelf is not uſing the long~s.}
+	
+	\vfill
+	
+	\dten{Charaktervariante~0 (\texttt{cv00}\footnote{\dten{auch zu erreichen als \texttt{cv40} –~für Programme, die \texttt{cv00} nicht unterſtützen.}{}}) erſetzt jedes lange~s durch ein rundes.\fraq{\\}{}
+	Dies ſoll einen einfachen Wechſel zwiſchen einer Darſtellung\fraq{\\}{} mit und ohne langem~s ermöglichen.}
+	{Character variant~0 (\texttt{cv00}\footnote{\dten{}{Alſo available via \texttt{cv40} for ſoftware that does not ſupport \texttt{cv00}.}}) replaces every long~s with a round one and allows\fraq{}{\\} to eaſily ſwitch between typeſetting with and without a long~s.}
+	
+	\vfill
+	
+	\dten{Während der Schwung des runden~s in Texten mit langem~s\fraq{\\}{} kaum problematiſch iſt,\fraq{}{\\} da das runde~s überwiegend am Ende von Wörtern o.\,Ä. auf\/tritt, kann er in Texten\fraq{}{\\} ohne langes~s die Lesbarkeit und das Schriftbild beeinträchtigen.
+	In dieſem Fall kann\fraq{}{\\} man mit Charaktervariante~20 (\texttt{cv20}) jedem runden~s, das nicht am Ende eines Wortes\fraq{}{\\} (oder vor einem Bindehemmer) ſteht, den Schwung nehmen.
+	Auch in Texten \textbf{mit} langem~s wäre dies nicht völlig abwegig.}
+	{While the ſwaſh of the round~s hardly poſes a problem in texts uſing the long~s\fraq{}{\\} (as the round~s moſtly occurs at the end of words and ſimilar), it one may regard it\fraq{}{\\} as diminiſhing readability and aeſthetics in texts without it.
+	For ſuch a caſe, Character Variant~20 (\texttt{cv20}) “deſwaſhes” every round~s that is not at the end of a word\fraq{\\}{} (or before\fraq{}{\\} a zero-width non-joiner).
+	One might argue that\fraq{\\}{} this is alſo a good thing for texts \textbf{with}\fraq{}{\\} a long~s.}
+	
+	\vfill
+
+	\begin{beispielblock}
+		\begin{columns}[onlytextwidth]
+		\column{0.45\linewidth}
+		\texttt{cv00:} \showfeature{CharacterVariant=0}{ſtreſſigſt} \\
+		\texttt{cv20:} \showfeature{CharacterVariant=20}{samstags} \\
+		\column{0.45\linewidth}
+		\texttt{cv20:} \showfeature{CharacterVariant=20}{muskulöſes} \\
+		\texttt{cv00+cv20:} \showfeature{CharacterVariant={00,20}}{ſeriöſes} \\
+		\end{columns}
+	\end{beispielblock}
+	\vfill
+\end{frame}
+
+
+
+\begin{frame}{\dten{Leſeerleichterungen –~moderne Formen}{Eaſy Reading –~Modern Forms}}
+	\dten{Ein weiteres Problem für heutige Leſer ſtellen Buchſtaben dar,\fraq{\\}{} deren Frakturformen ungewohnt ſind oder Verwechſlungsgefahr\fraq{\\}{} bergen.
+	Eine mögliche Löſung ſtellen\fraq{}{\\} die Charaktervarianten 1 bis~10 (\texttt{cv01}\,–\,\texttt{cv10}) dar, welche jeweils eine oder zwei »moderne« Formen\fraq{\\}{} für Problembuchſtaben bereitſtellen.}
+	{Another difficulty of fraktur for today’s readers are letters whoſe fraktur form is unfamiliar or can be confuſed with another letter.
+	Character Variants 1 to~10 (\texttt{cv01}\,–\,\texttt{cv10}) addreſs this iſſue by providing one or two “modern” variant of ſuch letters.}
+	
+	\vfill
+	
+	\dten{Stilſatz~1 (\deffeature{ss01}) faſſt alle Leſeerleichterungsfeatures\fraq{\\}{} (\texttt{cv00}\,–\,\texttt{cv10, cv20}) zuſammen.}
+	{Styliſtic Set~1 (\deffeature{ss01}) compriſes all eaſy-reading features\fraq{\\}{} (\texttt{cv00}\,–\,\texttt{cv10, cv20}).}
+	
+	\vfill
+	
+	\begin{beispielblock}
+		\begin{columns}[onlytextwidth]
+		\column{0.45\linewidth}
+		\texttt{cv01:} \showfeature{CharacterVariant=1}{k\,ķ\,ḱ\,ck} \\\vspace{0.3\baselineskip}
+		\texttt{cv02:} \showfeature[1]{CharacterVariant=2}{x}\\\vspace{0.3\baselineskip}
+		\texttt{cv03:} \showfeature{CharacterVariant=3}{y\,ý\,ÿ\,…}\\\vspace{0.3\baselineskip}
+		\texttt{cv04:} A\,Ä\,Å\,Ą\,Æ\,… →\\
+		{\addfontfeature{CharacterVariant=4:0} A\,Ä\,Å\,Ą\,Æ\,…} → {\addfontfeature{CharacterVariant=4:1} A\,Ä\,Å\,Ą\,Æ\,…}\\\vspace{0.3\baselineskip}
+		\texttt{cv05:} \showfeature{CharacterVariant=5}{G\,Ġ\,Ģ\,…}
+		\column{0.45\linewidth}
+		\texttt{cv06:} \showfeature{CharacterVariant=6}{K\,Ķ}\\\vspace{0.3\baselineskip}
+		\texttt{cv07:} \showfeature{CharacterVariant=7}{N\,Ñ\,Ņ\,…}\\\vspace{0.3\baselineskip}
+		\texttt{cv08:} \showfeature{CharacterVariant=8}{S\,Ś\,Ş\,…}\\\vspace{0.3\baselineskip}
+		\texttt{cv09:} \showfeature{CharacterVariant=9}{V}\\\vspace{0.3\baselineskip}
+		\texttt{cv10:} \showfeature{CharacterVariant=10}{Y\,Ý\,Ŷ\,…}\\\vspace{0.3\baselineskip}
+		\texttt{ss01:} \showfeature{StylisticSet=01}{Analyſis}
+		\end{columns}
+	\end{beispielblock}
+\end{frame}
+
+\begin{frame}{\dten{Ziffern}{Numerals}}
+	\dten{Die Unifraktur Maguntia enthält zwei verſchiedene Arten von Ziffern und Rechenzeichen:}
+	{Unifraktur Maguntia comes with two kinds of numbers\fraq{\\}{} and mathematical operators:}
+	
+	\dten{
+	\begin{itemize}
+		\item Antiqua-Majuskelziffern mit gigantiſchen Rechenzeichen,\fraq{\\}{} wie ſie im Frakturſatz überwiegend genutzt wurden.
+		Sie werden über das Feature \Begriff{Lining Numbers} (\deffeature{lnum}) angeſteuert.
+		\item Fraktur-Minuskelziffern mit kleinen Rechenzeichen, die weniger verbreitet waren, aber beſſer ins Schriftbild paſſen.
+		Sie werden über das Feature \Begriff{Oldſtyle Numbers} (\deffeature{onum}) angeſteuert und\fraq{\\}{} ſind ſtandardmäßig aktiv.
+	\end{itemize}%
+	}{%
+	\begin{itemize}
+		\item Uppercaſe numerals as we uſe them today, together with\fraq{\\}{} huge operators.\fraq{}{\\}
+		Theſe were predominant in fraktur typeſetting\fraq{\\}{} and are activated via the feature Lining Numbers (\deffeature{lnum}).
+		\item Fraktur lowercaſe numerals with moderate operators, which were rarely uſed,\fraq{}{\\} but which better match the other glyphs.
+		They are activated by default\fraq{}{\\} and via the feature Oldſtyle Numbers (\deffeature{onum}).
+	\end{itemize}
+	}
+	
+	\fraq{\vspace{-0.5\baselineskip}}{}
+	
+	\begin{beispielblock}
+	\begin{tabular}{l@{ }l}
+		\texttt{lnum:} & \showfeature{Numbers=Lining}{16 + 5×9 − 27 = 34}
+	\end{tabular}
+	\end{beispielblock}
+	
+% 	\vfill
+	
+	\dten{Beiderlei Ziffern ſind als Proportional- (\texttt{pnum}, ſtandardmäßig aktiv)\fraq{}{\\} und Tabellenziffern (\texttt{tnum}) verfügbar:}
+	{Both kinds of numbers are available as proportional numbers\fraq{\\}{} (\texttt{pnum}, default)\fraq{}{\\} and monoſpaced numbers (\texttt{tnum}):}
+	\begin{beispielblock}
+	\begin{tabular}{l@{\quad}l@{\quad}l}
+		& \multicolumn{1}{c}{\texttt{onum}\dten{¹}{¹}} & \multicolumn{1}{c}{\texttt{lnum}} \\
+		\texttt{pnum}\dten{¹}{¹} & 0123456789 & \addfontfeature{Numbers=Lining} 0123456789 \\
+		\texttt{tnum} & \addfontfeature{Numbers=Monospaced} 0123456789 & \addfontfeature{Numbers={Lining,Monospaced}} 0123456789 \\
+	\end{tabular}
+	\qquad \dten{¹\,ſtandardmäßig aktiv}{¹\,default}
+	\end{beispielblock}
+
+\end{frame}
+
+\begin{frame}{\dten{Römiſche Ziffern}{Roman Numerals}}
+	\dten{Römiſche Ziffern können über die Unicode-Plätze \texttt{U+2160} bis \texttt{U+216F} angeſteuert werden.
+	Aneinandergereihte Ziffern werden automatiſch über Unterſchneidungen (Kerning) ſinnvoll zuſammengerückt:}
+	{Roman numerals are implemented on the Unicode code points\fraq{\\}{} \texttt{U+2160} to \texttt{U+216F}.
+	Succeſſive numerals are automatically aligned properly (via kerning):}
+	
+	\begin{beispielblock}\Huge\centering
+	\begin{tabular}{r@{ → }l}
+		\kerningexample{ⅩⅤⅠⅠⅠ} \\
+		\kerningexample{ⅯⅮⅩⅠⅩ}
+	\end{tabular}
+	\end{beispielblock}
+\end{frame}
+
+\begin{frame}{\dten{Unterſchneidungen}{Kerning}}
+	\dten{Die Unifraktur Maguntia verfügt über umfaſſende, handgeſetzte Unterſchneidungen, insbeſondere auch für ſelten benötigte, aber beſonders problematiſche Paare, deren zweiter Beſtandteil ein Großbuchſtabe iſt:}
+	{Unifraktur Maguntia was kerned extenſively and manually.\fraq{\\}{}
+	This includes rarely uſed,\fraq{}{\\} but particularly problematic pairs\fraq{\\}{} with a capital letter in ſecond poſition.}
+	
+	\vfill
+	
+	\begin{beispielblock}\huge
+		\begin{tabular}{r@{ → }l}
+		\kerningexample{„Kanzlers“}\\
+		\kerningexample{(je Fotograf)}\\
+		\kerningexample{MacPherſon}\\
+		\kerningexample{IHN (GOTT)}\\
+		\kerningexample{\addfontfeature{CharacterVariant=23:1}¿XïĭPRKšľí?}\\
+		\end{tabular}
+	\end{beispielblock}
+	
+	\dten{Paare mit Unterſchneidung in den erſten vier Beiſpielen:}
+	{Kerned pairs in the firſt four examples:}\\
+	„K \hfill
+	Ka \hfill
+	zl \hfill
+	rs \hfill
+	(j \hfill
+	Fo \hfill
+	to \hfill
+	ra \hfill
+	f) \hfill
+	Ma \hfill
+	cP \hfill
+	Ph \hfill
+	IH \hfill
+	HN \hfill
+	OT \hfill
+	TT \hfill
+	T)
+\end{frame}
+
+\begin{frame}{\dten{Varianten s-baſierter Sonderzeichen}{Variants of s-Baſed Special Characters}}
+
+
+\dten{%
+\begin{itemize}
+	\item Wenn ein diakritiſches Zeichen über einem \textsf{s} ſteht,\fraq{\\}{} wird normalerweiſe deſſen Schwung entfernt.\fraq{\\}{}
+	Charaktervariante~16 (\deffeature{cv16}) macht dies rückgängig.
+	\item \textsf{ś}, \textsf{š} und \textsf{š} ſtehen auch mit langem~s als Grundzeichen zur Verfügung.\fraq{}{\\}
+	Dieſe Alternativen können über Charaktervariante~17 (\deffeature{cv17}) angeſteuert werden oder aber auch über die kombinierenden diakritiſchen Zeichen des Unicodes (\texttt{U+0301}, \texttt{U+0302} und \texttt{U+030C}).
+	\item Die Charaktervarianten 21 bis 25 (\deffeature{cv21}–\deffeature{cv25}) erlauben es, für die einzelnen Sonderzeichen die Alternativen getrennt anzuſteuern.
+	Für \textsf{š} ſind hier weitere hiſtoriſche Zeichen und Zeichenvarianten enthalten, die ſtatt ſeiner verwendet wurden, insbeſondere auch\fraq{\\}{} ein langes~s mit Schwung~(\textsf{\addfontfeature{CharacterVariant=23:2} š\,}), das nur hierüber anſteuerbar iſt.
+\end{itemize}%
+}{%
+\begin{itemize}
+	\item Per default, the ſwaſh of the \textsf{s} is removed if there is a diacritical mark above it.
+	Character Variant~16 (\deffeature{cv16}) ſuppreſſes this.
+	\item \textsf{ś}, \textsf{š} and \textsf{š} are alſo available with a long~s as the baſe character\fraq{}{\\} via Character Variant~17 (\deffeature{cv17}) or uſing Unicode’s combining\fraq{}{\\} diacritical marks (\texttt{U+0301}, \texttt{U+0302} and \texttt{U+030C}).
+	\item Character Variants 21 to 25 (\deffeature{cv21}–\deffeature{cv25}) allow to acceſs alternates\fraq{}{\\} on a per-character baſis.
+	For \textsf{š}, this includes further characters and\fraq{}{\\} character variants that were uſed in its place hiſtorically, in particular\fraq{}{\\} a ſwaſhed long~s~(\textsf{\addfontfeature{CharacterVariant=23:2} š\,}), that can only be acceſſed this way.
+\end{itemize}%
+}%
+\hypertarget{cv22}{}%
+\hypertarget{cv23}{}%
+\hypertarget{cv24}{}%
+
+\vfill
+
+\begin{beispielblock}
+	\DTEN{\larger}{\larger[2]}%
+	\begin{columns}[onlytextwidth]
+		\column{0.5\linewidth}
+		\texttt{cv16:} \showfeature{CharacterVariant=16}{śšŝṡs̈} \\
+		\texttt{cv17:} \showfeature{CharacterVariant=17}{śšŝ} \\
+		\texttt{cv21:} \showfeature[1]{CharacterVariant=21}{ś} \\
+		\texttt{cv22:} \showfeature[1]{CharacterVariant=22}{ŝ} \\
+		\column{0.5\linewidth}
+		\texttt{cv23:} \showfeature[1]{CharacterVariant=23}{š}\newline
+		\hphantom{\texttt{cv23:} }→ {\addfontfeature{CharacterVariant=23:2}š} → {\addfontfeature{CharacterVariant=23:3}š} → {\addfontfeature{CharacterVariant=23:4}š}\\
+		\texttt{cv24:} \showfeature{CharacterVariant=24}{ṡ} \\
+		\texttt{cv25:} \showfeature{CharacterVariant=25}{s̈} \\
+	\end{columns}
+\end{beispielblock}
+
+\end{frame}
+
+\begin{frame}{\dten{Vermiſchtes für andere Sprachen}{Miſcellaneous Features}}
+	\dten{Sehr ſelten wurde der Gebrauch aus der Handſchrift übernommen,\fraq{\\}{} die Verdoppelung\fraq{}{\\} eines \textsf{m} oder~\textsf{n} durch einen Querſtrich (Makron) anzuzeigen.
+	Dies iſt über diskrete Ligaturen implementiert (\deffeature{dlig}).}
+	{A very few fraktur texts adopted the cuſtom from handwriting to indicate a double \textsf{m} or~\textsf{n} with a bar (macron).
+	This is implemented\fraq{\\}{} via diſcretionary ligatures (\deffeature{dlig}).}
+
+	\begin{beispielblock}
+		\texttt{dlig}: \showfeature{Ligatures=Discretionary}{Donnerſtimme}
+	\end{beispielblock}
+
+	\vfill
+
+	\dten{Charaktervariante 18 (\deffeature{cv18}) erſetzt \textsf{ď} und \textsf{ť} durch Varianten mit »echtem« Hatſchek,\fraq{}{\\} wie es auch hiſtoriſch verwendet wurde.
+	Charaktervarianten 26 und~27 (\deffeature{cv26} und \deffeature{cv27}) erlauben, dieſe Varianten einzeln anzuſteuern.}
+	{Character Variant 18 (\deffeature{cv18}) replaces \textsf{ď} and \textsf{ť} by variants with a “true” caron,\fraq{}{\\} as uſed hiſtorically.
+	Character variants 26 and~27 (\deffeature{cv26} and \deffeature{cv27}) allow\fraq{}{\\} to acceſs theſe variants ſeparately.}
+	
+	\begin{beispielblock}
+		\texttt{cv18}: \showfeature{CharacterVariant=18}{ď ť}\qquad
+		\texttt{cv26}: \showfeature{CharacterVariant=26}{ď ť}\qquad
+		\texttt{cv27}: \showfeature{CharacterVariant=27}{ď ť}
+	\end{beispielblock}
+	
+	\vfill
+	
+	{\fraq{\addfontfeature{CharacterVariant=28}}{}
+	\dten{%
+	Charaktervariante 28 (\deffeature{cv28}) aktiviert die \textsf{łł}- und \textsf{ẜẜ}-Ligatur,\fraq{\\}{\\} wie ſie in einigen alten lettiſchen Texten verwendet wurde.%
+	}{%
+	Character variant 28 (\deffeature{cv28}) activates the \textsf{łł} and \textsf{ẜẜ} ligatures,\fraq{\\}{\\} which were uſed in ſome old Latvian texts:%
+	}}
+
+	\begin{beispielblock}
+		\texttt{cv28:} \showfeature{CharacterVariant=28}{łł ẜẜ}
+	\end{beispielblock}
+\end{frame}
+
+\Abschnitt{faq}{Vorweggenommene Fragen und Dankſagung}{Fragen}
+
+\begin{frame}{\dten{Vorweggenommene Fragen 1}{Queſtions the Author Would Like to Anſwer 1}}
+
+	\hypertarget{vorkonfektioniert}{}
+	\dten{Frage: Was genau machen die vorkonfektionierten\fraq{\\}{} Varianten \texttt{UnifrakturMaguntia16}, uſw.?}
+	{Queſtion: What exactly do the ready-to-uſe variants do?}\\[0.5\baselineskip]
+	\dten{Antwort: Sie entſprechen der Entfernung einiger Glyphen\fraq{\\}{} und Features,\fraq{}{\\} die nicht in die jeweilige Zeit paſſen,\fraq{\\}{} und der Aktivierung folgender Features:}
+	{Anſwer: They are equivalent to activating the following features and removing features and glyphs that do not fit into the reſpective epoch:}
+		\begin{itemize}
+			\item \texttt{UnifrakturMaguntia16}: \linkfeature{cv11}, \linkfeature{cv12}, \linkfeature{cv13}, \linkfeature{cv14}, \linkfeature{cv15}, \linkfeature{cv19}, \linkfeature{hlig}, \linkfeature{lnum}, \linkfeature{ss02}
+			\item \texttt{UnifrakturMaguntia17}: \linkfeature{cv11}, \linkfeature{cv13}, \linkfeature{cv14}, \linkfeature{cv15}, \linkfeature{cv19}, \linkfeature{hlig}, \linkfeature{lnum}, \linkfeature{ss02}
+			\item \texttt{UnifrakturMaguntia18}: \linkfeature{cv11}, \linkfeature{cv13}, \linkfeature{cv14}, \linkfeature{cv15}, \linkfeature{cv19}, \linkfeature{hlig}, \linkfeature{lnum}
+			\item \texttt{UnifrakturMaguntia19}: \linkfeature{cv11}, \linkfeature{cv13}, \linkfeature{cv14}, \linkfeature{cv19}, \linkfeature{hlig}, \linkfeature{lnum}
+			\item \texttt{UnifrakturMaguntia20}: \linkfeature{cv11}, \linkfeature{cv19}, \linkfeature{lnum}
+			\item \texttt{UnifrakturMaguntia21}: \linkfeature{ss01}
+		\end{itemize}
+
+\end{frame}
+
+\begin{frame}{\dten{Vorweggenommene Fragen 2}{Queſtions the Author Would Like to Anſwer 2}}
+	\dten{Frage: In einem hiſtoriſchen Text habe ich ein nicht-unterſtütztes Zeichen gefunden. Kannſt Du es einbauen?}
+	{Queſtion: I found an unſupported character in a hiſtorical text.\fraq{\\}{} Can you implement it?}\\[0.5\baselineskip]
+	\dten{Antwort: Wenn es ſich um einen gedruckten Frakturtext handelt: ja. Schick mir ein Bild des Zeichens und, wenn möglich, verrate mir\fraq{\\}{} etwas über den Hintergrund.}
+	{Anſwer: As long as it is typeſet fraktur: yes. Send me a picture\fraq{\\}{} of the character and,\fraq{}{\\} if poſſible, tell me what you know about it.}
+	
+	\vfill
+	
+	\dten{Frage: Mir fehlen Sonderzeichen um meine Sprache zu nutzen.\fraq{\\}{} Kannſt Du ſie einbauen?}
+	{Queſtion: I lack ſome ſpecial characters to uſe my language.\fraq{\\}{} Can you implement them?}\\[0.5\baselineskip]
+	\dten{Antwort: Solange ſich der Aufwand in Grenzen hält, reicht mir\fraq{\\}{} ein ernſthafter Wunſch. Wenn es nicht-offenſichtliche Geſtaltungs\fraq{-\\}{}richtlinien für die gewünſchten Zeichen gibt, teile ſie mir bitte mit.\fraq{\\}{} Bitte habe Verſtändnis dafür, daſs ich mich um aufwendige Sprachen\fraq{\\}{} (z. B. Vietnameſiſch) nur nach mehreren Anfragen kümmere.}
+	{Anſwer: As long as they do not require too much effort, your wiſh\fraq{\\}{} is all I need to do this.\fraq{}{\\} If poſſible, pleaſe provide non-trivial deſign guidelines for your characters.\fraq{}{\\} Pleaſe underſtand that I will only\fraq{\\}{} ſpend effort on extenſive languages (e.g., Vietnameſe)\fraq{}{\\} if there are multiple requeſts.}
+\end{frame}
+
+\begin{frame}{\dten{Vorweggenommene Fragen 3}{Queſtions the Author Would Like to Anſwer 3}}
+	\dten{Frage: Wirſt Du mittelalterliche Abbreviaturen u.\,Ä. einbauen?}
+	{Queſtion: Will you include medieval abbreviatures or ſimilar?}\\[0.5\baselineskip]
+	\dten{Antwort: Nur, falls ſie im Bleiſatz und in der Fraktur\fraq{\\}{} (nicht der Textura) verwendet wurden.}
+	{Anſwer: Only, if they exiſted in movable type and in fraktur\fraq{\\}{} (not textura).}
+	
+	\vfill
+	
+	\dten{Frage: Warum fehlen einige Großbuchſtaben,\fraq{\\}{} obwohl es die entſprechenden Kleinbuchſtaben gibt?}
+	{Queſtion: Why are uppercaſe variants (and only thoſe) miſſing\fraq{\\}{} for ſome letters?}\\[0.5\baselineskip]
+	\dten{Antwort: Da ſie meines Wiſſens nicht am Wortanfang auf\/tauchen\fraq{\\}{} und \hyperlink{versalsatz}{Fraktur-Verſalſatz} eine ſchlechte Idee iſt. Sollten ich mich bezüglich eines ſolchen Buchſtabens geirrt haben, bin ich für Hinweiſe dankbar.}
+	{Anſwer: Becauſe they were never uſed at the beginning of the word and \hyperlink{versalsatz}{fraktur all-caps} are a bad idea. Should have been wrong\fraq{\\}{} about ſuch a letter, I am grateful for hints though.}
+	
+	\vfill
+	
+	\dten{Frage: Warum gibt es dann doch Großbuchſtaben zu einigen Kleinbuchſtaben,\fraq{}{\\} die nicht am Wortanfang auf\/tauchen?}
+	{Queſtion: But why are there ſome capital verſions of lowercaſe letters that have never been uſed at the beginning of the word then?}\\[0.5\baselineskip]
+	\dten{Antwort: Weil es einfacher war den Buchſtaben einzubauen als\fraq{\\}{} alle ſeine\fraq{}{\\} (meiſt vielfältigen) Verwendungsmöglichkeiten abzugehen.\fraq{\\}{} Falls Du ſtichhaltig\fraq{}{\\} belegen kannſt, daſs ein Großbuchſtabe unnötig iſt,\fraq{\\}{} werde ich ihn entfernen.}
+	{Anſwer: Becauſe implementing the letter was eaſier than checking\fraq{\\}{} all of its poſſible uſages. If you have ſolid proof that a capital letter\fraq{\\}{} is not needed, let me know.}
+\end{frame}
+
+\begin{frame}{\dten{Vorweggenommene Fragen 4}{Queſtions the Author Would Like to Anſwer 4}}
+	\dten{Frage: Iſt eine Unterſtützung nicht-lateiniſcher Alphabete,\fraq{\\}{\\} wie z.\,B. des griechiſchen oder kyrilliſchen geplant?}
+	{Queſtion: Do you plan to ſupport non-Latin alphabets,\fraq{\\}{} ſuch as Greek or Cyrillic?}\\[0.5\baselineskip]
+	\dten{Antwort: Nein.}
+	{Anſwer: No.}
+
+	\vfill
+
+	\dten{Frage: Wann ſoll ich die Zeichen im Private Uſe Area\fraq{\\}{} des Unicodes nutzen?}
+	{Queſtion: When ſhould I uſe the characters\fraq{\\}{} from Unicode’s Private Uſe Area?}
+	\\[0.5\baselineskip]
+	\dten{Antwort: Wenn irgend möglich, gar nicht. Dieſe Zeichen ſind lediglich ein Notbehelf\fraq{}{\\} für Programme, die intelligente Schriftfeatures nicht unterſtützen, und ſeine Nutzung kann zu allerlei Problemen führen, insbeſondere im Hinblick auf Durchſuchbarkeit und Kompatibilität.\fraq{\\}{}
+	Im Fall von \textsf{} und \textsf{} iſt das Private Uſe Area eine vorübergehende Löſung, bis dieſe Zeichen in den Unicode aufgenommen werden.
+	}
+	{Anſwer: Preferrably never.
+	Theſe characters are only a makeſhift alternative for\fraq{}{\\} programs that do not ſupport ſmart font features.\fraq{\\}{}
+	They can lead to all ſorts of problems,\fraq{}{\\} in particular with reſpect\fraq{\\}{} to compatibility and ſearchability.
+	In the caſe of \textsf{} and \textsf{},\fraq{\\}{\\} the Private Uſe Area is only a temporary ſolution until\fraq{\\}{} theſe characters are encoded\fraq{}{\\} in Unicode.
+	}
+\end{frame}
+	
+\begin{frame}{\dten{Vorweggenommene Fragen 5}{Queſtions the Author Would Like to Anſwer 5}}
+	\dten{Frage: Warum wird \textaq{UNZ} (Unicode-gerechte Norm für Zuſatzzeichen) nicht unterſtützt?}
+	{Queſtion: Why is \textaq{UNZ} (Unicode-gerechte Norm für Zuſatzzeichen)\fraq{\\}{} not ſupported?}
+	\\[0.5\baselineskip]
+	\dten{Kurze Antwort: Um zu vermeiden, daſs irgendjemand zu ihrer Nutzung ermutigt wird.}
+	{Short anſwer: To avoid encouraging anybody to uſe it.}
+	\\[0.5\baselineskip]
+	\dten{Lange Antwort: Da mit dem Bindehemmer (\texttt{U+200C}) alle Frakturtexte bereits im Unicode kodiert werden können, gibt es keinen Bedarf an \textaq{UNZ} diesbezüglich, ſondern nur für Programme, die kein OpenType o.\,Ä. unterſtützen.
+	Somit iſt \textaq{UNZ} eine zunehmend überflüſſig werdende Inſel\/löſung für die geringe Menge der Frakturnutzer, die auf\fraq{}{\\} der Nutzung eines ſolchen Programms beharren, aber bereit ſind, einen hohen Aufwand\fraq{}{\\} zur Darſtellung von Frakturligaturen zu betreiben.
+	Wer an \textaq{UNZ} arbeitet, hilft nur dieſer Gruppe – wer z.\,B. an der OpenType-Unterſtützung eines Programms arbeitet,\fraq{}{\\} hilft Nutzern diverſer Sprachen und Schriftſyſteme weltweit.\fraq{}{\\}
+	\textaq{UNZ} hat außerdem\fraq{\\}{} alle allgemeinen Probleme der Nutzung des Private Uſe Areas,\fraq{}{\\} nämlich mangelnde Kompatibilität und keine Durchſuchbarkeit.
+	Daher denke ich,\fraq{}{\\} daſs eine Unterſtützung von \textaq{UNZ} mehr ſchaden als nutzen würde.
+	}
+	{Long anſwer: The zero-width non-joiner (\texttt{U+200C}) allows to encode\fraq{\\}{} all fraktur texts\fraq{}{\\} with Unicode and therefore \textaq{UNZ} is not needed for this, but only for programs that do not ſupport OpenType or ſimilar.\fraq{\\}{}
+	Thus, \textaq{UNZ} is an increaſingly unneceſſary, localiſed ſolution for\fraq{\\}{} thoſe uſers of blackletter who want to uſe ſuch a program, but are willing to ſpend\fraq{}{\\} a conſiderable effort on having blackletter ligatures rendered.
+	Advancing \textaq{UNZ} helps only this group – advancing,\fraq{\\}{} e.g., the OpenType ſupport of ſome program helps uſers\fraq{}{\\} of ſeveral languages and writing ſyſtems worldwide.\fraq{\\}{}
+	Moreover, \textaq{UNZ} has all the general problems of the Private Uſe Area, namely compatibility iſſues and no ſearchability.\fraq{}{\\}
+	Therefore I conſider ſupporting \textaq{UNZ} to do more harm than good.
+	}
+
+	
+\end{frame}
+
+
+
+\begin{frame}{\dten{Dankſagung 1 – Inhalte}{Acknowledgements 1 – Content}}
+	\dten{%
+	An der Unifraktur Maguntia haben J.~»Mach« Wuſt,\fraq{\\}{} \href{http://www.georgduffner.at/}{Georg Duffner} und \href{http://www.peter-wiegel.de/}{Peter Wiegel} mitgewirkt.
+	
+	\vfill
+	
+	Ich danke außerdem:
+	\begin{itemize}
+		\item diverſen Nutzern des \href{http://unifraktur.sourceforge.net/unifraktur-forum/}{Unifraktur-Forums}\fraq{\\}{} und von \href{http://www.typografie.info}{Typografie.info} für Kritik, Anregungen\fraq{\\}{} und Denkanſtöße, insbeſondere Ralf Herrmann;
+		\item \href{http://www.gawl.de/}{Ralf Gawliſta} für die Bereitſtellung ſeiner E-Books\fraq{\\}{} als Textkorpus\fraq{}{\\} zum Entwickeln der Lang-s-Heuriſtik;
+		\item \href{http://www.serbski-institut.de/cms/de/117/Dr-Fabian-Kaulfuerst}{Fabian Kaulfürſt}, \href{http://www.serbski-institut.de/cms/de/454/Kamil-Stumpf}{Kamil Stumpf} und \href{http://www.serbski-institut.de/cms/de/110/Dr-habil-Sonja-Woelke}{Sonja Wölke}\fraq{\\}{} für ausführliche\fraq{}{\\} Informationen über die Fraktur im Sorbiſchen;
+		\item \href{http://yo-lobo.eu/fraktura_a_kurent/}{Tonda Kavalec} für Informationen\fraq{\\}{} über die Fraktur im Tſchechiſchen;
+		\item \href{http://www.roots-saknes.lv/Names/HistoryLanguages/History_of_Languages.htm}{Bruno Martuz\fraq{ā}{a\kern -3.4pt¯\kern 0.4pt}ns} für Informationen\fraq{\\}{} über die Fraktur im Lettiſchen.
+	\end{itemize}%
+	}{
+	I acknowledge contributions to Unifraktur Maguntia\fraq{}{\\} from\fraq{\\}{} J.~“Mach” Wuſt, \href{http://www.georgduffner.at/}{Georg Duffner} and \href{http://www.peter-wiegel.de/}{Peter Wiegel}.
+	
+	\vfill
+	
+	I am alſo grateful to:
+	\begin{itemize}
+		\item ſeveral uſers of the \href{http://unifraktur.sourceforge.net/unifraktur-forum/}{Unifraktur board} and of \href{http://www.typografie.info}{Typografie.info}\fraq{\\}{\\} for critique and inſpiration, in particular Ralf Herrmann;
+		\item \href{http://www.gawl.de/}{Ralf Gawliſta} for providing his e-books as a corpus\fraq{\\}{\\} for developing the heuriſtics for the long~s;
+		\item \href{http://www.serbski-institut.de/cms/de/117/Dr-Fabian-Kaulfuerst}{Fabian Kaulfürſt}, \href{http://www.serbski-institut.de/cms/de/454/Kamil-Stumpf}{Kamil Stumpf} and \href{http://www.serbski-institut.de/cms/de/110/Dr-habil-Sonja-Woelke}{Sonja Wölke}\fraq{\\}{} for providing extenſive\fraq{}{\\} information about the uſage\fraq{\\}{} of fraktur in the Sorbian language;
+		\item \href{http://yo-lobo.eu/fraktura_a_kurent/}{Tonda Kavalec} for providing information\fraq{\\}{} about fraktur and the Czech language;
+		\item \href{http://www.roots-saknes.lv/Names/HistoryLanguages/History_of_Languages.htm}{Bruno Martuz\fraq{ā}{a\kern -3.4pt¯\kern 0.4pt}ns} for providing information\fraq{\\}{} about fraktur and the Latvian language.
+	\end{itemize}%
+
+	}
+\end{frame}
+
+\begin{frame}{\dten{Dankſagung 2 – Software}{Acknowledgements 2 – Software}}
+	\dten{%
+	Ich danke den Erſchaffern folgender Programme u.\,Ä.,\fraq{}{\\} die für\fraq{\\}{} die Unifraktur Maguntia oder dieſe Anleitung genutzt wurden:
+	\begin{itemize}
+		\item \href{http://fontforge.github.io}{FontForge},
+		\item \href{http://www.freetype.org/ttfautohint/}{\textaq{TTF}-Autohint},
+		\item \href{http://www.yanone.de/typedesign/kaffeesatz/}{Yanone Kaffeeſatz},
+		\item \href{http://ethanschoonover.com/solarized}{Solarized},
+		\item \textaq{TeX, LaTeX, XeLaTeX, LaTeX} Beamer
+		\item \href{http://inkscape.org/}{Inkſcape}
+	\end{itemize}%
+	}{%
+	I am furthermore grateful to the creators of the following ſoftware,\fraq{\\}{\\} which was uſed for creating Unifraktur Maguntia or this manual:
+	\begin{itemize}
+		\item \href{http://fontforge.github.io}{FontForge},
+		\item \href{http://www.freetype.org/ttfautohint/}{\textaq{TTF} Autohint},
+		\item \href{http://www.yanone.de/typedesign/kaffeesatz/}{Yanone Kaffeeſatz},
+		\item \href{http://ethanschoonover.com/solarized}{Solarized},
+		\item \textaq{TeX, LaTeX, XeLaTeX,} the \textaq{LaTeX} Beamer class
+		\item \href{http://inkscape.org/}{Inkſcape}
+	\end{itemize}%
+	}
+\end{frame}
+
+\end{document}

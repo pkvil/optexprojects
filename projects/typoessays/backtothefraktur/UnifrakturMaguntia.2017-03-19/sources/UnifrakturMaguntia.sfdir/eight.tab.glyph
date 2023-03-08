@@ -1,0 +1,13 @@
+StartChar: eight.tab
+Encoding: 65554 -1 637
+Width: 888
+VWidth: 2065
+Flags: W
+HStem: -20 20<435.337 452.337> 1418 20<466 483>
+DStem2: 229.666 1214.33 263.666 1184.33 0.636383 0.771373<0 50.3514> 367 982 247 814 0.85086 -0.525392<0 321.392> 448 245 416.612 28.9385 0.875951 -0.482401<0 76.7341> 515.665 1382.83 434 1191 0.82404 -0.566532<0 41.3854> 638 205 672 175 0.636383 0.771373<0 50.3514>
+LayerCount: 2
+Fore
+Refer: 25 56 N 1 0 0 1 0 0 2
+Substitution2: "Proportional Numbers" eight
+Substitution2: "Uppercase Numbers" eight.uppertab
+EndChar

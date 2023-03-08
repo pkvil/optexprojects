@@ -1,0 +1,14 @@
+StartChar: nine.uppercase
+Encoding: 65545 -1 628
+Width: 1016
+VWidth: 2065
+GlyphClass: 1
+Flags: MW
+HStem: -20 45<391.505 547.677> 548 45<419.625 544.99> 1403 45<421.226 545.578>
+VStem: 85 210<939 1069> 698 232<602 740>
+LayerCount: 2
+Fore
+Refer: 625 -1 N -1 0 0 -1 1016 1428 2
+Substitution2: "Lowercase Numbers" nine
+Substitution2: "Tabular Numbers" nine.uppertab
+EndChar
