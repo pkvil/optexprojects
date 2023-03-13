@@ -1,11 +1,15 @@
 %\initunifonts
 \fontfam[arno]
 \fontfam[unifrakturmaguntia]
-\typosize[12/16]
+\typosize[12/14.03]
 
-\hsize=100mm
-\vsize=148mm
-\margins/2 a5 (16.444,,23.333,)mm
+\hsize=93.333mm
+\vsize=\topskip \advance\vsize by 28\baselineskip
+\margins/2 (140,210)mm (15.555,,21,)mm
+
+\colsep=6mm
+
+%\backgroundpic{goldencanon-1.pdf}
 
 \parskip0pt
 \parindent=1em
@@ -17,6 +21,8 @@
 \mnoteindent=4mm
 \mnotesize=20mm
 
+\font\roth "Rothdn.afm" at 40pt\relax
+
 \def\Vermillion{\setcmykcolor{0 71 77 11}}
 
 
@@ -26,7 +32,20 @@
     	\typosize[15/]%
     	#1%
     }%
-    \vskip4\baselineskip
+    \vskip2\baselineskip
     \_firstnoindent
 }
 
+\def\section#1{%
+    \vskip0.5\baselineskip
+    \centerline{%
+		\Arno\it
+    	\lower 1ex \hbox{#1}%
+    }%
+    \vskip0.5\baselineskip
+    \_firstnoindent
+}
+
+
+%\input mriezka
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
