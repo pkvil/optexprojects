@@ -7,8 +7,6 @@
 \vsize=\topskip \advance\vsize by 28\baselineskip
 \margins/2 (140,210)mm (15.555,,21,)mm
 
-\colsep=6mm
-
 %\backgroundpic{goldencanon-1.pdf}
 
 \parskip0pt
@@ -26,13 +24,34 @@
 \def\Vermillion{\setcmykcolor{0 71 77 11}}
 
 
+\footlinedist=2\baselineskip\relax
+\newif\iffootline \footlinetrue
+
+\footline={%
+    \iffootline
+        \ifodd\pageno
+            \hfill\_rmfixed\setff{+onum,+pnum}\currvar \_folio%
+        \else
+            \_rmfixed\setff{+onum,+pnum}\currvar \_folio\hfill%
+        \fi
+    \else
+        \global\footlinetrue
+    \fi
+}
+
+
 \def\title#1{%
-    \centerline{%
-		\Arno
-    	\typosize[15/]%
-    	#1%
-    }%
-    \vskip2\baselineskip
+	\smash{%
+		\vtop{%
+			\kern-\baselineskip
+			\kern1ex
+			\leftskip=0pt plus 1fill\relax
+			\rightskip=\leftskip\relax
+			\parindent=0pt\relax
+			\typosize[14/]#1%
+		}%
+	}%
+    \vskip5\baselineskip
     \_firstnoindent
 }
 
@@ -49,3 +68,26 @@
 
 %\input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
+
+\newdimen\vsizedefault
+\def\extravsizes#1{%
+   \foreach #1\do ##1:##2{%
+      \tmpnum=##1
+      \sxdef{vs:\the\tmpnum}{##2}
+      \advance\tmpnum by \ifodd\tmpnum -\fi 1
+      \sxdef{vs:\the\tmpnum}{##2}
+   }
+   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\pgbottomskip=0pt plus1fil minus\baselineskip
+}
+\addto\_begoutput{\global\vsize=\vsizedefault}
+\addto\_endoutput{\corrvsize}
+
+\def\corrvsize{
+   \global\vsize=\vsizedefault
+   \ifcsname vs:\the\pageno\endcsname
+      \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+   \fi
+}
+%\extravsizes{ 2:+ 11:- 13:+ }
+\extravsizes{}
