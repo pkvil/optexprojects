@@ -92,4 +92,17 @@ Charter at 8.425/12:\nl
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par}
 
+\vskip3\baselineskip
+
+Alphabet lengths with the same x-heights:
+
+{\typosize[10/12]
+\setbox4=\hbox{abcdefghijklmnopqrstuvwxyz}
+\leavevmode \copy4\ -- EB Garamond: \the\wd4}
+
+{\typosize[8.425/12]\XCharter\currvar
+\setbox5=\hbox{abcdefghijklmnopqrstuvwxyz}
+\leavevmode \copy5\ -- Charter: \the\wd5}
+
+
 \bye
