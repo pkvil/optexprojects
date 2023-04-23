@@ -1,0 +1,31 @@
+\input chords-macros
+
+\title{Title of the song}
+
+Lyric lyric lyric \chord{Am}{Lyric} lyric
+
+Lyric lyric lyric \chordtest{Test}{Lyric} lyric
+
+Lyric lyric lyric \chord{Am}{Lyric} lyric
+
+Lyric lyric lyric \chord{Agamemnon}Lyric lyric
+
+Lyric lyric lyric \chord{Am}{Åyric} lyric
+
+\setbox0\hbox{Å}
+\the\ht0
+
+%{\catcode`\ =\active%
+\def\pilcrow{\space x\space}
+%\let\^^M\par
+\let\par\pilcrow
+ 
+ abc
+ 
+ def
+ 
+ ghi
+%}
+\bye
+
+

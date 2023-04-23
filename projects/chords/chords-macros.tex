@@ -1,0 +1,22 @@
+\fontfam[ebgaramond]
+\typosize[12/36]
+
+\parskip=0pt
+\parindent=0em
+
+\lineskiplimit=-\maxdimen
+
+\def\title#1{#1}
+
+\def\chord#1#2{{%
+	\setbox0\hbox{#2}% 
+		\raise 11pt \hbox to \wd0{\strut\hss #1\hss}%
+		\kern-\wd0
+		\box0%
+	%
+}}
+
+
+\def\chordtest#1#2{%
+	\vbox{\baselineskip=24pt{\hbox{#1}\hbox{#2}}}
+}

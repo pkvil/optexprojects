@@ -1,0 +1,169 @@
+\let\printversion\relax
+\let\screenversion\relax
+\let\colorversion\relax
+\let\blackandwhiteversion\relax
+
+
+%\initunifonts
+\fontfam[unifrakturmaguntia]
+\fontfam[ebgaramond]
+\typosize[12/14.03]
+
+%\svlang
+
+\def\UnifrakturMaguntiaXVI{%
+	\UnifrakturMaguntia
+	\setff{-ss01,+cv11,+cv12,+cv13,+cv14,+cv15,+cv19,+hlig,-onum,+lnum,+ss02}%
+	\currvar
+}
+
+\def\longs{\char"017F}
+\def\lcu{\char"0075}
+
+\hsize=93.333mm
+\vsize=\topskip \advance\vsize by 28\baselineskip
+\margins/2 (140,210)mm (15.555,,21,)mm
+
+%\backgroundpic{goldencanon-1.pdf}
+
+\parskip0pt
+\parindent=1em
+
+\widowpenalty=0
+\clubpenalty=0
+
+\everymnote{\it}
+\mnoteindent=4mm
+\mnotesize=20mm
+
+\font\roth "Rothdn.afm" at 40pt\relax
+
+\def\alphabet{abcdefghijklmnopqrstuvwxyz}
+
+\def\Vermillion{\setcmykcolor{0 71 77 11}}
+
+
+\footlinedist=2\baselineskip\relax
+\newif\iffootline \footlinetrue
+
+\footline={%
+    \iffootline
+        \ifodd\pageno
+            \hfill\_rmfixed\setff{+onum,+pnum}\currvar \_folio%
+        \else
+            \_rmfixed\setff{+onum,+pnum}\currvar \_folio\hfill%
+        \fi
+    \else
+        \global\footlinetrue
+    \fi
+}
+
+
+\long\def\beginblockquote{%
+	\par
+	\vskip\baselineskip
+	\bgroup
+	\advance\leftskip by 2\parindent
+	\rightskip=\leftskip
+	\_firstnoindent
+}
+	
+\def\endblockquote{%
+	\par
+	\egroup
+	\vskip\baselineskip
+	\_firstnoindent
+}
+
+\newcount\chapno
+
+\def\beginchapter#1\_par{%
+	\_par
+	\ifodd\pageno \null\vfill\eject \fi
+	\centerline{\bf #1}%
+	\vskip3\baselineskip
+}
+
+\def\endchapter{}
+
+\def\title#1{%
+	\smash{%
+		\vtop{%
+			\parindent=0pt\relax
+			\leftskip=30pt plus 1fill\relax
+			\rightskip=\leftskip\relax
+			\typosize[14/]%
+			#1%
+		}%
+	}%
+    \vskip5\baselineskip
+    \_firstnoindent
+}
+
+\def\section#1{%
+    \vskip0.5\baselineskip
+    \centerline{%
+		\it
+    	\lower 1ex \hbox{#1}%
+    }%
+    \vskip0.5\baselineskip
+    \_firstnoindent
+}
+
+
+% \gridpic{<lines>}{<filename>}
+\def\gridpic#1#2{%
+	\vskip #1\baselineskip
+	\picheight=#1\baselineskip\relax
+	\advance \picheight by 1ex\relax
+	\smash{%
+		\vbox{%
+			\centerline{\inspic{#2}}%
+		}%
+	}%
+}%
+
+
+
+
+\def\modulo#1#2{%
+	{%
+	\newcount\remainder
+	\remainder=#1\relax
+	\divide   \remainder by #2\relax
+	\multiply \remainder by #2\relax
+	\multiply \remainder by -1\relax
+	\advance  \remainder by #1\relax
+	\the\remainder
+	}%
+}
+
+
+
+
+
+\input mriezka
+%\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
+
+\newdimen\vsizedefault
+\def\extravsizes#1{%
+   \foreach #1\do ##1:##2{%
+      \tmpnum=##1
+      \sxdef{vs:\the\tmpnum}{##2}
+      \advance\tmpnum by \ifodd\tmpnum -\fi 1
+      \sxdef{vs:\the\tmpnum}{##2}
+   }
+   \global\vsizedefault=\vsize \corrvsize  % for page 1
+   \global\pgbottomskip=0pt plus1fil minus\baselineskip
+}
+\addto\_begoutput{\global\vsize=\vsizedefault}
+\addto\_endoutput{\corrvsize}
+
+\def\corrvsize{
+   \global\vsize=\vsizedefault
+   \ifcsname vs:\the\pageno\endcsname
+      \global\advance \vsize by \csname vs:\the\pageno\endcsname \baselineskip
+   \fi
+}
+%\extravsizes{ 2:+ 11:- 13:+ }
+\extravsizes{}

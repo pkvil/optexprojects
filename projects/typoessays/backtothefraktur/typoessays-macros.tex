@@ -21,6 +21,8 @@
 
 \font\roth "Rothdn.afm" at 40pt\relax
 
+\def\alphabet{abcdefghijklmnopqrstuvwxyz}
+
 \def\Vermillion{\setcmykcolor{0 71 77 11}}
 
 
@@ -40,15 +42,30 @@
 }
 
 
+\long\def\beginblockquote{%
+	\par
+	\vskip\baselineskip
+	\bgroup
+	\advance\leftskip by 2\parindent
+	\rightskip=\leftskip
+	\_firstnoindent
+}
+	
+\def\endblockquote{%
+	\par
+	\egroup
+	\vskip\baselineskip
+	\_firstnoindent
+}
+
 \def\title#1{%
 	\smash{%
 		\vtop{%
-			\kern-\baselineskip
-			\kern1ex
-			\leftskip=0pt plus 1fill\relax
-			\rightskip=\leftskip\relax
 			\parindent=0pt\relax
-			\typosize[14/]#1%
+			\leftskip=30pt plus 1fill\relax
+			\rightskip=\leftskip\relax
+			\typosize[14/]%
+			#1%
 		}%
 	}%
     \vskip5\baselineskip
@@ -66,7 +83,38 @@
 }
 
 
-%\input mriezka
+% \gridpic{<lines>}{<filename>}
+\def\gridpic#1#2{%
+	\vskip #1\baselineskip
+	\picheight=#1\baselineskip\relax
+	\advance \picheight by 1ex\relax
+	\smash{%
+		\vbox{%
+			\centerline{\inspic{#2}}%
+		}%
+	}%
+}%
+
+
+
+
+\def\modulo#1#2{%
+	{%
+	\newcount\remainder
+	\remainder=#1\relax
+	\divide   \remainder by #2\relax
+	\multiply \remainder by #2\relax
+	\multiply \remainder by -1\relax
+	\advance  \remainder by #1\relax
+	\the\remainder
+	}%
+}
+
+
+
+
+
+\input mriezka
 %\grid \hsize,\baselineskip(\hoffset,\dimexpr(\voffset+\topskip-\baselineskip) ,\hsize ,\dimexpr\vsize+3\baselineskip\relax)
 
 \newdimen\vsizedefault

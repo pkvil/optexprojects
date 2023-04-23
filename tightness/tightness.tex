@@ -1,0 +1,95 @@
+\fontfam[xcharter]
+\fontfam[ebgaramond]
+
+\typosize[10/12]
+
+%\font\hundred
+
+\margins/1 a5 (15,15,15,25)mm
+
+\parindent0pt
+\parskip=0.5\baselineskip
+\overfullrule=0pt
+
+{\typosize[100/]%
+\leavevmode
+\hbox to 0pt{%
+	\raise 1ex \vbox{%
+		\hrule width \hsize
+	}%
+}%
+\hbox to 0pt{%
+	\vbox{%
+		\hrule width \hsize
+	}%
+}%
+\vtop{\hsize=57.5mm%
+	\centerline{\global\setbox0=\hbox{x}Mx}
+	\vskip 10pt
+	\centerline{\typosize[10/12] EB Garamond, fontsize 100pt}
+	\centerline{\typosize[10/12] x-height: \the\ht0}
+}%
+\vtop{\hsize=57.5mm%
+	\centerline{\XCharter\currvar \global\setbox1=\hbox{x}Mx}
+	\vskip 10pt
+	\centerline{\typosize[10/12]Charter, fontsize 100pt}
+	\centerline{\typosize[10/12] x-height: \the\ht1}
+}%
+}
+
+\vskip 30pt 
+
+The Charter x-height is around 19\kern1pt\% bigger than EB Garamond.
+\vskip\baselineskip
+
+EB Garamond at 10/12:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par
+
+\vskip\baselineskip
+
+{\XCharter\currvar
+Charter at 10/12:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par}
+
+\vskip\baselineskip
+
+\vfil\break
+First experiment, normalize leading in relation to x-height. For EB Garamond 10pt, a 12pt line distance is 2.96 x-heights.
+
+For Charter 10pt, 2.96 x-heights is 14.238 pt.
+
+\vskip\baselineskip
+
+EB Garamond at 10/12:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par
+
+\vskip\baselineskip
+
+{\typosize[10/14.238]\XCharter\currvar
+Charter at 10/14.238:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par}
+
+\vfil\break
+Second experiment. On the previous page, we made Charter have more spacing, but overall it's just bigger in all aspects. Let's normalize the x-height while maintaining the font size/x-height ratio of 2.96. This way we might get Charter to look the same size as EB Garamond, and feel equally linespaced.
+
+\vskip\baselineskip
+
+{\typosize[10/12]
+EB Garamond at 10/12:\nl
+(x-height: \setbox2\hbox{x}\the\ht2)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par}
+
+\vskip\baselineskip
+
+{\typosize[8.425/12]\XCharter\currvar
+Charter at 8.425/12:\nl
+(x-height: \setbox3\hbox{x}\the\ht3)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae vehicula ex. Quisque bibendum mauris mauris. Maecenas vulputate fermentum massa et consequat. Cras condimentum nec tellus vitae imperdiet. Curabitur quis orci ac mi vestibulum dignissim. Curabitur ornare sagittis odio, et auctor orci rutrum ut. Aenean accumsan nunc ex, nec ultricies ante posuere et. Sed suscipit eros in commodo varius. Phasellus lorem sem, viverra non ipsum et, consectetur vestibulum tellus. Quisque tempus leo erat, in tincidunt arcu pellentesque non. Morbi ut justo vitae nunc vulputate mollis.\par}
+
+\bye

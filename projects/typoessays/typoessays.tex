@@ -1,0 +1,47 @@
+%%%%% M A C R O S %%%%%
+
+\input typoessays-macros
+
+%%%%% S E T T I N G S %%%%%
+
+\printversion
+%\screenversion
+
+\colorversion
+%\blackandwhiteversion
+
+%%%%% C O N T E N T %%%%%
+
+\the\day/\the\month\ - \the\year
+
+\def\monthname{%
+	\ifcase\month 
+		\or 
+		januari\or 
+		februari\or 
+		mars\or
+		april\or
+		maj\or
+		juni\or
+		juli\or
+		augusti\or
+		september\or
+		oktober\or
+		november\or
+		december\fi
+}
+\monthname
+
+\def\datum{%
+	\the\day\ \monthname, \the\year
+}
+
+Den \datum.
+
+\input frontmatter
+\input backtothefraktur
+\input testchapter
+\input backtothefraktur
+
+
+\bye
